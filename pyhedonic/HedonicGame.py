@@ -8,7 +8,7 @@ from numba.experimental import jitclass
 import numpy as np
 
 # pyright: reportAttributeAccessIssue=false
-config.DISABLE_CONFIG = False
+config.DISABLE_JIT = False
 
 type Game = np.ndarray[tuple[int, int], np.dtype[np.integer]]
 
