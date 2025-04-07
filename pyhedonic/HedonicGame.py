@@ -6,14 +6,15 @@ from numba import njit, config, intp
 from numba.experimental import jitclass
 
 import numpy as np
-import numpy.typing as npt
 
 # pyright: reportAttributeAccessIssue=false
 config.DISABLE_CONFIG = False
 
-type Game = npt.NDArray[np.integer]
+type Game = np.ndarray[tuple[int, int], np.dtype[np.integer]]
 
-type CoalitionStructure = npt.NDArray[np.integer]
+type IntArray = np.ndarray[tuple[int], np.dtype[np.integer]]
+
+type CoalitionStructure = IntArray
 
 
 @njit
@@ -48,7 +49,7 @@ def is_improving_deviation(game: Game, cs: CoalitionStructure, is_fractional: bo
 
 
 @njit
-def next_improving_deviation_agent(game: Game, cs: CoalitionStructure, cs_sizes: npt.NDArray[np.integer], is_fractional: bool, ag: int, k: int | None = None, co_actual: int = -1) -> int | None:
+def next_improving_deviation_agent(game: Game, cs: CoalitionStructure, cs_sizes: IntArray, is_fractional: bool, ag: int, k: int | None = None, co_actual: int = -1) -> int | None:
     """
     Return the next improving deviation, if any, for the agent "ag" in the given game and coalition structure.  The parameter "k" is the maximum size of
     allowed coalitions, while "co_actual" is the last found improving deviation (-1 if we need to find the first deviation).
@@ -64,7 +65,7 @@ def next_improving_deviation_agent(game: Game, cs: CoalitionStructure, cs_sizes:
 
 
 @njit
-def improving_deviations_agent(game: Game, cs: CoalitionStructure, cs_sizes: npt.NDArray[np.integer], is_fractional: bool, ag: int, k: int | None = None) -> list[int]:
+def improving_deviations_agent(game: Game, cs: CoalitionStructure, cs_sizes: IntArray, is_fractional: bool, ag: int, k: int | None = None) -> list[int]:
     """
     Return a list of improving deviations for agent "ag".
     """
@@ -77,7 +78,7 @@ def improving_deviations_agent(game: Game, cs: CoalitionStructure, cs_sizes: npt
 
 
 @njit
-def next_improving_deviation(game: Game, cs: CoalitionStructure, cs_sizes: npt.NDArray[np.integer], is_fractional: bool, k: int | None = None, dev_actual: tuple[int, int] = (0, -1)) -> tuple[int, int] | None:
+def next_improving_deviation(game: Game, cs: CoalitionStructure, cs_sizes: IntArray, is_fractional: bool, k: int | None = None, dev_actual: tuple[int, int] = (0, -1)) -> tuple[int, int] | None:
     """
     Return the next improving deviation in the given game and coalition structure.  The parameter "k" is the maximum size of
     allowed coalitions, while "dev_actual" is the last found  improving deviation (-1 if we need to find the first deviation).
@@ -94,7 +95,7 @@ def next_improving_deviation(game: Game, cs: CoalitionStructure, cs_sizes: npt.N
 
 
 @njit
-def improving_deviations(game: Game, cs: CoalitionStructure, cs_sizes: npt.NDArray[np.integer], is_fractional: bool, k: int | None = None) -> list[tuple[int, int]]:
+def improving_deviations(game: Game, cs: CoalitionStructure, cs_sizes: IntArray, is_fractional: bool, k: int | None = None) -> list[tuple[int, int]]:
     """
     Return a list of improving deviations for the given game and coalition structure.
     """
@@ -106,14 +107,15 @@ def improving_deviations(game: Game, cs: CoalitionStructure, cs_sizes: npt.NDArr
     return res
 
 # pyright: reportCallIssue=false
+
+
 @jitclass([
     ('cs', intp[:]),
     ('cs_sizes', intp[:]),
     ('cs_nums', intp[:])
 ])
 class CoalitionStructureIterator:
-
-    def __init__(self, cs: CoalitionStructure, cs_sizes: npt.NDArray[np.integer], cs_nums: npt.NDArray[np.integer]):
+    def __init__(self, cs: CoalitionStructure, cs_sizes: IntArray, cs_nums: IntArray):
         self.cs = cs
         self.cs_sizes = cs_sizes
         self.cs_nums = cs_nums
