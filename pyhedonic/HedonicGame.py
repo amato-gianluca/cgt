@@ -45,7 +45,7 @@ def is_improving_deviation(game: Game, cs: CoalitionStructure, is_fractional: bo
     elif ut_old == ut_new == 0:
         return co_new_size < co_old_size
     else:
-        return ut_new / co_new_size > ut_old / co_old_size
+        return ut_new * co_old_size > ut_old * co_new_size
 
 
 @njit
