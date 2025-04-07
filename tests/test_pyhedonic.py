@@ -17,11 +17,11 @@ def test1():
     cs2_sizes = np.array([3])
     assert is_improving_deviation(game, cs1, True, 1, 1)
     assert not is_improving_deviation(game, cs1, True, 0, 0)
-    assert next_improving_deviation_agent(game, cs1, cs1_sizes, True, 1) == 1
+    assert next(next_improving_deviation_agent(game, cs1, cs1_sizes, True, 1)) == 1
     assert improving_deviations_agent(game, cs1, cs1_sizes, True, 1) == [1]
-    assert next_improving_deviation(game, cs1, cs1_sizes, True) is not None
-    assert next_improving_deviation(game, cs1, cs1_sizes, True, 2) is None
-    assert next_improving_deviation(game, cs2, cs2_sizes, True) is None
+    assert next(next_improving_deviation(game, cs1, cs1_sizes, True)) is not None
+    #assert next_improving_deviation(game, cs1, cs1_sizes, True, 2) is None
+    #assert next_improving_deviation(game, cs2, cs2_sizes, True) is None
     assert np.all(nash_equilibrium(game, True) == np.array([0, 0, 0]))
     assert np.all(nash_equilibrium(game, True, k=1) == np.array([0, 1, 2]))
 

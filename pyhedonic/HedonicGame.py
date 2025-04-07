@@ -2,6 +2,8 @@
 Highly optimized code for brute-forcing hedonic game explorations.
 """
 
+from typing import Iterator
+
 from numba import njit, config, intp
 from numba.experimental import jitclass
 
@@ -49,7 +51,7 @@ def is_improving_deviation(game: Game, cs: CoalitionStructure, is_fractional: bo
 
 
 @njit
-def next_improving_deviation_agent(game: Game, cs: CoalitionStructure, cs_sizes: IntArray, is_fractional: bool, ag: int, k: int | None = None, co_actual: int = -1) -> int | None:
+def next_improving_deviation_agent(game: Game, cs: CoalitionStructure, cs_sizes: IntArray, is_fractional: bool, ag: int, k: int | None = None, co_actual: int = -1) -> Iterator[int]:
     """
     Return the next improving deviation, if any, for the agent "ag" in the given game and coalition structure.  The parameter "k" is the maximum size of
     allowed coalitions, while "co_actual" is the last found improving deviation (-1 if we need to find the first deviation).
@@ -59,26 +61,20 @@ def next_improving_deviation_agent(game: Game, cs: CoalitionStructure, cs_sizes:
     while co < num_coalitions:
         if k is None or cs_sizes[co] < k:
             if is_improving_deviation(game, cs, is_fractional, ag, co):
-                return co
+                yield co
         co += 1
-    return None
-
 
 @njit
 def improving_deviations_agent(game: Game, cs: CoalitionStructure, cs_sizes: IntArray, is_fractional: bool, ag: int, k: int | None = None) -> list[int]:
     """
     Return a list of improving deviations for agent "ag".
     """
-    res = []
-    co = next_improving_deviation_agent(game, cs, cs_sizes, is_fractional, ag, k)
-    while co is not None:
-        res.append(co)
-        co = next_improving_deviation_agent(game, cs, cs_sizes, is_fractional, ag, k, co)
+    res = [co for co in next_improving_deviation_agent(game, cs, cs_sizes, is_fractional, ag, k)]
     return res
 
 
 @njit
-def next_improving_deviation(game: Game, cs: CoalitionStructure, cs_sizes: IntArray, is_fractional: bool, k: int | None = None, dev_actual: tuple[int, int] = (0, -1)) -> tuple[int, int] | None:
+def next_improving_deviation(game: Game, cs: CoalitionStructure, cs_sizes: IntArray, is_fractional: bool, k: int | None = None, dev_actual: tuple[int, int] = (0, -1)) -> Iterator[tuple[int,int]]:
     """
     Return the next improving deviation in the given game and coalition structure.  The parameter "k" is the maximum size of
     allowed coalitions, while "dev_actual" is the last found  improving deviation (-1 if we need to find the first deviation).
@@ -86,12 +82,10 @@ def next_improving_deviation(game: Game, cs: CoalitionStructure, cs_sizes: IntAr
     num_agents = len(game)
     ag, co = dev_actual
     while ag < num_agents:
-        co = next_improving_deviation_agent(game, cs, cs_sizes, is_fractional, ag, k, co)
-        if co is not None:
-            return (ag, co)
+        for co in next_improving_deviation_agent(game, cs, cs_sizes, is_fractional, ag, k, co):
+            yield (ag, co)
         ag += 1
         co = -1
-    return None
 
 
 @njit
@@ -99,12 +93,7 @@ def improving_deviations(game: Game, cs: CoalitionStructure, cs_sizes: IntArray,
     """
     Return a list of improving deviations for the given game and coalition structure.
     """
-    res = []
-    dev = next_improving_deviation(game, cs, cs_sizes, is_fractional, k)
-    while dev is not None:
-        res.append(dev)
-        dev = next_improving_deviation(game, cs, cs_sizes, is_fractional, k, dev)
-    return res
+    return [dev for dev in next_improving_deviation(game, cs, cs_sizes, is_fractional, k)]
 
 # pyright: reportCallIssue=false
 
@@ -216,8 +205,9 @@ def css(game: Game, k: int | None = None) -> list[CoalitionStructure]:
 def nash_equilibrium(game: Game, is_fractional: bool, k: int | None = None) -> CoalitionStructure | None:
     cs_data = cs_begin(game, k)
     while cs_next(cs_data, game, k):
-        res = next_improving_deviation(game, cs_data.cs, cs_data.cs_sizes, is_fractional, k)
-        if res is None:
+        try:
+            next(next_improving_deviation(game, cs_data.cs, cs_data.cs_sizes, is_fractional, k))
+        except Exception:
             return cs_data.cs
     return None
 
