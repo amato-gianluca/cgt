@@ -15,13 +15,13 @@ def test1():
     cs1_sizes = np.array([1, 2])
     cs2 = np.array([0, 0, 0])
     cs2_sizes = np.array([3])
-    assert is_improving_deviation(game, cs1, True, 1, 1)
-    assert not is_improving_deviation(game, cs1, True, 0, 0)
-    assert next_improving_deviation_agent(game, cs1, cs1_sizes, True, 1) == 1
-    assert improving_deviations_agent(game, cs1, cs1_sizes, True, 1) == [1]
-    assert next_improving_deviation(game, cs1, cs1_sizes, True) is not None
-    assert next_improving_deviation(game, cs1, cs1_sizes, True, 2) is None
-    assert next_improving_deviation(game, cs2, cs2_sizes, True) is None
+    assert is_improving_deviation(game, True, cs1, cs1_sizes, (1, 1))
+    assert not is_improving_deviation(game, True, cs1, cs1_sizes, (0, 0))
+    assert next_improving_deviation(game, True, cs1, cs1_sizes, len(cs1_sizes), None, 1, 2) == (1, 1)
+    assert improving_deviations(game, True, cs1, cs1_sizes, len(cs1_sizes), None, 1, 2) == [(1,1)]
+    assert next_improving_deviation(game, True, cs1, cs1_sizes, len(cs1_sizes), None, 0, len(game)) is not None
+    assert next_improving_deviation(game, True, cs1, cs1_sizes, len(cs1_sizes), 2, 0, len(game)) is None
+    assert next_improving_deviation(game, True, cs2, cs2_sizes, len(cs2_sizes), None, 0, len(game)) is None
     assert np.all(nash_equilibrium(game, True) == np.array([0, 0, 0]))
     assert np.all(nash_equilibrium(game, True, k=1) == np.array([0, 1, 2]))
 
@@ -44,8 +44,8 @@ def test3():
     ])
     cs = np.array([0, 1, 2])
     cs_sizes = np.array([3, 3, 3])
-    assert improving_deviations_agent(game, cs, cs_sizes, True, 0) == [1, 2]
-    assert improving_deviations(game, cs, cs_sizes, True) == [
+    assert improving_deviations(game, True, cs, cs_sizes, len(cs_sizes),None, 0, 1) == [ (0, 1), (0, 2) ]
+    assert improving_deviations(game, True, cs, cs_sizes, len(cs_sizes), None, 0, len(game)) == [
         (0, 1), (0, 2), (1, 0), (1, 2), (2, 0), (2, 1)]
 
 
