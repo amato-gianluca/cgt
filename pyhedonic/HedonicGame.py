@@ -205,7 +205,7 @@ class GameIterator(NamedTuple):
 
     data: IntArray1D
     """
-    Further search parameters.
+    Further search parameters, i.e. sought max valuation and position where it has been reached.
     """
 
     is_symmetric: bool
@@ -229,7 +229,8 @@ def game_begin(num_agents: int, is_symmetric: bool = True, min_valuation: int = 
     """
     Create an internal iterator over games.
     """
-    game = np.full((num_agents, num_agents), -1)
+    game = np.zeros((num_agents, num_agents), dtype=np.int_)
+    game[num_agents-1, num_agents-1] = -1
     return GameIterator(game, np.array([-1, min_valuation]), is_symmetric, max_valuation, debug)
 
 
@@ -250,14 +251,9 @@ def game_next(git: GameIterator) -> bool:
     game, data, is_symmetric, max_valuation, debug = git
     num_agents = len(game)
     pos_final = num_agents * num_agents - 1
-    if game[0][0] == -1:
-        row = 0
-        col = 0
-        pos = 0
-    else:
-        row = num_agents - 1
-        col = num_agents - 1
-        pos = pos_final
+    row = num_agents - 1
+    col = num_agents - 1
+    pos = pos_final
     while data[1] <= max_valuation:
         while row >= 0:
             bot = game[col][row] if is_symmetric and row > col else \
