@@ -260,9 +260,12 @@ def game_next(git: GameIterator) -> bool:
         pos = pos_final
     while data[1] <= max_valuation:
         while row >= 0:
-            bot = game[col][row] if (is_symmetric and row > col) else 0
-            top = 0 if row == col else game[col][row] if (
-                is_symmetric and row > col) else data[1]
+            bot = game[col][row] if is_symmetric and row > col else \
+                  game[row][col-1] if row == 0 and col > 0 else \
+                  0
+            top = 0 if row == col else  \
+                  game[col][row] if is_symmetric and row > col  else \
+                  data[1]
             v = game[row][col]
             v_new = max(v+1, bot)
             if v_new <= top:
