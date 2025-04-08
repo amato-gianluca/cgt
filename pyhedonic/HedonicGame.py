@@ -2,8 +2,9 @@
 Highly optimized code for brute-forcing hedonic game explorations.
 """
 
-from numba import njit, config, intp
-from numba.experimental import jitclass
+from typing import NamedTuple, Iterator
+
+from numba import njit, config
 
 import numpy as np
 
@@ -18,7 +19,14 @@ type Game = IntArray2D
 
 type CoalitionStructure = IntArray1D
 
-type Deviation = tuple[int, int]
+
+class Deviation(NamedTuple):
+    """A deviation in a Coalition Structure"""
+    ag: int
+    """Agent performing the deviation"""
+    co: int
+    """New coalition of the agent"""
+
 
 @njit
 def is_improving_deviation(game: Game, is_fractional: bool, cs: CoalitionStructure, cs_sizes: IntArray1D, dev: Deviation) -> bool:
@@ -33,12 +41,11 @@ def is_improving_deviation(game: Game, is_fractional: bool, cs: CoalitionStructu
         return False
     ut_old = 0
     ut_new = 0
-    # starting from 1 compensates the fact that ag is a member of co_old
     for j in range(num_agents):
         if cs[j] == co_old:
-            ut_old += game[ag,j]
+            ut_old += game[ag, j]
         elif cs[j] == co_new:
-            ut_new += game[ag,j]
+            ut_new += game[ag, j]
 
     if not is_fractional:
         return ut_new > ut_old
@@ -47,8 +54,9 @@ def is_improving_deviation(game: Game, is_fractional: bool, cs: CoalitionStructu
     else:
         return ut_new * cs_sizes[co_old] > ut_old * (cs_sizes[co_new]+1)
 
+
 @njit
-def next_improving_deviation(game: Game, is_fractional: bool, cs: CoalitionStructure, cs_sizes: IntArray1D, num_coalitions: int, k: int | None, min_agent: int, max_agent: int, dev_actual: Deviation = (0, -1)) -> Deviation | None:
+def next_improving_deviation(game: Game, is_fractional: bool, cs: CoalitionStructure, cs_sizes: IntArray1D, num_coalitions: int, k: int | None, min_agent: int, max_agent: int, dev_actual: Deviation = Deviation(0, -1)) -> Deviation | None:
     """
     Return the next improving deviation in the given game and coalition structure.  The parameter "k" is the maximum size of
     allowed coalitions, while "dev_actual" is the last found  improving deviation (-1 if we need to find the first deviation).
@@ -59,12 +67,13 @@ def next_improving_deviation(game: Game, is_fractional: bool, cs: CoalitionStruc
         co += 1
         while co < num_coalitions:
             if k is None or cs_sizes[co] < k:
-                if is_improving_deviation(game, is_fractional, cs, cs_sizes, (ag, co)):
-                    return (ag, co)
+                if is_improving_deviation(game, is_fractional, cs, cs_sizes, Deviation(ag, co)):
+                    return Deviation(ag, co)
             co += 1
         ag += 1
         co = -1
     return None
+
 
 @njit
 def improving_deviations(game: Game, is_fractional: bool, cs: CoalitionStructure, cs_sizes: IntArray1D, num_coalitions: int, k: int | None, min_agent: int, max_agent: int) -> list[Deviation]:
@@ -72,13 +81,18 @@ def improving_deviations(game: Game, is_fractional: bool, cs: CoalitionStructure
     Return a list of improving deviations for the given game and coalition structure.
     """
     res = []
-    dev = next_improving_deviation(game, is_fractional, cs, cs_sizes, num_coalitions, k, min_agent, max_agent)
+    dev = next_improving_deviation(game, is_fractional, cs,
+                                   cs_sizes, num_coalitions, k, min_agent, max_agent)
     while dev is not None:
         res.append(dev)
-        dev = next_improving_deviation(game, is_fractional, cs, cs_sizes, num_coalitions, k, min_agent, max_agent, dev)
+        dev = next_improving_deviation(
+            game, is_fractional, cs, cs_sizes, num_coalitions, k, min_agent, max_agent, dev)
     return res
 
-type CoalitionStructureIterator = tuple[CoalitionStructure, IntArray1D, IntArray1D, IntArray1D]
+
+type CoalitionStructureIterator = tuple[CoalitionStructure,
+                                        IntArray1D, IntArray1D, IntArray1D]
+
 
 @njit
 def cs_givensize_begin(game: Game, num_coalitions: int, k: int | None = None) -> CoalitionStructureIterator:
@@ -135,7 +149,8 @@ def cs_next(cs_data: CoalitionStructureIterator, game: Game, k: int | None) -> b
     cs, cs_sizes, cs_nums, num_coalitions = cs_data
     while num_coalitions[0] <= num_agents:
         res = cs_givensize_next(cs_data, game, k)
-        if res: return True
+        if res:
+            return True
         num_coalitions[0] += 1
         cs.fill(-1)
         cs_nums.fill(-1)
@@ -168,24 +183,61 @@ def css(game: Game, k: int | None = None) -> list[CoalitionStructure]:
 
 
 @njit
-def nash_equilibrium(game: Game, is_fractional: bool, k: int | None = None) -> CoalitionStructure | None:
+def nash_equilibrium(game: Game, is_fractional: bool = True, k: int | None = None) -> CoalitionStructure | None:
     cs_data: CoalitionStructureIterator = cs_begin(game, k)
     while cs_next(cs_data, game, k):
         cs, cs_sizes, _, num_coalitions = cs_data
-        res = next_improving_deviation(game, is_fractional, cs, cs_sizes, num_coalitions[0], k, 0, len(game))
+        res = next_improving_deviation(
+            game, is_fractional, cs, cs_sizes, num_coalitions[0], k, 0, len(game))
         if res is None:
             return cs
 
-type GameIterator = tuple[Game, IntArray1D]
+
+class GameIterator(NamedTuple):
+    """
+    An internal iterator over games.
+    """
+
+    game: Game
+    """
+    The last game computed by the iterator.
+    """
+
+    data: IntArray1D
+    """
+    Further search parameters.
+    """
+
+    is_symmetric: bool
+    """
+    Restrict to symmetric graphs.
+    """
+
+    max_valuation: int
+    """
+    Max valuation.
+    """
+
+    debug: bool
+    """
+    Whether to print debug messages or not.
+    """
+
 
 @njit
-def game_begin(num_agents: int,  min_reward: int, max_valuation: int) -> GameIterator:
+def game_begin(num_agents: int, is_symmetric: bool = True, min_valuation: int = 0, max_valuation: int = 1, debug: bool = False) -> GameIterator:
+    """
+    Create an internal iterator over games.
+    """
     game = np.full((num_agents, num_agents), -1)
-    return (game, np.array([-1, min_reward]))
+    return GameIterator(game, np.array([-1, min_valuation]), is_symmetric, max_valuation, debug)
 
 
 @njit
-def game_next(git: GameIterator, is_symmetric: bool, max_valuation: int) -> bool:
+def game_next(git: GameIterator) -> bool:
+    """
+    Return True if a new game is available in the iterator, False otherwise.
+    """
 
     def next_pos(row, col, num_agents: int) -> tuple[int, int]:
         if col < num_agents - 1:
@@ -195,7 +247,7 @@ def game_next(git: GameIterator, is_symmetric: bool, max_valuation: int) -> bool
             col = 0
         return row, col
 
-    game, data = git
+    game, data, is_symmetric, max_valuation, debug = git
     num_agents = len(game)
     pos_final = num_agents * num_agents - 1
     if game[0][0] == -1:
@@ -209,12 +261,13 @@ def game_next(git: GameIterator, is_symmetric: bool, max_valuation: int) -> bool
     while data[1] <= max_valuation:
         while row >= 0:
             bot = game[col][row] if (is_symmetric and row > col) else 0
-            top = 0 if row == col else game[col][row] if (is_symmetric and row > col) else data[1]
+            top = 0 if row == col else game[col][row] if (
+                is_symmetric and row > col) else data[1]
             v = game[row][col]
             v_new = max(v+1, bot)
             if v_new <= top:
                 game[row][col] = v_new
-                if row == 0 and col == 1:
+                if debug and row == 0 and col == 1:
                     print("    v:", v)
                 if v_new == data[1] and data[0] == -1:
                     data[0] = pos
@@ -235,7 +288,8 @@ def game_next(git: GameIterator, is_symmetric: bool, max_valuation: int) -> bool
                     col = num_agents - 1
                     row -= 1
         data[1] += 1
-        print("sought_reward:", data[1])
+        if debug:
+            print("sought_reward:", data[1])
         data[0] = -1
         row = 0
         pos = 0
@@ -244,18 +298,31 @@ def game_next(git: GameIterator, is_symmetric: bool, max_valuation: int) -> bool
 
 
 @njit
-def games(num_agents: int, is_symmetric: bool, min_reward: int, max_valuation: int) -> list[Game]:
-    res = []
-    git = game_begin(num_agents, min_reward, max_valuation)
-    while game_next(git, is_symmetric, max_valuation):
-        res.append(np.copy(git[0]))
-    return res
+def game_next_unstable(git: GameIterator, is_fractional: bool = True, k: int | None = None) -> bool:
+    """
+    Return True if a new game without Nash stable coalition structure is available in the iterator, False otherwise.
+    """
+    while game_next(git):
+        if nash_equilibrium(git.game, is_fractional, k) is None:
+            return True
+    return False
 
 
 @njit
-def unstable_game(num_agents: int, is_symmetric: bool, is_fractional: bool, max_valuation: int, k: int | None = None) -> Game | None:
-    git = game_begin(num_agents, 0, max_valuation)
-    while game_next(git, is_symmetric, max_valuation):
-        if nash_equilibrium(git[0], is_fractional, k) is None:
-            return git[0]
-    return None
+def games(num_agents: int, is_symmetric: bool = True, min_valuation: int = 0, max_valuation: int = 1) -> Iterator[Game]:
+    """
+    Iterate over games.
+    """
+    git = game_begin(num_agents, is_symmetric, min_valuation, max_valuation)
+    while game_next(git):
+        yield np.copy(git.game)
+
+
+@njit
+def unstable_game(num_agents: int, is_symmetric: bool = True, min_valuation: int = 0, max_valuation: int = 1, k: int | None = None, is_fractional: bool = True, debug: bool = False) -> Iterator[Game]:
+    """
+    Iterates over games without a Nash without Nash stable coalistion structure.
+    """
+    git = game_begin(num_agents, is_symmetric, min_valuation, max_valuation, debug)
+    while game_next_unstable(git, is_fractional, k):
+        yield np.copy(git.game)
