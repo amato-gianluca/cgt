@@ -19,7 +19,6 @@ type Game = IntArray2D
 
 type CoalitionStructure = IntArray1D
 
-
 class Deviation(NamedTuple):
     """A deviation in a Coalition Structure"""
     ag: int
@@ -161,7 +160,7 @@ def cs_next(cs_data: CoalitionStructureIterator, game: Game, k: int | None) -> b
 @njit
 def css_givensize(game: Game, coalitions_max: int, k: int | None = None) -> list[CoalitionStructure]:
     """
-    Return a valid list of coalistion structures for the given parameters.
+    Return a valid list of coalition structures for the given parameters.
     """
     res = []
     cs_data = cs_givensize_begin(game, coalitions_max, k)
@@ -173,7 +172,7 @@ def css_givensize(game: Game, coalitions_max: int, k: int | None = None) -> list
 @njit
 def css(game: Game, k: int | None = None) -> list[CoalitionStructure]:
     """
-    Return a valid list of coalistion structures for the given parameters.
+    Return a valid list of coalition structures for the given parameters.
     """
     res = []
     cs_data = cs_begin(game, k)
@@ -192,6 +191,13 @@ def nash_equilibrium(game: Game, is_fractional: bool = True, k: int | None = Non
         if res is None:
             return cs
 
+
+# Note the use of the "data" field to store additional information. This is the best solution we have found so far allowing the
+# [game_next] function to change the value of these variables. Ther proble, is that numba does not allow dataclasses to be used.
+# Other solutions we tried where:
+# - Using a @jitclass, but this is quite slower than the current solution.
+# - Using a structref, but this is not supporte when JIT is disabled, and it seriously hinder debugging.
+# - Using a structured scalar, but this is annoying since these scalars can be used but not generated inside JITTED code.
 
 class GameIterator(NamedTuple):
     """
@@ -223,6 +229,10 @@ class GameIterator(NamedTuple):
     Whether to print debug messages or not.
     """
 
+# Constants for the data field of the GameIterator
+
+_SOUGHT_MAX_VALUATION = 0
+_REACHED_MAX_VALUATION = 1
 
 @njit
 def game_begin(num_agents: int, is_symmetric: bool = True, min_valuation: int = 0, max_valuation: int = 1, debug: bool = False) -> GameIterator:
@@ -231,7 +241,10 @@ def game_begin(num_agents: int, is_symmetric: bool = True, min_valuation: int = 
     """
     game = np.zeros((num_agents, num_agents), dtype=np.int_)
     game[num_agents-1, num_agents-1] = -1
-    return GameIterator(game, np.array([-1, min_valuation]), is_symmetric, max_valuation, debug)
+    if debug:
+        print("sought_reward:", min_valuation)
+        print("    v:", 0)
+    return GameIterator(game, np.array([min_valuation, -1]), is_symmetric, max_valuation, debug)
 
 
 @njit
@@ -241,12 +254,10 @@ def game_next(git: GameIterator) -> bool:
     """
 
     def next_pos(row, col, num_agents: int) -> tuple[int, int]:
-        if col < num_agents - 1:
-            col += 1
-        else:
-            row += 1
-            col = 0
-        return row, col
+        return (row, col+1) if col < num_agents - 1 else (row+1, 0)
+
+    def prev_pos(row, col, num_agents: int) -> tuple[int, int]:
+        return (row, col-1) if col > 0 else (row-1, num_agents-1)
 
     game, data, is_symmetric, max_valuation, debug = git
     num_agents = len(game)
@@ -254,42 +265,61 @@ def game_next(git: GameIterator) -> bool:
     row = num_agents - 1
     col = num_agents - 1
     pos = pos_final
-    while data[1] <= max_valuation:
+    while data[_SOUGHT_MAX_VALUATION] <= max_valuation:
         while row >= 0:
+            # Checks in line 2 and 3 of the following code are used to remove graphs that are isomorphic
+            # to other graphs found in other iterations. They are actuall not needed, since the check later
+            # on the code will subsume them, but they are kept because they make the execution faster.
+
             bot = game[col][row] if is_symmetric and row > col else \
                   game[row][col-1] if row == 0 and col > 0 else \
+                  game[0][1] if row > 0 and row != col else \
                   0
             top = 0 if row == col else  \
                   game[col][row] if is_symmetric and row > col  else \
-                  data[1]
+                  data[_SOUGHT_MAX_VALUATION]
+
             v = game[row][col]
             v_new = max(v+1, bot)
+
             if v_new <= top:
                 game[row][col] = v_new
-                if debug and row == 0 and col == 1:
-                    print("    v:", v)
-                if v_new == data[1] and data[0] == -1:
-                    data[0] = pos
-                if pos == pos_final:
-                    if data[0] != -1:
-                        return True
-                else:
-                    row, col = next_pos(row, col, num_agents)
-                    pos += 1
-            else:
+
+                # ISOMORPHISM CHECK
+                # Codish et al, Constraints for symmetry breaking in graph representation, Constraints 24 (2019)
+                is_invalid_graph = False
+                if row > 0 and col == num_agents-1:
+                    for i in range(0, row):
+                        if i == row-2: continue
+                        for j in range(0, num_agents):
+                            if j == i or j == row: continue
+                            if game[i,j] == game[row, j]: continue
+                            if game[i,j] > game[row, j]:
+                                is_invalid_graph = True
+                            break
+                        if is_invalid_graph: break
+
+                if not is_invalid_graph:
+                    if debug and row == 0 and col == 1:
+                        print("    v:", v_new)
+                    if v_new == data[_SOUGHT_MAX_VALUATION] and data[_REACHED_MAX_VALUATION] == -1:
+                        data[_REACHED_MAX_VALUATION] = pos
+                    if pos == pos_final:
+                        if data[_REACHED_MAX_VALUATION] != -1:
+                            return True
+                    else:
+                        row, col = next_pos(row, col, num_agents)
+                        pos += 1
+            elif v_new > top:
                 game[row][col] = -1
-                if data[0] == pos:
-                    data[0] = -1
+                if data[_REACHED_MAX_VALUATION] == pos:
+                    data[_REACHED_MAX_VALUATION] = -1
+                row, col = prev_pos(row, col, num_agents)
                 pos -= 1
-                if col > 0:
-                    col -= 1
-                else:
-                    col = num_agents - 1
-                    row -= 1
-        data[1] += 1
-        if debug:
-            print("sought_reward:", data[1])
-        data[0] = -1
+
+        data[_SOUGHT_MAX_VALUATION] += 1
+        if debug and data[_SOUGHT_MAX_VALUATION] <= max_valuation:
+            print("sought_reward:", data[_SOUGHT_MAX_VALUATION])
         row = 0
         pos = 0
         col = 0
