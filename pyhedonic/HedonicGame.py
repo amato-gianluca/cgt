@@ -200,21 +200,21 @@ class CoalitionStructure:
         return f"CoalitionStructure({repr(self.game)},{repr(self.cs)})"
 
 
-GAME_3_PAPER = HedonicGame(np.array([
+GAME_K3_NOEQUILIBRIUM_PAPER = HedonicGame(np.array([
     [0, 9, 9, 4],
     [9, 0, 1, 7],
     [9, 1, 0, 7],
     [4, 7, 7, 0]
 ]))
 
-GAME_3_MINIMAL = HedonicGame(np.array([
+GAME_K3_NOEQUILIBRIUM = HedonicGame(np.array([
     [0, 0, 5, 7],
     [0, 0, 5, 7],
     [5, 5, 0, 3],
     [7, 7, 3, 0]
 ]))
 
-GAME_4_MINIMAL = HedonicGame(np.array([
+GAME_K4_NOEQUILIBRIUM_ = HedonicGame(np.array([
     [0, 0, 0, 5, 10],
     [0, 0, 6, 4, 9],
     [0, 6, 0, 10, 0],
@@ -222,7 +222,7 @@ GAME_4_MINIMAL = HedonicGame(np.array([
     [10, 9, 0, 10, 0]
 ]))
 
-GAME_5_MINIMAL = HedonicGame(np.array([
+GAME_K5_NOEQUILIBRIUM_ = HedonicGame(np.array([
     [0, 0, 0, 0, 2, 2],
     [0, 0, 0, 2, 0, 2],
     [0, 0, 0, 2, 2, 1],
@@ -231,7 +231,7 @@ GAME_5_MINIMAL = HedonicGame(np.array([
     [2, 2, 1, 2, 2, 0]
 ]))
 
-GAME_6_MINIMAL = HedonicGame(np.array([
+GAME_K6_NOEQUILIBRIUM_= HedonicGame(np.array([
     [0, 0, 0, 0, 1, 1, 3],
     [0, 0, 1, 3, 0, 1, 2],
     [0, 1, 0, 3, 0, 3, 3],
@@ -241,17 +241,7 @@ GAME_6_MINIMAL = HedonicGame(np.array([
     [3, 2, 3, 2, 1, 0, 0]
 ]))
 
-GAME_7_MINIMAL = HedonicGame(np.array([
-    [0, 0, 0, 0, 1, 1, 3],
-    [0, 0, 1, 3, 0, 1, 2],
-    [0, 1, 0, 3, 0, 3, 3],
-    [0, 3, 3, 0, 0, 3, 2],
-    [1, 0, 0, 0, 0, 3, 1],
-    [1, 1, 3, 3, 3, 0, 0],
-    [3, 2, 3, 2, 1, 0, 0]
-]))
-
-GAME_8_MINIMAL = HedonicGame(np.array([
+GAME_K7_NOEQUILIBRIUM = HedonicGame(np.array([
     [0, 0, 0, 0, 0, 0, 1, 2],
     [0, 0, 0, 0, 0, 0, 2, 2],
     [0, 0, 0, 0, 0, 2, 1, 2],

@@ -98,7 +98,9 @@ def test_Nash_stability():
 
 
 def test_has_nash_equilibrium():
-    assert not hg.GAME_3_PAPER.has_nash_equilibrium(k=3)
-    assert not hg.GAME_3_MINIMAL.has_nash_equilibrium(k=3)
-    assert not hg.GAME_4_MINIMAL.has_nash_equilibrium(k=4)
-    assert not hg.GAME_5_MINIMAL.has_nash_equilibrium(k=5)
+    assert not hg.GAME_K3_NOEQUILIBRIUM_PAPER.has_nash_equilibrium(k=3)
+    assert not hg.GAME_K3_NOEQUILIBRIUM.has_nash_equilibrium(k=3)
+    assert not hg.GAME_K4_NOEQUILIBRIUM_.has_nash_equilibrium(k=4)
+    assert not hg.GAME_K5_NOEQUILIBRIUM_.has_nash_equilibrium(k=5)
+    assert not hg.GAME_K6_NOEQUILIBRIUM_.has_nash_equilibrium(k=6)
+    assert not hg.GAME_K7_NOEQUILIBRIUM.has_nash_equilibrium(k=7)
