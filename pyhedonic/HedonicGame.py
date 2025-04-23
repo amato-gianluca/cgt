@@ -44,7 +44,7 @@ class HedonicGame:
         """
         Return the number of agents in the game.
         """
-        return self.agents_num
+        return len(self.valuations)
 
     def to_dot(self) -> str:
         """
