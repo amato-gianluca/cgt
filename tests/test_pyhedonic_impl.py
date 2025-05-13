@@ -78,3 +78,8 @@ def test5():
                for a1, a2 in zip(games(2, max_valuation=2), resnp))
     assert all(np.array_equal(a1, a2)
                for a1, a2 in zip(games(2, min_valuation=2, max_valuation=2), resnp[-1:]))
+
+def test6():
+    assert count_games(num_agents = 4, max_valuation = 2) == 72
+    assert count_games(num_agents = 4, min_valuation = 2, max_valuation = 2) == 61
+    assert count_unstable_games(num_agents = 6, min_valuation = 2, max_valuation = 2, k = 4) == (8, 66515)
