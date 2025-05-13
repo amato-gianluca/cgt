@@ -272,9 +272,9 @@ class GameIterator(NamedTuple):
     Max valuation.
     """
 
-    debug: bool
+    debug: int
     """
-    Whether to print debug messages or not.
+    Debug verbosity. Zero or negative is no debug. Then, positive values indicate the level of verbosity.
     """
 
 # Constants for the data field of the GameIterator
@@ -283,15 +283,16 @@ _SOUGHT_MAX_VALUATION = 0
 _REACHED_MAX_VALUATION = 1
 
 @njit
-def game_begin(num_agents: int, is_symmetric: bool = True, min_valuation: int = 0, max_valuation: int = 1, debug: bool = False) -> GameIterator:
+def game_begin(num_agents: int, is_symmetric: bool = True, min_valuation: int = 0, max_valuation: int = 1, debug: int = 0) -> GameIterator:
     """
     Create an internal iterator over games.
     """
     game = np.zeros((num_agents, num_agents), dtype=np.int_)
     game[num_agents-1, num_agents-1] = -1
-    if debug:
+    if debug > 0:
         print("sought_reward:", min_valuation)
-        print("    v:", 0)
+        for col in range(1, min(debug, num_agents)+1):
+            print(f"{"  " * col}[{col}] v: 0")
     return GameIterator(game, np.array([min_valuation, -1]), is_symmetric, max_valuation, debug)
 
 
@@ -348,8 +349,8 @@ def game_next(git: GameIterator) -> bool:
                         if is_invalid_graph: break
 
                 if not is_invalid_graph:
-                    if debug and row == 0 and col == 1:
-                        print("    v:", v_new)
+                    if debug > 0 and row == 0 and 0 < col <= debug:
+                        print(f"{"  " * col}[{col}] v: {v_new}")
                     if v_new == data[_SOUGHT_MAX_VALUATION] and data[_REACHED_MAX_VALUATION] == -1:
                         data[_REACHED_MAX_VALUATION] = pos
                     if pos == pos_final:
@@ -366,7 +367,7 @@ def game_next(git: GameIterator) -> bool:
                 pos -= 1
 
         data[_SOUGHT_MAX_VALUATION] += 1
-        if debug and data[_SOUGHT_MAX_VALUATION] <= max_valuation:
+        if debug > 0 and data[_SOUGHT_MAX_VALUATION] <= max_valuation:
             print("sought_reward:", data[_SOUGHT_MAX_VALUATION])
         row = 0
         pos = 0
@@ -396,7 +397,7 @@ def games(num_agents: int, is_symmetric: bool = True, min_valuation: int = 0, ma
 
 
 @njit
-def unstable_game(num_agents: int, is_symmetric: bool = True, min_valuation: int = 0, max_valuation: int = 1, k: int | None = None, is_fractional: bool = True, debug: bool = False) -> Iterator[Game]:
+def unstable_game(num_agents: int, is_symmetric: bool = True, min_valuation: int = 0, max_valuation: int = 1, k: int | None = None, is_fractional: bool = True, debug: int = 0) -> Iterator[Game]:
     """
     Iterates over games without a Nash without Nash stable coalistion structure.
     """
