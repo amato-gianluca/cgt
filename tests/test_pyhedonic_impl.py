@@ -83,3 +83,6 @@ def test6():
     assert count_games(num_agents = 4, max_valuation = 2) == 72
     assert count_games(num_agents = 4, min_valuation = 2, max_valuation = 2) == 61
     assert count_unstable_games(num_agents = 6, min_valuation = 2, max_valuation = 2, k = 4) == (8, 66515)
+
+def test7():
+    assert count_unstable_games(num_agents=4, min_valuation=4, max_valuation=4, k=3, weights=[0, 1, 4, 7, 9]) == (2, 775)
