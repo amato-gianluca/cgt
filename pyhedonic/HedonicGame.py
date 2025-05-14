@@ -167,12 +167,18 @@ class CoalitionStructure:
         return sum(self.coalition_social_welfare(co) for co in np.arange(self.size))
 
     def move_agent(self, ag: Agent, co_new: Coalition):
+        """
+        Move the given agent to the new coalition.
+        """
         if co_new >= self.size:
             co_new = self.size
             self.size += 1
         self.cs[ag] = co_new
 
     def is_improving_deviation(self, ag: Agent, co_new: Coalition) -> bool:
+        """
+        Determine if the given agent can improve its utility by moving to the new coalition.
+        """
         co_old = self.cs[ag]
         if co_old == co_new:
             return False
@@ -188,12 +194,18 @@ class CoalitionStructure:
 
 
     def is_agent_stable(self, ag: Agent, k: np.integer | None = None) -> bool:
+        """
+        Determine if the given agent has no improving deviations.
+        """
         return all(
             not self.is_improving_deviation(ag, co_new)
             for co_new in range(self.size+1) if co_new != self.cs[ag]
         )
 
     def is_nash_stable(self, k: np.integer | None = None) -> bool:
+        """
+        Determine if the coalition structure is Nash stable.
+        """
         return all(self.is_agent_stable(ag, k) for ag in range(self.game.agents_num))
 
     def __repr__(self) -> str:
