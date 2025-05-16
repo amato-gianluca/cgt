@@ -1,6 +1,7 @@
 import pyhedonic.HedonicGame as hg
 
 import numpy as np
+import networkx as nx
 
 valuations1 = np.array([
     [0, 0, 2],
@@ -104,3 +105,29 @@ def test_has_nash_equilibrium():
     assert not hg.GAME_K5_NOEQUILIBRIUM.has_nash_equilibrium(k=5)
     assert not hg.GAME_K6_NOEQUILIBRIUM.has_nash_equilibrium(k=6)
     assert not hg.GAME_K7_NOEQUILIBRIUM.has_nash_equilibrium(k=7)
+
+
+def test_to_nx_graph():
+    graph = nx.Graph()
+    graph.add_edges_from([
+        (0, 1, {'weight': 9}),
+        (0, 2, {'weight': 9}),
+        (0, 3, {'weight': 4}),
+        (1, 2, {'weight': 1}),
+        (1, 3, {'weight': 7}),
+        (2, 3, {'weight': 7})
+    ])
+    assert nx.utils.graphs_equal(hg.GAME_K3_NOEQUILIBRIUM_PAPER.to_nx_graph(), graph)
+
+
+def test_from_nx_graph():
+    graph = nx.Graph()
+    graph.add_edges_from([
+        (0, 1, {'weight': 9}),
+        (0, 2, {'weight': 9}),
+        (0, 3, {'weight': 4}),
+        (1, 2, {'weight': 1}),
+        (1, 3, {'weight': 7}),
+        (2, 3, {'weight': 7})
+    ])
+    assert hg.HedonicGame.from_nx_graph(graph) == hg.GAME_K3_NOEQUILIBRIUM_PAPER

@@ -1,8 +1,11 @@
+from itertools import combinations
 from typing import Iterator
 
-from . import HedonicGameImpl as hgimpl
+import networkx as nx
 import numpy as np
 import pydot
+
+from . import HedonicGameImpl as hgimpl
 
 type Agent = int
 
@@ -46,7 +49,16 @@ class HedonicGame:
         """
         return len(self.valuations)
 
-    def to_dot(self) -> str:
+    def __eq__(self, other: object) -> bool:
+        """
+        Compare two hedonic games. The comparison is based on the valuations matrix and
+        the symmetry property.
+        """
+        if not isinstance(other, HedonicGame):
+            return False
+        return np.array_equal(self.valuations, other.valuations) and self.is_symmetric == other.is_symmetric
+
+    def to_dot(self) -> pydot.Dot:
         """
         Convert the graph in the dot format. At the moment only works for symmetric games.
         """
@@ -61,7 +73,33 @@ class HedonicGame:
                 if self.valuations[i, j] > 0:
                     edge = pydot.Edge(str(i), str(j), label=str(self.valuations[i, j]))
                     graph.add_edge(edge)
-        return graph.to_string()
+        return graph
+
+    @staticmethod
+    def from_nx_graph(graph: nx.Graph | nx.DiGraph) -> 'HedonicGame':
+        """
+        Convert a networkx graph to an hedonic game.
+        """
+        if not all(isinstance(weight, int) for _, _, weight in graph.edges(data='weight')):
+            raise ValueError("The weights of the edges are not integers.")
+        valuations = np.zeros((len(graph.nodes), len(graph.nodes)), dtype=np.integer)
+        for i, j, weight in graph.edges(data='weight'):
+            valuations[i, j] = weight
+            valuations[j, i] = weight
+        return HedonicGame(valuations, is_symmetric=not graph.is_directed())
+
+    def to_nx_graph(self) -> nx.Graph:
+        """
+        Convert the graph in the networkx format.
+        """
+        graph = nx.Graph() if self.is_symmetric else nx.DiGraph()
+        graph.add_nodes_from(range(self.agents_num))
+        graph.add_edges_from(
+            (i, j, {'weight': weight})
+            for i, j in combinations(range(self.agents_num), 2)
+            if (weight := self.valuations[i, j]) > 0
+        )
+        return graph
 
     def coalition_structures(self, cs_size: int | None = None,  k: int | None = None) -> Iterator['CoalitionStructure']:
         """
