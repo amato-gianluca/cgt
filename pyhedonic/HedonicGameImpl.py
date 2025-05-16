@@ -240,10 +240,10 @@ def nash_equilibrium(game: Game, is_fractional: bool = True, k: int | None = Non
 
 
 # Note the use of the "data" field to store additional information. This is the best solution we have found so far allowing the
-# [game_next] function to change the value of these variables. Ther proble, is that numba does not allow dataclasses to be used.
+# [game_next] function to change the value of these variables. The problem is that numba does not allow dataclasses to be used.
 # Other solutions we tried where:
 # - Using a @jitclass, but this is quite slower than the current solution.
-# - Using a structref, but this is not supporte when JIT is disabled, and it seriously hinder debugging.
+# - Using a structref, but this is not supported when JIT is disabled, and it seriously hinder debugging.
 # - Using a structured scalar, but this is annoying since these scalars can be used but not generated inside JITTED code.
 
 class GameIterator(NamedTuple):

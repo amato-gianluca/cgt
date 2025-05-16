@@ -1,7 +1,14 @@
-import pyhedonic.HedonicGame as hg
+"""
+This file contains unit tests for the pyhedonic library.
 
-import numpy as np
+The notation [PAPER] refers to the paper "Nash Stability in Fractional Hedonic Games
+with Bounded Size Coalitions".
+"""
 import networkx as nx
+import numpy as np
+import pytest
+
+import pyhedonic.HedonicGame as hg
 
 valuations1 = np.array([
     [0, 0, 2],
@@ -42,11 +49,11 @@ def test_coalition_size():
 
 
 def test_agent_utility():
-    assert cs11.agent_utility(0) == 2
-    assert cs11.agent_utility(1) == 0
-    assert cs11.agent_utility(2) == 2
-    assert cs21.agent_utility(0) == 1.0
-    assert cs21.agent_utility(1) == 0.0
+    assert cs11.agent_utility(0) == 1.0
+    assert cs11.agent_utility(1) == 0.0
+    assert cs11.agent_utility(2) == 1.0
+    assert cs21.agent_utility(0) == 2
+    assert cs21.agent_utility(1) == 0
 
 
 def test_coalition_social_welfare():
@@ -94,17 +101,17 @@ def test_coalition_structures3():
 
 
 def test_Nash_stability():
-    compare_coalition_structures(game1.nash_equilibria(), [[0, 0, 0]])
-    compare_coalition_structures(game1.nash_equilibria(k=1), [[0, 1, 2]])
+    compare_coalition_structures(game1.nash_stable_coalition_structures(), [[0, 0, 0]])
+    compare_coalition_structures(game1.nash_stable_coalition_structures(k=1), [[0, 1, 2]])
 
 
 def test_has_nash_equilibrium():
-    assert not hg.GAME_K3_NOEQUILIBRIUM_PAPER.has_nash_equilibrium(k=3)
-    assert not hg.GAME_K3_NOEQUILIBRIUM.has_nash_equilibrium(k=3)
-    assert not hg.GAME_K4_NOEQUILIBRIUM.has_nash_equilibrium(k=4)
-    assert not hg.GAME_K5_NOEQUILIBRIUM.has_nash_equilibrium(k=5)
-    assert not hg.GAME_K6_NOEQUILIBRIUM.has_nash_equilibrium(k=6)
-    assert not hg.GAME_K7_NOEQUILIBRIUM.has_nash_equilibrium(k=7)
+    assert not hg.GAME_K3_NOEQUILIBRIUM_PAPER.has_nash_stable_coalition_structure(k=3)
+    assert not hg.GAME_K3_NOEQUILIBRIUM.has_nash_stable_coalition_structure(k=3)
+    assert not hg.GAME_K4_NOEQUILIBRIUM.has_nash_stable_coalition_structure(k=4)
+    assert not hg.GAME_K5_NOEQUILIBRIUM.has_nash_stable_coalition_structure(k=5)
+    assert not hg.GAME_K6_NOEQUILIBRIUM.has_nash_stable_coalition_structure(k=6)
+    assert not hg.GAME_K7_NOEQUILIBRIUM.has_nash_stable_coalition_structure(k=7)
 
 
 def test_to_nx_graph():
@@ -131,3 +138,53 @@ def test_from_nx_graph():
         (2, 3, {'weight': 7})
     ])
     assert hg.HedonicGame.from_nx_graph(graph) == hg.GAME_K3_NOEQUILIBRIUM_PAPER
+
+def test_optimal_coalition_structure():
+    game = hg.HedonicGame(np.array([
+        [0, 1, 0, 1, 0],
+        [1, 0, 1, 1, 0],
+        [0, 1, 0, 0, 1],
+        [1, 1, 0, 0, 1],
+        [0, 0, 1, 1, 0]
+    ]))
+    _, v = game.optimal_coalition_structure(k=2)
+    assert v == 2
+
+@pytest.mark.parametrize("k", [2, 3])
+def test_no_nash_for_asymmetric_games(k: int):
+    """
+    Test inspired by Proposition 1 in [PAPER].
+    """
+    g = nx.DiGraph()
+    for i in range(k+1):
+        g.add_edge(i, (i + 1) % (k+1))
+    graph = hg.HedonicGame.from_nx_graph(g)
+    assert not graph.has_nash_stable_coalition_structure(k=k)
+
+@pytest.mark.parametrize("m", [10, 20])
+def test_unbound_poa_for_non_simple_games(m: int):
+    """
+    Test inspired by Proposition 2 in [PAPER].
+    """
+    g = nx.Graph()
+    g.add_edge(0, 1, weight=1)
+    g.add_edge(1, 2, weight=2*m)
+    g.add_edge(2, 3, weight=1)
+    graph = hg.HedonicGame.from_nx_graph(g)
+    prices = graph.prices(k=2)
+    cs, opt = graph.optimal_coalition_structure(k=2)
+    assert opt == 2*m
+    assert prices is not None
+    assert prices.poa == m
+
+def test_prices_for_2SSFHG():
+    """
+    Test inspired by Proposition 4 in [PAPER].
+    """
+    g = nx.Graph()
+    g.add_edges_from([(0, 1), (1,2), (2,3)])
+    game = hg.HedonicGame.from_nx_graph(g)
+    pr = game.prices(k=2)
+    assert pr is not None
+    assert pr.poa == 2.0
+    assert pr.pos == 1.0
