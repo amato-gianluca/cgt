@@ -158,7 +158,7 @@ class CoalitionStructure:
         if size == 0:
             return 0
         else:
-            return ut if self.is_fractional else ut / size
+            return ut/size if self.is_fractional else ut
 
     def social_welfare(self) -> int | float:
         """

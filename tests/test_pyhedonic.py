@@ -49,13 +49,13 @@ def test_agent_utility():
 
 
 def test_coalition_social_welfare():
-    assert cs11.coalition_social_welfare(0) == 0
-    assert cs11.coalition_social_welfare(1) == 4
+    assert cs11.coalition_social_welfare(0) == 0.0
+    assert cs11.coalition_social_welfare(1) == 2.0
 
 
 def test_social_welfare():
-    assert cs11.social_welfare() == 4
-    assert cs21.social_welfare() == 2.0
+    assert cs11.social_welfare() == 2.0
+    assert cs21.social_welfare() == 4
 
 
 def test_is_improving_deviation():
