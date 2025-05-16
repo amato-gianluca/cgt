@@ -4,6 +4,7 @@ This file contains unit tests for the pyhedonic library.
 The notation [PAPER] refers to the paper "Nash Stability in Fractional Hedonic Games
 with Bounded Size Coalitions".
 """
+
 import networkx as nx
 import numpy as np
 import pytest
@@ -25,9 +26,9 @@ valuations2 = np.array([
 ])
 game2 = hg.HedonicGame(valuations2)
 
-cs11 = hg.CoalitionStructure(game1, np.array([1, 0, 1]))
+cs11 = hg.CoalitionStructure(game1, np.array([0, 1, 0]))
 cs12 = hg.CoalitionStructure(game1, np.array([0, 0, 0]))
-cs21 = hg.CoalitionStructure(game1, np.array([1, 0, 1]), is_fractional=False)
+cs21 = hg.CoalitionStructure(game1, np.array([0, 1, 0]), is_fractional=False)
 
 
 def compare_coalition_structures(cs_iterator, csdata_iterator):
@@ -35,7 +36,7 @@ def compare_coalition_structures(cs_iterator, csdata_iterator):
     l2 = list(csdata_iterator)
     assert (len(l1) == len(l2))
     for cs1, cs2 in zip(list(cs_iterator), list(csdata_iterator)):
-        assert (cs1.cs == cs2).all()
+        assert np.array_equal(cs1.cs, cs2)
 
 
 def test_size():
@@ -44,7 +45,7 @@ def test_size():
 
 
 def test_coalition_size():
-    assert cs11.coalition_size(1) == 2
+    assert cs11.coalition_size(0) == 2
     assert cs12.coalition_size(0) == 3
 
 
@@ -57,8 +58,8 @@ def test_agent_utility():
 
 
 def test_coalition_social_welfare():
-    assert cs11.coalition_social_welfare(0) == 0.0
-    assert cs11.coalition_social_welfare(1) == 2.0
+    assert cs11.coalition_social_welfare(0) == 2.0
+    assert cs11.coalition_social_welfare(1) == 0.0
 
 
 def test_social_welfare():
@@ -67,8 +68,8 @@ def test_social_welfare():
 
 
 def test_is_improving_deviation():
-    assert cs11.is_improving_deviation(1, 1)
-    assert cs11.is_improving_deviation(1, 1)
+    assert cs11.is_improving_deviation(1, 0)
+    assert cs11.is_improving_deviation(1, 0)
     assert not cs11.is_improving_deviation(0, 0)
 
 
@@ -76,36 +77,58 @@ def test_coalition_structures1():
     cs_list = game1.coalition_structures()
     cs_datas = [[0, 0, 0], [0, 0, 1], [0, 1, 0], [0, 1, 1], [0, 1, 2]]
     compare_coalition_structures(cs_list, cs_datas)
+    assert cs11 == cs11
+    assert cs11 != cs21
 
 
 def test_coalition_structures2():
-    compare_coalition_structures(game1.coalition_structures(k=1), [[0, 1, 2]])
-    compare_coalition_structures(game1.coalition_structures(
-        k=2), [[0, 0, 1], [0, 1, 0], [0, 1, 1], [0, 1, 2]])
-    compare_coalition_structures(game1.coalition_structures(
-        k=3), [[0, 0, 0], [0, 0, 1], [0, 1, 0], [0, 1, 1], [0, 1, 2]])
+    compare_coalition_structures(
+        game1.coalition_structures(k=1),
+        [[0, 1, 2]]
+    )
+    compare_coalition_structures(
+        game1.coalition_structures(k=2),
+        [[0, 0, 1], [0, 1, 0], [0, 1, 1], [0, 1, 2]]
+    )
+    compare_coalition_structures(
+        game1.coalition_structures(k=3),
+        [[0, 0, 0], [0, 0, 1], [0, 1, 0], [0, 1, 1], [0, 1, 2]]
+    )
 
 
 def test_coalition_structures3():
     compare_coalition_structures(
-        game1.coalition_structures(cs_size=1), [[0, 0, 0]])
-    compare_coalition_structures(game1.coalition_structures(k=2, cs_size=1), [])
-    compare_coalition_structures(game1.coalition_structures(
-        cs_size=2), [[0, 0, 1], [0, 1, 0], [0, 1, 1], ])
-    compare_coalition_structures(game1.coalition_structures(
-        cs_size=2, k=2), [[0, 0, 1], [0, 1, 0], [0, 1, 1], ])
+        game1.coalition_structures(cs_size=1),
+        [[0, 0, 0]]
+    )
     compare_coalition_structures(
-        game1.coalition_structures(cs_size=3), [[0, 1, 2]])
-    compare_coalition_structures(game1.coalition_structures(
-        cs_size=3, k=2), [[0, 1, 2]])
+        game1.coalition_structures(k=2, cs_size=1),
+        []
+    )
+    compare_coalition_structures(
+        game1.coalition_structures(cs_size=2),
+        [[0, 0, 1], [0, 1, 0], [0, 1, 1]]
+    )
+    compare_coalition_structures(
+        game1.coalition_structures(cs_size=2, k=2),
+        [[0, 0, 1], [0, 1, 0], [0, 1, 1]]
+    )
+    compare_coalition_structures(
+        game1.coalition_structures(cs_size=3),
+        [[0, 1, 2]]
+    )
+    compare_coalition_structures(
+        game1.coalition_structures(cs_size=3, k=2),
+        [[0, 1, 2]]
+    )
 
 
-def test_Nash_stability():
+def test_nash_stable_coalition_structures():
     compare_coalition_structures(game1.nash_stable_coalition_structures(), [[0, 0, 0]])
     compare_coalition_structures(game1.nash_stable_coalition_structures(k=1), [[0, 1, 2]])
 
 
-def test_has_nash_equilibrium():
+def test_has_nash_stable_coalition_structure():
     assert not hg.GAME_K3_NOEQUILIBRIUM_PAPER.has_nash_stable_coalition_structure(k=3)
     assert not hg.GAME_K3_NOEQUILIBRIUM.has_nash_stable_coalition_structure(k=3)
     assert not hg.GAME_K4_NOEQUILIBRIUM.has_nash_stable_coalition_structure(k=4)
@@ -116,28 +139,19 @@ def test_has_nash_equilibrium():
 
 def test_to_nx_graph():
     graph = nx.Graph()
-    graph.add_edges_from([
-        (0, 1, {'weight': 9}),
-        (0, 2, {'weight': 9}),
-        (0, 3, {'weight': 4}),
-        (1, 2, {'weight': 1}),
-        (1, 3, {'weight': 7}),
-        (2, 3, {'weight': 7})
+    graph.add_weighted_edges_from([
+        (0, 1, 9), (0, 2, 9), (0, 3, 4), (1, 2, 1), (1, 3, 7), (2, 3, 7)
     ])
     assert nx.utils.graphs_equal(hg.GAME_K3_NOEQUILIBRIUM_PAPER.to_nx_graph(), graph)
 
 
 def test_from_nx_graph():
     graph = nx.Graph()
-    graph.add_edges_from([
-        (0, 1, {'weight': 9}),
-        (0, 2, {'weight': 9}),
-        (0, 3, {'weight': 4}),
-        (1, 2, {'weight': 1}),
-        (1, 3, {'weight': 7}),
-        (2, 3, {'weight': 7})
+    graph.add_weighted_edges_from([
+        (0, 1, 9), (0, 2, 9), (0, 3, 4), (1, 2, 1), (1, 3, 7), (2, 3, 7)
     ])
     assert hg.HedonicGame.from_nx_graph(graph) == hg.GAME_K3_NOEQUILIBRIUM_PAPER
+
 
 def test_optimal_coalition_structure():
     game = hg.HedonicGame(np.array([
@@ -150,6 +164,7 @@ def test_optimal_coalition_structure():
     _, v = game.optimal_coalition_structure(k=2)
     assert v == 2
 
+
 @pytest.mark.parametrize("k", [2, 3])
 def test_no_nash_for_asymmetric_games(k: int):
     """
@@ -160,6 +175,7 @@ def test_no_nash_for_asymmetric_games(k: int):
         g.add_edge(i, (i + 1) % (k+1))
     graph = hg.HedonicGame.from_nx_graph(g)
     assert not graph.has_nash_stable_coalition_structure(k=k)
+
 
 @pytest.mark.parametrize("m", [10, 20])
 def test_unbound_poa_for_non_simple_games(m: int):
@@ -177,12 +193,13 @@ def test_unbound_poa_for_non_simple_games(m: int):
     assert prices is not None
     assert prices.poa == m
 
+
 def test_prices_for_2SSFHG():
     """
     Test inspired by Proposition 4 in [PAPER].
     """
     g = nx.Graph()
-    g.add_edges_from([(0, 1), (1,2), (2,3)])
+    g.add_edges_from([(0, 1), (1, 2), (2, 3)])
     game = hg.HedonicGame.from_nx_graph(g)
     pr = game.prices(k=2)
     assert pr is not None

@@ -65,7 +65,10 @@ class HedonicGame:
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, HedonicGame):
             return False
-        return np.array_equal(self.valuations, other.valuations) and self.is_symmetric == other.is_symmetric
+        return (
+            np.array_equal(self.valuations, other.valuations)
+            and self.is_symmetric == other.is_symmetric
+        )
 
     def to_dot(self) -> pydot.Dot:
         """
@@ -113,19 +116,20 @@ class HedonicGame:
         )
         return graph
 
-    def coalition_structures(self, k: int | None = None, cs_size: int | None = None) -> Iterator['CoalitionStructure']:
+    def coalition_structures(self, is_fractional: bool = True, k: int | None = None, cs_size: int | None = None) -> Iterator['CoalitionStructure']:
         """
         Iterates over the coalition structures of the game.
 
-        If provided, `cs_size` is the number of coalitions in the coalition structure, while `k` is
-        the maximum size of each coalition.
+        If provided, `cs_size` is the number of coalitions in the coalition structure.
+        The parameter `is_fractional` tells if we are interested in fractional or additively separable games,
+        while `k` is the maximum size of each coalition.
         """
         if cs_size is not None:
             for cs in hgimpl.css_givensize(self.valuations, cs_size, k):
-                yield CoalitionStructure(self, cs)
+                yield CoalitionStructure(self, cs, is_fractional)
         else:
             for cs in hgimpl.css(self.valuations, k):
-                yield CoalitionStructure(self, cs)
+                yield CoalitionStructure(self, cs, is_fractional)
 
     def nash_stable_coalition_structures(self, is_fractional: bool = True, k: int | None = None) -> Iterator['CoalitionStructure']:
         """
@@ -244,6 +248,15 @@ class CoalitionStructure:
         self.size = max(cs)+1
         self.cs = cs
         self.is_fractional = is_fractional
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, CoalitionStructure):
+            return False
+        return (
+            self.game is other.game
+            and np.array_equal(self.cs, other.cs)
+            and self.is_fractional == other.is_fractional
+        )
 
     def coalition_size(self, co: Coalition) -> int:
         """
