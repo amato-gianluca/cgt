@@ -12,9 +12,9 @@ def test1():
         [2, 0, 0]
     ])
     cs1 = np.array([1, 0, 1])
-    cs1_sizes = np.array([1, 2])
+    cs1_sizes = np.array([1, 2, 0])
     cs2 = np.array([0, 0, 0])
-    cs2_sizes = np.array([3])
+    cs2_sizes = np.array([3, 0, 0])
     assert is_improving_deviation(game, True, cs1, cs1_sizes, Deviation(1, 1))
     assert not is_improving_deviation(game, True, cs1, cs1_sizes, Deviation(0, 0))
     assert next_improving_deviation(game, True, cs1, cs1_sizes, len(cs1_sizes), None, 1, 2) == (1, 1)
@@ -43,9 +43,9 @@ def test3():
         [1, 1, 0]
     ])
     cs = np.array([0, 1, 2])
-    cs_sizes = np.array([3, 3, 3])
-    assert improving_deviations(game, True, cs, cs_sizes, len(cs_sizes),None, 0, 1) == [ (0, 1), (0, 2) ]
-    assert improving_deviations(game, True, cs, cs_sizes, len(cs_sizes), None, 0, len(game)) == [
+    cs_sizes = np.array([1, 1, 1])
+    assert improving_deviations(game, True, cs, cs_sizes, 3, None, 0, 1) == [ (0, 1), (0, 2) ]
+    assert improving_deviations(game, True, cs, cs_sizes, 3, None, 0, len(game)) == [
         (0, 1), (0, 2), (1, 0), (1, 2), (2, 0), (2, 1)]
 
 
@@ -82,7 +82,7 @@ def test5():
 def test6():
     assert count_games(num_agents = 4, max_valuation = 2) == 72
     assert count_games(num_agents = 4, min_valuation = 2, max_valuation = 2) == 61
-    assert count_unstable_games(num_agents = 6, min_valuation = 2, max_valuation = 2, k = 4) == (8, 66515)
+    assert count_unstable_games(num_agents = 6, min_valuation = 2, max_valuation = 2, k = 4) == (9, 66515)
 
 def test7():
     assert count_unstable_games(num_agents=4, min_valuation=4, max_valuation=4, k=3, weights=[0, 1, 4, 7, 9]) == (2, 775)

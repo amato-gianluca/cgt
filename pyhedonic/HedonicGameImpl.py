@@ -105,7 +105,7 @@ def next_improving_deviation(game: Game, is_fractional: bool, cs: CoalitionStruc
     ag = max(ag, min_agent)
     while ag < max_agent:
         co += 1
-        while co < num_coalitions:
+        while co <= num_coalitions and co < len(cs_sizes):
             if k is None or cs_sizes[co] < k:
                 if is_improving_deviation(game, is_fractional, cs, cs_sizes, Deviation(ag, co), weights):
                     return Deviation(ag, co)
