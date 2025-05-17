@@ -19,12 +19,14 @@ type Game = IntArray2D
 
 type CoalitionStructure = IntArray1D
 
+
 class Deviation(NamedTuple):
     """A deviation in a Coalition Structure"""
     ag: int
     """Agent performing the deviation"""
     co: int
     """New coalition of the agent"""
+
 
 @njit
 def agent_utility_co(game: Game, cs: CoalitionStructure, ag: int, co: int, weights: list[int] | None = None) -> tuple[int, int]:
@@ -42,6 +44,7 @@ def agent_utility_co(game: Game, cs: CoalitionStructure, ag: int, co: int, weigh
             size += 1
     return ut, size
 
+
 @njit
 def agent_utility(game: Game, cs: CoalitionStructure, ag: int,  weights: list[int] | None = None) -> tuple[int, int]:
     """
@@ -50,6 +53,7 @@ def agent_utility(game: Game, cs: CoalitionStructure, ag: int,  weights: list[in
     number of agents in the same coalition as "ag".
     """
     return agent_utility_co(game, cs, ag, cs[ag], weights)
+
 
 @njit
 def coalition_social_welfare(game: Game, cs: CoalitionStructure, co: int, weights: list[int] | None = None) -> tuple[int, int]:
@@ -121,8 +125,7 @@ def improving_deviations(game: Game, is_fractional: bool, cs: CoalitionStructure
     Return a list of improving deviations for the given game and coalition structure.
     """
     res = []
-    dev = next_improving_deviation(game, is_fractional, cs,
-                                   cs_sizes, num_coalitions, k, min_agent, max_agent, weights)
+    dev = next_improving_deviation(game, is_fractional, cs, cs_sizes, num_coalitions, k, min_agent, max_agent, weights)
     while dev is not None:
         res.append(dev)
         dev = next_improving_deviation(
@@ -139,7 +142,7 @@ def cs_givensize_begin(game: Game, num_coalitions: int, k: int | None = None) ->
     Build an iterator for coalistion structures.
     """
     num_agents = len(game)
-    return (np.full((num_agents), -1), np.zeros((num_agents), dtype=np.int_), np.full((num_agents + 1), -1), np.array([num_coalitions]))
+    return np.full((num_agents), -1), np.zeros((num_agents), dtype=np.int_), np.full((num_agents + 1), -1), np.array([num_coalitions])
 
 
 @njit
@@ -216,6 +219,7 @@ def css(game: Game, k: int | None = None) -> Iterator[CoalitionStructure]:
     while cs_next(cs_data, game, k):
         yield np.copy(cs_data[0])
 
+
 @njit
 def nash_equilibria(game: Game, is_fractional: bool = True, k: int | None = None, weights: list[int] | None = None) -> Iterator[CoalitionStructure]:
     """
@@ -278,8 +282,10 @@ class GameIterator(NamedTuple):
 
 # Constants for the data field of the GameIterator
 
+
 _SOUGHT_MAX_VALUATION = 0
 _REACHED_MAX_VALUATION = 1
+
 
 @njit
 def game_begin(num_agents: int, is_symmetric: bool = True, min_valuation: int = 0, max_valuation: int = 1, debug: int = 0) -> GameIterator:
@@ -320,12 +326,12 @@ def game_next(git: GameIterator) -> bool:
             # on the code will subsume them, but they are kept because they make the execution faster.
 
             bot = game[col][row] if is_symmetric and row > col else \
-                  game[row][col-1] if row == 0 and col > 0 else \
-                  game[0][1] if row > 0 and row != col else \
-                  0
+                game[row][col-1] if row == 0 and col > 0 else \
+                game[0][1] if row > 0 and row != col else \
+                0
             top = 0 if row == col else  \
-                  game[col][row] if is_symmetric and row > col  else \
-                  data[_SOUGHT_MAX_VALUATION]
+                game[col][row] if is_symmetric and row > col else \
+                data[_SOUGHT_MAX_VALUATION]
 
             v = game[row][col]
             v_new = max(v+1, bot)
@@ -338,14 +344,18 @@ def game_next(git: GameIterator) -> bool:
                 is_invalid_graph = False
                 if row > 0 and col == num_agents-1:
                     for i in range(0, row):
-                        if i == row-2: continue
+                        if i == row-2:
+                            continue
                         for j in range(0, num_agents):
-                            if j == i or j == row: continue
-                            if game[i,j] == game[row, j]: continue
-                            if game[i,j] > game[row, j]:
+                            if j == i or j == row:
+                                continue
+                            if game[i, j] == game[row, j]:
+                                continue
+                            if game[i, j] > game[row, j]:
                                 is_invalid_graph = True
                             break
-                        if is_invalid_graph: break
+                        if is_invalid_graph:
+                            break
 
                 if not is_invalid_graph:
                     if debug > 0 and row == 0 and 0 < col <= debug:
@@ -414,10 +424,14 @@ def count_unstable_games(num_agents: int, is_symmetric: bool = True, min_valuati
     git = game_begin(num_agents, is_symmetric, min_valuation, max_valuation, debug)
     count_total = 0
     count_noequilibrium = 0
+    first = True
     while game_next(git):
         count_total += 1
         if nash_equilibrium(git.game, is_fractional, k, weights) is None:
-            count_noequilibrium +=1
+            if debug > 0 and first:
+                first = False
+                print(git.game)
+            count_noequilibrium += 1
     return count_noequilibrium, count_total
 
 

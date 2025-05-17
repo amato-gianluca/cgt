@@ -1,4 +1,8 @@
-from .context import pyhedonic
+
+"""
+This file contains unit tests for the pyhedonic library. In particular, it tests the
+HedonicGameImpl module, which implements the core functionality of the library using Numba
+"""
 
 from pyhedonic.HedonicGameImpl import *
 
@@ -18,7 +22,7 @@ def test1():
     assert is_improving_deviation(game, True, cs1, cs1_sizes, Deviation(1, 1))
     assert not is_improving_deviation(game, True, cs1, cs1_sizes, Deviation(0, 0))
     assert next_improving_deviation(game, True, cs1, cs1_sizes, len(cs1_sizes), None, 1, 2) == (1, 1)
-    assert improving_deviations(game, True, cs1, cs1_sizes, len(cs1_sizes), None, 1, 2) == [(1,1)]
+    assert improving_deviations(game, True, cs1, cs1_sizes, len(cs1_sizes), None, 1, 2) == [(1, 1)]
     assert next_improving_deviation(game, True, cs1, cs1_sizes, len(cs1_sizes), None, 0, len(game)) is not None
     assert next_improving_deviation(game, True, cs1, cs1_sizes, len(cs1_sizes), 2, 0, len(game)) is None
     assert next_improving_deviation(game, True, cs2, cs2_sizes, len(cs2_sizes), None, 0, len(game)) is None
@@ -44,7 +48,7 @@ def test3():
     ])
     cs = np.array([0, 1, 2])
     cs_sizes = np.array([1, 1, 1])
-    assert improving_deviations(game, True, cs, cs_sizes, 3, None, 0, 1) == [ (0, 1), (0, 2) ]
+    assert improving_deviations(game, True, cs, cs_sizes, 3, None, 0, 1) == [(0, 1), (0, 2)]
     assert improving_deviations(game, True, cs, cs_sizes, 3, None, 0, len(game)) == [
         (0, 1), (0, 2), (1, 0), (1, 2), (2, 0), (2, 1)]
 
@@ -79,10 +83,13 @@ def test5():
     assert all(np.array_equal(a1, a2)
                for a1, a2 in zip(games(2, min_valuation=2, max_valuation=2), resnp[-1:]))
 
+
 def test6():
-    assert count_games(num_agents = 4, max_valuation = 2) == 72
-    assert count_games(num_agents = 4, min_valuation = 2, max_valuation = 2) == 61
-    assert count_unstable_games(num_agents = 6, min_valuation = 2, max_valuation = 2, k = 4) == (9, 66515)
+    assert count_games(num_agents=4, max_valuation=2) == 72
+    assert count_games(num_agents=4, min_valuation=2, max_valuation=2) == 61
+    assert count_unstable_games(num_agents=6, min_valuation=2, max_valuation=2, k=4) == (9, 66515)
+
 
 def test7():
-    assert count_unstable_games(num_agents=4, min_valuation=4, max_valuation=4, k=3, weights=[0, 1, 4, 7, 9]) == (2, 775)
+    assert count_unstable_games(num_agents=4, min_valuation=4, max_valuation=4,
+                                k=3, weights=[0, 1, 4, 7, 9]) == (2, 775)
