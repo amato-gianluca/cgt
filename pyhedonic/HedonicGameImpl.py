@@ -2,18 +2,20 @@
 Highly optimized code for brute-forcing hedonic game explorations.
 """
 
-from typing import NamedTuple, Iterator
-
-from numba import njit, config
+from typing import Iterator, NamedTuple
 
 import numpy as np
+import numpy.typing as npt
+from numba import config, njit
 
 # pyright: reportAttributeAccessIssue=false
 config.DISABLE_JIT = False
 
-type IntArray1D = np.ndarray[tuple[int], np.dtype[np.integer]]
+# Unfortunately, specifying the shape of the array in the type hint does not work well
+type IntArray2D = npt.NDArray[np.integer]
 
-type IntArray2D = np.ndarray[tuple[int, int], np.dtype[np.integer]]
+# Unfortunately, specifying the shape of the array in the type hint does not work well
+type IntArray1D = npt.NDArray[np.integer]
 
 type Game = IntArray2D
 

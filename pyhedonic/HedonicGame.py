@@ -2,15 +2,18 @@ from typing import Iterator, NamedTuple
 
 import networkx as nx
 import numpy as np
+import numpy.typing as npt
 import pydot
 
 from . import HedonicGameImpl as hgimpl
 
 type Agent = int
 
-type IntArray2D = np.ndarray[tuple[int, int], np.dtype[np.integer]]
+# Unfortunately, specifying the shape of the array in the type hint does not work well
+type IntArray2D = npt.NDArray[np.integer]
 
-type IntArray1D = np.ndarray[tuple[int], np.dtype[np.integer]]
+# Unfortunately, specifying the shape of the array in the type hint does not work well
+type IntArray1D = npt.NDArray[np.integer]
 
 type Coalition = int
 
@@ -93,10 +96,13 @@ class HedonicGame:
         Convert a networkx graph to an hedonic game.
         """
         is_symmetric = not graph.is_directed()
-        if not all(isinstance(weight, int) or weight is None for _, _, weight in graph.edges(data="weight")):
+        if not all(
+            isinstance(weight, int) or weight is None
+            for _, _, weight in graph.edges(data="weight")  # type: ignore[arg-type]
+        ):
             raise ValueError("The weights of the edges are not integers.")
         valuations = np.zeros((len(graph.nodes), len(graph.nodes)), dtype=np.integer)
-        for i, j, weight in graph.edges(data='weight'):
+        for i, j, weight in graph.edges(data='weight'):  # type: ignore[arg-type]
             valuations[i, j] = weight if weight is not None else 1
             if is_symmetric:
                 valuations[j, i] = valuations[i, j]
@@ -245,7 +251,7 @@ class CoalitionStructure:
         Elements of `cs` are all and only the integers in the range [0, max(self.cs)].
         """
         self.game = game
-        self.size = max(cs)+1
+        self.size = max(cs)+1  # type: ignore[arg-type]
         self.cs = cs
         self.is_fractional = is_fractional
 
@@ -379,6 +385,19 @@ GAME_K7_NOEQUILIBRIUM = HedonicGame(np.array([
     [0, 0, 2, 2, 2, 0, 2, 0],
     [1, 2, 1, 1, 2, 2, 0, 2],
     [2, 2, 2, 0, 0, 0, 2, 0]
+]))
+
+GAME_K7_NOEQUILIBRIUM_SIMPLE = HedonicGame(np.array([
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [0, 0, 0, 0, 0, 0, 1, 1, 1, 0],
+    [0, 0, 0, 0, 0, 1, 0, 1, 1, 1],
+    [0, 0, 0, 0, 1, 1, 0, 0, 1, 0],
+    [0, 0, 0, 1, 0, 1, 0, 0, 1, 1],
+    [0, 0, 1, 1, 1, 0, 0, 0, 1, 1],
+    [0, 1, 0, 0, 0, 0, 0, 1, 1, 1],
+    [0, 1, 1, 0, 0, 0, 1, 0, 1, 1],
+    [0, 1, 1, 1, 1, 1, 1, 1, 0, 1],
+    [1, 0, 1, 0, 1, 1, 1, 1, 1, 0]
 ]))
 
 GAME_K8_NOEQUILIBRIUM = HedonicGame(np.array([
