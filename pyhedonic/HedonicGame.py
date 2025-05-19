@@ -1,4 +1,5 @@
 from typing import Iterator, NamedTuple
+from functools import cached_property
 
 import networkx as nx
 import numpy as np
@@ -65,6 +66,13 @@ class HedonicGame:
         """
         return len(self.valuations)
 
+    @cached_property
+    def is_simple(self) -> bool:
+        """
+        Return whether the game is simple or not. A game is simple if the valuations are all 0 or 1.
+        """
+        return np.all(self.valuations <= 1) # type: ignore[no-untyped-call]
+
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, HedonicGame):
             return False
@@ -86,7 +94,11 @@ class HedonicGame:
             base = i+1 if self.is_symmetric else 0
             for j in range(base, self.agents_num):
                 if self.valuations[i, j] > 0:
-                    edge = pydot.Edge(str(i), str(j), label=str(self.valuations[i, j]))
+                    edge = (
+                        pydot.Edge(str(i), str(j))
+                        if self.is_simple
+                        else pydot.Edge(str(i), str(j), label=str(self.valuations[i, j]))
+                    )
                     graph.add_edge(edge)
         return graph
 
