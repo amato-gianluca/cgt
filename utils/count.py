@@ -5,21 +5,25 @@ The script will iterate over the number of agents and the maximum valuation,
 trying to keep them low enough that the computation is actually feasible.
 """
 
-import sys
-
 from context import pyhedonic
-from pyhedonic import HedonicGameImpl as hgimpl
 
-# Maximum size of coalitions
-k = int(sys.argv[1])
+from sys import argv
+from pyhedonic.HedonicGameImpl import *
 
-# Maximum weight for each number of agents
-max_weight = [20, 20, 20, 20, 20, 10, 8, 3, 2, 1, 1, 1, 1]
+k = int(argv[1])
 
-for n in range(k+1, len(max_weight)):
-    for m in range(0, max_weight[n] + 1):
+n_min = int(argv[2]) if len(argv) >= 3 else k+1
+n_max = 11
+
+m_min = int(argv[3]) if len(argv) >= 4 else 0
+m_max_k0 = [20, 20, 20, 20, 20, 10, 7, 3, 2, 1, 1]
+m_max_k4 = [20, 20, 20, 20, 20, 10, 6, 3, 2, 1, 1]
+m_max = m_max_k0 if k <= 3 else m_max_k4
+
+for n in range(n_min, n_max+1):
+    for m in range(m_min, m_max[n]+1):
+        m_min = 0
         print("num_agents:", n, "k:", k, "maxval: ", m)
-        count_noequilibrium, count_total = hgimpl.count_unstable_games(
-            num_agents=n, k=k, min_valuation=m, max_valuation=m, debug=2)
-        print("num_agents:", n, "k:", k, "maxval: ", m,
-              "count:", count_noequilibrium, "/", count_total)
+        count_noequilibrium, count_total = count_unstable_games(
+            num_agents=n, k=k, min_valuation=m, max_valuation=m, debug=1)
+        print("num_agents:", n, "k:", k, "maxval: ", m, "count:", count_noequilibrium, "/", count_total)
