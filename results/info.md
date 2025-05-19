@@ -6,16 +6,16 @@
 
 In the following:
   - $n$ is the number of vertices in a graph;
-  - $m$ is the maximum weight of the edges (intended as the maximum value of all the weights in the graph, not as an upper bound of all the weights);
+  - $m$ is the maximum weight of the edges;
   - $k$ is the maximum size of a partition.
 
-Simple graphs are those where $m$ is either $0$ (graph withouth edges) or $1$ (graph with at least one edge).
+Notate that $m$ is intended as the maximum value of all the weights in the graph, not as an upper bound of all the weights. Therefore, set of graphs corresponding to different values of $m$ are disjoint. Simple graphs are those where $m$ is either $0$ (graph withouth edges) or $1$ (graph with at least one edge).
 
 ## Exhaustive game generation procedure
 
 Games are generated using the heuristics in  _[Codish et al, Constraints for symmetry breaking in graph representation, Constraints 24 (2019)](https://doi.org/10.1007/s10601-018-9294-5)_. Using these heuristics, it is possible to avoid the generation of many (but not all) isomorphic copies of the same graph.
 
-The following table show the number of games we generate for each combination given by the number of nodes *n* and the maximum valuation *m*. The first line shows the number of non-isomorphic graphs in the case when m=1, taken from https://users.cecs.anu.edu.au/~bdm/data/graphs.html. Note that we subtract one unit from the values from the web page in order to account for the only graph without edges (m=0) that we do not count in our procedure.
+The following table show the number of games we generate for each combination given by the number of nodes *n* and the maximum valuation *m*. The first line shows the number of non-isomorphic graphs in the case when m=1, taken from https://users.cecs.anu.edu.au/~bdm/data/graphs.html. Note that we subtract one unit from the values taken from this web page in order to account for the only graph without edges (m=0) that we do not count in our procedure.
 
  m\n | 3   | 4       | 5         | 6            | 7          | 8          | 9       | 10        | 11         |
 ----:|----:|--------:|----------:|-------------:|-----------:|-----------:|--------:|----------:|-----------:|
@@ -41,33 +41,43 @@ The following table show the number of games we generate for each combination gi
   19 | 210 | 960850
   20 | 231 | 1231951
 
-## Simple games without Nash equilibrium
+## Simple games without Nash stable coalition structure.
 
 * No cases for $k=3$ and $k=4$ (known from theory).
-* No cases for $n \leq 10$, and $k < n$.
+* No cases for $n \leq 9$, and $k < n$.
+* No cases for $n=10$ and $k<n$ with the **only exception** of $n=10$ and $k=7$.
 
-## Games without Nash equilibrium
+## Games without Nash Nash stable coalition structure.
 
-For each $k$ and $n$, this table shows the maximum weight of the lexicographically minimum graph with no Nash equilibrium.
+For each $k$ and $n$, this table shows the maximum weight ($m$) of the lexicographically minimum graph with no Nash stable coalition structure.
 
- k\n | 4 |  5  | 6  | 7  | 8  | 9  | 10 |
------|---|-----|----|----|----|----|----|
-  3  | 7 |   5 |  5 | >1 | >1 | >1 |    |
-  4  | - |  10 |  2 | >1 | >1 | >1 |    |
-  5  | - |  -  |  2 | >1 | >1 | >1 |    |
-  6  | - |  -  |  - | >1 | >1 | >1 |    |
-  7  | - |  -  |  - |  - | >1 | >1 |    |
-  8  | - |  -  |  - |  - |  - | >1 |    |
-  9  | - |  -  |  - |  - |  - |  - | >1 |
+ k\n | 4 |  5  | 6 | 7  | 8  | 9  | 10    |
+----:|--:|----:|--:|---:|---:|---:|------:|
+  3  | 7 |   5 | 5 | >2 | >1 | >1 | >1    |
+  4  | - |  10 | 2 | 2  | 2  | 2  |  2    |
+  5  | - |  -  | 2 | >1 | >1 | >1 | >1    |
+  6  | - |  -  | - | 3  | >1 | >1 | >1    |
+  7  | - |  -  | - | -  |  2 | >1 | **1** |
+  8  | - |  -  | - | -  |  - | >1 | >1    |
+  9  | - |  -  | - | -  |  - |  - | >1    |
 
-## Number of games with no equilibrium w.r.t. total games considered
+Note that these numbers decrease monotonically with $n$. This is because if a game with $n$ agents has no Nash stable coalition structure, the node with $n+1$ agents obtained by adding a new disconnected node also has no stable coalition structure for the same value of $k$.
+
+There is no direct relationship between numbers with different values of $k$ since increasing $k$ from the one side increase the number of coalition structures, but other side increase the number of allowerd deviations.
+
+## Number of games with no Nash stable coalition structures
+
+For each value of $k$, $m$ and $n$ we count the number of games without Nash stable coalition structures.
+The value we find is to compare with the total number of games in the first table above. We recall that the method we usae for enumerating graphs may contain many isomorphic variants of the same graph.
+
+Note that numbers increase monotonically when $n$ increase, for the same reason already outlined in the observations relative to the table above.
 
 ### k=3
 
  m\n | 4      | 5        | 6       | 7 | 8  |
 ----:|-------:|---------:|--------:|--:|---:|
-   1 | 0      | 0        | 0       |   |    |
-   2 | 0      | 0        | 0       |   |    |
+   1 | 0      | 0        | 0       | 0 |    |
+   2 | 0      | 0        | 0       | 0 |    |
    3 | 0      | 0        | 0       |   |
    4 | 0      | 0        | 0       |   |
    5 | 0      | **45**   | **50**  |
@@ -89,11 +99,11 @@ For each $k$ and $n$, this table shows the maximum weight of the lexicographical
 
 ### k=4
 
- m\n | 5       | 6            | 7 | 8 |
-----:|--------:|-------------:|--:|--:|
-   1 | 0       | 0            |   |   |
-   2 | 0       | **9**        |   |   |
-   3 | 0       | **1033**     |   |
+ m\n | 5       | 6            | 7     | 8 |
+----:|--------:|-------------:|------:|--:|
+   1 | 0       | 0            | 0     | 0 |
+   2 | 0       | **9**        | **9** |   |
+   3 | 0       | **1033**     |       |
    4 | 0       | **29759**    |
    5 | 0       | **336527**   |
    6 | 0       | **2660652**  |
@@ -106,7 +116,7 @@ For each $k$ and $n$, this table shows the maximum weight of the lexicographical
 
  m\n | 6          | 7 | 8 |
 ----:|-----------:|--:|--:|
-   1 | 0          |   |   |
+   1 | 0          | 0 | 0 |
    2 | **5**      |   |
    3 | **41**     |   |
    4 | **2098**   |   |
