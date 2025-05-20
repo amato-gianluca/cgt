@@ -195,6 +195,12 @@ class HedonicGame:
         """
         return self.graph.nodes()
 
+    def agents_num(self) -> int:
+        """
+        Return the number of agens in the game.
+        """
+        return len(self.valuations)
+
     def __init__(self, graph: Graph | IntArray2D, k: int | None = None, is_fractional: bool = True):
         """
         Creates a hedonic game from the given graph.
@@ -229,6 +235,22 @@ class HedonicGame:
         else:
             for cs in hgimpl.css(self.valuations, self.k):
                 yield CoalitionStructure(self, cs)
+
+    def isolated_coalition_structure(self) -> 'CoalitionStructure':
+        """
+        Return the isolated coalition structure of the game. The isolated coalition structure is the one where
+        each agent is in its own coalition.
+        """
+        return CoalitionStructure(self, np.arange(self.agents_num()))
+
+    def big_coalition_structure(self) -> 'CoalitionStructure':
+        """
+        Return the big coalition structure of the game. The big coalition structure is the one where all agents
+        are in the same coalition. If this is not a valid coalition structure, an exception is raised.
+        """
+        if self.k is not None and self.k < self.agents_num():
+            raise ValueError("The big coalition structure is not valid.")
+        return CoalitionStructure(self, np.zeros(self.agents_num(), dtype=np.integer))
 
     def nash_stable_coalition_structures(self) -> Iterator['CoalitionStructure']:
         """
@@ -301,16 +323,32 @@ class CoalitionStructure:
     The game for which the coalition structure is defined.
     """
 
-    size: int
-    """
-    The number of coalitions in the coalition structure.
-    """
-
     cs: IntArray1D
     """
     The coalition structure. The i-th element is the coalition number of the i-th agent. Elements of `cs` are
     all and only the integers in the range [0, size-1].
     """
+
+    _sizes: IntArray1D
+    """
+    The sizes of the coalitions in the coalition structure.
+    """
+
+    @staticmethod
+    def _normalize(cs: IntArray1D) -> None:
+        """
+        Normalize the coalition structure. The coalition numbers are shifted to be in the range [0, size-1] and
+        they appear in increasing order.
+        """
+        current = 0
+        map = np.full(len(cs), -1)
+        for i in range(len(cs)):
+            tgt = map[cs[i]]
+            if tgt == -1:
+                map[cs[i]] = current
+                tgt = current
+                current += 1
+            cs[i] = tgt
 
     def __init__(self, game: HedonicGame, cs: IntArray1D):
         """
@@ -326,8 +364,8 @@ class CoalitionStructure:
         assert max(cs)+1 == len(np.unique(cs)), "The coalition structure should contain all integers from `0` to `max(cs)`."
 
         self.game = game
-        self.size = max(cs)+1  # type: ignore[arg-type]
         self.cs = cs
+        self._sizes = np.bincount(cs, minlength=len(cs))
 
     def __eq__(self, value: object) -> bool:
         """
@@ -338,12 +376,25 @@ class CoalitionStructure:
             return False
         return self.game == value.game and np.array_equal(self.cs, value.cs)
 
+    @property
+    def size(self) -> int:
+        """
+        Return the number of coalitions in the coalition structure.
+        """
+        return max(self.cs) + 1
+
+    def coalitions(self) -> Collection[Coalition]:
+        """
+        Returns the coalitions of the coalition structure.
+        """
+        return range(len(self._sizes))
+
     def coalition_size(self, co: Coalition) -> int:
         """
         Return the size of coalition `co`.
         """
         assert 0 <= co < self.size, "Coalition number out of range."
-        return sum(1 for x in self.cs if x == co)
+        return self._sizes[co]
 
     def agent_coalition(self, ag: Agent) -> Coalition:
         """
@@ -372,7 +423,7 @@ class CoalitionStructure:
         """
         Returns the social welfare of the coalition structure.
         """
-        return sum(self.coalition_social_welfare(co) for co in range(self.size))
+        return sum(self.coalition_social_welfare(co) for co in self.coalitions())
 
     def is_improving_deviation(self, ag: Agent, co_new: Coalition) -> bool:
         """
@@ -382,6 +433,8 @@ class CoalitionStructure:
         """
         assert 0 <= ag < len(self.cs), "Agent number out of range."
         assert 0 <= co_new <= self.size, "Coalition number out of range."
+        if self.game.k is not None and self._sizes[co_new] == self.game.k:
+            return False
         co_old = self.cs[ag]
         if co_old == co_new:
             return False
@@ -394,6 +447,43 @@ class CoalitionStructure:
             return size_new+1 < size_old
         else:
             return ut_new * size_old > ut_old * (size_new + 1)
+
+    def improving_deviations_for_agents(self, ag: Agent) -> Iterator[Coalition]:
+        """
+        Iterates over the improving deviations of the given agent. The improving deviations are the coalitions
+        to which the agent can move to improve its utility.
+        """
+        assert 0 <= ag < len(self.cs), "Agent number out of range."
+        for co_new in range(self.size+1):
+            if self.is_improving_deviation(ag, co_new):
+                yield co_new
+
+    def improving_deviations(self) -> Iterator[tuple[Agent, Coalition]]:
+        """
+        Iterates over the improving deviations of the coalition structure. The improving deviations are the
+        pairs (agent, coalition) such that the agent can move to the coalition to improve its utility.
+        """
+        for ag in self.game.agents():
+            for co_new in self.improving_deviations_for_agents(ag):
+                yield ag, co_new
+
+    def move_to(self, ag: Agent, co_new: Coalition) -> 'CoalitionStructure':
+        """
+        Move the given agent to the new coalition and return the new coalition structure we obtain in this way.
+        """
+        assert 0 <= ag < len(self.cs), "Agent number out of range."
+        assert 0 <= co_new <= self.size, "Coalition number out of range."
+        assert self.game.k is None or self._sizes[co_new] < self.game.k, "The target coalition size is too large."
+        # If the agent is moving to a new coalition, we need to update the coalition sizes.
+        co_old = self.cs[ag]
+        if co_old == co_new:
+            return self
+        if self._sizes[co_old] == 1 and co_new == self.size:
+            return self
+        cs_new = np.copy(self.cs)
+        cs_new[ag] = co_new
+        self._normalize(cs_new)
+        return CoalitionStructure(self.game, cs_new)
 
     def is_agent_nash_stable(self, ag: Agent) -> bool:
         """
@@ -411,11 +501,20 @@ class CoalitionStructure:
         """
         return all(self.is_agent_nash_stable(ag) for ag in self.game.agents())
 
+    def to_list(self) -> list[set[int]]:
+        """
+        Return the coalition structure as a list of sets. Each set contains the agents in the corresponding coalition.
+        """
+        s = [ set[int]() for _ in range(self.size) ]
+        for ag in self.game.agents():
+            s[self.cs[ag]].add(ag)
+        return s
+
     def __repr__(self) -> str:
         return f"CoalitionStructure({repr(self.game)},{repr(self.cs)})"
 
     def __str__(self) -> str:
-        return f"{repr(self.cs)}"
+        return str(self.to_list())
 
 
 GAME_K3_NOEQUILIBRIUM_PAPER = HedonicGame(np.array([

@@ -186,3 +186,11 @@ def test_Graph_from_nx_graph():
     print(hg.Graph.from_nx_graph(graph))
     print(hg.GAME_K3_NOEQUILIBRIUM_PAPER.graph)
     assert hg.Graph.from_nx_graph(graph) == hg.GAME_K3_NOEQUILIBRIUM_PAPER.graph
+
+def test_CoalitionStructure_move_to():
+    csa = game1_frac_cs1.move_to(2, 2)
+    assert csa == hg.CoalitionStructure(game1_frac, np.array([0, 1, 2]))
+    csa = csa.move_to(0, 2)
+    assert csa == hg.CoalitionStructure(game1_frac, np.array([0, 1, 0]))
+    csa = csa.move_to(2, 1)
+    assert csa == hg.CoalitionStructure(game1_frac, np.array([0, 1, 1]))
