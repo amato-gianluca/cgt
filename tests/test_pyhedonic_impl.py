@@ -21,11 +21,11 @@ def test1():
     cs2_sizes = np.array([3, 0, 0])
     assert is_improving_deviation(game, True, cs1, cs1_sizes, Deviation(1, 1))
     assert not is_improving_deviation(game, True, cs1, cs1_sizes, Deviation(0, 0))
-    assert next_improving_deviation(game, True, cs1, cs1_sizes, len(cs1_sizes), None, 1, 2) == (1, 1)
-    assert improving_deviations(game, True, cs1, cs1_sizes, len(cs1_sizes), None, 1, 2) == [(1, 1)]
-    assert next_improving_deviation(game, True, cs1, cs1_sizes, len(cs1_sizes), None, 0, len(game)) is not None
-    assert next_improving_deviation(game, True, cs1, cs1_sizes, len(cs1_sizes), 2, 0, len(game)) is None
-    assert next_improving_deviation(game, True, cs2, cs2_sizes, len(cs2_sizes), None, 0, len(game)) is None
+    assert next_improving_deviation(game, True, cs1, cs1_sizes, len(cs1_sizes), None) == (1, 1)
+    assert improving_deviations(game, True, cs1, cs1_sizes, len(cs1_sizes), None) == [(1, 1)]
+    assert next_improving_deviation(game, True, cs1, cs1_sizes, len(cs1_sizes), None) is not None
+    assert next_improving_deviation(game, True, cs1, cs1_sizes, len(cs1_sizes), 2) is None
+    assert next_improving_deviation(game, True, cs2, cs2_sizes, len(cs2_sizes), None) is None
     assert np.all(nash_equilibrium(game) == np.array([0, 0, 0]))
     assert np.all(nash_equilibrium(game, k=1) == np.array([0, 1, 2]))
 
@@ -48,8 +48,7 @@ def test3():
     ])
     cs = np.array([0, 1, 2])
     cs_sizes = np.array([1, 1, 1])
-    assert improving_deviations(game, True, cs, cs_sizes, 3, None, 0, 1) == [(0, 1), (0, 2)]
-    assert improving_deviations(game, True, cs, cs_sizes, 3, None, 0, len(game)) == [
+    assert improving_deviations(game, True, cs, cs_sizes, 3, None) == [
         (0, 1), (0, 2), (1, 0), (1, 2), (2, 0), (2, 1)]
 
 
@@ -79,17 +78,17 @@ def test5():
     ]
     resnp = [np.array(g) for g in res1]
     assert all(np.array_equal(a1, a2)
-               for a1, a2 in zip(games(2, max_valuation=2), resnp))
+               for a1, a2 in zip(games(2, m_end=2), resnp))
     assert all(np.array_equal(a1, a2)
-               for a1, a2 in zip(games(2, min_valuation=2, max_valuation=2), resnp[-1:]))
+               for a1, a2 in zip(games(2, m_begin=2, m_end=2), resnp[-1:]))
 
 
 def test6():
-    assert count_games(num_agents=4, max_valuation=2) == 72
-    assert count_games(num_agents=4, min_valuation=2, max_valuation=2) == 61
-    assert count_unstable_games(num_agents=6, min_valuation=2, max_valuation=2, k=4) == (9, 66515)
+    assert count_games(num_agents=4, m_end=2) == 72
+    assert count_games(num_agents=4, m_begin=2, m_end=2) == 61
+    assert count_unstable_games(num_agents=6, m_begin=2, m_end=2, k=4) == (9, 66515)
 
 
 def test7():
-    assert count_unstable_games(num_agents=4, min_valuation=4, max_valuation=4,
+    assert count_unstable_games(num_agents=4, m_begin=4, m_end=4,
                                 k=3, weights=[0, 1, 4, 7, 9]) == (2, 775)
