@@ -31,11 +31,17 @@ class PriceResult(NamedTuple):
     pos: float
     """Price of stability"""
 
+    pom: float
+    """Avegare price of the Nash equilibria"""
+
     cs_worst: 'CoalitionStructure'
     """Coalition structure with the worst price"""
 
     cs_best: 'CoalitionStructure'
     """Coalition structure with the best price"""
+
+    cs_count: int
+    """Number of Nash equilibria found"""
 
 
 class Graph:
@@ -115,8 +121,8 @@ class Graph:
             graph.add_edge(edge)
         return graph
 
-    @staticmethod
-    def from_nx_graph(graph: nx.Graph | nx.DiGraph) -> 'Graph':
+    @classmethod
+    def from_nx_graph(cls, graph: nx.Graph | nx.DiGraph) -> 'Graph':
         """
         Convert a networkx graph to the `Graph` class. All weights should be non-negative integers.
         """
@@ -130,7 +136,7 @@ class Graph:
             weights[i, j] = weight if weight is not None else 1
             if not graph.is_directed():
                 weights[j, i] = weights[i, j]
-        return Graph(weights, graph.is_directed())
+        return cls(weights, graph.is_directed())
 
     def to_nx_graph(self) -> nx.Graph | nx.DiGraph:
         """
@@ -146,6 +152,20 @@ class Graph:
 
     def __str__(self) -> str:
         return f"{repr(self.weights)}, is_directed={self.is_directed}"
+
+    @classmethod
+    def enumerate(cls, n: int, is_directed: bool, m_min: int, m_max: int) -> Iterator['Graph']:
+        """
+        Iterates over all the graphs with `n` nodes, with the given directedness. The values `m_min` and `m_max`
+        are the minimum and maximum value of `m`, where `m` is the maximum weight of the edges. For example,
+        if one wants to generate only simple graphs, `m_max` should be set to 1 and `m_min` to 0.
+
+        The graphs are generated in a lexicographic order. Some attempt is made to generate the graphs in a canonical
+        form, avoiding isomorphism variants of the same graph. However, isomophic variants of the same graph are
+        almost always generated.
+        """
+        for weights in hgimpl.games(n, not is_directed, m_min, m_max):
+            yield cls(weights, is_directed)
 
 
 class HedonicGame:
@@ -296,15 +316,19 @@ class HedonicGame:
         pos = float('inf')
         cs_best = None
         _, opt = self.optimal_coalition_structure()
+        cs_count = 0
+        pom = 0.0
         for cs in self.nash_stable_coalition_structures():
+            cs_count += 1
             price = opt / cs.social_welfare()
+            pom += price
             if price > poa:
                 poa = price
                 cs_worst = cs
             if price < pos:
                 pos = price
                 cs_best = cs
-        return None if cs_worst is None or cs_best is None else PriceResult(poa, pos, cs_worst, cs_best)
+        return None if cs_worst is None or cs_best is None else PriceResult(poa, pos, pom / cs_count, cs_worst, cs_best, cs_count)
 
     def __repr__(self) -> str:
         return f"HedonicGame({repr(self.valuations)}, k={self.k}, is_fractional={self.is_fractional}))"
@@ -387,7 +411,7 @@ class CoalitionStructure:
         """
         Returns the coalitions of the coalition structure.
         """
-        return range(len(self._sizes))
+        return range(self.size)
 
     def coalition_size(self, co: Coalition) -> int:
         """
@@ -505,7 +529,7 @@ class CoalitionStructure:
         """
         Return the coalition structure as a list of sets. Each set contains the agents in the corresponding coalition.
         """
-        s = [ set[int]() for _ in range(self.size) ]
+        s = [set[int]() for _ in range(self.size)]
         for ag in self.game.agents():
             s[self.cs[ag]].add(ag)
         return s
