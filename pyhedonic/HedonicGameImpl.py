@@ -12,7 +12,6 @@ Parameters mostly have the same meaning in all functions, namely:
         `cs[i]` is the coalition of agent `i`;
 - `cs_sizes`: a vector of integers mapping coalition numbers to their sizes. `cs_sizes[i]` is the size of coalition `i`;
 - `debug`: debug verbosity. Zero or negative is no debug.
-
 """
 
 from typing import Iterator, NamedTuple

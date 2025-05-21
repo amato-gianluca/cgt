@@ -7,6 +7,7 @@ from context import pyhedonic
 from sys import argv
 import pyhedonic.HedonicGame as hg
 import pyhedonic.HedonicGameImpl as hgimpl
+import numpy as np
 
 k = 2
 n = 6
@@ -22,14 +23,12 @@ poasum = 0.0
 possum = 0.0
 pomsum = 0.0
 
+
 for g in hg.Graph.enumerate(n, is_directed=False, m_min=1, m_max=1):
     game = hg.HedonicGame(g, k=2)
     gr = game.prices()
 
     if gr is not None:
-        if gr.pos < 1.0:
-            print(game)
-            raise ValueError("pos < 1.0")
         poamin = min(poamin, gr.poa)
         poamax = max(poamax, gr.poa)
         posmin = min(posmin, gr.pos)

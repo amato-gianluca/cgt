@@ -115,19 +115,6 @@ def test_HedonicGame_has_nash_stable_coalition_structure():
     assert not hg.GAME_K7_NOEQUILIBRIUM_SIMPLE.has_nash_stable_coalition_structure()
     assert not hg.GAME_K8_NOEQUILIBRIUM.has_nash_stable_coalition_structure()
 
-
-def test_HedonicGame_optimal_coalition_structure():
-    game = hg.HedonicGame(np.array([
-        [0, 1, 0, 1, 0],
-        [1, 0, 1, 1, 0],
-        [0, 1, 0, 0, 1],
-        [1, 1, 0, 0, 1],
-        [0, 0, 1, 1, 0]
-    ]), k=2)
-    _, v = game.optimal_coalition_structure()
-    assert v == 2
-
-
 @pytest.mark.parametrize("k", [2, 3])
 def test_HedonicGamee_no_nash_for_asymmetric_games(k: int):
     """
@@ -168,6 +155,28 @@ def test_HedonicGame_prices_for_2SSFHG():
     assert pr is not None
     assert pr.poa == 2.0
     assert pr.pos == 1.0
+
+def test_HedonicGame_optimal_coalition_structure1():
+    game = hg.HedonicGame(np.array([
+        [0, 1, 0, 1, 0],
+        [1, 0, 1, 1, 0],
+        [0, 1, 0, 0, 1],
+        [1, 1, 0, 0, 1],
+        [0, 0, 1, 1, 0]
+    ]), k=2)
+    _, v = game.optimal_coalition_structure()
+    assert v == 2.0
+
+def test_HedonicGame_optimal_coalition_structure2():
+    game=hg.HedonicGame(np.array(
+      [[0, 0, 0, 0, 1, 1],
+       [0, 0, 0, 1, 0, 1],
+       [0, 0, 0, 1, 1, 0],
+       [0, 1, 1, 0, 0, 0],
+       [1, 0, 1, 0, 0, 0],
+       [1, 1, 0, 0, 0, 0]]), k=2, is_fractional=True)
+    _, opt = game.optimal_coalition_structure()
+    assert opt == 3.0
 
 
 def test_Graph_to_nx_graph():

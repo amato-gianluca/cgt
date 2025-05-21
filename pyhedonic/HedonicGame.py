@@ -295,7 +295,7 @@ class HedonicGame:
             raise ValueError("k is different from 2, cannot compute the optimal coalition structure.")
 
         g = self.graph.to_nx_graph()
-        matching = nx.maximal_matching(g) if self.is_simple else nx.max_weight_matching(g)
+        matching = nx.max_weight_matching(g)
         welfare = sum(g[u][v]['weight'] for u, v in matching)
         if not self.is_fractional:
             welfare *= 2
