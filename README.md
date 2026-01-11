@@ -1,4 +1,4 @@
-# Computational Game Theory software.
+# Computational Game Theory software repository
 
 This repository contains software for experimenting with Fractional Hedonic Games.
 
