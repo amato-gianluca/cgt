@@ -9,13 +9,13 @@ In the following:
   - $m$ is the maximum weight of the edges;
   - $k$ is the maximum size of a partition.
 
-Notate that $m$ is intended as the maximum value of all the weights in the graph, not as an upper bound of all the weights. Therefore, set of graphs corresponding to different values of $m$ are disjoint. Simple graphs are those where $m$ is either $0$ (graph withouth edges) or $1$ (graph with at least one edge).
+Notate that $m$ is intended as the maximum value of all the weights in the graph, not as an upper bound of all the weights. Therefore, set of graphs corresponding to different values of $m$ are disjoint. Simple graphs are those where $m$ is either $0$ (graph without edges) or $1$ (graph with at least one edge).
 
 ## Exhaustive game generation procedure
 
-Games are generated using the heuristics in  _[Codish et al, Constraints for symmetry breaking in graph representation, Constraints 24 (2019)](https://doi.org/10.1007/s10601-018-9294-5)_. Using these heuristics, it is possible to avoid the generation of many (but not all) isomorphic copies of the same graph.
+Games are generated using the heuristics in _[Codish et al, Constraints for symmetry breaking in graph representation, Constraints 24 (2019)](https://doi.org/10.1007/s10601-018-9294-5)_. Using these heuristics, it is possible to avoid the generation of many (but not all) isomorphic copies of the same graph.
 
-The following table show the number of games we generate for each combination given by the number of nodes *n* and the maximum valuation *m*. The first line shows the number of non-isomorphic graphs in the case when m=1, taken from https://users.cecs.anu.edu.au/~bdm/data/graphs.html. Note that we subtract one unit from the values taken from this web page in order to account for the only graph without edges (m=0) that we do not count in our procedure.
+The following table shows the number of games we generate for each combination given by the number of nodes *n* and the maximum valuation *m*. The first line shows the number of non-isomorphic graphs in the case when m=1, taken from https://users.cecs.anu.edu.au/~bdm/data/graphs.html. Note that we subtract one unit from the values taken from this web page in order to account for the only graph without edges (m=0) that we do not count in our procedure.
 
  m\n | 3   | 4       | 5         | 6            | 7          | 8          | 9       | 10        | 11         |
 ----:|----:|--------:|----------:|-------------:|-----------:|-----------:|--------:|----------:|-----------:|
@@ -30,7 +30,7 @@ The following table show the number of games we generate for each combination gi
    8 | 45  | 16005   | 35741811  | 533002333113 |
    9 | 55  | 27550   | 95011942  |
   10 | 66  | 45001   | 229565094 |
-  11 | 78  | 70390
+  11 | 78  | 70390   | 512752516 |
   12 | 91  | 106171
   13 | 105 | 155260
   14 | 120 | 221075
@@ -40,14 +40,24 @@ The following table show the number of games we generate for each combination gi
   18 | 190 | 739765
   19 | 210 | 960850
   20 | 231 | 1231951
+  21 |     | 1561120
+  22 |     | 1957231
+  23 |     | 2430020
+  24 |     | 2990125
+  25 |     | 3649126
+  26 |     | 4419585
+  27 |     | 5315086
+  28 |     | 6350275
+  29 |     | 7540900
+  30 |     | 8903851
 
 ## Simple games without Nash stable coalition structure.
 
 * No cases for $k=3$ and $k=4$ (known from theory).
-* No cases for $n \leq 9$, and $k < n$.
+* No cases for $2 \leq n \leq 9$, and $k < n$.
 * No cases for $n=10$ and $k<n$ with the **only exception** of $n=10$ and $k=7$.
 
-## Games without Nash Nash stable coalition structure.
+## Games without Nash stable coalition structure.
 
 For each $k$ and $n$, this table shows the maximum weight ($m$) of the lexicographically minimum graph with no Nash stable coalition structure.
 
@@ -63,74 +73,87 @@ For each $k$ and $n$, this table shows the maximum weight ($m$) of the lexicogra
 
 Note that these numbers decrease monotonically with $n$. This is because if a game with $n$ agents has no Nash stable coalition structure, the node with $n+1$ agents obtained by adding a new disconnected node also has no stable coalition structure for the same value of $k$.
 
-There is no direct relationship between numbers with different values of $k$ since increasing $k$ from the one side increase the number of coalition structures, but other side increase the number of allowerd deviations.
+There is no direct relationship between numbers with different values of $k$ since increasing $k$ from the one side increase the number of coalition structures, but other side increase the number of allowed deviations.
 
 ## Number of games with no Nash stable coalition structures
 
 For each value of $k$, $m$ and $n$ we count the number of games without Nash stable coalition structures.
-The value we find is to compare with the total number of games in the first table above. We recall that the method we usae for enumerating graphs may contain many isomorphic variants of the same graph.
+The value we find is to compare with the total number of games in the first table above. We recall that the method we use for enumerating graphs may contain many isomorphic variants of the same graph.
 
 Note that numbers increase monotonically when $n$ increase, for the same reason already outlined in the observations relative to the table above.
 
 ### k=3
 
- m\n | 4      | 5        | 6       | 7 | 8 | 9 | 10 |
-----:|-------:|---------:|--------:|--:|--:|--:|----|
-   1 | 0      | 0        | 0       | 0 | 0 | 0 | 0  |
-   2 | 0      | 0        | 0       | 0 | 0 |
-   3 | 0      | 0        | 0       | 0 |
-   4 | 0      | 0        | 0       |   |
-   5 | 0      | **45**   | **50**  |
-   6 | 0      | **147**  | **160** |
-   7 | **1**  | **728**  | **913** |
-   8 | 0      | **1654** |         |
-   9 | **2**  | **4831** |
-  10 | **1**  | **9747** |
-  11 | **4**  |
-  12 | **2**  |
-  13 | **9**  |
-  14 | **5**  |
-  15 | **14** |
-  16 | **11** |
-  17 | **23** |
-  18 | **18** |
-  19 | **38** |
-  20 | **31** |
+ m\n | 4       | 5         | 6         | 7         | 8         | 9         | 10 |
+----:|--------:|----------:|----------:|----------:|----------:|----------:|:--:|
+   1 |  0      | 0         | 0         | 0         | 0         | 0         | 0  |
+   2 |  0      | 0         | 0         | 0         | 0         | (timeout) |
+   3 |  0      | 0         | 0         | 0         | (timeout) |
+   4 |  0      | 0         | 0         | (timeout) |
+   5 |  0      | **45**    | **50**    |
+   6 |  0      | **147**   | **160**   |
+   7 |  **1**  | **728**   | **913**   |
+   8 |  0      | **1654**  |
+   9 |  **2**  | **4831**  |
+  10 |  **1**  | **9747**  |
+  11 |  **4**  | **22222** |
+  12 |  **2**  | (timeout) |
+  13 |  **9**  |
+  14 |  **5**  |
+  15 |  **14** |
+  16 |  **11** |
+  17 |  **23** |
+  18 |  **18** |
+  19 |  **38** |
+  20 |  **31** |
+  21 |  **55** |
+  22 |  **52** |
+  23 |  **82** |
+  24 |  **76** |
+  25 | **121** |
+  26 | **115** |
+  27 | **165** |
+  28 | **169** |
+  29 | **230** |
+  30 | **231** |
 
 ### k=4
 
- m\n | 5       | 6            | 7        | 8      |
-----:|--------:|-------------:|---------:|-------:|
-   1 | 0       | 0            | 0        | 0      |
-   2 | 0       | **9**        | **9**    | **9**  |
-   3 | 0       | **1033**     | **1084** |
-   4 | 0       | **29759**    |
-   5 | 0       | **336527**   |
-   6 | 0       | **2660652**  |
-   7 | 0       |
-   8 | 0       |
-   9 | 0       |
-  10 | **423** |
+ m\n | 5         | 6            | 7         | 8         | 9         | 10 |
+----:|----------:|-------------:|----------:|----------:|----------:|:--:|
+   1 | 0         | 0            | 0         | 0         | 0         | 0  |
+   2 | 0         | **9**        | **9**     | **9**     | (timeout) |
+   3 | 0         | **1033**     | **1084**  | (timeout) |
+   4 | 0         | **29759**    | (timeout) |
+   5 | 0         | **336527**   |
+   6 | 0         | **2660652**  |
+   7 | 0         | **18055411** |
+   8 | 0         |
+   9 | 0         |
+  10 | **423**   |
+  11 | **759**   |
+  12 | (timeout) |
 
 ### k=5
 
- m\n | 6          | 7     | 8 |
-----:|-----------:|------:|--:|
-   1 | 0          | 0     | 0 |
-   2 | **5**      | **5** |
-   3 | **41**     |       |
-   4 | **2098**   |       |
+ m\n | 6          | 7         | 8         | 9         | 10 |
+----:|-----------:|----------:|----------:|:---------:|:--:|
+   1 | 0          | 0         | 0         | 0         | 0  |
+   2 | **5**      | **5**     | **36109** | (timeout) |
+   3 | **41**     | **41259** | (timeout) |
+   4 | **2098**   | (timeout) |
    5 | **64388**  |
    6 | **500786** |
+   7 | (timeout)  |
 
 ### k=6
 
- m\n | 7       | 8         | 9       | 10       |
-----:|--------:|----------:|--------:|---------:|
-   1 | 0       | 0         | 0       | 0        |
-   2 | 0       | **17915** |
-   3 | **146** |
-
+ m\n | 7          | 8         | 9         | 10       |
+----:|-----------:|----------:|----------:|---------:|
+   1 | 0          | 0         | 0         | 0        |
+   2 | 0          | **17915** | (timeout) |
+   3 | **146**    | (timeout) |
+   4 | **66743**  |
 
 ### k=7
 
@@ -139,13 +162,11 @@ Note that numbers increase monotonically when $n$ increase, for the same reason 
    1 | 0         | 0 | **13** |
    2 | **11736** |
 
-
 ### k=8
 
  m\n | 9 | 10 |
 ----:|--:|---:|
    1 | 0 | 0  |
-
 
 ## Powers of two (need to recompute values)
 
@@ -195,7 +216,7 @@ but 1, 2, 4, 8, ... 2^m.
 
  ## The case m=3 (need to recompute values)
 
- We now make experiments like the ones above, but where weights are only 0, 1 and *v* for a variable *v*. We consider the following possible values for *v*: 2, 3, ..., 127, 128, 256, ..., 2**31. We only recoport here the combination which have given a non-zero count.
+ We now make experiments like the ones above, but where weights are only 0, 1 and *v* for a variable *v*. We consider the following possible values for *v*: 2, 3, ..., 127, 128, 256, ..., 2**31. Furthermore, we only report here the combination which have given a non-zero count.
 
 |   k |   n | val       |   count |
 |----:|----:|:----------|--------:|
