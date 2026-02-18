@@ -9,13 +9,14 @@ import pydot
 
 from . import HedonicGameImpl as hgimpl
 
+
+# Unfortunately, specifying the shape of the array in the type hint does not work well
+type IntArray2D = npt.NDArray[np.int_]
+
+# Unfortunately, specifying the shape of the array in the type hint does not work well
+type IntArray1D = npt.NDArray[np.int_]
+
 type Agent = int
-
-# Unfortunately, specifying the shape of the array in the type hint does not work well
-type IntArray2D = npt.NDArray[np.integer]
-
-# Unfortunately, specifying the shape of the array in the type hint does not work well
-type IntArray1D = npt.NDArray[np.integer]
 
 type Coalition = int
 
