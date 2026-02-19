@@ -4,8 +4,10 @@ Highly optimized code for brute-forcing hedonic game explorations.
 Parameters mostly have the same meaning in all functions, namely:
 - game -- a game, that is, a matrix of valuations:
     - game[i,j] is the valuation of agent j for agent i
-- cs -- a coalition structure, that is, a vector of integers mapping each agent to its coalitions number:
-    - cs[i] is the coalition number of agent i;
+- cs -- a coalition structure, that is, a vector of integers mapping each agent to its coalition number:
+    - cs[i] is the coalition number of agent i
+    - in some cases we work with partial coalition structures, i.e., coalition structures where some
+      agents are not assigned to any coalition, and its corresponding value in cs is -1
 - cs_sizes -- a vector of integers mapping coalition numbers to their sizes:
     - cs_sizes[i] is the size of coalition i
     - the length of cs_sizes should be equal to the number of agents in game
@@ -145,7 +147,7 @@ def next_improving_deviation(game: Game, is_fractional: bool, cs: CoalitionStruc
 
     The parameter dev is the last found improving deviation (use default value if you need to find the first
     deviation). Normally, the maximum target coalition in an improving deviation is equal to len(cs_sizes).
-    However, the paramer max_coalition may be used to further restrict this value.
+    However, the parameter max_coalition may be used to further restrict this value.
     """
     ag, co = dev
     while ag < len(game):
@@ -167,7 +169,7 @@ def improving_deviations(game: Game, is_fractional: bool, cs: CoalitionStructure
     Return a list of improving deviations for the given game and coalition structure.
 
     Normally, the maximum target coalition in an improving deviation is equal to len(cs_sizes).
-    However, the paramer max_coalition may be used to further restrict this value.
+    However, the parameter max_coalition may be used to further restrict this value.
     """
     res = []
     dev = next_improving_deviation(game, is_fractional, cs, cs_sizes, max_coalition, k, weights)
@@ -204,7 +206,7 @@ def cs_givensize_next(cit: CoalitionStructureIterator, k: int | None = None) -> 
     """
     Update the iterator with a new coalition structure.
 
-    The function returns False when the iterator has not been updated since there are no more coalistion
+    The function returns False when the iterator has not been updated since there are no more coalition
     structures, otherwise it returns True.
     """
     cs, cs_sizes, cs_nums, size = cit
@@ -250,7 +252,7 @@ def cs_next(cit: CoalitionStructureIterator,  k: int | None) -> bool:
     """
     Update the iterator with a new coalition structure.
 
-    The function returns False when the iterator has not been updated since there are no more coalistion
+    The function returns False when the iterator has not been updated since there are no more coalition
     structures, otherwise it returns True.
     """
     cs, cs_sizes, cs_nums, size = cit
@@ -279,7 +281,7 @@ def css_givensize(num_agents: int, size: int, k: int | None = None) -> Iterator[
 @njit
 def css(num_agents: int, k: int | None = None) -> Iterator[CoalitionStructure]:
     """
-    Return a Python iterator the for coalition structures of the given game.
+    Return a Python iterator for coalition structures of the given game.
     """
     cit = cs_begin(num_agents)
     while cs_next(cit, k):
@@ -346,7 +348,7 @@ class GameIterator(NamedTuple):
 # [game_next] function to change the value of these variables. The problem is that numba does not allow dataclasses to be used.
 # Other solutions we tried where:
 # - Using a @jitclass, but this is quite slower than the current solution.
-# - Using a structref, but this is not supported when JIT is disabled, and it seriously hinder debugging.
+# - Using a structref, but this is not supported when JIT is disabled, and it seriously hinders debugging.
 # - Using a structured scalar, but this is annoying since these scalars can be used but not generated inside JITTED code.
 
 
@@ -394,7 +396,7 @@ def game_next(git: GameIterator) -> bool:
     while data[_SOUGHT_MAX_VALUATION] <= max_valuation:
         while row >= 0:
             # Checks in line 2 and 3 of the following code are used to remove graphs that are isomorphic
-            # to other graphs found in other iterations. They are actuall not needed, since the check later
+            # to other graphs found in other iterations. They are actually not needed, since the check later
             # on the code will subsume them, but they are kept because they make the execution faster.
 
             bot = game[col][row] if is_symmetric and row > col else \
@@ -459,7 +461,7 @@ def game_next(git: GameIterator) -> bool:
 @njit
 def game_next_unstable(git: GameIterator, is_fractional: bool = True, k: int | None = None, weights: Weights | None = None) -> bool:
     """
-    Update the iterator with a new game with no Nash table coalition structures.
+    Update the iterator with a new game with no Nash stable coalition structures.
 
     The function returns False when the iterator has not been updated since there are no more games,
     otherwise it returns True.

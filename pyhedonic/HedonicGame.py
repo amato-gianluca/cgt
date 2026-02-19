@@ -33,7 +33,7 @@ class PriceResult(NamedTuple):
     """Price of stability"""
 
     pom: float
-    """Avegare price of the Nash equilibria"""
+    """Average price of the Nash equilibria"""
 
     cs_worst: 'CoalitionStructure'
     """Coalition structure with the worst price"""
@@ -57,7 +57,7 @@ class Graph:
 
     is_directed: bool
     """
-    Whether the graph is directed or not. If `True`, matrix `weights` shoule be symmetric, while
+    Whether the graph is directed or not. If `True`, matrix `weights` should be symmetric, while
     the opposite is not generally true.
     """
 
@@ -221,7 +221,7 @@ class HedonicGame:
     @property
     def agents_num(self) -> int:
         """
-        Return the number of agens in the game.
+        Return the number of agents in the game.
         """
         return len(self.valuations)
 
@@ -278,14 +278,14 @@ class HedonicGame:
 
     def nash_stable_coalition_structures(self) -> Iterator['CoalitionStructure']:
         """
-        Iterates over the the Nash stable coalition structures of the game.
+        Iterates over the Nash stable coalition structures of the game.
         """
         for cs in hgimpl.nash_equilibria(self.valuations, self.is_fractional, self.k):
             yield CoalitionStructure(self, cs)
 
     def has_nash_stable_coalition_structure(self) -> bool:
         """
-        Return whether the game as has a Nash stable coalition structure.
+        Return whether the game has a Nash stable coalition structure.
         """
         return hgimpl.nash_equilibrium(self.valuations, self.is_fractional, self.k) is not None
 
@@ -311,7 +311,7 @@ class HedonicGame:
 
     def prices(self) -> PriceResult | None:
         """
-        Return the prics of anarchy and the price of stability for the game, together with an example of the
+        Return the prices of anarchy and the price of stability for the game, together with an example of the
         coalition structures that achieve them. If the game has no Nash stable coalition structure, the
         result is `None`.
         """
@@ -456,7 +456,7 @@ class CoalitionStructure:
     def is_improving_deviation(self, ag: Agent, co_new: Coalition) -> bool:
         """
         Determine if the given agent can improve its utility by moving to the new coalition. Note that `co_new`
-        may one larger then the current coalition strucure size. This means that the agent `ag` is moving its
+        may be one larger than the current coalition structure size. This means that the agent `ag` is moving its
         current coalition to form a new coalition alone.
         """
         assert 0 <= ag < len(self.cs), "Agent number out of range."
