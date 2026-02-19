@@ -180,17 +180,37 @@ def improving_deviations(game: Game, is_fractional: bool, cs: CoalitionStructure
     return res
 
 
-type CoalitionStructureIterator = tuple[CoalitionStructure, IntArray1D, IntArray1D, IntArray1D]
-"""
-An iterator over coalition structures:
-- the first element is the current coalition structure (cs), with the proviso that the special coalition -1 is
-  used to denote an agent which is not yet part of any coalition;
-- the second element is the vector of sizes of the coalitions (cs_sizes);
-- the third element  is the vector of cumulative maximum coalition numbers for each agent (cs_nums), i.e.,
-  cs_nums[i] is equal to `max(cs[a] for a in range(i))` for i > 1, with the special value `cs_nums[0] = -1`.
-- the last element is the sought number of coalitions, represented as an an array of a single element in order
-  to be mutable.
-"""
+class CoalitionStructureIterator(NamedTuple):
+    """An iterator over coalition structures."""
+
+    cs: CoalitionStructure
+    """
+    The last coalition structure computed by the iterator.
+    """
+
+    cs_size: IntArray1D
+    """
+    The vector of sizes of the coalitions.
+    """
+
+    cs_nums: IntArray1D
+    """
+    The vector of cumulative maximum coalition numbers for each agent, i.e., cs_nums[i] is equal to
+    `max(cs[a] for a in range(i))` for i > 1, with the special value `cs_nums[0] = -1`.
+    """
+
+    data: IntArray1D
+    """
+    Additional data for the iterator, i.e., a list whose first (and only) element is the sought number
+    of coalitions. We put this information in an array because we need to modify it during the iterations.
+    """
+
+# Note the use of the "data" field to store additional information. This is the best solution we have found so far allowing
+# functions to change the value of these variables. The problem is that numba does not allow dataclasses to be used.
+# Other solutions we tried where:
+# - Using a @jitclass, but this is quite slower than the current solution.
+# - Using a structref, but this is not supported when JIT is disabled, and it seriously hinders debugging.
+# - Using a structured scalar, but this is annoying since these scalars can be used but not generated inside JITTED code.
 
 
 @njit
@@ -198,7 +218,8 @@ def cs_givensize_begin(num_agents: int, size: int) -> CoalitionStructureIterator
     """
     Build an iterator for coalition structures of a given size.
     """
-    return np.full(num_agents, -1), np.zeros(num_agents, dtype=np.int_), np.full(num_agents+1, -1), np.array([size])
+    return CoalitionStructureIterator(np.full(num_agents, -1), np.zeros(num_agents, dtype=np.int_),
+                                      np.full(num_agents+1, -1), np.array([size]))
 
 
 @njit
@@ -275,7 +296,7 @@ def css_givensize(num_agents: int, size: int, k: int | None = None) -> Iterator[
     """
     cit = cs_givensize_begin(num_agents, size)
     while cs_givensize_next(cit, k):
-        yield np.copy(cit[0])
+        yield np.copy(cit.cs)
 
 
 @njit
@@ -285,7 +306,7 @@ def css(num_agents: int, k: int | None = None) -> Iterator[CoalitionStructure]:
     """
     cit = cs_begin(num_agents)
     while cs_next(cit, k):
-        yield np.copy(cit[0])
+        yield np.copy(cit.cs)
 
 
 @njit
@@ -343,13 +364,6 @@ class GameIterator(NamedTuple):
     """
     Debug verbosity. Zero or negative is no debug.
     """
-
-# Note the use of the "data" field to store additional information. This is the best solution we have found so far allowing the
-# [game_next] function to change the value of these variables. The problem is that numba does not allow dataclasses to be used.
-# Other solutions we tried where:
-# - Using a @jitclass, but this is quite slower than the current solution.
-# - Using a structref, but this is not supported when JIT is disabled, and it seriously hinders debugging.
-# - Using a structured scalar, but this is annoying since these scalars can be used but not generated inside JITTED code.
 
 
 # Constants for the data field of the GameIterator
