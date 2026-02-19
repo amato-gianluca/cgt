@@ -200,14 +200,14 @@ def cs_givensize_begin(num_agents: int, size: int) -> CoalitionStructureIterator
 
 
 @njit
-def cs_givensize_next(cs_data: CoalitionStructureIterator, k: int | None = None) -> bool:
+def cs_givensize_next(cit: CoalitionStructureIterator, k: int | None = None) -> bool:
     """
     Update the iterator with a new coalition structure.
 
     The function returns False when the iterator has not been updated since there are no more coalistion
     structures, otherwise it returns True.
     """
-    cs, cs_sizes, cs_nums, size = cs_data
+    cs, cs_sizes, cs_nums, size = cit
     num_agents = len(cs)
     ag = 0 if cs[0] == -1 else num_agents - 1
     while True:
@@ -246,17 +246,17 @@ def cs_begin(num_agents: int) -> CoalitionStructureIterator:
 
 
 @njit
-def cs_next(cs_data: CoalitionStructureIterator,  k: int | None) -> bool:
+def cs_next(cit: CoalitionStructureIterator,  k: int | None) -> bool:
     """
     Update the iterator with a new coalition structure.
 
     The function returns False when the iterator has not been updated since there are no more coalistion
     structures, otherwise it returns True.
     """
-    cs, cs_sizes, cs_nums, size = cs_data
+    cs, cs_sizes, cs_nums, size = cit
     num_agents = len(cs)
     while size[0] <= num_agents:
-        res = cs_givensize_next(cs_data, k)
+        res = cs_givensize_next(cit, k)
         if res:
             return True
         size[0] += 1
@@ -271,9 +271,9 @@ def css_givensize(num_agents: int, size: int, k: int | None = None) -> Iterator[
     """
     Return a Python iterator for the coalition structures of the given name and specified size.
     """
-    cs_data = cs_givensize_begin(num_agents, size)
-    while cs_givensize_next(cs_data, k):
-        yield np.copy(cs_data[0])
+    cit = cs_givensize_begin(num_agents, size)
+    while cs_givensize_next(cit, k):
+        yield np.copy(cit[0])
 
 
 @njit
@@ -281,9 +281,9 @@ def css(num_agents: int, k: int | None = None) -> Iterator[CoalitionStructure]:
     """
     Return a Python iterator the for coalition structures of the given game.
     """
-    cs_data = cs_begin(num_agents)
-    while cs_next(cs_data, k):
-        yield np.copy(cs_data[0])
+    cit = cs_begin(num_agents)
+    while cs_next(cit, k):
+        yield np.copy(cit[0])
 
 
 @njit
@@ -291,9 +291,9 @@ def nash_equilibria(game: Game, is_fractional: bool = True, k: int | None = None
     """
     Return a Python iterator for all Nash equilibria of the given game.
     """
-    cs_data = cs_begin(len(game))
-    while cs_next(cs_data, k):
-        cs, cs_sizes, _, size = cs_data
+    cit = cs_begin(len(game))
+    while cs_next(cit, k):
+        cs, cs_sizes, _, size = cit
         res = next_improving_deviation(game, is_fractional, cs, cs_sizes, size[0], k, weights)
         if res is None:
             yield np.copy(cs)
@@ -304,9 +304,9 @@ def nash_equilibrium(game: Game, is_fractional: bool = True, k: int | None = Non
     """
     Return the first Nash equilibrium of the given game, if it exists.
     """
-    cs_data = cs_begin(len(game))
-    while cs_next(cs_data, k):
-        cs, cs_sizes, _, size = cs_data
+    cit = cs_begin(len(game))
+    while cs_next(cit, k):
+        cs, cs_sizes, _, size = cit
         res = next_improving_deviation(game, is_fractional, cs, cs_sizes, size[0], k, weights)
         if res is None:
             return cs
