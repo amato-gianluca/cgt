@@ -25,5 +25,5 @@ for n in range(n_min, n_max+1):
         m_min = 0
         print("num_agents:", n, "k:", k, "maxval: ", m)
         count_noequilibrium, count_total = count_unstable_games(
-            num_agents=n, k=k, m_begin=m, m_end=m, debug=1)
+            agent_count=n, k=k, m_begin=m, m_end=m, debug=1)
         print("num_agents:", n, "k:", k, "maxval: ", m, "count:", count_noequilibrium, "/", count_total)

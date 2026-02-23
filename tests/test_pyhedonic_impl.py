@@ -99,19 +99,19 @@ def test_is_improving_deviation():
 
 
 def test_improving_deviations():
-    assert list(improving_deviations(GAME1, True, GAME1_CS1, GAME1_CS1_SIZES, max_coalition=len(GAME1_CS1_SIZES), k=None)) \
+    assert list(improving_deviations(GAME1, True, GAME1_CS1, GAME1_CS1_SIZES, co_max=len(GAME1_CS1_SIZES), k=None)) \
         == [(1, 1)]
-    assert list(improving_deviations(GAME1, True, GAME1_CS2, GAME1_CS2_SIZES, max_coalition=len(GAME1_CS2_SIZES), k=None)) \
+    assert list(improving_deviations(GAME1, True, GAME1_CS2, GAME1_CS2_SIZES, co_max=len(GAME1_CS2_SIZES), k=None)) \
         == []
-    assert list(improving_deviations(GAME2, True, GAME2_CS1, GAME2_CS1_SIZES, max_coalition=len(GAME2_CS1_SIZES), k=None)) \
+    assert list(improving_deviations(GAME2, True, GAME2_CS1, GAME2_CS1_SIZES, co_max=len(GAME2_CS1_SIZES), k=None)) \
         == [(1, 1)]
-    assert list(improving_deviations(GAME2, False, GAME2_CS1, GAME2_CS1_SIZES, max_coalition=len(GAME2_CS1_SIZES), k=None)) \
+    assert list(improving_deviations(GAME2, False, GAME2_CS1, GAME2_CS1_SIZES, co_max=len(GAME2_CS1_SIZES), k=None)) \
         == []
-    assert list(improving_deviations(GAME3, True, GAME3_CS1, GAME3_CS1_SIZES, max_coalition=len(GAME3_CS1_SIZES), k=None)) \
+    assert list(improving_deviations(GAME3, True, GAME3_CS1, GAME3_CS1_SIZES, co_max=len(GAME3_CS1_SIZES), k=None)) \
         == [(1, 1), (1, 2), (2, 1), (2, 2)]
-    assert list(improving_deviations(GAME3, True, GAME3_CS1, GAME3_CS1_SIZES, max_coalition=len(GAME3_CS1_SIZES), k=None)) \
+    assert list(improving_deviations(GAME3, True, GAME3_CS1, GAME3_CS1_SIZES, co_max=len(GAME3_CS1_SIZES), k=None)) \
         == [(1, 1), (1, 2), (2, 1), (2, 2)]
-    assert list(improving_deviations(GAME3, True, GAME3_CS1, GAME3_CS1_SIZES, max_coalition=1, k=None)) \
+    assert list(improving_deviations(GAME3, True, GAME3_CS1, GAME3_CS1_SIZES, co_max=1, k=None)) \
         == [(1, 1),  (2, 1)]
     assert list(improving_deviations(GAME5, True, GAME5_CS1, GAME5_CS1_SIZES, 3, None)) \
         == [(0, 1), (0, 2), (1, 0), (1, 2), (2, 0), (2, 1)]
@@ -136,6 +136,12 @@ def test_css():
                                  [0, 1, 2, 3]])
 
 
+def test_bash_equilibria():
+    assert compare_nparray_list(nash_equilibria(GAME4), [[0, 0, 0]])
+    assert compare_nparray_list(nash_equilibria(GAME4, k=1), [[0, 1, 2]])
+    assert compare_nparray_list(nash_equilibria(GAME6, k=3), [])
+
+
 def test_bash_equilibrium():
     assert np.all(nash_equilibrium(GAME4) == [0, 0, 0])
     assert np.all(nash_equilibrium(GAME4, k=1) == [0, 1, 2])
@@ -151,14 +157,23 @@ def test_games():
     assert compare_nparray_list(games(2, m_end=2), res)
     assert compare_nparray_list(games(2, m_begin=2, m_end=2), res[-1:])
 
+def test_unstable_games():
+    res = [
+        [[0, 0], [0, 0]],
+        [[0, 1], [1, 0]],
+        [[0, 2], [2, 0]],
+    ]
+    assert compare_nparray_list(unstable_games(2, m_end=2), [])
+    assert compare_nparray_list(unstable_games(2, m_begin=2, m_end=2), [])
+
 
 def test_count_games():
-    assert count_games(num_agents=4, m_end=2) == 72
-    assert count_games(num_agents=4, m_begin=2, m_end=2) == 61
+    assert count_games(agent_count=4, m_end=2) == 72
+    assert count_games(agent_count=4, m_begin=2, m_end=2) == 61
 
 
 def test_count_unstable_games():
-    assert count_unstable_games(num_agents=6, m_begin=2, m_end=2, k=4) \
+    assert count_unstable_games(agent_count=6, m_begin=2, m_end=2, k=4) \
         == (9, 66515)
-    assert count_unstable_games(num_agents=4, m_begin=4, m_end=4, k=3, weights=np.array([0, 1, 4, 7, 9])) \
+    assert count_unstable_games(agent_count=4, m_begin=4, m_end=4, k=3, weights=np.array([0, 1, 4, 7, 9])) \
         == (2, 775)

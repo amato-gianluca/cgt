@@ -9,6 +9,6 @@ from pyhedonic.HedonicGameImpl import *
 for n in range(2, 20):
     for k in range(1, n):
         print("n:", n, "k:",k)
-        for g in unstable_game(num_agents=n, k=k, max_valuation=1, debug=1):
+        for g in unstable_games(agent_count=n, k=k, m_end=1, debug=1):
             print(g)
             break
