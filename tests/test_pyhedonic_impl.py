@@ -99,21 +99,21 @@ def test_is_improving_deviation():
 
 
 def test_improving_deviations():
-    assert improving_deviations(GAME1, True, GAME1_CS1, GAME1_CS1_SIZES, max_coalition=len(GAME1_CS1_SIZES), k=None) \
+    assert list(improving_deviations(GAME1, True, GAME1_CS1, GAME1_CS1_SIZES, max_coalition=len(GAME1_CS1_SIZES), k=None)) \
         == [(1, 1)]
-    assert improving_deviations(GAME1, True, GAME1_CS2, GAME1_CS2_SIZES, max_coalition=len(GAME1_CS2_SIZES), k=None) \
+    assert list(improving_deviations(GAME1, True, GAME1_CS2, GAME1_CS2_SIZES, max_coalition=len(GAME1_CS2_SIZES), k=None)) \
         == []
-    assert improving_deviations(GAME2, True, GAME2_CS1, GAME2_CS1_SIZES, max_coalition=len(GAME2_CS1_SIZES), k=None) \
+    assert list(improving_deviations(GAME2, True, GAME2_CS1, GAME2_CS1_SIZES, max_coalition=len(GAME2_CS1_SIZES), k=None)) \
         == [(1, 1)]
-    assert improving_deviations(GAME2, False, GAME2_CS1, GAME2_CS1_SIZES, max_coalition=len(GAME2_CS1_SIZES), k=None) \
+    assert list(improving_deviations(GAME2, False, GAME2_CS1, GAME2_CS1_SIZES, max_coalition=len(GAME2_CS1_SIZES), k=None)) \
         == []
-    assert improving_deviations(GAME3, True, GAME3_CS1, GAME3_CS1_SIZES, max_coalition=len(GAME3_CS1_SIZES), k=None) \
+    assert list(improving_deviations(GAME3, True, GAME3_CS1, GAME3_CS1_SIZES, max_coalition=len(GAME3_CS1_SIZES), k=None)) \
         == [(1, 1), (1, 2), (2, 1), (2, 2)]
-    assert improving_deviations(GAME3, True, GAME3_CS1, GAME3_CS1_SIZES, max_coalition=len(GAME3_CS1_SIZES), k=None) \
+    assert list(improving_deviations(GAME3, True, GAME3_CS1, GAME3_CS1_SIZES, max_coalition=len(GAME3_CS1_SIZES), k=None)) \
         == [(1, 1), (1, 2), (2, 1), (2, 2)]
-    assert improving_deviations(GAME3, True, GAME3_CS1, GAME3_CS1_SIZES, max_coalition=1, k=None) \
+    assert list(improving_deviations(GAME3, True, GAME3_CS1, GAME3_CS1_SIZES, max_coalition=1, k=None)) \
         == [(1, 1),  (2, 1)]
-    assert improving_deviations(GAME5, True, GAME5_CS1, GAME5_CS1_SIZES, 3, None) \
+    assert list(improving_deviations(GAME5, True, GAME5_CS1, GAME5_CS1_SIZES, 3, None)) \
         == [(0, 1), (0, 2), (1, 0), (1, 2), (2, 0), (2, 1)]
 
 
@@ -131,9 +131,9 @@ def test_css():
     assert compare_nparray_list(css(3, k=2), [[0, 0, 1], [0, 1, 0], [0, 1, 1], [0, 1, 2]])
     assert compare_nparray_list(css(3, k=1), [[0, 1, 2]])
     assert compare_nparray_list(css(4, k=2),
-                       [[0, 0, 1, 1], [0, 1, 0, 1], [0, 1, 1, 0],
-                        [0, 0, 1, 2], [0, 1, 0, 2], [0, 1, 1, 2], [0, 1, 2, 0],  [0, 1, 2, 1], [0, 1, 2, 2],
-                        [0, 1, 2, 3]])
+                                [[0, 0, 1, 1], [0, 1, 0, 1], [0, 1, 1, 0],
+                                 [0, 0, 1, 2], [0, 1, 0, 2], [0, 1, 1, 2], [0, 1, 2, 0],  [0, 1, 2, 1], [0, 1, 2, 2],
+                                 [0, 1, 2, 3]])
 
 
 def test_bash_equilibrium():

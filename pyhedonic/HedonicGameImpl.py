@@ -138,6 +138,9 @@ def is_improving_deviation(game: Game, is_fractional: bool, cs: CoalitionStructu
         return ut_new * cs_sizes[co_old] > ut_old * (cs_sizes[co_new]+1)
 
 
+# I tried to rewrite next_improving_deviation in the style of the other iterators (see cs_begin, cs_next)
+# but every time this has caused a sensible decrease of performance.
+
 @njit
 def next_improving_deviation(game: Game, is_fractional: bool, cs: CoalitionStructure, cs_sizes: IntArray1D,
                              max_coalition: int, k: int | None, weights: Weights | None = None,
@@ -164,20 +167,17 @@ def next_improving_deviation(game: Game, is_fractional: bool, cs: CoalitionStruc
 
 @njit
 def improving_deviations(game: Game, is_fractional: bool, cs: CoalitionStructure, cs_sizes: IntArray1D,
-                         max_coalition: int, k: int | None, weights: Weights | None = None) -> list[Deviation]:
+                         max_coalition: int, k: int | None, weights: Weights | None = None) -> Iterator[Deviation]:
     """
-    Return a list of improving deviations for the given game and coalition structure.
+    Return a Python iterator of improving deviations for the given game and coalition structure.
 
     Normally, the maximum target coalition in an improving deviation is equal to len(cs_sizes).
     However, the parameter max_coalition may be used to further restrict this value.
     """
-    res = []
     dev = next_improving_deviation(game, is_fractional, cs, cs_sizes, max_coalition, k, weights)
     while dev is not None:
-        res.append(dev)
-        dev = next_improving_deviation(
-            game, is_fractional, cs, cs_sizes, max_coalition, k, weights, dev)
-    return res
+        yield dev
+        dev = next_improving_deviation(game, is_fractional, cs, cs_sizes, max_coalition, k, weights, dev)
 
 
 class CoalitionStructureIterator(NamedTuple):
