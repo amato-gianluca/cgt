@@ -4,7 +4,7 @@ It tries all n (numer of agents) from 2 to 20 and all k (maximal coalition size)
 """
 from context import pyhedonic
 
-from pyhedonic.HedonicGameImpl import *
+from pyhedonic.hedonicgame_impl import *
 
 for n in range(2, 20):
     for k in range(1, n):

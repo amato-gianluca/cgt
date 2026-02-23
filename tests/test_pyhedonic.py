@@ -6,13 +6,12 @@ The notation [PAPER] refers to the paper "Nash Stability in Fractional Hedonic G
 with Bounded Size Coalitions".
 """
 
-from collections.abc import Iterator, Iterable
+from collections.abc import Iterable
 import networkx as nx
 import numpy as np
-import numpy.typing as npt
 import pytest
 
-import pyhedonic.HedonicGame as hg
+import pyhedonic.hedonicgame as hg
 
 VALUATIONS1 = np.array([
     [0, 0, 2],

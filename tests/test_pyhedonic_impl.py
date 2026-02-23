@@ -4,7 +4,7 @@ This file contains unit tests for the pyhedonic library. In particular, it tests
 HedonicGameImpl module, which implements the core functionality of the library using Numba.
 """
 
-from pyhedonic.HedonicGameImpl import *
+from pyhedonic.hedonicgame_impl import *
 
 import numpy as np
 

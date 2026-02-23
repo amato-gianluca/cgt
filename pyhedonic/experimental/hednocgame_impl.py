@@ -13,7 +13,7 @@ from typing import Iterator, NamedTuple
 import numpy as np
 from numba import njit
 
-from pyhedonic.HedonicGameImpl import (CoalitionStructure, Deviation, Game,
+from pyhedonic.hedonicgame_impl import (CoalitionStructure, Deviation, Game,
                                        IntArray1D, Weights, game_begin,
                                        game_next, is_improving_deviation)
 

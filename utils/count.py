@@ -8,7 +8,7 @@ trying to keep them low enough that the computation is actually feasible.
 from context import pyhedonic
 
 from sys import argv
-from pyhedonic.HedonicGameImpl import *
+from pyhedonic.hedonicgame_impl import *
 
 k = int(argv[1])
 

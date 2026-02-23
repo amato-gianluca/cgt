@@ -11,8 +11,8 @@ import networkx as nx
 import numpy as np
 import pydot
 
-from . import HedonicGameImpl as hgimpl
-from .HedonicGameImpl import IntArray1D, IntArray2D, Agent, Coalition
+from . import hedonicgame_impl as hgimpl
+from .hedonicgame_impl import IntArray1D, IntArray2D, Agent, Coalition
 
 
 class PriceResult(NamedTuple):
