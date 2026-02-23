@@ -182,7 +182,7 @@ class HedonicGame:
 
     graph: Graph
     """
-    The graph enconding the agents and their valuations.
+    The graph encoding the agents and their valuations.
     """
 
     k: int | None

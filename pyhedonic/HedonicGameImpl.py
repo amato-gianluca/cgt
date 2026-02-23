@@ -136,8 +136,8 @@ def is_improving_deviation(game: Game, is_fractional: bool, cs: CoalitionStructu
         return ut_new * cs_sizes[co_old] > ut_old * (cs_sizes[co_new]+1)
 
 
-# I tried to rewrite next_improving_deviation in the style of the other iterators (see cs_begin, cs_next)
-# but every time this has caused a sensible decrease of performance.
+ # I tried to rewrite next_improving_deviation in the style of the other iterators (see cs_begin, cs_next)
+ # but every time this has caused a noticeable decrease in performance.
 
 @njit
 def next_improving_deviation(game: Game, is_fractional: bool, cs: CoalitionStructure, cs_sizes: IntArray1D,

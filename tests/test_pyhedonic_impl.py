@@ -1,7 +1,7 @@
 
 """
 This file contains unit tests for the pyhedonic library. In particular, it tests the
-HedonicGameImpl module, which implements the core functionality of the library using Numba
+HedonicGameImpl module, which implements the core functionality of the library using Numba.
 """
 
 from pyhedonic.HedonicGameImpl import *
@@ -80,11 +80,11 @@ def test_agent_utility():
     assert agent_utility(GAME1, GAME1_CS2, ag=1) == (4, 3)
 
 
-def test_coalition_social_walfare():
+def test_coalition_social_welfare():
     assert coalition_social_welfare(GAME1, GAME1_CS1, co=0) == (0, 1)
     assert coalition_social_welfare(GAME1, GAME1_CS1, co=1) == (4, 2)
     assert coalition_social_welfare(GAME1, GAME1_CS2, co=0) == (8, 3)
-    # non exsistent coalition
+    # non-existent coalition
     assert coalition_social_welfare(GAME1, GAME1_CS2, co=1) == (0, 0)
 
 
@@ -92,9 +92,9 @@ def test_is_improving_deviation():
     assert is_improving_deviation(GAME1, True, GAME1_CS1, GAME1_CS1_SIZES, Deviation(1, 1))
     assert not is_improving_deviation(GAME1, True, GAME1_CS1, GAME1_CS1_SIZES, Deviation(0, 0))
     assert not is_improving_deviation(GAME2, True, GAME2_CS1, GAME2_CS1_SIZES, Deviation(0, 1))
-    # moving to a coaling with less agents and the same (null) utility for fractional games
+    # moving to a coalition with fewer agents and the same (null) utility for fractional games
     assert is_improving_deviation(GAME2, True, GAME2_CS1, GAME2_CS1_SIZES, Deviation(1, 1))
-    # moving to a coaling with less agents and the same (null) utility for additive games
+    # moving to a coalition with fewer agents and the same (null) utility for additive games
     assert not is_improving_deviation(GAME2, False, GAME2_CS1, GAME2_CS1_SIZES, Deviation(1, 1))
 
 
