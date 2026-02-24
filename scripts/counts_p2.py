@@ -1,7 +1,8 @@
 """
 This script reads data for the counts.json file and produces a table in markdown format
 with the results of the experiment relative to counting the number of games without Nash stable
-coalition structures, with varying values for k, n (number of agents) and m (maximum valuation).
+coalition structures, with varying values for k, n (number of agents) power of twos as valuations.
+The column m contains the greatest power of two allowed in the game.
 """
 
 import json
