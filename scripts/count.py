@@ -48,9 +48,9 @@ parser.add_argument('-o', '--output', help='output file')
 parser.add_argument('-w', '--weights', help='weights to use instead of consecutive numbers')
 args = parser.parse_args()
 
-n_range = parse_range(args.n)
-k_range = parse_range(args.k)
-m_range = parse_range(args.m)
+n_range = parse_range(args.n) if args.n else None
+k_range = parse_range(args.k) if args.k else None
+m_range = parse_range(args.m) if args.m else None
 
 f = open(args.output, "a") if args.output else None
 weights = json.loads(args.weights) if args.weights else None
