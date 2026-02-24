@@ -1,3 +1,9 @@
+"""
+This script reads data for the counts.json file and produces a table in markdown format
+with the results of the experiment relative to counting the number of games without Nash stable
+coalition structures and only three possible valuations, that is 0, 1 and a variable
+value v.
+"""
 import json
 from math import log2
 from pathlib import Path

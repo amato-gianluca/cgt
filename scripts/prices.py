@@ -1,5 +1,5 @@
 """
-This script compute prices for games.
+This script computes prices for games.
 """
 
 from sys import argv

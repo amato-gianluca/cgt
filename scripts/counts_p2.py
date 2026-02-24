@@ -1,3 +1,9 @@
+"""
+This script reads data for the counts.json file and produces a table in markdown format
+with the results of the experiment relative to counting the number of games without Nash stable
+coalition structures, with varying values for k, n (number of agents) and m (maximum valuation).
+"""
+
 import json
 from pathlib import Path
 
@@ -24,9 +30,6 @@ for k in ks:
 
     print("\n\nk =", k)
     print(pivot.to_markdown())
-
-
-
 
 # grouped = df.groupby(col_order + [col_count])
 # grouped = grouped.agg({
