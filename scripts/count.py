@@ -5,8 +5,6 @@ The script will iterate over the number of agents and the maximum valuation,
 trying to keep them low enough that the computation is actually feasible.
 """
 
-from context import pyhedonic
-
 from sys import argv
 from pyhedonic.hedonicgame_impl import *
 

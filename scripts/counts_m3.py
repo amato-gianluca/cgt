@@ -1,5 +1,7 @@
-from math import log2
 import json
+from math import log2
+from pathlib import Path
+
 import pandas as pd
 
 col_order = ["k", "n"]
@@ -7,7 +9,7 @@ col_count = "count"
 col_val = "v"
 
 data = []
-with open("counts.json", "r") as f:
+with open(Path(__file__).parent / "data/counts.json", "r") as f:
     for line in f:
         data.append(json.loads(line))
 
