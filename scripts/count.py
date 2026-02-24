@@ -121,7 +121,7 @@ def main():
                     unstable_game_count = total_game_count = -1
                     example = None
                     elapsed_time = timeout
-                log_msg = result_log(n, k, m, weights, total_game_count, unstable_game_count, elapsed_time, example)
+                log_msg = result_log(k, n, m, weights, total_game_count, unstable_game_count, elapsed_time, example)
                 print(log_msg)
                 if f:
                     print(log_msg, file=f, flush=True)
