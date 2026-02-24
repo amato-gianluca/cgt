@@ -528,7 +528,7 @@ def count_games(agent_count: int, is_symmetric: bool = True, m_begin: int = 0, m
 @njit
 def count_unstable_games(agent_count: int, is_symmetric: bool = True, m_begin: int = 0, m_end: int = 1,
                          k: int | None = None, is_fractional: bool = True, weights: Weights | None = None,
-                         debug: int = 0) -> tuple[int, int]:
+                         debug: int = 0) -> tuple[int, int, Game | None]:
     """
     Count the number of games without a Nash stable coalition structure.
 
@@ -539,11 +539,14 @@ def count_unstable_games(agent_count: int, is_symmetric: bool = True, m_begin: i
     count_total = 0
     count_noequilibrium = 0
     first = True
+    example = None
     while game_next(git):
         count_total += 1
         if nash_equilibrium(git.game, is_fractional, k, weights) is None:
-            if debug > 0 and first:
+            if first:
+                example = np.copy(git.game)
                 first = False
-                print(git.game)
+                if debug > 0:
+                    print(example)
             count_noequilibrium += 1
-    return count_noequilibrium, count_total
+    return count_noequilibrium, count_total, example
