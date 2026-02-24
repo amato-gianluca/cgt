@@ -135,9 +135,9 @@ def is_improving_deviation(game: Game, is_fractional: bool, cs: CoalitionStructu
     else:
         return ut_new * cs_sizes[co_old] > ut_old * (cs_sizes[co_new]+1)
 
-
  # I tried to rewrite next_improving_deviation in the style of the other iterators (see cs_begin, cs_next)
  # but every time this has caused a noticeable decrease in performance.
+
 
 @njit
 def next_improving_deviation(game: Game, is_fractional: bool, cs: CoalitionStructure, cs_sizes: IntArray1D,
@@ -501,8 +501,8 @@ def games(agent_count: int, is_symmetric: bool = True, m_begin: int = 0, m_end: 
 
 @njit
 def unstable_games(agent_count: int, is_symmetric: bool = True, m_begin: int = 0, m_end: int = 1,
-                  k: int | None = None, is_fractional: bool = True, weights: Weights | None = None,
-                  debug: int = 0) -> Iterator[Game]:
+                   k: int | None = None, is_fractional: bool = True, weights: Weights | None = None,
+                   debug: int = 0) -> Iterator[Game]:
     """
     Return a Python iterator over games without a Nash stable coalition structure.
     """
@@ -525,7 +525,7 @@ def count_games(agent_count: int, is_symmetric: bool = True, m_begin: int = 0, m
     return count_total
 
 
-@njit
+@njit(cache=True)
 def count_unstable_games(agent_count: int, is_symmetric: bool = True, m_begin: int = 0, m_end: int = 1,
                          k: int | None = None, is_fractional: bool = True, weights: Weights | None = None,
                          debug: int = 0) -> tuple[int, int, Game | None]:
