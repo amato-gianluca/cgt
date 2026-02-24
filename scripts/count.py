@@ -85,6 +85,7 @@ for k in k_range:
             print(log_msg)
             if f:
                 print(log_msg, file=f)
+                f.flush()
 
 if f:
     f.close()
