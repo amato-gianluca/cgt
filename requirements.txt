@@ -1,7 +1,0 @@
-pytest
-numpy
-numba
-pydot
-pandas
-tabulate
-networkx
