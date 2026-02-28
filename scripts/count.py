@@ -6,6 +6,7 @@ import argparse
 import datetime
 import json
 import multiprocessing as mp
+import sys
 import time
 from typing import Collection, Callable, Any
 
@@ -61,6 +62,22 @@ def run_with_timeout(fn: Callable, timeout: float, *args, **kwargs) -> Any:
     raise RuntimeError(payload)
 
 
+def load_data(filename: str) -> list[dict[str, Any]]:
+    data = []
+    with open(filename, "r") as f:
+        for line in f:
+            data.append(json.loads(line))
+    return data
+
+
+def skip_processing(data: list[dict[str, Any]], k: int, n: int, m: int, weights: Any, timeout: float) -> bool:
+    for ex in data:
+        if ex["k"] == 3 and ex["n"] == n and ex["m"] == m and ex["weights"] == weights and \
+                (ex["unstable_game_count"] != -1 or ex["elapsed_time"] < timeout):
+            return True
+    return False
+
+
 def count_with_timing(**kwargs) -> tuple[tuple[int, int, Game | None], float]:
     # I tried to generalize count_with_timing to make it works with any function, but this
     # interferes with numba caching.
@@ -80,6 +97,7 @@ def main():
     parser.add_argument('k', nargs='?', help='upper bound on the size of coalitions')
     parser.add_argument('n', nargs='?', help='number of agents in the game')
     parser.add_argument('m', nargs='?', help='maximum valuation in the game')
+    parser.add_argument('-i', '--input', help='input file containing already counted data points')
     parser.add_argument('-o', '--output', help='output file')
     parser.add_argument('-w', '--weights', help='weights to use instead of consecutive numbers')
     parser.add_argument('-t', '--timeout', type=float, help='timeout for a single game count')
@@ -92,6 +110,8 @@ def main():
     f = None if args.output is None else open(args.output, "a")
     weights = None if args.weights is None else json.loads(args.weights)
     timeout = args.timeout
+
+    old_data = load_data(args.input) if args.input else []
 
     # warmup jit
     count_unstable_games(agent_count=2, k=1, m_begin=1, m_end=1, weights=weights, debug=0)
@@ -113,6 +133,9 @@ def main():
                     case _: local_m_range = range(1, 2)
 
             for m in local_m_range:
+                if skip_processing(old_data, k, n, m, weights, timeout):
+                    print("k:", k, "n:", n, "m: ", m, "------ SKIPPED")
+                    continue
                 print("k:", k, "n:", n, "m: ", m)
                 try:
                     (unstable_game_count, total_game_count, example), elapsed_time = run_with_timeout(
