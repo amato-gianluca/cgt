@@ -6,7 +6,6 @@ import argparse
 import datetime
 import json
 import multiprocessing as mp
-import sys
 import time
 from typing import Collection, Callable, Any
 
@@ -72,8 +71,8 @@ def load_data(filename: str) -> list[dict[str, Any]]:
 
 def skip_processing(data: list[dict[str, Any]], k: int, n: int, m: int, weights: Any, timeout: float) -> bool:
     for ex in data:
-        if ex["k"] == 3 and ex["n"] == n and ex["m"] == m and ex["weights"] == weights and \
-                (ex["unstable_game_count"] != -1 or ex["elapsed_time"] < timeout):
+        if ex["k"] == k and ex["n"] == n and ex["m"] == m and ex["weights"] == weights and \
+                (ex["unstable_game_count"] != -1 or timeout is None or ex["elapsed_time"] > timeout):
             return True
     return False
 

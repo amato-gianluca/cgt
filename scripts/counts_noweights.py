@@ -19,8 +19,7 @@ df = pd.DataFrame(data)
 df = df[df["weights"].isna()]
 df = df.drop(columns=["example", "weights"])
 
-dfk3 =df[df["k"] == 3]
-pivot = dfk3.pivot_table(index="m", columns="n", values="total_game_count", fill_value=-2).astype(int).astype(str)
+pivot = df.pivot_table(index="m", columns="n", values="total_game_count", aggfunc=max, fill_value=-2).astype(int).astype(str)
 pivot = pivot.replace("-1", "(to)")
 pivot = pivot.replace("-2", "")
 print("Total game count")
