@@ -8,5 +8,6 @@
         "--max-line-length",
         "120"
     ],
-    "python.testing.pytestEnabled": true
+    "python.testing.pytestEnabled": true,
+    "python.analysis.typeCheckingMode": "standard"
 }
