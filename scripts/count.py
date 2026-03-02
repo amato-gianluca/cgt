@@ -150,6 +150,9 @@ def main():
                 print(log_msg)
                 if f:
                     print(log_msg, file=f, flush=True)
+                if unstable_game_count == -1:
+                    # do not try greater values for m if the current has timed out
+                    break
 
     if f:
         f.close()
