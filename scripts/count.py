@@ -125,10 +125,10 @@ def main():
             if local_m_range is None:
                 match n:
                     case 0 | 1 | 2 | 3 | 4: local_m_range = range(1, 31)
-                    case 5: local_m_range = range(1, 11)
+                    case 5: local_m_range = range(1, 13)
                     case 6: local_m_range = range(1, 7)
                     case 7: local_m_range = range(1, 4)
-                    case 8: local_m_range = range(1, 3)
+                    case 8 | 9: local_m_range = range(1, 3)
                     case _: local_m_range = range(1, 2)
 
             for m in local_m_range:
