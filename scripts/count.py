@@ -28,7 +28,7 @@ def result_log(k: int, n: int, m: int, weights: IntArray1D | None,  total_game_c
     return json.dumps(data)
 
 
-def parse_range(s: str) -> Collection[int]:
+def parse_range(s: str) -> range:
     s_split = s.split("-")
     val_min = int(s_split[0])
     val_max = int(s_split[1]) if len(s_split) > 1 else val_min
@@ -124,13 +124,17 @@ def main():
             local_m_range = m_range
             if local_m_range is None:
                 match n:
-                    case 0 | 1 | 2 | 3 | 4: local_m_range = range(1, 31)
-                    case 5: local_m_range = range(1, 13)
-                    case 6: local_m_range = range(1, 7)
-                    case 7: local_m_range = range(1, 4)
-                    case 8 | 9: local_m_range = range(1, 3)
-                    case _: local_m_range = range(1, 2)
+                    case 0 | 1 | 2 | 3 | 4: local_m_range = range(0, 31)
+                    case 5: local_m_range = range(0, 13)
+                    case 6: local_m_range = range(0, 7)
+                    case 7: local_m_range = range(0, 4)
+                    case 8 | 9: local_m_range = range(0, 3)
+                    case _: local_m_range = range(0, 2)
 
+            if weights is not None:
+                local_m_range = range(local_m_range.start, min(local_m_range.stop, len(weights)))
+
+            local_m_range = range(0,1)
             for m in local_m_range:
                 if skip_processing(old_data, k, n, m, weights, timeout):
                     print("k:", k, "n:", n, "m: ", m, "------ SKIPPED")
