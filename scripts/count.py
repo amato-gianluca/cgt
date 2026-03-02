@@ -93,9 +93,9 @@ def main():
         Count games without Nash table coalition structures.
         Arguments n, k and m may be either a natural number or a range min-max of natural numbers.
         ''')
-    parser.add_argument('k', nargs='?', help='upper bound on the size of coalitions')
-    parser.add_argument('n', nargs='?', help='number of agents in the game')
-    parser.add_argument('m', nargs='?', help='maximum valuation in the game')
+    parser.add_argument('-k', help='upper bound on the size of coalitions')
+    parser.add_argument('-n', help='number of agents in the game')
+    parser.add_argument('-m', help='maximum valuation in the game')
     parser.add_argument('-i', '--input', help='input file containing already counted data points')
     parser.add_argument('-o', '--output', help='output file')
     parser.add_argument('-w', '--weights', help='weights to use instead of consecutive numbers')
@@ -134,7 +134,6 @@ def main():
             if weights is not None:
                 local_m_range = range(local_m_range.start, min(local_m_range.stop, len(weights)))
 
-            local_m_range = range(0,1)
             for m in local_m_range:
                 if skip_processing(old_data, k, n, m, weights, timeout):
                     print("k:", k, "n:", n, "m: ", m, "------ SKIPPED")
