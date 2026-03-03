@@ -118,7 +118,7 @@ class Graph:
         """
         Convert the game in the dot format.
         """
-        graph_type = "graph" if self.is_directed() else "digraph"
+        graph_type = "digraph" if self.is_directed() else "graph"
         graph = pydot.Dot("hedonicgame", graph_type=graph_type, strict=True)
         for i in self.nodes():
             graph.add_node(pydot.Node(str(i)))
