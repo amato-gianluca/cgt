@@ -7,7 +7,7 @@ import datetime
 import json
 import multiprocessing as mp
 import time
-from typing import Collection, Callable, Any
+from typing import Callable, Any
 
 from pyhedonic.hedonicgame_impl import *
 
@@ -115,7 +115,7 @@ def main():
     # warmup jit
     count_unstable_games(agent_count=2, k=1, m_begin=1, m_end=1, weights=weights, debug=0)
 
-    local_k_range = range(3, 8) if k_range is None else k_range
+    local_k_range = range(3, 9) if k_range is None else k_range
 
     for k in local_k_range:
         local_n_range = range(k+1, 11) if n_range is None else n_range
