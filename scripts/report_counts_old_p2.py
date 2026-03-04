@@ -1,5 +1,5 @@
 """
-This script reads data for the counts.json file and produces a table in markdown format
+This script reads data for the counts_old.json file and produces a table in markdown format
 with the results of the experiment relative to counting the number of games without Nash stable
 coalition structures, with varying values for k, n (number of agents) power of twos as valuations.
 The column m contains the greatest power of two allowed in the game.
@@ -15,7 +15,7 @@ col_count = "count"
 col_val = "val"
 
 data = []
-with open(Path(__file__).parent / "data/counts.json", "r") as f:
+with open(Path(__file__).parent / "data/counts_old.json", "r") as f:
     for line in f:
         data.append(json.loads(line))
 

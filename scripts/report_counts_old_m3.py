@@ -15,7 +15,7 @@ col_count = "count"
 col_val = "v"
 
 data = []
-with open(Path(__file__).parent / "data/counts.json", "r") as f:
+with open(Path(__file__).parent / "data/counts_old.json", "r") as f:
     for line in f:
         data.append(json.loads(line))
 

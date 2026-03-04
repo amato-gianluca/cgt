@@ -30,7 +30,7 @@ def total_games(df):
 
 def load_data(weights) -> list:
     data = []
-    with open(Path(__file__).parent / "data/dataout.txt", "r") as f:
+    with open(Path(__file__).parent / "data/counts.json", "r") as f:
         for line in f:
             row = json.loads(line)
             if has_valid_weights(row, weights):
