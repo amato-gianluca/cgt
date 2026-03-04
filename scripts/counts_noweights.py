@@ -11,16 +11,15 @@ from pathlib import Path
 
 import pandas as pd
 
-
-def are_power2(weights: list[int]) -> bool:
-    return weights is not None and weights == [2**i for i in range(len(weights))]
-
-
-def are_power2_biased(weights: list[int]) -> bool:
-    return weights is not None and weights == [0] + [2**i for i in range(len(weights)-1)]
-
-def are_initial_naturals(weights: list[int]) -> bool:
-    return weights is None
+def has_valid_weights(row, weights: list[int] | None) -> bool:
+    if weights is None and row["weights"] is None:
+        return True
+    elif weights is None or row["weights"] is None:
+        return False
+    elif row["m"] > len(weights):
+        return False
+    else:
+        return weights[:row["m"]+1] == row["weights"][:row["m"]+1]
 
 def total_games(df):
     pivot = df.pivot_table(index="m", columns="n", values="total_game_count",
@@ -29,16 +28,12 @@ def total_games(df):
     pivot = pivot.replace("-2", "")
     print(pivot.to_markdown())
 
-def load_data(args) -> list:
+def load_data(weights) -> list:
     data = []
     with open(Path(__file__).parent / "data/dataout.txt", "r") as f:
         for line in f:
             row = json.loads(line)
-            weights = row["weights"]
-            valid = are_power2(weights) if args.wp2 else \
-                    are_power2_biased(weights) if args.wzerop2 else \
-                    are_initial_naturals(weights)
-            if valid:
+            if has_valid_weights(row, weights):
                 data.append(row)
     return data
 
@@ -50,12 +45,19 @@ def main():
         Reports the counts collected by the counting program count.py.
         ''')
 
-    parser.add_argument('--wp2', help='select counts weights are power of twos', action='store_true')
-    parser.add_argument('--wzerop2', help='select counts weights are power of twos with an initial zero', action='store_true')
+    weights_group=parser.add_mutually_exclusive_group()
+
+    weights_group.add_argument('--wp2', help='select counts whose weights are power of twos', action='store_true')
+    weights_group.add_argument('--wzerop2', help='select counts whise weights are power of twos with an initial zero', action='store_true')
+    weights_group.add_argument('-w', '--weights', help='select counts whose weights are specified in this parameter')
     parser.add_argument('-t', '--totals', help='report about total games instead of unstable ones', action='store_true')
     args = parser.parse_args()
+    weights = [2**i for i in range(20)] if args.wp2 else \
+              [0] + [2**i for i in range(20)] if args.wzerop2 else \
+              json.loads(args.weights) if args.weights is not None else \
+              None
 
-    data = load_data(args)
+    data = load_data(weights)
     df = pd.DataFrame(data)
     df = df.drop(columns=["example", "weights"])
 
