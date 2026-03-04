@@ -238,11 +238,16 @@ The fact that weight zero is missing (i.e., the graph of the game is always conn
 |   1 | 0    | 0    | 0    |
 |   2 | (to) | (to) |      |
 
+**k=8**
+|   m | 9    | 10   |
+|----:|:-----|:-----|
+|   0 | 0    | 0    |
+|   1 | 0    | 0    |
+|   2 | (to) |      |
+
 ## Powers of two with zero
 
 The following tables are similar to the ones before, but the first value of the weights is not one but zero.
-
-
 
 **k=3**
 |   m |   4 |      5 | 6    | 7    | 8    | 9    | 10   |
@@ -308,6 +313,13 @@ The following tables are similar to the ones before, but the first value of the 
 |   1 | 0    | 0    | (to) |
 |   2 | (to) | (to) |      |
 
+
+**k=8**
+|   m | 9    | 10   |
+|----:|:-----|:-----|
+|   0 | 0    | 0    |
+|   1 | 0    | (to) |
+|   2 | (to) |      |
 
  ## The case m=3 (need to recompute values)
 
