@@ -572,3 +572,8 @@
 {"k": 7, "n": 9, "m": 2, "weights": [0, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37], "total_game_count": -1, "unstable_game_count": -1, "elapsed_time": 3600.0, "elapsed_time_human": "1:00:00", "example": null}
 {"k": 7, "n": 10, "m": 0, "weights": [0, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37], "total_game_count": 1, "unstable_game_count": 0, "elapsed_time": 0.22295761108398438, "elapsed_time_human": "0:00:00", "example": null}
 {"k": 7, "n": 10, "m": 1, "weights": [0, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37], "total_game_count": -1, "unstable_game_count": -1, "elapsed_time": 3600.0, "elapsed_time_human": "1:00:00", "example": null}
+{"k": 8, "n": 9, "m": 0, "weights": [0, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37], "total_game_count": 1, "unstable_game_count": 0, "elapsed_time": 0.15103960037231445, "elapsed_time_human": "0:00:00", "example": null}
+{"k": 8, "n": 9, "m": 1, "weights": [0, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37], "total_game_count": 2587487, "unstable_game_count": 0, "elapsed_time": 58.23923993110657, "elapsed_time_human": "0:00:58", "example": null}
+{"k": 8, "n": 9, "m": 2, "weights": [0, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37], "total_game_count": -1, "unstable_game_count": -1, "elapsed_time": 3600.0, "elapsed_time_human": "1:00:00", "example": null}
+{"k": 8, "n": 10, "m": 0, "weights": [0, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37], "total_game_count": 1, "unstable_game_count": 0, "elapsed_time": 0.19957327842712402, "elapsed_time_human": "0:00:00", "example": null}
+{"k": 8, "n": 10, "m": 1, "weights": [0, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37], "total_game_count": -1, "unstable_game_count": -1, "elapsed_time": 3600.0, "elapsed_time_human": "1:00:00", "example": null}
