@@ -9,7 +9,7 @@ In the following:
   - $m$ is the maximum weight of the edges;
   - $k$ is the maximum size of a partition.
 
-Notate that $m$ is intended as the maximum value of all the weights in the graph, not as an upper bound of all the weights. Therefore, set of graphs corresponding to different values of $m$ are disjoint. Simple graphs are those where $m$ is either $0$ (graph without edges) or $1$ (graph with at least one edge).
+Note that $m$ is intended as the maximum value of all the weights in the graph, not as an upper bound for all the weights. Therefore, sets of graphs corresponding to different values of $m$ are disjoint. Simple graphs are those where $m$ is either $0$ (graph without edges) or $1$ (graph with at least one edge).
 
 ## Exhaustive game generation procedure
 
@@ -57,7 +57,7 @@ The following table shows the number of games we generate for each combination g
 * No cases for $2 \leq n \leq 9$, and $k < n$.
 * No cases for $n=10$ and $k<n$ with the **only exception** of $n=10$ and $k=7$.
 
-## Games without Nash stable coalition structure.
+## Games without Nash stable coalition structure
 
 For each $k$ and $n$, this table shows the maximum weight ($m$) of the lexicographically minimum graph with no Nash stable coalition structure.
 
@@ -73,7 +73,7 @@ For each $k$ and $n$, this table shows the maximum weight ($m$) of the lexicogra
 
 Note that these numbers decrease monotonically with $n$. This is because if a game with $n$ agents has no Nash stable coalition structure, the node with $n+1$ agents obtained by adding a new disconnected node also has no stable coalition structure for the same value of $k$.
 
-There is no direct relationship between numbers with different values of $k$ since increasing $k$ from the one side increase the number of coalition structures, but other side increase the number of allowed deviations.
+There is no direct relationship between numbers with different values of $k$ since increasing $k$ on the one hand increases the number of coalition structures, but on the other hand increases the number of allowed deviations.
 
 ## Number of games with no Nash stable coalition structures
 
@@ -82,7 +82,7 @@ The value we find is to compare with the total number of games in the first tabl
 
 Note that numbers increase monotonically when $n$ increase, for the same reason already outlined in the observations relative to the table above.
 
-The value (to) means execution took more than 24h and was interrupred. Values in italic have been computed without enforcing a well-defined timeout, and we don't know how much time it took to find them.
+The value `(to)` means execution took more than 24h and was interrupted. Values in italic have been computed without enforcing a well-defined timeout, and we don't know how much time it took to find them.
 
 ### k=3
 
@@ -181,7 +181,7 @@ The following tables are similar to the ones before, but the real valuations of 
 The fact that weight zero is missing (i.e., the graph of the game is always connected) seriously reduces the number of games without Nash stable coalition structures.
 
 **k=3**
-|   m |   4 |   5 | 6    | 7    | 8    | 9    | 10   |
+| m\n |   4 |   5 | 6    | 7    | 8    | 9    | 10   |
 |----:|----:|----:|:-----|:-----|:-----|:-----|:-----|
 |   0 |   0 |   0 | 0    | 0    | 0    | 0    | 0    |
 |   1 |   0 |   0 | 0    | 0    | 0    | 0    | 0    |
@@ -199,7 +199,7 @@ The fact that weight zero is missing (i.e., the graph of the game is always conn
 
 
 **k=4**
-|   m |   5 | 6     | 7    | 8    | 9    | 10   |
+| m\n |   5 | 6     | 7    | 8    | 9    | 10   |
 |----:|----:|:------|:-----|:-----|:-----|:-----|
 |   0 |   0 | 0     | 0    | 0    | 0    | 0    |
 |   1 |   0 | 0     | 0    | 0    | 0    | 0    |
@@ -217,7 +217,7 @@ The fact that weight zero is missing (i.e., the graph of the game is always conn
 
 
 **k=5**
-|   m | 6    | 7    | 8    | 9    | 10   |
+| m\n | 6    | 7    | 8    | 9    | 10   |
 |----:|:-----|:-----|:-----|:-----|:-----|
 |   0 | 0    | 0    | 0    | 0    | 0    |
 |   1 | 0    | 0    | 0    | 0    | 0    |
@@ -229,7 +229,7 @@ The fact that weight zero is missing (i.e., the graph of the game is always conn
 
 
 **k=6**
-|   m | 7    | 8    | 9    | 10   |
+| m\n | 7    | 8    | 9    | 10   |
 |----:|:-----|:-----|:-----|:-----|
 |   0 | 0    | 0    | 0    | 0    |
 |   1 | 0    | 0    | 0    | 0    |
@@ -238,14 +238,14 @@ The fact that weight zero is missing (i.e., the graph of the game is always conn
 
 
 **k=7**
-|   m | 8    | 9    | 10   |
+| m\n | 8    | 9    | 10   |
 |----:|:-----|:-----|:-----|
 |   0 | 0    | 0    | 0    |
 |   1 | 0    | 0    | 0    |
 |   2 | (to) | (to) |      |
 
 **k=8**
-|   m | 9    | 10   |
+| m\n | 9    | 10   |
 |----:|:-----|:-----|
 |   0 | 0    | 0    |
 |   1 | 0    | 0    |
@@ -253,10 +253,10 @@ The fact that weight zero is missing (i.e., the graph of the game is always conn
 
 ## Powers of two with zero
 
-The following tables are similar to the ones before, but the first value of the weights is not one but zero.
+The following tables are similar to the ones before, but the first value of the weights is not one but zero, i.e., weights are $0, 1, 2, 4, 8, \ldots, 2^{m-1}$. Timeout is 1 hour.
 
 **k=3**
-|   m |   4 |      5 | 6    | 7    | 8    | 9    | 10   |
+| m\n |   4 |      5 | 6    | 7    | 8    | 9    | 10   |
 |----:|----:|-------:|:-----|:-----|:-----|:-----|:-----|
 |   0 |   0 |      0 | 0    | 0    | 0    | 0    | 0    |
 |   1 |   0 |      0 | 0    | 0    | 0    | 0    | (to) |
@@ -274,7 +274,7 @@ The following tables are similar to the ones before, but the first value of the 
 
 
 **k=4**
-|   m |   5 | 6     | 7    | 8    | 9    | 10   |
+| m\n |   5 | 6     | 7    | 8    | 9    | 10   |
 |----:|----:|:------|:-----|:-----|:-----|:-----|
 |   0 |   0 | 0     | 0    | 0    | 0    | 0    |
 |   1 |   0 | 0     | 0    | 0    | 0    | (to) |
@@ -292,7 +292,7 @@ The following tables are similar to the ones before, but the first value of the 
 
 
 **k=5**
-|   m | 6    | 7    | 8    | 9    | 10   |
+| m\n | 6    | 7    | 8    | 9    | 10   |
 |----:|:-----|:-----|:-----|:-----|:-----|
 |   0 | 0    | 0    | 0    | 0    | 0    |
 |   1 | 0    | 0    | 0    | 0    | (to) |
@@ -304,7 +304,7 @@ The following tables are similar to the ones before, but the first value of the 
 
 
 **k=6**
-|   m | 7    | 8    | 9    | 10   |
+| m\n | 7    | 8    | 9    | 10   |
 |----:|:-----|:-----|:-----|:-----|
 |   0 | 0    | 0    | 0    | 0    |
 |   1 | 0    | 0    | 0    | (to) |
@@ -313,7 +313,7 @@ The following tables are similar to the ones before, but the first value of the 
 
 
 **k=7**
-|   m | 8    | 9    | 10   |
+| m\n | 8    | 9    | 10   |
 |----:|:-----|:-----|:-----|
 |   0 | 0    | 0    | 0    |
 |   1 | 0    | 0    | (to) |
@@ -321,7 +321,159 @@ The following tables are similar to the ones before, but the first value of the 
 
 
 **k=8**
-|   m | 9    | 10   |
+| m\n | 9    | 10   |
+|----:|:-----|:-----|
+|   0 | 0    | 0    |
+|   1 | 0    | (to) |
+|   2 | (to) |      |
+
+## Prime numbers
+
+In the following experiments we are using 0 and prime numbers 2, 3, 5, ... as weights. Timeout is 1 hour.
+
+**k=3**
+| m\n |   4 |      5 | 6    | 7    | 8    | 9    | 10   |
+|----:|----:|-------:|:-----|:-----|:-----|:-----|:-----|
+|   0 |   0 |      0 | 0    | 0    | 0    | 0    | 0    |
+|   1 |   0 |      0 | 0    | 0    | 0    | 0    | (to) |
+|   2 |   0 |      0 | 0    | 0    | (to) | (to) |      |
+|   3 |   0 |      0 | 0    | (to) |      |      |      |
+|   4 |   1 |     30 | 50   |      |      |      |      |
+|   5 |   0 |    138 | 151  |      |      |      |      |
+|   6 |   0 |    748 | (to) |      |      |      |      |
+|   7 |   2 |   2283 |      |      |      |      |      |
+|   8 |   1 |   6422 |      |      |      |      |      |
+|   9 |   6 |  15995 |      |      |      |      |      |
+|  10 |   4 |  33651 |      |      |      |      |      |
+|  11 |   3 |  73186 |      |      |      |      |      |
+|  12 |   9 | 138569 |      |      |      |      |      |
+
+
+**k=4**
+| m\n |     5 | 6     | 7    | 8    | 9    | 10   |
+|----:|------:|:------|:-----|:-----|:-----|:-----|
+|   0 |     0 | 0     | 0    | 0    | 0    | 0    |
+|   1 |     0 | 0     | 0    | 0    | 0    | (to) |
+|   2 |     0 | 0     | 0    | (to) | (to) |      |
+|   3 |     0 | 1755  | (to) |      |      |      |
+|   4 |     0 | 59975 |      |      |      |      |
+|   5 |     0 | (to)  |      |      |      |      |
+|   6 |    15 | (to)  |      |      |      |      |
+|   7 |   102 |       |      |      |      |      |
+|   8 |   407 |       |      |      |      |      |
+|   9 |   726 |       |      |      |      |      |
+|  10 |  2427 |       |      |      |      |      |
+|  11 | 14662 |       |      |      |      |      |
+|  12 | 24941 |       |      |      |      |      |
+
+
+**k=5**
+| m\n | 6     | 7    | 8    | 9    | 10   |
+|----:|:------|:-----|:-----|:-----|:-----|
+|   0 | 0     | 0    | 0    | 0    | 0    |
+|   1 | 0     | 0    | 0    | 0    | (to) |
+|   2 | 0     | 10   | (to) | (to) |      |
+|   3 | 987   | (to) |      |      |      |
+|   4 | 21577 |      |      |      |      |
+|   5 | (to)  |      |      |      |      |
+|   6 | (to)  |      |      |      |      |
+
+
+**k=6**
+| m\n | 7    | 8    | 9    | 10   |
+|----:|:-----|:-----|:-----|:-----|
+|   0 | 0    | 0    | 0    | 0    |
+|   1 | 0    | 0    | 0    | (to) |
+|   2 | 0    | (to) | (to) |      |
+|   3 | (to) |      |      |      |
+
+
+**k=7**
+| m\n | 8    | 9    | 10   |
+|----:|:-----|:-----|:-----|
+|   0 | 0    | 0    | 0    |
+|   1 | 0    | 0    | (to) |
+|   2 | (to) | (to) |      |
+
+
+**k=8**
+| m\n | 9    | 10   |
+|----:|:-----|:-----|
+|   0 | 0    | 0    |
+|   1 | 0    | (to) |
+|   2 | (to) |      |
+
+## Odd prime numbers
+
+In the following experiments we are using 0 and odd prime numbers 3, 5, ... as weights.  Timeout is 1 hour. It seems that skipping the number 2 makes it possible to obtain games without Nash stable coalition structure with a smaller value of m.
+
+
+**k=3**
+| m\n |   4 |      5 | 6    | 7    | 8    | 9    | 10   |
+|----:|----:|-------:|:-----|:-----|:-----|:-----|:-----|
+|   0 |   0 |      0 | 0    | 0    | 0    | 0    | 0    |
+|   1 |   0 |      0 | 0    | 0    | 0    | 0    | (to) |
+|   2 |   0 |      0 | 0    | 0    | (to) | (to) |      |
+|   3 |   1 |      2 | 14   | (to) |      |      |      |
+|   4 |   0 |     14 | 19   |      |      |      |      |
+|   5 |   0 |     95 | 106  |      |      |      |      |
+|   6 |   1 |    402 | (to) |      |      |      |      |
+|   7 |   1 |   1500 |      |      |      |      |      |
+|   8 |   4 |   4182 |      |      |      |      |      |
+|   9 |   3 |  10069 |      |      |      |      |      |
+|  10 |   2 |  24997 |      |      |      |      |      |
+|  11 |   7 |  50944 |      |      |      |      |      |
+|  12 |  17 | 110900 |      |      |      |      |      |
+
+
+**k=4**
+| m\n |     5 | 6     | 7    | 8    | 9    | 10   |
+|----:|------:|:------|:-----|:-----|:-----|:-----|
+|   0 |     0 | 0     | 0    | 0    | 0    | 0    |
+|   1 |     0 | 0     | 0    | 0    | 0    | (to) |
+|   2 |     0 | 17    | 20   | (to) | (to) |      |
+|   3 |     0 | 2271  | (to) |      |      |      |
+|   4 |     0 | 52164 |      |      |      |      |
+|   5 |    15 | (to)  |      |      |      |      |
+|   6 |    58 |       |      |      |      |      |
+|   7 |   216 |       |      |      |      |      |
+|   8 |   282 |       |      |      |      |      |
+|   9 |  1175 |       |      |      |      |      |
+|  10 |  7615 |       |      |      |      |      |
+|  11 | 14513 |       |      |      |      |      |
+|  12 | 34157 |       |      |      |      |      |
+
+
+**k=5**
+| m\n | 6     | 7    | 8    | 9    | 10   |
+|----:|:------|:-----|:-----|:-----|:-----|
+|   0 | 0     | 0    | 0    | 0    | 0    |
+|   1 | 0     | 0    | 0    | 0    | (to) |
+|   2 | 5     | 67   | (to) | (to) |      |
+|   3 | 1022  | (to) |      |      |      |
+|   4 | 15799 |      |      |      |      |
+|   5 | (to)  |      |      |      |      |
+
+
+**k=6**
+| m\n | 7    | 8    | 9    | 10   |
+|----:|:-----|:-----|:-----|:-----|
+|   0 | 0    | 0    | 0    | 0    |
+|   1 | 0    | 0    | 0    | (to) |
+|   2 | 13   | (to) | (to) |      |
+|   3 | (to) |      |      |      |
+
+
+**k=7**
+| m\n | 8    | 9    | 10   |
+|----:|:-----|:-----|:-----|
+|   0 | 0    | 0    | 0    |
+|   1 | 0    | 0    | (to) |
+|   2 | (to) | (to) |      |
+
+
+**k=8**
+| m\n | 9    | 10   |
 |----:|:-----|:-----|
 |   0 | 0    | 0    |
 |   1 | 0    | (to) |
