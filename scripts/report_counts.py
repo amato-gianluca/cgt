@@ -72,7 +72,7 @@ def main():
                                     aggfunc=max, fill_value=-2).astype(int).astype(str)
             pivot = pivot.replace("-1", "(to)")
             pivot = pivot.replace("-2", "")
-            print("\n\nk =", k)
+            print(f"\n\n**k={k}**")
             print(pivot.to_markdown())
 
 
