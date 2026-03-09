@@ -121,15 +121,7 @@ def main():
         local_n_range = range(k+1, 11) if n_range is None else n_range
 
         for n in local_n_range:
-            local_m_range = m_range
-            if local_m_range is None:
-                match n:
-                    case 0 | 1 | 2 | 3 | 4: local_m_range = range(0, 31)
-                    case 5: local_m_range = range(0, 13)
-                    case 6: local_m_range = range(0, 7)
-                    case 7: local_m_range = range(0, 4)
-                    case 8 | 9: local_m_range = range(0, 3)
-                    case _: local_m_range = range(0, 2)
+            local_m_range = range(0,31) if m_range is None else m_range
 
             if weights is not None:
                 local_m_range = range(local_m_range.start, min(local_m_range.stop, len(weights)))
