@@ -69,7 +69,7 @@ def main():
         for k in ks:
             dfk = df[df["k"] == k]
             pivot = dfk.pivot_table(index="m", columns="n", values="unstable_game_count",
-                                    fill_value=-2).astype(int).astype(str)
+                                    aggfunc=max, fill_value=-2).astype(int).astype(str)
             pivot = pivot.replace("-1", "(to)")
             pivot = pivot.replace("-2", "")
             print("\n\nk =", k)
