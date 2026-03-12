@@ -25,7 +25,7 @@ Parameters mostly have the same meaning in all functions, namely:
 - debug -- debug verbosity: zero or negative is no debug
 """
 
-from typing import Iterator, NamedTuple
+from typing import Iterator, NamedTuple, cast
 
 import numpy as np
 import numpy.typing as npt
@@ -108,6 +108,20 @@ def coalition_social_welfare(game: Game, cs: CoalitionStructure, co: Coalition,
                 if cs[j] == co:
                     ut += game[i, j] if weights is None else weights[int(game[i, j])]
     return ut, size
+
+
+@njit
+def social_welfare(game: Game,  is_fractional: bool, cs: CoalitionStructure,  cs_sizes: IntArray1D) -> float:
+    agent_count = len(game)
+    sw: float = 0.0
+    for i in range(agent_count):
+        ut = 0
+        co = cs[i]
+        for j in range(agent_count):
+            if cs[j] == co:
+                ut += game[j, i]
+        sw += ut / cs_sizes[co] if is_fractional else ut  # type: ignore
+    return sw
 
 
 @njit
@@ -336,6 +350,56 @@ def nash_equilibrium(game: Game, is_fractional: bool = True, k: int | None = Non
             return cs
 
 
+class Prices(NamedTuple):
+    poa: float
+    """Price of anarchy"""
+
+    pos: float
+    """Price of stability"""
+
+    cs_best: CoalitionStructure
+    """Coalition structure with best social welfare"""
+
+    cs_best_equilibrium: CoalitionStructure
+    """Nash stable coalition structure with best social welfare"""
+
+    cs_worst_equilibrium: CoalitionStructure
+    """Nash stable coalition structure with worst social welfare"""
+
+
+@njit(error_model="numpy")
+def poa_pos(game: Game, is_fractional: bool = True, k: int | None = None) -> Prices | None:
+    """
+    Return the PoA (price of anarchy) and PoS (price of stability) for the given game, and related coalition structures.
+    """
+    cit = cs_begin(len(game))
+    sw_best_equilibrium = float("-inf")
+    cs_best_equilibrium = np.array([-1])
+    sw_worst_equilibrium = float("+inf")
+    cs_worst_equilibrium = np.array([-1])
+    sw_best = float("-inf")
+    cs_best = np.array([-1])
+    valid = False
+    while cs_next(cit, k):
+        cs, cs_sizes, _, cs_data = cit
+        sw = social_welfare(game, is_fractional, cs, cs_sizes)
+        if sw > sw_best:
+            sw_best = sw
+            cs_best = np.copy(cs)
+        res = next_improving_deviation(game, is_fractional, cs, cs_sizes, cs_data[0], k)
+        if res is None:
+            valid = True
+            if sw > sw_best_equilibrium:
+                sw_best_equilibrium = sw
+                cs_best_equilibrium = np.copy(cs)
+            if sw < sw_worst_equilibrium:
+                sw_worst_equilibrium = sw
+                cs_worst_equilibrium = np.copy(cs)
+    poa = sw_best/sw_worst_equilibrium
+    pos = sw_best/sw_best_equilibrium
+    return Prices(poa, pos, cs_best, cs_best_equilibrium, cs_worst_equilibrium) if valid else None
+
+
 class GameIterator(NamedTuple):
     """
     An internal iterator over games.
@@ -550,3 +614,64 @@ def count_unstable_games(agent_count: int, is_symmetric: bool = True, m_begin: i
                     print(example)
             count_noequilibrium += 1
     return count_noequilibrium, count_total, example
+
+
+class GamePrices(NamedTuple):
+    poa_best: Prices
+    poa_best_game: Game
+    poa_worst: Prices
+    poa_worst_game: Game
+    pos_best: Prices
+    pos_best_game: Game
+    pos_worst: Prices
+    pos_worst_game: Game
+    poa_avg: float
+    pos_avg: float
+
+
+@njit(cache=True)
+def compute_poa_pos(agent_count: int, is_symmetric: bool = True, m_begin: int = 0, m_end: int = 1,
+                    k: int | None = None, is_fractional: bool = True, weights: Weights | None = None,
+                    debug: int = 0) -> GamePrices | None:
+    if weights is not None:
+        raise NotImplementedError("The function compute_poa_pos does not support weights yet.")
+    git = game_begin(agent_count, is_symmetric, m_begin, m_end, debug)
+    poa_worst_val = float("inf")
+    poa_sum_val = 0.0
+    poa_best_val = float("-inf")
+    pos_worst_val = float("inf")
+    pos_sum_val = 0.0
+    pos_best_val = float("-inf")
+    poa_worst_game = poa_best_game = pos_worst_game = pos_best_game = np.array([[-1]])
+    poa_worst = poa_best = pos_worst = pos_best = Prices(0.0, 0.0, np.array([-1]), np.array([-1]), np.array([-1]))
+    count = 0
+    valid_count = 0
+    while game_next(git):
+        count += 1
+        prices = poa_pos(git.game, is_fractional, k)
+        if prices is None:
+            continue
+        valid_count += 1
+        poa = prices.poa
+        pos = prices.pos
+        if poa > poa_best_val:
+            poa_best_val = poa
+            # Need to rebuild prices due to limitations of Numba
+            poa_best = Prices(poa, pos, prices.cs_best, prices.cs_best_equilibrium, prices.cs_worst_equilibrium)
+            poa_best_game = np.copy(git.game)
+        poa_sum_val += poa
+        if poa < poa_worst_val:
+            poa_worst_val = poa
+            poa_worst = Prices(poa, pos, prices.cs_best, prices.cs_best_equilibrium, prices.cs_worst_equilibrium)
+            poa_worst_game = np.copy(git.game)
+        if pos > pos_best_val:
+            pos_best_val = pos
+            pos_best = Prices(poa, pos, prices.cs_best, prices.cs_best_equilibrium, prices.cs_worst_equilibrium)
+            pos_best_game = np.copy(git.game)
+        pos_sum_val += pos
+        if pos < pos_worst_val:
+            pos_worst_val = pos
+            pos_worst = Prices(poa, pos, prices.cs_best, prices.cs_best_equilibrium, prices.cs_worst_equilibrium)
+            pos_worst_game = np.copy(git.game)
+    return GamePrices(poa_best, poa_best_game, poa_worst, poa_worst_game, pos_best, pos_best_game, pos_worst,
+                      pos_worst_game, poa_sum_val/valid_count, pos_sum_val/valid_count) if valid_count > 0 else None
