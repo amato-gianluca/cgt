@@ -1,0 +1,5402 @@
+---
+k: 3
+n: 4
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.15448522567749023
+elapsed_time_human: 0:00:00
+---
+k: 3
+n: 4
+m: 1
+weights: null
+prices:
+  poa_best:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_best_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 1]
+  - [0, 0, 1, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 1]
+  - [0, 0, 1, 0]
+  pos_best:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_best_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 1]
+  - [0, 0, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 1]
+  - [0, 0, 1, 0]
+  poa_avg: 1.0
+  pos_avg: 1.0
+elapsed_time: 0.15153026580810547
+elapsed_time_human: 0:00:00
+---
+k: 3
+n: 4
+m: 2
+weights: null
+prices:
+  poa_best:
+    poa: 1.6666666666666665
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 0, 1, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 1, 2]
+  - [0, 1, 0, 2]
+  - [1, 2, 2, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 2]
+  - [0, 0, 2, 0]
+  pos_best:
+    poa: 1.125
+    pos: 1.125
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 2, 0]
+  - [0, 2, 0, 2]
+  - [1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 2]
+  - [0, 0, 2, 0]
+  poa_avg: 1.105874316939891
+  pos_avg: 1.0184426229508197
+elapsed_time: 0.15404033660888672
+elapsed_time_human: 0:00:00
+---
+k: 3
+n: 4
+m: 3
+weights: null
+prices:
+  poa_best:
+    poa: 1.7500000000000002
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 2, 2]
+  - [0, 2, 0, 3]
+  - [1, 2, 3, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 3]
+  - [0, 0, 3, 0]
+  pos_best:
+    poa: 1.2000000000000002
+    pos: 1.2000000000000002
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 3, 1]
+  - [0, 3, 0, 1]
+  - [1, 1, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 3]
+  - [0, 0, 3, 0]
+  poa_avg: 1.1035714285714293
+  pos_avg: 1.023285714285715
+elapsed_time: 0.15153264999389648
+elapsed_time_human: 0:00:00
+---
+k: 3
+n: 4
+m: 4
+weights: null
+prices:
+  poa_best:
+    poa: 1.8000000000000003
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 2, 3]
+  - [0, 2, 0, 4]
+  - [1, 3, 4, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 4]
+  - [0, 0, 4, 0]
+  pos_best:
+    poa: 1.2500000000000002
+    pos: 1.2500000000000002
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 4, 0]
+  - [0, 4, 0, 2]
+  - [1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 4]
+  - [0, 0, 4, 0]
+  poa_avg: 1.1134918772983304
+  pos_avg: 1.0278209747241995
+elapsed_time: 0.15650629997253418
+elapsed_time_human: 0:00:00
+---
+k: 3
+n: 4
+m: 5
+weights: null
+prices:
+  poa_best:
+    poa: 2.0
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 3, 4]
+  - [0, 3, 0, 5]
+  - [1, 4, 5, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 5]
+  - [0, 0, 5, 0]
+  pos_best:
+    poa: 1.2857142857142858
+    pos: 1.2857142857142858
+    cs_best: [0, 1, 0, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 1, 1]
+  - [0, 0, 1, 5]
+  - [1, 1, 0, 1]
+  - [1, 5, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 5]
+  - [0, 0, 5, 0]
+  poa_avg: 1.1104541713347353
+  pos_avg: 1.0321489913595159
+elapsed_time: 0.15955567359924316
+elapsed_time_human: 0:00:00
+---
+k: 3
+n: 4
+m: 6
+weights: null
+prices:
+  poa_best:
+    poa: 2.0
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 4, 4]
+  - [0, 4, 0, 6]
+  - [1, 4, 6, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 6]
+  - [0, 0, 6, 0]
+  pos_best:
+    poa: 1.3125
+    pos: 1.3125
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 6, 0]
+  - [0, 6, 0, 2]
+  - [1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 6]
+  - [0, 0, 6, 0]
+  poa_avg: 1.1162179727648522
+  pos_avg: 1.0321903268999868
+elapsed_time: 0.17697978019714355
+elapsed_time_human: 0:00:00
+---
+k: 3
+n: 4
+m: 7
+weights: null
+prices:
+  poa_best:
+    poa: 1.9999999999999998
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 4, 5]
+  - [0, 4, 0, 7]
+  - [1, 5, 7, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 7]
+  - [0, 0, 7, 0]
+  pos_best:
+    poa: 1.3333333333333333
+    pos: 1.3333333333333333
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 7, 1]
+  - [0, 7, 0, 1]
+  - [1, 1, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 7]
+  - [0, 0, 7, 0]
+  poa_avg: 1.1078586033336613
+  pos_avg: 1.034778903725221
+elapsed_time: 0.18495440483093262
+elapsed_time_human: 0:00:00
+---
+k: 3
+n: 4
+m: 8
+weights: null
+prices:
+  poa_best:
+    poa: 2.111111111111111
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 5, 6]
+  - [0, 5, 0, 8]
+  - [1, 6, 8, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 8]
+  - [0, 0, 8, 0]
+  pos_best:
+    poa: 1.35
+    pos: 1.35
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 0, 0]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  pos_best_game:
+  - [0, 0, 0, 8]
+  - [0, 0, 1, 0]
+  - [0, 1, 0, 2]
+  - [8, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 8]
+  - [0, 0, 8, 0]
+  poa_avg: 1.1140305855969785
+  pos_avg: 1.0347738709662664
+elapsed_time: 0.20562005043029785
+elapsed_time_human: 0:00:00
+---
+k: 3
+n: 4
+m: 9
+weights: null
+prices:
+  poa_best:
+    poa: 2.1
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 6, 6]
+  - [0, 6, 0, 9]
+  - [1, 6, 9, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 9]
+  - [0, 0, 9, 0]
+  pos_best:
+    poa: 1.3636363636363638
+    pos: 1.3636363636363638
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 9, 0]
+  - [0, 9, 0, 2]
+  - [1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 9]
+  - [0, 0, 9, 0]
+  poa_avg: 1.1095303052276995
+  pos_avg: 1.0362195160002081
+elapsed_time: 0.24820709228515625
+elapsed_time_human: 0:00:00
+---
+k: 3
+n: 4
+m: 10
+weights: null
+prices:
+  poa_best:
+    poa: 2.0909090909090904
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 6, 7]
+  - [0, 6, 0, 10]
+  - [1, 7, 10, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 10]
+  - [0, 0, 10, 0]
+  pos_best:
+    poa: 1.375
+    pos: 1.375
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 10, 0]
+  - [0, 10, 0, 2]
+  - [1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 10]
+  - [0, 0, 10, 0]
+  poa_avg: 1.11126728843557
+  pos_avg: 1.036119398708766
+elapsed_time: 0.3178865909576416
+elapsed_time_human: 0:00:00
+---
+k: 3
+n: 4
+m: 11
+weights: null
+prices:
+  poa_best:
+    poa: 2.1666666666666665
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 7, 8]
+  - [0, 7, 0, 11]
+  - [1, 8, 11, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 11]
+  - [0, 0, 11, 0]
+  pos_best:
+    poa: 1.3846153846153848
+    pos: 1.3846153846153848
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 11, 0]
+  - [0, 11, 0, 2]
+  - [1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 11]
+  - [0, 0, 11, 0]
+  poa_avg: 1.1086515994939035
+  pos_avg: 1.03735206061806
+elapsed_time: 0.40611839294433594
+elapsed_time_human: 0:00:00
+---
+k: 3
+n: 4
+m: 12
+weights: null
+prices:
+  poa_best:
+    poa: 2.153846153846154
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 8, 8]
+  - [0, 8, 0, 12]
+  - [1, 8, 12, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 12]
+  - [0, 0, 12, 0]
+  pos_best:
+    poa: 1.392857142857143
+    pos: 1.392857142857143
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 12, 1]
+  - [0, 12, 0, 1]
+  - [1, 1, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 12]
+  - [0, 0, 12, 0]
+  poa_avg: 1.1112556515479024
+  pos_avg: 1.0368859000633346
+elapsed_time: 0.5284273624420166
+elapsed_time_human: 0:00:00
+---
+k: 3
+n: 4
+m: 13
+weights: null
+prices:
+  poa_best:
+    poa: 2.1428571428571432
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 8, 9]
+  - [0, 8, 0, 13]
+  - [1, 9, 13, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 13]
+  - [0, 0, 13, 0]
+  pos_best:
+    poa: 1.4000000000000004
+    pos: 1.4000000000000004
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 13, 0]
+  - [0, 13, 0, 2]
+  - [1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 13]
+  - [0, 0, 13, 0]
+  poa_avg: 1.1075644736119692
+  pos_avg: 1.038002751610879
+elapsed_time: 0.7213320732116699
+elapsed_time_human: 0:00:00
+---
+k: 3
+n: 4
+m: 14
+weights: null
+prices:
+  poa_best:
+    poa: 2.2
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 9, 10]
+  - [0, 9, 0, 14]
+  - [1, 10, 14, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 14]
+  - [0, 0, 14, 0]
+  pos_best:
+    poa: 1.40625
+    pos: 1.40625
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 14, 0]
+  - [0, 14, 0, 2]
+  - [1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 14]
+  - [0, 0, 14, 0]
+  poa_avg: 1.1102745232241678
+  pos_avg: 1.0376416419265906
+elapsed_time: 0.9615108966827393
+elapsed_time_human: 0:00:00
+---
+k: 3
+n: 4
+m: 15
+weights: null
+prices:
+  poa_best:
+    poa: 2.1875000000000004
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 10, 10]
+  - [0, 10, 0, 15]
+  - [1, 10, 15, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 15]
+  - [0, 0, 15, 0]
+  pos_best:
+    poa: 1.411764705882353
+    pos: 1.411764705882353
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 15, 1]
+  - [0, 15, 0, 1]
+  - [1, 1, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 15]
+  - [0, 0, 15, 0]
+  poa_avg: 1.107764845614801
+  pos_avg: 1.0384071159490622
+elapsed_time: 1.2860212326049805
+elapsed_time_human: 0:00:01
+---
+k: 3
+n: 4
+m: 16
+weights: null
+prices:
+  poa_best:
+    poa: 2.176470588235294
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 10, 11]
+  - [0, 10, 0, 16]
+  - [1, 11, 16, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 16]
+  - [0, 0, 16, 0]
+  pos_best:
+    poa: 1.416666666666667
+    pos: 1.416666666666667
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 16, 0]
+  - [0, 16, 0, 2]
+  - [1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 16]
+  - [0, 0, 16, 0]
+  poa_avg: 1.1092206452352262
+  pos_avg: 1.0380930900950565
+elapsed_time: 1.7241206169128418
+elapsed_time_human: 0:00:01
+---
+k: 3
+n: 4
+m: 17
+weights: null
+prices:
+  poa_best:
+    poa: 2.222222222222222
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 11, 12]
+  - [0, 11, 0, 17]
+  - [1, 12, 17, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 17]
+  - [0, 0, 17, 0]
+  pos_best:
+    poa: 1.4210526315789473
+    pos: 1.4210526315789473
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 17, 0]
+  - [0, 17, 0, 2]
+  - [1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 17]
+  - [0, 0, 17, 0]
+  poa_avg: 1.1074136029695967
+  pos_avg: 1.0388364717899146
+elapsed_time: 2.2339770793914795
+elapsed_time_human: 0:00:02
+---
+k: 3
+n: 4
+m: 18
+weights: null
+prices:
+  poa_best:
+    poa: 2.210526315789474
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 12, 12]
+  - [0, 12, 0, 18]
+  - [1, 12, 18, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 18]
+  - [0, 0, 18, 0]
+  pos_best:
+    poa: 1.425
+    pos: 1.425
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 18, 0]
+  - [0, 18, 0, 2]
+  - [1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 18]
+  - [0, 0, 18, 0]
+  poa_avg: 1.1090959147248058
+  pos_avg: 1.0384296901909769
+elapsed_time: 2.895674705505371
+elapsed_time_human: 0:00:02
+---
+k: 3
+n: 4
+m: 19
+weights: null
+prices:
+  poa_best:
+    poa: 2.2
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 12, 13]
+  - [0, 12, 0, 19]
+  - [1, 13, 19, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 19]
+  - [0, 0, 19, 0]
+  pos_best:
+    poa: 1.4285714285714288
+    pos: 1.4285714285714288
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 19, 0]
+  - [0, 19, 0, 2]
+  - [1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 19]
+  - [0, 0, 19, 0]
+  poa_avg: 1.1068285668089775
+  pos_avg: 1.0391051669534963
+elapsed_time: 3.7432055473327637
+elapsed_time_human: 0:00:03
+---
+k: 3
+n: 4
+m: 20
+weights: null
+prices:
+  poa_best:
+    poa: 2.238095238095238
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 13, 14]
+  - [0, 13, 0, 20]
+  - [1, 14, 20, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 20]
+  - [0, 0, 20, 0]
+  pos_best:
+    poa: 1.4318181818181819
+    pos: 1.4318181818181819
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 20, 0]
+  - [0, 20, 0, 2]
+  - [1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 20]
+  - [0, 0, 20, 0]
+  poa_avg: 1.1086511045234875
+  pos_avg: 1.0387605413132912
+elapsed_time: 4.932858943939209
+elapsed_time_human: 0:00:04
+---
+k: 3
+n: 4
+m: 21
+weights: null
+prices:
+  poa_best:
+    poa: 2.227272727272727
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 14, 14]
+  - [0, 14, 0, 21]
+  - [1, 14, 21, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 21]
+  - [0, 0, 21, 0]
+  pos_best:
+    poa: 1.4347826086956523
+    pos: 1.4347826086956523
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 21, 1]
+  - [0, 21, 0, 1]
+  - [1, 1, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 21]
+  - [0, 0, 21, 0]
+  poa_avg: 1.1069201509918565
+  pos_avg: 1.0393048407207004
+elapsed_time: 6.037797212600708
+elapsed_time_human: 0:00:06
+---
+k: 3
+n: 4
+m: 22
+weights: null
+prices:
+  poa_best:
+    poa: 2.217391304347826
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 14, 15]
+  - [0, 14, 0, 22]
+  - [1, 15, 22, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 22]
+  - [0, 0, 22, 0]
+  pos_best:
+    poa: 1.4375000000000002
+    pos: 1.4375000000000002
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 22, 0]
+  - [0, 22, 0, 2]
+  - [1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 22]
+  - [0, 0, 22, 0]
+  poa_avg: 1.1080670852409384
+  pos_avg: 1.0390019710846388
+elapsed_time: 7.502704381942749
+elapsed_time_human: 0:00:07
+---
+k: 3
+n: 4
+m: 23
+weights: null
+prices:
+  poa_best:
+    poa: 2.25
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 15, 16]
+  - [0, 15, 0, 23]
+  - [1, 16, 23, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 23]
+  - [0, 0, 23, 0]
+  pos_best:
+    poa: 1.4400000000000002
+    pos: 1.4400000000000002
+    cs_best: [0, 1, 0, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 1, 1]
+  - [0, 0, 1, 23]
+  - [1, 1, 0, 1]
+  - [1, 23, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 23]
+  - [0, 0, 23, 0]
+  poa_avg: 1.1067020803040097
+  pos_avg: 1.0395171651009725
+elapsed_time: 9.228914260864258
+elapsed_time_human: 0:00:09
+---
+k: 3
+n: 4
+m: 24
+weights: null
+prices:
+  poa_best:
+    poa: 2.2399999999999998
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 16, 16]
+  - [0, 16, 0, 24]
+  - [1, 16, 24, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 24]
+  - [0, 0, 24, 0]
+  pos_best:
+    poa: 1.4423076923076925
+    pos: 1.4423076923076925
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 24, 0]
+  - [0, 24, 0, 2]
+  - [1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 24]
+  - [0, 0, 24, 0]
+  poa_avg: 1.108000777104747
+  pos_avg: 1.0391760504171783
+elapsed_time: 11.80329418182373
+elapsed_time_human: 0:00:11
+---
+k: 3
+n: 4
+m: 25
+weights: null
+prices:
+  poa_best:
+    poa: 2.2307692307692304
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 16, 17]
+  - [0, 16, 0, 25]
+  - [1, 17, 25, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 25]
+  - [0, 0, 25, 0]
+  pos_best:
+    poa: 1.4444444444444444
+    pos: 1.4444444444444444
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 25, 1]
+  - [0, 25, 0, 1]
+  - [1, 1, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 25]
+  - [0, 0, 25, 0]
+  poa_avg: 1.1063782260486394
+  pos_avg: 1.0396713881921502
+elapsed_time: 14.116361141204834
+elapsed_time_human: 0:00:14
+---
+k: 3
+n: 4
+m: 26
+weights: null
+prices:
+  poa_best:
+    poa: 2.259259259259259
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 17, 18]
+  - [0, 17, 0, 26]
+  - [1, 18, 26, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 26]
+  - [0, 0, 26, 0]
+  pos_best:
+    poa: 1.4464285714285716
+    pos: 1.4464285714285716
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 0, 0]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  pos_best_game:
+  - [0, 0, 0, 26]
+  - [0, 0, 1, 0]
+  - [0, 1, 0, 2]
+  - [26, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 26]
+  - [0, 0, 26, 0]
+  poa_avg: 1.1077267148230359
+  pos_avg: 1.0393712138417972
+elapsed_time: 16.796388864517212
+elapsed_time_human: 0:00:16
+---
+k: 3
+n: 4
+m: 27
+weights: null
+prices:
+  poa_best:
+    poa: 2.25
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 18, 18]
+  - [0, 18, 0, 27]
+  - [1, 18, 27, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 27]
+  - [0, 0, 27, 0]
+  pos_best:
+    poa: 1.4482758620689655
+    pos: 1.4482758620689655
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 27, 0]
+  - [0, 27, 0, 2]
+  - [1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 27]
+  - [0, 0, 27, 0]
+  poa_avg: 1.1064088509244612
+  pos_avg: 1.039782628334992
+elapsed_time: 20.486650228500366
+elapsed_time_human: 0:00:20
+---
+k: 3
+n: 4
+m: 28
+weights: null
+prices:
+  poa_best:
+    poa: 2.2413793103448274
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 18, 19]
+  - [0, 18, 0, 28]
+  - [1, 19, 28, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 28]
+  - [0, 0, 28, 0]
+  pos_best:
+    poa: 1.45
+    pos: 1.45
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 28, 1]
+  - [0, 28, 0, 1]
+  - [1, 1, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 28]
+  - [0, 0, 28, 0]
+  poa_avg: 1.1073782996771693
+  pos_avg: 1.0395120900798744
+elapsed_time: 24.252429962158203
+elapsed_time_human: 0:00:24
+---
+k: 3
+n: 4
+m: 29
+weights: null
+prices:
+  poa_best:
+    poa: 2.2666666666666666
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 19, 20]
+  - [0, 19, 0, 29]
+  - [1, 20, 29, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 29]
+  - [0, 0, 29, 0]
+  pos_best:
+    poa: 1.4516129032258067
+    pos: 1.4516129032258067
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 0, 0]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  pos_best_game:
+  - [0, 0, 0, 29]
+  - [0, 0, 1, 0]
+  - [0, 1, 0, 2]
+  - [29, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 29]
+  - [0, 0, 29, 0]
+  poa_avg: 1.1062822184767227
+  pos_avg: 1.0399145435006891
+elapsed_time: 28.831353425979614
+elapsed_time_human: 0:00:28
+---
+k: 3
+n: 4
+m: 30
+weights: null
+prices:
+  poa_best:
+    poa: 2.2580645161290325
+    pos: 1.0
+    cs_best: [0, 1, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 20, 20]
+  - [0, 20, 0, 30]
+  - [1, 20, 30, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 30]
+  - [0, 0, 30, 0]
+  pos_best:
+    poa: 1.453125
+    pos: 1.453125
+    cs_best: [0, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 30, 0]
+  - [0, 30, 0, 2]
+  - [1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_worst_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 30]
+  - [0, 0, 30, 0]
+  poa_avg: 1.1073223900381928
+  pos_avg: 1.039625250456618
+elapsed_time: 34.20970916748047
+elapsed_time_human: 0:00:34
+---
+k: 3
+n: 5
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.14711213111877441
+elapsed_time_human: 0:00:00
+---
+k: 3
+n: 5
+m: 1
+weights: null
+prices:
+  poa_best:
+    poa: 1.4999999999999998
+    pos: 1.0
+    cs_best: [0, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 1, 2, 2, 2]
+  poa_best_game:
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 1, 1, 0]
+  - [0, 1, 0, 1, 1]
+  - [0, 1, 1, 0, 1]
+  - [1, 0, 1, 1, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 1, 0]
+  pos_best:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_best_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 1, 0]
+  poa_avg: 1.100907029478458
+  pos_avg: 1.0
+elapsed_time: 0.15110206604003906
+elapsed_time_human: 0:00:00
+---
+k: 3
+n: 5
+m: 2
+weights: null
+prices:
+  poa_best:
+    poa: 1.875
+    pos: 1.0
+    cs_best: [0, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 1, 2, 2, 2]
+  poa_best_game:
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 2, 2, 0]
+  - [0, 2, 0, 2, 1]
+  - [0, 2, 2, 0, 1]
+  - [1, 0, 1, 1, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 2]
+  - [0, 0, 0, 2, 0]
+  pos_best:
+    poa: 1.125
+    pos: 1.125
+    cs_best: [0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 2, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2, 2]
+  pos_best_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 2, 0]
+  - [0, 0, 2, 0, 2]
+  - [0, 1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 2]
+  - [0, 0, 0, 2, 0]
+  poa_avg: 1.250662182841771
+  pos_avg: 1.0008900316455696
+elapsed_time: 0.15909290313720703
+elapsed_time_human: 0:00:00
+---
+k: 3
+n: 5
+m: 3
+weights: null
+prices:
+  poa_best:
+    poa: 2.0000000000000004
+    pos: 1.0
+    cs_best: [0, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 1, 1, 0, 1]
+  poa_best_game:
+  - [0, 0, 0, 1, 2]
+  - [0, 0, 2, 3, 1]
+  - [0, 2, 0, 3, 1]
+  - [1, 3, 3, 0, 0]
+  - [2, 1, 1, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 3]
+  - [0, 0, 0, 3, 0]
+  pos_best:
+    poa: 1.2000000000000002
+    pos: 1.2000000000000002
+    cs_best: [0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 2, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2, 2]
+  pos_best_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 3, 1]
+  - [0, 0, 3, 0, 1]
+  - [0, 1, 1, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 3]
+  - [0, 0, 0, 3, 0]
+  poa_avg: 1.2189652602187324
+  pos_avg: 1.0023741775962962
+elapsed_time: 0.3384850025177002
+elapsed_time_human: 0:00:00
+---
+k: 3
+n: 5
+m: 4
+weights: null
+prices:
+  poa_best:
+    poa: 2.153846153846154
+    pos: 1.0
+    cs_best: [0, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 1, 1, 0, 1]
+  poa_best_game:
+  - [0, 0, 0, 1, 2]
+  - [0, 0, 3, 4, 1]
+  - [0, 3, 0, 4, 1]
+  - [1, 4, 4, 0, 0]
+  - [2, 1, 1, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 4]
+  - [0, 0, 0, 4, 0]
+  pos_best:
+    poa: 1.2500000000000002
+    pos: 1.2500000000000002
+    cs_best: [0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 2, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2, 2]
+  pos_best_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 4, 0]
+  - [0, 0, 4, 0, 2]
+  - [0, 1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 4]
+  - [0, 0, 0, 4, 0]
+  poa_avg: 1.2278697722894252
+  pos_avg: 1.0023644025986256
+elapsed_time: 1.6552252769470215
+elapsed_time_human: 0:00:01
+---
+k: 3
+n: 5
+m: 5
+weights: null
+prices:
+  poa_best:
+    poa: 2.2666666666666666
+    pos: 1.0
+    cs_best: [0, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 1, 0, 0, 1]
+  poa_best_game:
+  - [0, 0, 1, 1, 2]
+  - [0, 0, 5, 5, 1]
+  - [1, 5, 0, 4, 0]
+  - [1, 5, 4, 0, 0]
+  - [2, 1, 0, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 5]
+  - [0, 0, 0, 5, 0]
+  pos_best:
+    poa: 1.3043478260869565
+    pos: 1.3043478260869565
+    cs_best: [0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 1, 1, 1, 0]
+  pos_best_game:
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 1, 4, 5]
+  - [0, 1, 0, 5, 4]
+  - [0, 4, 5, 0, 3]
+  - [1, 5, 4, 3, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 5]
+  - [0, 0, 0, 5, 0]
+  poa_avg: 1.2116664259375016
+  pos_avg: 1.0028098690303406
+elapsed_time: 8.6439208984375
+elapsed_time_human: 0:00:08
+---
+k: 3
+n: 5
+m: 6
+weights: null
+prices:
+  poa_best:
+    poa: 2.3529411764705883
+    pos: 1.0
+    cs_best: [0, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 1, 0, 0, 1]
+  poa_best_game:
+  - [0, 0, 1, 1, 2]
+  - [0, 0, 6, 6, 1]
+  - [1, 6, 0, 5, 0]
+  - [1, 6, 5, 0, 0]
+  - [2, 1, 0, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 6]
+  - [0, 0, 0, 6, 0]
+  pos_best:
+    poa: 1.9411764705882355
+    pos: 1.9411764705882355
+    cs_best: [0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 0, 1, 0]
+    cs_worst_equilibrium: [0, 1, 0, 1, 0]
+  pos_best_game:
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 1, 5]
+  - [0, 0, 0, 6, 6]
+  - [0, 1, 6, 0, 1]
+  - [1, 5, 6, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 6]
+  - [0, 0, 0, 6, 0]
+  poa_avg: 1.2142944810130671
+  pos_avg: 1.0028872578164678
+elapsed_time: 35.80745530128479
+elapsed_time_human: 0:00:35
+---
+k: 3
+n: 5
+m: 7
+weights: null
+prices:
+  poa_best:
+    poa: 2.421052631578947
+    pos: 1.0
+    cs_best: [0, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 1, 1, 0, 1]
+  poa_best_game:
+  - [0, 0, 0, 1, 2]
+  - [0, 0, 6, 7, 1]
+  - [0, 6, 0, 7, 1]
+  - [1, 7, 7, 0, 0]
+  - [2, 1, 1, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 7]
+  - [0, 0, 0, 7, 0]
+  pos_best:
+    poa: 2.052631578947368
+    pos: 2.052631578947368
+    cs_best: [0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 0, 1, 0]
+    cs_worst_equilibrium: [0, 1, 0, 1, 0]
+  pos_best_game:
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 1, 6]
+  - [0, 0, 0, 7, 7]
+  - [0, 1, 7, 0, 1]
+  - [1, 6, 7, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 7]
+  - [0, 0, 0, 7, 0]
+  poa_avg: 1.2034289838928862
+  pos_avg: 1.0031146998455869
+elapsed_time: 123.1894862651825
+elapsed_time_human: 0:02:03
+---
+k: 3
+n: 5
+m: 8
+weights: null
+prices:
+  poa_best:
+    poa: 2.476190476190476
+    pos: 1.0
+    cs_best: [0, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 1, 1, 0, 1]
+  poa_best_game:
+  - [0, 0, 0, 1, 2]
+  - [0, 0, 7, 8, 1]
+  - [0, 7, 0, 8, 1]
+  - [1, 8, 8, 0, 0]
+  - [2, 1, 1, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 8]
+  - [0, 0, 0, 8, 0]
+  pos_best:
+    poa: 2.142857142857143
+    pos: 2.142857142857143
+    cs_best: [0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 0, 1, 0]
+    cs_worst_equilibrium: [0, 1, 0, 1, 0]
+  pos_best_game:
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 1, 7]
+  - [0, 0, 0, 8, 8]
+  - [0, 1, 8, 0, 1]
+  - [1, 7, 8, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 8]
+  - [0, 0, 0, 8, 0]
+  poa_avg: 1.2043897827890098
+  pos_avg: 1.0031953386005914
+elapsed_time: 368.4056873321533
+elapsed_time_human: 0:06:08
+---
+k: 3
+n: 5
+m: 9
+weights: null
+prices:
+  poa_best:
+    poa: 2.523809523809524
+    pos: 1.0
+    cs_best: [0, 1, 1, 0, 1]
+    cs_best_equilibrium: [0, 1, 1, 0, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1, 0]
+  poa_best_game:
+  - [0, 0, 0, 1, 1]
+  - [0, 0, 8, 0, 8]
+  - [0, 8, 0, 1, 9]
+  - [1, 0, 1, 0, 0]
+  - [1, 8, 9, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 9]
+  - [0, 0, 0, 9, 0]
+  pos_best:
+    poa: 2.217391304347826
+    pos: 2.217391304347826
+    cs_best: [0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 0, 1, 0]
+    cs_worst_equilibrium: [0, 1, 0, 1, 0]
+  pos_best_game:
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 1, 8]
+  - [0, 0, 0, 9, 9]
+  - [0, 1, 9, 0, 1]
+  - [1, 8, 9, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 9]
+  - [0, 0, 0, 9, 0]
+  poa_avg: 1.197995153580932
+  pos_avg: 1.0033429395115103
+elapsed_time: 991.7211585044861
+elapsed_time_human: 0:16:31
+---
+k: 3
+n: 5
+m: 10
+weights: null
+prices:
+  poa_best:
+    poa: 2.5652173913043472
+    pos: 1.0
+    cs_best: [0, 1, 1, 0, 1]
+    cs_best_equilibrium: [0, 1, 1, 0, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1, 0]
+  poa_best_game:
+  - [0, 0, 0, 1, 1]
+  - [0, 0, 9, 0, 9]
+  - [0, 9, 0, 1, 10]
+  - [1, 0, 1, 0, 0]
+  - [1, 9, 10, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 10]
+  - [0, 0, 0, 10, 0]
+  pos_best:
+    poa: 2.28
+    pos: 2.28
+    cs_best: [0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 0, 1, 0]
+    cs_worst_equilibrium: [0, 1, 0, 1, 0]
+  pos_best_game:
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 1, 9]
+  - [0, 0, 0, 10, 10]
+  - [0, 1, 10, 0, 1]
+  - [1, 9, 10, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 10]
+  - [0, 0, 0, 10, 0]
+  poa_avg: 1.197821293116558
+  pos_avg: 1.0034102277441967
+elapsed_time: 2371.117511510849
+elapsed_time_human: 0:39:31
+---
+{k: 3, n: 5, m: 11, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 3
+n: 6
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.18398499488830566
+elapsed_time_human: 0:00:00
+---
+k: 3
+n: 6
+m: 1
+weights: null
+prices:
+  poa_best:
+    poa: 1.6666666666666665
+    pos: 1.0
+    cs_best: [0, 0, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 0, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3, 3]
+  poa_best_game:
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 1, 1, 0]
+  - [0, 0, 1, 0, 1, 1]
+  - [0, 0, 1, 1, 0, 1]
+  - [1, 1, 0, 1, 1, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 2, 2]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 1, 0]
+  pos_best:
+    poa: 1.0000000000000002
+    pos: 1.0000000000000002
+    cs_best: [0, 1, 2, 2, 1, 0]
+    cs_best_equilibrium: [0, 1, 2, 2, 1, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2, 1, 2]
+  pos_best_game:
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 1, 0]
+  - [0, 0, 0, 1, 0, 1]
+  - [0, 0, 1, 0, 0, 1]
+  - [0, 1, 0, 0, 0, 0]
+  - [1, 0, 1, 1, 0, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 2, 2]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 1, 0]
+  poa_avg: 1.22370707070707
+  pos_avg: 1.0
+elapsed_time: 0.16554474830627441
+elapsed_time_human: 0:00:00
+---
+k: 3
+n: 6
+m: 2
+weights: null
+prices:
+  poa_best:
+    poa: 2.5
+    pos: 1.0
+    cs_best: [0, 1, 1, 1, 0, 0]
+    cs_best_equilibrium: [0, 1, 1, 1, 0, 0]
+    cs_worst_equilibrium: [0, 1, 1, 0, 0, 1]
+  poa_best_game:
+  - [0, 0, 0, 0, 1, 2]
+  - [0, 0, 1, 2, 0, 0]
+  - [0, 1, 0, 2, 0, 1]
+  - [0, 2, 2, 0, 1, 0]
+  - [1, 0, 0, 1, 0, 2]
+  - [2, 0, 1, 0, 2, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 2, 2]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 2]
+  - [0, 0, 0, 0, 2, 0]
+  pos_best:
+    poa: 1.125
+    pos: 1.125
+    cs_best: [0, 0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3, 3]
+  pos_best_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 2, 0]
+  - [0, 0, 0, 2, 0, 2]
+  - [0, 0, 1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 2, 2]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 2]
+  - [0, 0, 0, 0, 2, 0]
+  poa_avg: 1.597481769485716
+  pos_avg: 1.0040531088095315
+elapsed_time: 2.9898805618286133
+elapsed_time_human: 0:00:02
+---
+k: 3
+n: 6
+m: 3
+weights: null
+prices:
+  poa_best:
+    poa: 3.5000000000000004
+    pos: 1.0
+    cs_best: [0, 1, 0, 1, 0, 1]
+    cs_best_equilibrium: [0, 1, 0, 1, 0, 1]
+    cs_worst_equilibrium: [0, 1, 0, 0, 1, 1]
+  poa_best_game:
+  - [0, 0, 1, 1, 3, 3]
+  - [0, 0, 1, 3, 0, 1]
+  - [1, 1, 0, 0, 3, 0]
+  - [1, 3, 0, 0, 0, 3]
+  - [3, 0, 3, 0, 0, 1]
+  - [3, 1, 0, 3, 1, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 2, 2]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 3]
+  - [0, 0, 0, 0, 3, 0]
+  pos_best:
+    poa: 1.2000000000000002
+    pos: 1.2000000000000002
+    cs_best: [0, 0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3, 3]
+  pos_best_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 3, 1]
+  - [0, 0, 0, 3, 0, 1]
+  - [0, 0, 1, 1, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 2, 2]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 3]
+  - [0, 0, 0, 0, 3, 0]
+  poa_avg: 1.814590153130542
+  pos_avg: 1.0068087427918093
+elapsed_time: 180.06737351417542
+elapsed_time_human: 0:03:00
+---
+{k: 3, n: 6, m: 4, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 3
+n: 7
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.18983745574951172
+elapsed_time_human: 0:00:00
+---
+k: 3
+n: 7
+m: 1
+weights: null
+prices:
+  poa_best:
+    poa: 1.6666666666666665
+    pos: 1.0
+    cs_best: [0, 1, 1, 2, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 1, 2, 2, 2, 1]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4, 4]
+  poa_best_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 1, 1, 0]
+  - [0, 0, 0, 1, 0, 1, 1]
+  - [0, 0, 0, 1, 1, 0, 1]
+  - [0, 1, 1, 0, 1, 1, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1, 2, 2]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 1, 0]
+  pos_best:
+    poa: 1.0000000000000002
+    pos: 1.0000000000000002
+    cs_best: [0, 1, 2, 3, 3, 2, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3, 2, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3, 2, 3]
+  pos_best_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 1, 0]
+  - [0, 0, 0, 0, 1, 0, 1]
+  - [0, 0, 0, 1, 0, 0, 1]
+  - [0, 0, 1, 0, 0, 0, 0]
+  - [0, 1, 0, 1, 1, 0, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1, 2, 2]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 1, 0]
+  poa_avg: 1.1923924410857858
+  pos_avg: 1.0
+elapsed_time: 0.8201310634613037
+elapsed_time_human: 0:00:00
+---
+k: 3
+n: 7
+m: 2
+weights: null
+prices:
+  poa_best:
+    poa: 2.5
+    pos: 1.0
+    cs_best: [0, 1, 2, 2, 2, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 2, 2, 1, 1]
+    cs_worst_equilibrium: [0, 1, 2, 2, 1, 1, 2]
+  poa_best_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 1, 2]
+  - [0, 0, 0, 1, 2, 0, 0]
+  - [0, 0, 1, 0, 2, 0, 1]
+  - [0, 0, 2, 2, 0, 1, 0]
+  - [0, 1, 0, 0, 1, 0, 2]
+  - [0, 2, 0, 1, 0, 2, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1, 2, 2]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 2]
+  - [0, 0, 0, 0, 0, 2, 0]
+  pos_best:
+    poa: 1.125
+    pos: 1.125
+    cs_best: [0, 0, 0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4, 4]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4, 4]
+  pos_best_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 2, 0]
+  - [0, 0, 0, 0, 2, 0, 2]
+  - [0, 0, 0, 1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1, 2, 2]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 2]
+  - [0, 0, 0, 0, 0, 2, 0]
+  poa_avg: 1.4644581309035243
+  pos_avg: 1.0055218835893005
+elapsed_time: 1954.465100288391
+elapsed_time_human: 0:32:34
+---
+{k: 3, n: 7, m: 3, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 3
+n: 8
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.19109559059143066
+elapsed_time_human: 0:00:00
+---
+k: 3
+n: 8
+m: 1
+weights: null
+prices:
+  poa_best:
+    poa: 1.8333333333333333
+    pos: 1.0
+    cs_best: [0, 0, 1, 1, 2, 1, 2, 0]
+    cs_best_equilibrium: [0, 0, 1, 1, 2, 1, 2, 0]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 5, 5]
+  poa_best_game:
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 1, 1, 0]
+  - [0, 0, 0, 0, 0, 1, 1, 0]
+  - [0, 0, 0, 0, 0, 1, 1, 0]
+  - [0, 0, 1, 1, 1, 0, 1, 1]
+  - [0, 0, 1, 1, 1, 1, 0, 1]
+  - [1, 1, 0, 0, 0, 1, 1, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1, 1, 2, 2]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 1, 0]
+  pos_best:
+    poa: 1.0000000000000002
+    pos: 1.0000000000000002
+    cs_best: [0, 0, 1, 2, 3, 3, 2, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4, 3, 4]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4, 3, 4]
+  pos_best_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 1, 0]
+  - [0, 0, 0, 0, 0, 1, 0, 1]
+  - [0, 0, 0, 0, 1, 0, 0, 1]
+  - [0, 0, 0, 1, 0, 0, 0, 0]
+  - [0, 0, 1, 0, 1, 1, 0, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1, 1, 2, 2]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 1, 0]
+  poa_avg: 1.2791754942209352
+  pos_avg: 1.0
+elapsed_time: 59.416866064071655
+elapsed_time_human: 0:00:59
+---
+{k: 3, n: 8, m: 2, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 3
+n: 9
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.19878673553466797
+elapsed_time_human: 0:00:00
+---
+{k: 3, n: 9, m: 1, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 3
+n: 10
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.21001791954040527
+elapsed_time_human: 0:00:00
+---
+{k: 3, n: 10, m: 1, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 4
+n: 5
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.17926287651062012
+elapsed_time_human: 0:00:00
+---
+k: 4
+n: 5
+m: 1
+weights: null
+prices:
+  poa_best:
+    poa: 2.0
+    pos: 1.0
+    cs_best: [0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 2, 2, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1, 1]
+  poa_best_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 1, 0]
+  - [0, 0, 1, 0, 0]
+  - [0, 1, 0, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 1, 0]
+  pos_best:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_best_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 1, 0]
+  poa_avg: 1.2087868480725623
+  pos_avg: 1.0
+elapsed_time: 0.15660929679870605
+elapsed_time_human: 0:00:00
+---
+k: 4
+n: 5
+m: 2
+weights: null
+prices:
+  poa_best:
+    poa: 2.444444444444444
+    pos: 1.0
+    cs_best: [0, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 1, 0, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 1, 1, 0]
+  - [0, 1, 0, 2, 0]
+  - [0, 1, 2, 0, 0]
+  - [1, 0, 0, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 2]
+  - [0, 0, 0, 2, 0]
+  pos_best:
+    poa: 1.2
+    pos: 1.2
+    cs_best: [0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 2, 0]
+  - [0, 0, 2, 0, 2]
+  - [0, 1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 2]
+  - [0, 0, 0, 2, 0]
+  poa_avg: 1.2593219412444057
+  pos_avg: 1.008887435232371
+elapsed_time: 0.1715378761291504
+elapsed_time_human: 0:00:00
+---
+k: 4
+n: 5
+m: 3
+weights: null
+prices:
+  poa_best:
+    poa: 2.2666666666666666
+    pos: 1.0
+    cs_best: [0, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 1, 0, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 0, 3]
+  - [0, 0, 1, 1, 0]
+  - [0, 1, 0, 2, 0]
+  - [0, 1, 2, 0, 0]
+  - [3, 0, 0, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 3]
+  - [0, 0, 0, 3, 0]
+  pos_best:
+    poa: 1.3333333333333333
+    pos: 1.3333333333333333
+    cs_best: [0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 3, 0]
+  - [0, 0, 3, 0, 2]
+  - [0, 1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 3]
+  - [0, 0, 0, 3, 0]
+  poa_avg: 1.2421690179939264
+  pos_avg: 1.0159053588920401
+elapsed_time: 0.36731791496276855
+elapsed_time_human: 0:00:00
+---
+k: 4
+n: 5
+m: 4
+weights: null
+prices:
+  poa_best:
+    poa: 2.533333333333333
+    pos: 1.0
+    cs_best: [0, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 1, 0, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 2, 2, 0]
+  - [0, 2, 0, 4, 0]
+  - [0, 2, 4, 0, 0]
+  - [1, 0, 0, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 4]
+  - [0, 0, 0, 4, 0]
+  pos_best:
+    poa: 1.4285714285714286
+    pos: 1.4285714285714286
+    cs_best: [0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 4, 0]
+  - [0, 0, 4, 0, 2]
+  - [0, 1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 4]
+  - [0, 0, 0, 4, 0]
+  poa_avg: 1.2333119858832158
+  pos_avg: 1.0200630951849594
+elapsed_time: 1.8379626274108887
+elapsed_time_human: 0:00:01
+---
+k: 4
+n: 5
+m: 5
+weights: null
+prices:
+  poa_best:
+    poa: 2.3333333333333335
+    pos: 1.0
+    cs_best: [0, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 1, 0, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 2, 2, 0]
+  - [0, 2, 0, 5, 0]
+  - [0, 2, 5, 0, 0]
+  - [1, 0, 0, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 5]
+  - [0, 0, 0, 5, 0]
+  pos_best:
+    poa: 1.5
+    pos: 1.5
+    cs_best: [0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 5, 0]
+  - [0, 0, 5, 0, 2]
+  - [0, 1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 5]
+  - [0, 0, 0, 5, 0]
+  poa_avg: 1.2260555731172769
+  pos_avg: 1.0236405305426823
+elapsed_time: 9.54533076286316
+elapsed_time_human: 0:00:09
+---
+k: 4
+n: 5
+m: 6
+weights: null
+prices:
+  poa_best:
+    poa: 2.5714285714285716
+    pos: 1.0
+    cs_best: [0, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 1, 0, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 3, 3, 0]
+  - [0, 3, 0, 6, 0]
+  - [0, 3, 6, 0, 0]
+  - [1, 0, 0, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 6]
+  - [0, 0, 0, 6, 0]
+  pos_best:
+    poa: 1.5555555555555556
+    pos: 1.5555555555555556
+    cs_best: [0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 6, 0]
+  - [0, 0, 6, 0, 2]
+  - [0, 1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 6]
+  - [0, 0, 0, 6, 0]
+  poa_avg: 1.221496209326892
+  pos_avg: 1.0261391634471715
+elapsed_time: 40.199756383895874
+elapsed_time_human: 0:00:40
+---
+k: 4
+n: 5
+m: 7
+weights: null
+prices:
+  poa_best:
+    poa: 2.416666666666667
+    pos: 1.0
+    cs_best: [0, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 1, 0, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 3, 3, 0]
+  - [0, 3, 0, 7, 0]
+  - [0, 3, 7, 0, 0]
+  - [1, 0, 0, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 7]
+  - [0, 0, 0, 7, 0]
+  pos_best:
+    poa: 1.6
+    pos: 1.6
+    cs_best: [0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 7, 0]
+  - [0, 0, 7, 0, 2]
+  - [0, 1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 7]
+  - [0, 0, 0, 7, 0]
+  poa_avg: 1.2178735463262207
+  pos_avg: 1.028238132908276
+elapsed_time: 136.79261136054993
+elapsed_time_human: 0:02:16
+---
+k: 4
+n: 5
+m: 8
+weights: null
+prices:
+  poa_best:
+    poa: 2.5925925925925926
+    pos: 1.0
+    cs_best: [0, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 1, 0, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 4, 4, 0]
+  - [0, 4, 0, 8, 0]
+  - [0, 4, 8, 0, 0]
+  - [1, 0, 0, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 8]
+  - [0, 0, 0, 8, 0]
+  pos_best:
+    poa: 1.6363636363636365
+    pos: 1.6363636363636365
+    cs_best: [0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 8, 0]
+  - [0, 0, 8, 0, 2]
+  - [0, 1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 8]
+  - [0, 0, 0, 8, 0]
+  poa_avg: 1.2152980981508876
+  pos_avg: 1.0298263852764507
+elapsed_time: 414.52826738357544
+elapsed_time_human: 0:06:54
+---
+k: 4
+n: 5
+m: 9
+weights: null
+prices:
+  poa_best:
+    poa: 2.4666666666666663
+    pos: 1.0
+    cs_best: [0, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 1, 0, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 4, 4, 0]
+  - [0, 4, 0, 9, 0]
+  - [0, 4, 9, 0, 0]
+  - [1, 0, 0, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 9]
+  - [0, 0, 0, 9, 0]
+  pos_best:
+    poa: 1.6666666666666667
+    pos: 1.6666666666666667
+    cs_best: [0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 9, 0]
+  - [0, 0, 9, 0, 2]
+  - [0, 1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 9]
+  - [0, 0, 0, 9, 0]
+  poa_avg: 1.2131563498445073
+  pos_avg: 1.031185818222823
+elapsed_time: 1106.751624584198
+elapsed_time_human: 0:18:26
+---
+k: 4
+n: 5
+m: 10
+weights: null
+prices:
+  poa_best:
+    poa: 2.606060606060606
+    pos: 1.0
+    cs_best: [0, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 1, 0, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 5, 5, 0]
+  - [0, 5, 0, 10, 0]
+  - [0, 5, 10, 0, 0]
+  - [1, 0, 0, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 10]
+  - [0, 0, 0, 10, 0]
+  pos_best:
+    poa: 1.6923076923076923
+    pos: 1.6923076923076923
+    cs_best: [0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 10, 0]
+  - [0, 0, 10, 0, 2]
+  - [0, 1, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 10]
+  - [0, 0, 0, 10, 0]
+  poa_avg: 1.2115327193431173
+  pos_avg: 1.0322665699397313
+elapsed_time: 2614.528380870819
+elapsed_time_human: 0:43:34
+---
+{k: 4, n: 5, m: 11, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 4
+n: 6
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.18745732307434082
+elapsed_time_human: 0:00:00
+---
+k: 4
+n: 6
+m: 1
+weights: null
+prices:
+  poa_best:
+    poa: 2.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2, 2, 2]
+  poa_best_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 1, 0]
+  - [0, 0, 0, 1, 0, 0]
+  - [0, 0, 1, 0, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 1, 0]
+  pos_best:
+    poa: 1.6666666666666665
+    pos: 1.111111111111111
+    cs_best: [0, 0, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 2, 2, 2, 2]
+    cs_worst_equilibrium: [0, 1, 0, 0, 2, 0]
+  pos_best_game:
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 1, 1, 1]
+  - [0, 0, 1, 0, 1, 1]
+  - [0, 0, 1, 1, 0, 1]
+  - [1, 1, 1, 1, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 1, 0]
+  poa_avg: 1.3368167388167396
+  pos_avg: 1.0015353535353535
+elapsed_time: 0.15995025634765625
+elapsed_time_human: 0:00:00
+---
+k: 4
+n: 6
+m: 2
+weights: null
+prices:
+  poa_best:
+    poa: 2.6666666666666665
+    pos: 1.0
+    cs_best: [0, 1, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 1, 2, 0, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 1, 1, 0]
+  - [0, 0, 0, 1, 1, 0]
+  - [0, 1, 1, 0, 2, 0]
+  - [0, 1, 1, 2, 0, 0]
+  - [1, 0, 0, 0, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 2]
+  - [0, 0, 0, 0, 2, 0]
+  pos_best:
+    poa: 1.6666666666666665
+    pos: 1.6666666666666665
+    cs_best: [0, 1, 1, 0, 0, 1]
+    cs_best_equilibrium: [0, 1, 2, 2, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2, 2, 2]
+  pos_best_game:
+  - [0, 0, 0, 1, 2, 2]
+  - [0, 0, 2, 1, 0, 2]
+  - [0, 2, 0, 1, 1, 2]
+  - [1, 1, 1, 0, 1, 1]
+  - [2, 0, 1, 1, 0, 2]
+  - [2, 2, 2, 1, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 2]
+  - [0, 0, 0, 0, 2, 0]
+  poa_avg: 1.299399060751563
+  pos_avg: 1.0072630585901752
+elapsed_time: 3.511319637298584
+elapsed_time_human: 0:00:03
+---
+k: 4
+n: 6
+m: 3
+weights: null
+prices:
+  poa_best:
+    poa: 2.4
+    pos: 1.0
+    cs_best: [0, 1, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 1, 2, 0, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 0, 0, 3]
+  - [0, 0, 0, 1, 1, 0]
+  - [0, 0, 0, 1, 1, 0]
+  - [0, 1, 1, 0, 2, 0]
+  - [0, 1, 1, 2, 0, 0]
+  - [3, 0, 0, 0, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 3]
+  - [0, 0, 0, 0, 3, 0]
+  pos_best:
+    poa: 1.9166666666666667
+    pos: 1.9166666666666667
+    cs_best: [0, 1, 2, 2, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 1, 1, 1, 1, 0]
+  pos_best_game:
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 3, 2]
+  - [0, 0, 0, 3, 0, 2]
+  - [0, 0, 3, 0, 0, 2]
+  - [0, 3, 0, 0, 0, 2]
+  - [1, 2, 2, 2, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 3]
+  - [0, 0, 0, 0, 3, 0]
+  poa_avg: 1.2726791680549172
+  pos_avg: 1.007773014101261
+elapsed_time: 217.21157383918762
+elapsed_time_human: 0:03:37
+---
+{k: 4, n: 6, m: 4, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 4
+n: 7
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.16710948944091797
+elapsed_time_human: 0:00:00
+---
+k: 4
+n: 7
+m: 1
+weights: null
+prices:
+  poa_best:
+    poa: 2.25
+    pos: 1.0
+    cs_best: [0, 0, 1, 1, 1, 0, 0]
+    cs_best_equilibrium: [0, 0, 1, 1, 1, 0, 0]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3, 3, 3]
+  poa_best_game:
+  - [0, 0, 0, 0, 0, 1, 1]
+  - [0, 0, 0, 0, 0, 1, 1]
+  - [0, 0, 0, 1, 1, 0, 0]
+  - [0, 0, 1, 0, 1, 0, 1]
+  - [0, 0, 1, 1, 0, 1, 0]
+  - [1, 1, 0, 0, 1, 0, 1]
+  - [1, 1, 0, 1, 0, 1, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 1, 2, 2]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 1, 0]
+  pos_best:
+    poa: 1.6666666666666665
+    pos: 1.111111111111111
+    cs_best: [0, 1, 1, 2, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3, 3, 3]
+    cs_worst_equilibrium: [0, 1, 2, 1, 1, 3, 1]
+  pos_best_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 1, 1, 1]
+  - [0, 0, 0, 1, 0, 1, 1]
+  - [0, 0, 0, 1, 1, 0, 1]
+  - [0, 1, 1, 1, 1, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 1, 2, 2]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 1, 0]
+  poa_avg: 1.4069884355346882
+  pos_avg: 1.0001337415971563
+elapsed_time: 1.0088520050048828
+elapsed_time_human: 0:00:01
+---
+k: 4
+n: 7
+m: 2
+weights: null
+prices:
+  poa_best:
+    poa: 2.8333333333333335
+    pos: 1.0
+    cs_best: [0, 1, 1, 1, 1, 0, 0]
+    cs_best_equilibrium: [0, 1, 1, 1, 1, 0, 0]
+    cs_worst_equilibrium: [0, 1, 2, 0, 0, 3, 0]
+  poa_best_game:
+  - [0, 0, 0, 0, 0, 1, 2]
+  - [0, 0, 0, 1, 1, 0, 0]
+  - [0, 0, 0, 1, 1, 0, 0]
+  - [0, 1, 1, 0, 2, 0, 0]
+  - [0, 1, 1, 2, 0, 1, 0]
+  - [1, 0, 0, 0, 1, 0, 1]
+  - [2, 0, 0, 0, 0, 1, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 1, 2, 2]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 2]
+  - [0, 0, 0, 0, 0, 2, 0]
+  pos_best:
+    poa: 1.7999999999999998
+    pos: 1.7999999999999998
+    cs_best: [0, 0, 1, 2, 2, 1, 1]
+    cs_best_equilibrium: [0, 0, 1, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 0, 1, 1, 1, 1, 0]
+  pos_best_game:
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 2, 2]
+  - [0, 0, 0, 0, 2, 0, 2]
+  - [0, 0, 0, 2, 0, 0, 2]
+  - [0, 0, 2, 0, 0, 0, 2]
+  - [1, 1, 2, 2, 2, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 1, 2, 2]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 2]
+  - [0, 0, 0, 0, 0, 2, 0]
+  poa_avg: 1.3456696763792635
+  pos_avg: 1.0042456880752313
+elapsed_time: 2434.84059715271
+elapsed_time_human: 0:40:34
+---
+{k: 4, n: 7, m: 3, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 4
+n: 8
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.18072962760925293
+elapsed_time_human: 0:00:00
+---
+k: 4
+n: 8
+m: 1
+weights: null
+prices:
+  poa_best:
+    poa: 3.0
+    pos: 1.0
+    cs_best: [0, 1, 1, 1, 1, 0, 0, 0]
+    cs_best_equilibrium: [0, 1, 1, 1, 1, 0, 0, 0]
+    cs_worst_equilibrium: [0, 0, 0, 1, 1, 0, 1, 1]
+  poa_best_game:
+  - [0, 0, 0, 0, 0, 1, 1, 1]
+  - [0, 0, 1, 1, 1, 0, 0, 0]
+  - [0, 1, 0, 1, 1, 0, 0, 0]
+  - [0, 1, 1, 0, 1, 0, 0, 0]
+  - [0, 1, 1, 1, 0, 0, 0, 0]
+  - [1, 0, 0, 0, 0, 0, 1, 1]
+  - [1, 0, 0, 0, 0, 1, 0, 1]
+  - [1, 0, 0, 0, 0, 1, 1, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 1, 1, 2, 2]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 1, 0]
+  pos_best:
+    poa: 1.6666666666666665
+    pos: 1.111111111111111
+    cs_best: [0, 0, 1, 1, 2, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4, 4, 4]
+    cs_worst_equilibrium: [0, 1, 2, 3, 2, 2, 4, 2]
+  pos_best_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 1, 1, 1]
+  - [0, 0, 0, 0, 1, 0, 1, 1]
+  - [0, 0, 0, 0, 1, 1, 0, 1]
+  - [0, 0, 1, 1, 1, 1, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 1, 1, 2, 2]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 1, 0]
+  poa_avg: 1.7794579895686127
+  pos_avg: 1.0002389151794502
+elapsed_time: 82.27380633354187
+elapsed_time_human: 0:01:22
+---
+{k: 4, n: 8, m: 2, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 4
+n: 9
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.19217443466186523
+elapsed_time_human: 0:00:00
+---
+{k: 4, n: 9, m: 1, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 4
+n: 10
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.2234792709350586
+elapsed_time_human: 0:00:00
+---
+{k: 4, n: 10, m: 1, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 5
+n: 6
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.1933732032775879
+elapsed_time_human: 0:00:00
+---
+k: 5
+n: 6
+m: 1
+weights: null
+prices:
+  poa_best:
+    poa: 2.0
+    pos: 1.0
+    cs_best: [0, 0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2, 2, 2]
+  poa_best_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 1, 0]
+  - [0, 0, 0, 1, 0, 0]
+  - [0, 0, 1, 0, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 1, 0]
+  pos_best:
+    poa: 1.1904761904761905
+    pos: 1.1904761904761905
+    cs_best: [0, 0, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 0, 0, 0, 0]
+    cs_worst_equilibrium: [0, 1, 0, 0, 0, 0]
+  pos_best_game:
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 1, 1, 1]
+  - [0, 0, 1, 0, 1, 1]
+  - [0, 0, 1, 1, 0, 1]
+  - [1, 1, 1, 1, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 1, 0]
+  poa_avg: 1.1431064213564215
+  pos_avg: 1.0090277777777774
+elapsed_time: 0.16640448570251465
+elapsed_time_human: 0:00:00
+---
+k: 5
+n: 6
+m: 2
+weights: null
+prices:
+  poa_best:
+    poa: 2.142857142857143
+    pos: 1.0
+    cs_best: [0, 1, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 1, 0, 0, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 0, 0, 2]
+  - [0, 0, 1, 1, 1, 0]
+  - [0, 1, 0, 1, 2, 0]
+  - [0, 1, 1, 0, 2, 0]
+  - [0, 1, 2, 2, 0, 0]
+  - [2, 0, 0, 0, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 2]
+  - [0, 0, 0, 0, 2, 0]
+  pos_best:
+    poa: 1.3888888888888886
+    pos: 1.3888888888888886
+    cs_best: [0, 1, 1, 0, 0, 1]
+    cs_best_equilibrium: [0, 0, 0, 1, 0, 0]
+    cs_worst_equilibrium: [0, 0, 0, 1, 0, 0]
+  pos_best_game:
+  - [0, 0, 0, 1, 2, 2]
+  - [0, 0, 2, 1, 0, 2]
+  - [0, 2, 0, 1, 0, 2]
+  - [1, 1, 1, 0, 1, 1]
+  - [2, 0, 0, 1, 0, 2]
+  - [2, 2, 2, 1, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 2]
+  - [0, 0, 0, 0, 2, 0]
+  poa_avg: 1.249159521310836
+  pos_avg: 1.0164754524356896
+elapsed_time: 3.589578866958618
+elapsed_time_human: 0:00:03
+---
+k: 5
+n: 6
+m: 3
+weights: null
+prices:
+  poa_best:
+    poa: 2.3333333333333335
+    pos: 1.0
+    cs_best: [0, 0, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 0, 1, 1, 1, 0]
+    cs_worst_equilibrium: [0, 0, 1, 0, 0, 0]
+  poa_best_game:
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 1, 1, 0]
+  - [0, 0, 1, 0, 3, 0]
+  - [0, 0, 1, 3, 0, 0]
+  - [1, 1, 0, 0, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 3]
+  - [0, 0, 0, 0, 3, 0]
+  pos_best:
+    poa: 1.5
+    pos: 1.5
+    cs_best: [0, 0, 1, 2, 1, 2]
+    cs_best_equilibrium: [0, 1, 0, 0, 0, 0]
+    cs_worst_equilibrium: [0, 1, 0, 0, 0, 0]
+  pos_best_game:
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 3, 0]
+  - [0, 0, 0, 0, 3, 3]
+  - [0, 0, 3, 3, 0, 0]
+  - [1, 1, 0, 3, 0, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 3]
+  - [0, 0, 0, 0, 3, 0]
+  poa_avg: 1.2418929914420431
+  pos_avg: 1.0190814011549287
+elapsed_time: 217.50762844085693
+elapsed_time_human: 0:03:37
+---
+{k: 5, n: 6, m: 4, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 5
+n: 7
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.19227886199951172
+elapsed_time_human: 0:00:00
+---
+k: 5
+n: 7
+m: 1
+weights: null
+prices:
+  poa_best:
+    poa: 2.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4, 3]
+    cs_worst_equilibrium: [0, 1, 2, 3, 3, 3, 3]
+  poa_best_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 1, 0]
+  - [0, 0, 0, 0, 1, 0, 0]
+  - [0, 0, 0, 1, 0, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 1, 0]
+  pos_best:
+    poa: 1.1904761904761905
+    pos: 1.1904761904761905
+    cs_best: [0, 1, 1, 2, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 2, 1, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 2, 1, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 1, 1, 1]
+  - [0, 0, 0, 1, 0, 1, 1]
+  - [0, 0, 0, 1, 1, 0, 1]
+  - [0, 1, 1, 1, 1, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 1, 0]
+  poa_avg: 1.2183142731010421
+  pos_avg: 1.003284357575054
+elapsed_time: 1.0478439331054688
+elapsed_time_human: 0:00:01
+---
+k: 5
+n: 7
+m: 2
+weights: null
+prices:
+  poa_best:
+    poa: 2.285714285714286
+    pos: 1.0
+    cs_best: [0, 0, 1, 1, 0, 0, 0]
+    cs_best_equilibrium: [0, 0, 1, 1, 0, 0, 0]
+    cs_worst_equilibrium: [0, 1, 2, 2, 2, 2, 2]
+  poa_best_game:
+  - [0, 0, 0, 0, 1, 1, 1]
+  - [0, 0, 0, 0, 1, 1, 1]
+  - [0, 0, 0, 2, 0, 0, 0]
+  - [0, 0, 2, 0, 0, 0, 0]
+  - [1, 1, 0, 0, 0, 1, 2]
+  - [1, 1, 0, 0, 1, 0, 2]
+  - [1, 1, 0, 0, 2, 2, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 2]
+  - [0, 0, 0, 0, 0, 2, 0]
+  pos_best:
+    poa: 1.4423076923076925
+    pos: 1.4423076923076925
+    cs_best: [0, 0, 1, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 1, 2, 0, 0, 0, 0]
+    cs_worst_equilibrium: [0, 1, 2, 0, 0, 0, 0]
+  pos_best_game:
+  - [0, 0, 0, 0, 1, 1, 1]
+  - [0, 0, 0, 2, 0, 1, 2]
+  - [0, 0, 0, 2, 2, 1, 0]
+  - [0, 2, 2, 0, 2, 2, 2]
+  - [1, 0, 2, 2, 0, 2, 0]
+  - [1, 1, 1, 2, 2, 0, 2]
+  - [1, 2, 0, 2, 0, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 2]
+  - [0, 0, 0, 0, 0, 2, 0]
+  poa_avg: 1.2924122860862526
+  pos_avg: 1.0064366571525243
+elapsed_time: 2581.1516094207764
+elapsed_time_human: 0:43:01
+---
+{k: 5, n: 7, m: 3, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 5
+n: 8
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.18844819068908691
+elapsed_time_human: 0:00:00
+---
+k: 5
+n: 8
+m: 1
+weights: null
+prices:
+  poa_best:
+    poa: 2.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 1, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 5, 4]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4, 4, 4]
+  poa_best_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 1, 0]
+  - [0, 0, 0, 0, 0, 1, 0, 0]
+  - [0, 0, 0, 0, 1, 0, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 0, 1, 2, 2]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 1, 0]
+  pos_best:
+    poa: 1.1904761904761905
+    pos: 1.1904761904761905
+    cs_best: [0, 0, 1, 1, 2, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 2, 2, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 3, 2, 2, 2, 2]
+  pos_best_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 1, 1, 1]
+  - [0, 0, 0, 0, 1, 0, 1, 1]
+  - [0, 0, 0, 0, 1, 1, 0, 1]
+  - [0, 0, 1, 1, 1, 1, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 0, 1, 2, 2]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 1, 0]
+  poa_avg: 1.2252718948490753
+  pos_avg: 1.0039447851227943
+elapsed_time: 86.49990773200989
+elapsed_time_human: 0:01:26
+---
+{k: 5, n: 8, m: 2, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 5
+n: 9
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.16924786567687988
+elapsed_time_human: 0:00:00
+---
+{k: 5, n: 9, m: 1, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 5
+n: 10
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.22257113456726074
+elapsed_time_human: 0:00:00
+---
+{k: 5, n: 10, m: 1, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 6
+n: 7
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.18208575248718262
+elapsed_time_human: 0:00:00
+---
+k: 6
+n: 7
+m: 1
+weights: null
+prices:
+  poa_best:
+    poa: 3.0000000000000004
+    pos: 1.0
+    cs_best: [0, 1, 2, 3, 3, 2, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3, 2, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1, 1, 1, 1]
+  poa_best_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 1, 0]
+  - [0, 0, 0, 0, 1, 0, 0]
+  - [0, 0, 0, 1, 0, 0, 0]
+  - [0, 0, 1, 0, 0, 0, 0]
+  - [0, 1, 0, 0, 0, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 1, 0]
+  pos_best:
+    poa: 1.25
+    pos: 1.25
+    cs_best: [0, 1, 1, 2, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 1, 1, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 1, 1, 1]
+  - [0, 0, 0, 1, 0, 1, 1]
+  - [0, 0, 0, 1, 1, 0, 1]
+  - [0, 1, 1, 1, 1, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 1, 0]
+  poa_avg: 1.3341324777601529
+  pos_avg: 1.0041830385214165
+elapsed_time: 1.0590698719024658
+elapsed_time_human: 0:00:01
+---
+k: 6
+n: 7
+m: 2
+weights: null
+prices:
+  poa_best:
+    poa: 3.0000000000000004
+    pos: 1.0
+    cs_best: [0, 1, 2, 3, 3, 2, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 3, 2, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1, 1, 1, 1]
+  poa_best_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 2, 0]
+  - [0, 0, 0, 0, 2, 0, 0]
+  - [0, 0, 0, 2, 0, 0, 0]
+  - [0, 0, 2, 0, 0, 0, 0]
+  - [0, 1, 0, 0, 0, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 2]
+  - [0, 0, 0, 0, 0, 2, 0]
+  pos_best:
+    poa: 1.4545454545454546
+    pos: 1.4545454545454546
+    cs_best: [0, 1, 2, 2, 2, 1, 1]
+    cs_best_equilibrium: [0, 1, 1, 1, 1, 1, 1]
+    cs_worst_equilibrium: [0, 1, 1, 1, 1, 1, 1]
+  pos_best_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 2, 2]
+  - [0, 0, 0, 0, 1, 0, 0]
+  - [0, 0, 0, 0, 1, 0, 0]
+  - [0, 0, 1, 1, 0, 1, 2]
+  - [0, 2, 0, 0, 1, 0, 2]
+  - [0, 2, 0, 0, 2, 2, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 2]
+  - [0, 0, 0, 0, 0, 2, 0]
+  poa_avg: 1.3038467614886886
+  pos_avg: 1.0085089199594404
+elapsed_time: 2618.432940006256
+elapsed_time_human: 0:43:38
+---
+{k: 6, n: 7, m: 3, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 6
+n: 8
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.20027446746826172
+elapsed_time_human: 0:00:00
+---
+k: 6
+n: 8
+m: 1
+weights: null
+prices:
+  poa_best:
+    poa: 3.0000000000000004
+    pos: 1.0
+    cs_best: [0, 0, 1, 2, 3, 3, 2, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4, 3, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2, 2, 2, 2, 2]
+  poa_best_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 1, 0]
+  - [0, 0, 0, 0, 0, 1, 0, 0]
+  - [0, 0, 0, 0, 1, 0, 0, 0]
+  - [0, 0, 0, 1, 0, 0, 0, 0]
+  - [0, 0, 1, 0, 0, 0, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 1, 0]
+  pos_best:
+    poa: 1.25
+    pos: 1.25
+    cs_best: [0, 0, 1, 1, 2, 2, 2, 1]
+    cs_best_equilibrium: [0, 1, 2, 2, 2, 2, 2, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2, 2, 2, 2, 2]
+  pos_best_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 1, 1, 1]
+  - [0, 0, 0, 0, 1, 0, 1, 1]
+  - [0, 0, 0, 0, 1, 1, 0, 1]
+  - [0, 0, 1, 1, 1, 1, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 1, 0]
+  poa_avg: 1.3919036266223015
+  pos_avg: 1.0041926771466383
+elapsed_time: 88.74546122550964
+elapsed_time_human: 0:01:28
+---
+{k: 6, n: 8, m: 2, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 6
+n: 9
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.1912248134613037
+elapsed_time_human: 0:00:00
+---
+{k: 6, n: 9, m: 1, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 6
+n: 10
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.22777915000915527
+elapsed_time_human: 0:00:00
+---
+{k: 6, n: 10, m: 1, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 7
+n: 8
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.19891119003295898
+elapsed_time_human: 0:00:00
+---
+k: 7
+n: 8
+m: 1
+weights: null
+prices:
+  poa_best:
+    poa: 3.0000000000000004
+    pos: 1.0
+    cs_best: [0, 0, 1, 2, 3, 3, 2, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4, 3, 2]
+    cs_worst_equilibrium: [0, 1, 2, 2, 2, 2, 2, 2]
+  poa_best_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 1, 0]
+  - [0, 0, 0, 0, 0, 1, 0, 0]
+  - [0, 0, 0, 0, 1, 0, 0, 0]
+  - [0, 0, 0, 1, 0, 0, 0, 0]
+  - [0, 0, 1, 0, 0, 0, 0, 0]
+  poa_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+  poa_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 1, 0]
+  pos_best:
+    poa: 1.3125
+    pos: 1.3125
+    cs_best: [0, 0, 0, 1, 1, 1, 1, 0]
+    cs_best_equilibrium: [0, 0, 1, 0, 0, 0, 0, 0]
+    cs_worst_equilibrium: [0, 0, 1, 0, 0, 0, 0, 0]
+  pos_best_game:
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 1, 1, 1, 1]
+  - [0, 0, 0, 1, 0, 1, 1, 1]
+  - [0, 0, 0, 1, 1, 0, 1, 1]
+  - [0, 0, 0, 1, 1, 1, 0, 1]
+  - [1, 1, 1, 1, 1, 1, 1, 0]
+  pos_worst:
+    poa: 1.0
+    pos: 1.0
+    cs_best: [0, 0, 0, 0, 0, 0, 1, 1]
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+  pos_worst_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 1, 0]
+  poa_avg: 1.2797517894043395
+  pos_avg: 1.0048747608417237
+elapsed_time: 87.97675919532776
+elapsed_time_human: 0:01:27
+---
+{k: 7, n: 8, m: 2, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 7
+n: 9
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.18587923049926758
+elapsed_time_human: 0:00:00
+---
+{k: 7, n: 9, m: 1, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 7
+n: 10
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.2272648811340332
+elapsed_time_human: 0:00:00
+---
+{k: 7, n: 10, m: 1, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 8
+n: 9
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.1906871795654297
+elapsed_time_human: 0:00:00
+---
+{k: 8, n: 9, m: 1, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
+---
+k: 8
+n: 10
+m: 0
+weights: null
+prices:
+  poa_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_best_game:
+  - [-1]
+  poa_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  poa_worst_game:
+  - [-1]
+  pos_best:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_best_game:
+  - [-1]
+  pos_worst:
+    poa: 0.0
+    pos: 0.0
+    cs_best: [-1]
+    cs_best_equilibrium: [-1]
+    cs_worst_equilibrium: [-1]
+  pos_worst_game:
+  - [-1]
+  poa_avg: .nan
+  pos_avg: .nan
+elapsed_time: 0.22222423553466797
+elapsed_time_human: 0:00:00
+---
+{k: 8, n: 10, m: 1, weights: null, prices: null, elapsed_time: 3600, elapsed_time_human: '1:00:00'}
