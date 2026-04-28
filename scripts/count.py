@@ -61,6 +61,47 @@ def yaml_log(
     return yaml.dump(yaml_serialize(data), default_flow_style=None, sort_keys=False)
 
 
+def json_serialize(obj: Any) -> Any:
+    if isinstance(obj, numpy.ndarray):
+        return obj.tolist()
+    if isinstance(obj, dict):
+        return {key: json_serialize(value) for key, value in obj.items()}
+    if isinstance(obj, tuple) and hasattr(obj, "_asdict"):
+        return {key: json_serialize(value) for key, value in obj._asdict().items()}  # type: ignore
+    if isinstance(obj, (list, tuple)):
+        return [json_serialize(value) for value in obj]
+    return obj
+
+
+def json_log(
+    k: int,
+    n: int,
+    m: int,
+    weights: IntArray1D | None,
+    payload: Any,
+    elapsed_time: float,
+) -> str:
+    """
+    Log the result of a computation in JSON format.
+    """
+    data = {
+        "k": k,
+        "n": n,
+        "m": m,
+        "weights": weights,
+        "total_game_count": payload.count_total if payload else None,
+        "unstable_game_count": payload.count_noequilibrium if payload else None,
+        "elapsed_time": elapsed_time,
+        "elapsed_time_human": str(datetime.timedelta(seconds=int(elapsed_time))),
+        "example": (
+            payload.example_noequilibrium
+            if payload and payload.example_noequilibrium.size > 0
+            else None
+        ),
+    }
+    return json.dumps(json_serialize(data))
+
+
 def parse_range(s: str) -> range:
     """
     Parse a string representing a range of integers.
@@ -170,6 +211,11 @@ def main():
         help="compute price of anarchy and stability instead of counting games",
         action="store_true",
     )
+    parser.add_argument(
+        "--json",
+        help="output results in JSON format instead of YAML (only for counts, not prices)",
+        action="store_true",
+    )
 
     args = parser.parse_args()
 
@@ -231,7 +277,11 @@ def main():
                 except TimeoutError:
                     timeout_occured = True
                     elapsed_time = cast(float, timeout)
-                log_msg = yaml_log(k, n, m, weights, result, elapsed_time)
+                log_msg = (
+                    yaml_log(k, n, m, weights, result, elapsed_time)
+                    if args.prices or not args.json
+                    else json_log(k, n, m, weights, result, elapsed_time)
+                )
                 print(log_msg)
                 if f:
                     print("---", file=f, flush=True)
