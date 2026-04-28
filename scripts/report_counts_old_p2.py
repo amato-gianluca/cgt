@@ -25,8 +25,12 @@ ks = df_orig["k"].unique()
 for k in ks:
     df = df_orig[df_orig["k"] == k]
     df = df[df["weights"].apply(lambda x: x == [2**i for i in range(len(x))])]
-    df["m"] = df["weights"].apply(lambda x: len(x)-1)
-    pivot = df.pivot_table(index="m", columns="n", values="count", fill_value=-1).astype(int).astype(str)
+    df["m"] = df["weights"].apply(lambda x: len(x) - 1)
+    pivot = (
+        df.pivot_table(index="m", columns="n", values="count", fill_value=-1)
+        .astype(int)
+        .astype(str)
+    )
     pivot = pivot.replace("-1", "")
 
     print("\n\nk =", k)

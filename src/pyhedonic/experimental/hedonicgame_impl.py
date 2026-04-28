@@ -13,13 +13,22 @@ from typing import Iterator, NamedTuple
 import numpy as np
 from numba import njit
 
-from pyhedonic.hedonicgame_impl import (CoalitionStructure, Deviation, Game,
-                                       IntArray1D, Weights, game_begin,
-                                       game_next, is_improving_deviation)
+from pyhedonic.hedonicgame_impl import (
+    CoalitionStructure,
+    Deviation,
+    Game,
+    IntArray1D,
+    Weights,
+    game_begin,
+    game_next,
+    is_improving_deviation,
+)
 
 
 @njit
-def cs_partial_next(cs: CoalitionStructure, cs_sizes: IntArray1D, co: int, ag: int, k: int | None) -> bool:
+def cs_partial_next(
+    cs: CoalitionStructure, cs_sizes: IntArray1D, co: int, ag: int, k: int | None
+) -> bool:
     """
     Update the partial coalition structure cs by enumerating all possible ways to add a new partition co.
 
@@ -44,7 +53,7 @@ def cs_partial_next(cs: CoalitionStructure, cs_sizes: IntArray1D, co: int, ag: i
         cs_sizes[co] += 1
         return True
     co_size = cs_sizes[co]
-    for i in range(ag+1, len(cs)):
+    for i in range(ag + 1, len(cs)):
         if cs[i] == -1 and (k is None or co_size < k):
             cs[i] = co
             cs_sizes[co] = co_size + 1
@@ -61,8 +70,15 @@ def cs_partial_next(cs: CoalitionStructure, cs_sizes: IntArray1D, co: int, ag: i
 
 
 @njit
-def has_improving_deviation_partial(game: Game, is_fractional: bool, cs: CoalitionStructure, cs_sizes: IntArray1D,
-                                    co: int, k: int | None, weights: Weights | None = None) -> bool:
+def has_improving_deviation_partial(
+    game: Game,
+    is_fractional: bool,
+    cs: CoalitionStructure,
+    cs_sizes: IntArray1D,
+    co: int,
+    k: int | None,
+    weights: Weights | None = None,
+) -> bool:
     """
     Determines whether the partial coalition structure cs has an improving deviation involving coalition co.
 
@@ -74,15 +90,26 @@ def has_improving_deviation_partial(game: Game, is_fractional: bool, cs: Coaliti
         if cs[ag] == -1:
             pass
         elif cs[ag] != co:
-            if (k is None or cs_sizes[co] < k) and is_improving_deviation(game, is_fractional, cs, cs_sizes, Deviation(ag, co), weights):
+            if (k is None or cs_sizes[co] < k) and is_improving_deviation(
+                game, is_fractional, cs, cs_sizes, Deviation(ag, co), weights
+            ):
                 return True
         else:
             for co_other in range(co):
                 if k is None or cs_sizes[co_other] < k:
-                    if is_improving_deviation(game, is_fractional, cs, cs_sizes, Deviation(ag, co_other), weights):
+                    if is_improving_deviation(
+                        game,
+                        is_fractional,
+                        cs,
+                        cs_sizes,
+                        Deviation(ag, co_other),
+                        weights,
+                    ):
                         return True
             if cs_sizes[co] > 1 and co < len(game):
-                if is_improving_deviation(game, is_fractional, cs, cs_sizes, Deviation(ag, co+1), weights):
+                if is_improving_deviation(
+                    game, is_fractional, cs, cs_sizes, Deviation(ag, co + 1), weights
+                ):
                     return True
     return False
 
@@ -113,14 +140,18 @@ def cs_stable_begin1(game: Game) -> StableCoalitionStructureIterator:
     Build an iterator for Nash stable coalition structures.
     """
     return StableCoalitionStructureIterator(
-        np.full(len(game), -1),
-        np.zeros(len(game), dtype=np.int_),
-        np.array([0]))
+        np.full(len(game), -1), np.zeros(len(game), dtype=np.int_), np.array([0])
+    )
 
 
 @njit
-def cs_stable_next1(cit: StableCoalitionStructureIterator, game: Game, k: int | None, is_fractional: bool,
-                    weights: Weights | None = None) -> bool:
+def cs_stable_next1(
+    cit: StableCoalitionStructureIterator,
+    game: Game,
+    k: int | None,
+    is_fractional: bool,
+    weights: Weights | None = None,
+) -> bool:
     """
     Update the iterator with a new Nash stable coalition structure.
 
@@ -140,17 +171,24 @@ def cs_stable_next1(cit: StableCoalitionStructureIterator, game: Game, k: int | 
             ag += 1
         # coalition is complete
         if ag == len(cs):
-            data[0] = co-1
+            data[0] = co - 1
             return True
         res = cs_partial_next(cs, cs_sizes, co, ag, k)
-        while res and has_improving_deviation_partial(game, is_fractional, cs, cs_sizes, co, k, weights):
+        while res and has_improving_deviation_partial(
+            game, is_fractional, cs, cs_sizes, co, k, weights
+        ):
             res = cs_partial_next(cs, cs_sizes, co, ag, k)
         co += 1 if res else -1
     return False
 
 
 @njit
-def nash_equilibria(game: Game, is_fractional: bool = True, k: int | None = None, weights: Weights | None = None) -> Iterator[CoalitionStructure]:
+def nash_equilibria(
+    game: Game,
+    is_fractional: bool = True,
+    k: int | None = None,
+    weights: Weights | None = None,
+) -> Iterator[CoalitionStructure]:
     """
     Iterate over all Nash equilibria of the given game.
     """
@@ -160,7 +198,12 @@ def nash_equilibria(game: Game, is_fractional: bool = True, k: int | None = None
 
 
 @njit
-def nash_equilibrium(game: Game, is_fractional: bool = True, k: int | None = None, weights: Weights | None = None) -> CoalitionStructure | None:
+def nash_equilibrium(
+    game: Game,
+    is_fractional: bool = True,
+    k: int | None = None,
+    weights: Weights | None = None,
+) -> CoalitionStructure | None:
     """
     Return the first Nash equilibrium of the given game.
     """
@@ -170,8 +213,16 @@ def nash_equilibrium(game: Game, is_fractional: bool = True, k: int | None = Non
 
 
 @njit
-def count_unstable_games(num_agents: int, is_symmetric: bool = True, m_begin: int = 0, m_end: int = 1, k: int | None = None,
-                         is_fractional: bool = True, weights: Weights | None = None, debug: int = 0) -> tuple[int, int]:
+def count_unstable_games(
+    num_agents: int,
+    is_symmetric: bool = True,
+    m_begin: int = 0,
+    m_end: int = 1,
+    k: int | None = None,
+    is_fractional: bool = True,
+    weights: Weights | None = None,
+    debug: int = 0,
+) -> tuple[int, int]:
     """
     Count the number of games without a Nash stable coalition structure.
 
@@ -193,7 +244,13 @@ def count_unstable_games(num_agents: int, is_symmetric: bool = True, m_begin: in
 
 
 @njit
-def count_games(num_agents: int, is_symmetric: bool = True, m_begin: int = 0, m_end: int = 1, debug: int = 0) -> int:
+def count_games(
+    num_agents: int,
+    is_symmetric: bool = True,
+    m_begin: int = 0,
+    m_end: int = 1,
+    debug: int = 0,
+) -> int:
     """
     Count the number of games generated by our procedure.
 

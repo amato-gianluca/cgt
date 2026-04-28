@@ -7,7 +7,7 @@ name = "pyhedonic"
 version = "0.1.0"
 description = "Tools for experimenting with fractional hedonic games."
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.12"
 license = "GPL-3.0-or-later"
 
 dependencies = [

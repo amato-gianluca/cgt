@@ -4,7 +4,7 @@ Python interface.
 This is a pythonic wrapper around functions implemented in the HedonicGameImpl package.
 """
 
-from collections.abc import Iterator, Iterable
+from collections.abc import Iterable, Iterator
 from typing import NamedTuple
 
 import networkx as nx
@@ -12,7 +12,7 @@ import numpy as np
 import pydot
 
 from . import hedonicgame_impl as hgimpl
-from .hedonicgame_impl import IntArray1D, IntArray2D, Agent, Coalition
+from .hedonicgame_impl import Agent, Coalition, IntArray1D, IntArray2D
 
 
 class PriceResult(NamedTuple):
@@ -29,10 +29,10 @@ class PriceResult(NamedTuple):
     pom: float
     """Average price of the Nash equilibria"""
 
-    cs_worst: 'CoalitionStructure'
+    cs_worst: "CoalitionStructure"
     """Coalition structure with the worst price"""
 
-    cs_best: 'CoalitionStructure'
+    cs_best: "CoalitionStructure"
     """Coalition structure with the best price"""
 
     cs_count: int
@@ -63,13 +63,21 @@ class Graph:
         if the parameter is_directed is not provided, its value is inferred from the weights matrix. If the
         matrix is symmetric, the graph is undirected, otherwise it is directed.
         """
-        assert weights.ndim == 2 and weights.shape[0] == weights.shape[1], "The weights matrix should be square."
-        assert np.all(weights >= 0), "The weights matrix should contain only non-negative integers."
+        assert weights.ndim == 2 and weights.shape[0] == weights.shape[1], (
+            "The weights matrix should be square."
+        )
+        assert np.all(weights >= 0), (
+            "The weights matrix should contain only non-negative integers."
+        )
         assert is_directed is not False or np.array_equal(weights, weights.T), (
             "The graph is undirected, but the weights matrix is not symmetric."
         )
         self.weights = weights
-        self._is_directed = is_directed if is_directed is not None else not np.array_equal(weights, weights.T)
+        self._is_directed = (
+            is_directed
+            if is_directed is not None
+            else not np.array_equal(weights, weights.T)
+        )
 
     def __eq__(self, value: object) -> bool:
         """
@@ -80,7 +88,10 @@ class Graph:
         """
         if not isinstance(value, Graph):
             return False
-        return np.array_equal(self.weights, value.weights) and self.is_directed() == value.is_directed()
+        return (
+            np.array_equal(self.weights, value.weights)
+            and self.is_directed() == value.is_directed()
+        )
 
     @property
     def node_count(self) -> int:
@@ -123,12 +134,16 @@ class Graph:
         for i in self.nodes():
             graph.add_node(pydot.Node(str(i)))
         for i, j, w in self.edges():
-            edge = pydot.Edge(str(i), str(j)) if self.is_simple() else pydot.Edge(str(i), str(j), label=str(w))
+            edge = (
+                pydot.Edge(str(i), str(j))
+                if self.is_simple()
+                else pydot.Edge(str(i), str(j), label=str(w))
+            )
             graph.add_edge(edge)
         return graph
 
     @classmethod
-    def from_nx_graph(cls, graph: nx.Graph | nx.DiGraph) -> 'Graph':
+    def from_nx_graph(cls, graph: nx.Graph | nx.DiGraph) -> "Graph":
         """
         Convert a networkx graph to the `Graph` class.
 
@@ -140,7 +155,7 @@ class Graph:
         ), "The weights of the edges should be non-negative integers."
 
         weights = np.zeros((len(graph.nodes), len(graph.nodes)), dtype=np.int_)
-        for i, j, weight in graph.edges(data='weight'):  # type: ignore[arg-type]
+        for i, j, weight in graph.edges(data="weight"):  # type: ignore[arg-type]
             weights[i, j] = weight if weight is not None else 1
             if not graph.is_directed():
                 weights[j, i] = weights[i, j]
@@ -164,7 +179,9 @@ class Graph:
         return f"{repr(self.weights)}, is_directed={self.is_directed()}"
 
     @classmethod
-    def enumerate(cls, n: int, is_directed: bool, m_min: int, m_max: int) -> Iterator['Graph']:
+    def enumerate(
+        cls, n: int, is_directed: bool, m_min: int, m_max: int
+    ) -> Iterator["Graph"]:
         """
         Iterates over all the graphs with n nodes, with the given directedness. The values m_min and m_max
         are the minimum and maximum value of m, where m is the maximum weight of the edges. For example,
@@ -179,7 +196,6 @@ class Graph:
 
 
 class HedonicGame:
-
     graph: Graph
     """
     The graph encoding the agents and their valuations.
@@ -233,14 +249,21 @@ class HedonicGame:
         """
         return self.graph.is_simple()
 
-    def __init__(self, graph: Graph | IntArray2D, k: int | None = None, is_fractional: bool = True):
+    def __init__(
+        self,
+        graph: Graph | IntArray2D,
+        k: int | None = None,
+        is_fractional: bool = True,
+    ):
         """
         Creates a hedonic game from the given graph.
         """
-        assert k is None or k >= 0, "The maximum size of the coalitions should be non-negative."
-        assert not isinstance(graph, Graph) or (graph.is_directed != np.array_equal(graph.weights, graph.weights.T)), (
-            "The graph is directed, but the weights matrix is symmetric."
+        assert k is None or k >= 0, (
+            "The maximum size of the coalitions should be non-negative."
         )
+        assert not isinstance(graph, Graph) or (
+            graph.is_directed != np.array_equal(graph.weights, graph.weights.T)
+        ), "The graph is directed, but the weights matrix is symmetric."
         self.graph = graph if isinstance(graph, Graph) else Graph(graph)
         self.k = k
         self._is_fractional = is_fractional
@@ -254,15 +277,23 @@ class HedonicGame:
         """
         if not isinstance(value, HedonicGame):
             return False
-        return self.graph == value.graph and self.k == value.k and self.is_fractional() == value.is_fractional()
+        return (
+            self.graph == value.graph
+            and self.k == value.k
+            and self.is_fractional() == value.is_fractional()
+        )
 
-    def coalition_structures(self, cs_size: int | None = None) -> Iterator['CoalitionStructure']:
+    def coalition_structures(
+        self, cs_size: int | None = None
+    ) -> Iterator["CoalitionStructure"]:
         """
         Iterates over the coalition structures of the game.
 
         If provided, `cs_size` restrict the coalitions structures to those with the specified number of coalitions.
         """
-        assert cs_size is None or cs_size >= 0, "The number of coalitions should be non-negative."
+        assert cs_size is None or cs_size >= 0, (
+            "The number of coalitions should be non-negative."
+        )
         if cs_size is not None:
             for cs in hgimpl.css_givensize(self.agent_count, cs_size, self.k):
                 yield CoalitionStructure(self, cs)
@@ -270,7 +301,7 @@ class HedonicGame:
             for cs in hgimpl.css(self.agent_count, self.k):
                 yield CoalitionStructure(self, cs)
 
-    def isolated_coalition_structure(self) -> 'CoalitionStructure':
+    def isolated_coalition_structure(self) -> "CoalitionStructure":
         """
         Return the isolated coalition structure of the game.
 
@@ -278,7 +309,7 @@ class HedonicGame:
         """
         return CoalitionStructure(self, np.arange(self.agent_count))
 
-    def big_coalition_structure(self) -> 'CoalitionStructure':
+    def big_coalition_structure(self) -> "CoalitionStructure":
         """
         Return the big coalition structure of the game.
 
@@ -289,7 +320,7 @@ class HedonicGame:
             raise ValueError("The big coalition structure is not valid.")
         return CoalitionStructure(self, np.zeros(self.agent_count, dtype=np.int_))
 
-    def nash_stable_coalition_structures(self) -> Iterator['CoalitionStructure']:
+    def nash_stable_coalition_structures(self) -> Iterator["CoalitionStructure"]:
         """
         Iterates over the Nash stable coalition structures of the game.
         """
@@ -300,20 +331,27 @@ class HedonicGame:
         """
         Return whether the game has a Nash stable coalition structure.
         """
-        return hgimpl.nash_equilibrium(self.valuations, self.is_fractional(), self.k) is not None
+        return (
+            hgimpl.nash_equilibrium(self.valuations, self.is_fractional(), self.k)
+            is not None
+        )
 
-    def optimal_coalition_structure(self) -> tuple['CoalitionStructure', int]:
+    def optimal_coalition_structure(self) -> tuple["CoalitionStructure", int]:
         """
         Return one of the optimal coalition structures of the game and the corresponding social welfare.
         """
         if self.is_directed():
-            raise ValueError("The game is directed, cannot compute optimal coalition structure.")
+            raise ValueError(
+                "The game is directed, cannot compute optimal coalition structure."
+            )
         if self.k != 2:
-            raise ValueError("k is different from 2, cannot compute the optimal coalition structure.")
+            raise ValueError(
+                "k is different from 2, cannot compute the optimal coalition structure."
+            )
 
         g = self.graph.to_nx_graph()
         matching = nx.max_weight_matching(g)
-        welfare = sum(g[u][v]['weight'] for u, v in matching)
+        welfare = sum(g[u][v]["weight"] for u, v in matching)
         if not self.is_fractional():
             welfare *= 2
         cs = np.zeros(self.agent_count, dtype=np.int_)
@@ -329,9 +367,9 @@ class HedonicGame:
         It also returns examples of the coalition structures that achieve them. If the game has no Nash
         stable coalition structure, the result is None.
         """
-        poa = float('-inf')
+        poa = float("-inf")
         cs_worst = None
-        pos = float('inf')
+        pos = float("inf")
         cs_best = None
         _, opt = self.optimal_coalition_structure()
         cs_count = 0
@@ -346,14 +384,19 @@ class HedonicGame:
             if price < pos:
                 pos = price
                 cs_best = cs
-        return None if cs_worst is None or cs_best is None \
+        return (
+            None
+            if cs_worst is None or cs_best is None
             else PriceResult(poa, pos, pom / cs_count, cs_worst, cs_best, cs_count)
+        )
 
     def __repr__(self) -> str:
         return f"HedonicGame({repr(self.valuations)}, k={self.k}, is_fractional={self.is_fractional()}))"
 
     def __str__(self) -> str:
-        return f"{str(self.valuations)}, k={self.k}, is_fractional={self.is_fractional()}"
+        return (
+            f"{str(self.valuations)}, k={self.k}, is_fractional={self.is_fractional()}"
+        )
 
 
 class CoalitionStructure:
@@ -406,9 +449,15 @@ class CoalitionStructure:
         `[0, 2, 0, 1]` is not a valid coalition structure, because the coalition `1` appears for the first time
         before the coalition `2`. However, `[0, 1, 0, 2]` is a valid coalition structure.
         """
-        assert len(cs) == game.agent_count, "The coalition structure should have the same size as the number of agents."
-        assert np.all(cs >= 0), "The coalition structure should contain only non-negative integers."
-        assert max(cs)+1 == len(np.unique(cs)), "The coalition structure should contain all integers from `0` to `max(cs)`."
+        assert len(cs) == game.agent_count, (
+            "The coalition structure should have the same size as the number of agents."
+        )
+        assert np.all(cs >= 0), (
+            "The coalition structure should contain only non-negative integers."
+        )
+        assert max(cs) + 1 == len(np.unique(cs)), (
+            "The coalition structure should contain all integers from `0` to `max(cs)`."
+        )
 
         self.game = game
         self.cs = cs
@@ -491,11 +540,12 @@ class CoalitionStructure:
             return False
         ut_old, size_old = hgimpl.agent_utility(self.game.valuations, self.cs, ag)
         ut_new, size_new = hgimpl.agent_utility_co(
-            self.game.valuations, self.cs, ag, co_new)
+            self.game.valuations, self.cs, ag, co_new
+        )
         if not self.game.is_fractional:
             return ut_new > ut_old
         elif ut_old == ut_new == 0:
-            return size_new+1 < size_old
+            return size_new + 1 < size_old
         else:
             return ut_new * size_old > ut_old * (size_new + 1)
 
@@ -506,7 +556,7 @@ class CoalitionStructure:
         The improving deviations are the coalitions to which the agent can move to improve its utility.
         """
         assert 0 <= ag < len(self.cs), "Agent number out of range."
-        for co_new in range(self.size+1):
+        for co_new in range(self.size + 1):
             if self.is_improving_deviation(ag, co_new):
                 yield co_new
 
@@ -521,13 +571,15 @@ class CoalitionStructure:
             for co_new in self.improving_deviations_for_agents(ag):
                 yield ag, co_new
 
-    def move_to(self, ag: Agent, co_new: Coalition) -> 'CoalitionStructure':
+    def move_to(self, ag: Agent, co_new: Coalition) -> "CoalitionStructure":
         """
         Move the given agent to the new coalition and return the new coalition structure we obtain in this way.
         """
         assert 0 <= ag < len(self.cs), "Agent number out of range."
         assert 0 <= co_new <= self.size, "Coalition number out of range."
-        assert self.game.k is None or self._sizes[co_new] < self.game.k, "The target coalition size is too large."
+        assert self.game.k is None or self._sizes[co_new] < self.game.k, (
+            "The target coalition size is too large."
+        )
         # If the agent is moving to a new coalition, we need to update the coalition sizes.
         co_old = self.cs[ag]
         if co_old == co_new:
@@ -546,7 +598,8 @@ class CoalitionStructure:
         assert 0 <= ag < len(self.cs), "Agent number out of range."
         return all(
             not self.is_improving_deviation(ag, co_new)
-            for co_new in range(self.size+1) if co_new != self.cs[ag]
+            for co_new in range(self.size + 1)
+            if co_new != self.cs[ag]
         )
 
     def is_nash_stable(self) -> bool:
@@ -571,79 +624,113 @@ class CoalitionStructure:
         return str(self.to_list())
 
 
-GAME_K3_NOEQUILIBRIUM_PAPER = HedonicGame(np.array([
-    [0, 9, 9, 4],
-    [9, 0, 1, 7],
-    [9, 1, 0, 7],
-    [4, 7, 7, 0]
-]), is_fractional=True, k=3)
+GAME_K3_NOEQUILIBRIUM_PAPER = HedonicGame(
+    np.array([[0, 9, 9, 4], [9, 0, 1, 7], [9, 1, 0, 7], [4, 7, 7, 0]]),
+    is_fractional=True,
+    k=3,
+)
 
-GAME_K3_NOEQUILIBRIUM = HedonicGame(np.array([
-    [0, 0, 5, 7],
-    [0, 0, 5, 7],
-    [5, 5, 0, 3],
-    [7, 7, 3, 0]
-]), is_fractional=True, k=3)
+GAME_K3_NOEQUILIBRIUM = HedonicGame(
+    np.array([[0, 0, 5, 7], [0, 0, 5, 7], [5, 5, 0, 3], [7, 7, 3, 0]]),
+    is_fractional=True,
+    k=3,
+)
 
-GAME_K4_NOEQUILIBRIUM = HedonicGame(np.array([
-    [0, 0, 0, 5, 10],
-    [0, 0, 6, 4, 9],
-    [0, 6, 0, 10, 0],
-    [5, 4, 10, 0, 10],
-    [10, 9, 0, 10, 0]
-]), is_fractional=True, k=4)
+GAME_K4_NOEQUILIBRIUM = HedonicGame(
+    np.array(
+        [
+            [0, 0, 0, 5, 10],
+            [0, 0, 6, 4, 9],
+            [0, 6, 0, 10, 0],
+            [5, 4, 10, 0, 10],
+            [10, 9, 0, 10, 0],
+        ]
+    ),
+    is_fractional=True,
+    k=4,
+)
 
-GAME_K5_NOEQUILIBRIUM = HedonicGame(np.array([
-    [0, 0, 0, 0, 2, 2],
-    [0, 0, 0, 2, 0, 2],
-    [0, 0, 0, 2, 2, 1],
-    [0, 2, 2, 0, 0, 2],
-    [2, 0, 2, 0, 0, 2],
-    [2, 2, 1, 2, 2, 0]
-]), is_fractional=True, k=5)
+GAME_K5_NOEQUILIBRIUM = HedonicGame(
+    np.array(
+        [
+            [0, 0, 0, 0, 2, 2],
+            [0, 0, 0, 2, 0, 2],
+            [0, 0, 0, 2, 2, 1],
+            [0, 2, 2, 0, 0, 2],
+            [2, 0, 2, 0, 0, 2],
+            [2, 2, 1, 2, 2, 0],
+        ]
+    ),
+    is_fractional=True,
+    k=5,
+)
 
-GAME_K6_NOEQUILIBRIUM = HedonicGame(np.array([
-    [0, 0, 0, 0, 1, 1, 3],
-    [0, 0, 1, 3, 0, 1, 2],
-    [0, 1, 0, 3, 0, 3, 3],
-    [0, 3, 3, 0, 0, 3, 2],
-    [1, 0, 0, 0, 0, 3, 1],
-    [1, 1, 3, 3, 3, 0, 0],
-    [3, 2, 3, 2, 1, 0, 0]
-]), is_fractional=True, k=6)
+GAME_K6_NOEQUILIBRIUM = HedonicGame(
+    np.array(
+        [
+            [0, 0, 0, 0, 1, 1, 3],
+            [0, 0, 1, 3, 0, 1, 2],
+            [0, 1, 0, 3, 0, 3, 3],
+            [0, 3, 3, 0, 0, 3, 2],
+            [1, 0, 0, 0, 0, 3, 1],
+            [1, 1, 3, 3, 3, 0, 0],
+            [3, 2, 3, 2, 1, 0, 0],
+        ]
+    ),
+    is_fractional=True,
+    k=6,
+)
 
-GAME_K7_NOEQUILIBRIUM = HedonicGame(np.array([
-    [0, 0, 0, 0, 0, 0, 1, 2],
-    [0, 0, 0, 0, 0, 0, 2, 2],
-    [0, 0, 0, 0, 0, 2, 1, 2],
-    [0, 0, 0, 0, 1, 2, 1, 0],
-    [0, 0, 0, 1, 0, 2, 2, 0],
-    [0, 0, 2, 2, 2, 0, 2, 0],
-    [1, 2, 1, 1, 2, 2, 0, 2],
-    [2, 2, 2, 0, 0, 0, 2, 0]
-]), is_fractional=True, k=7)
+GAME_K7_NOEQUILIBRIUM = HedonicGame(
+    np.array(
+        [
+            [0, 0, 0, 0, 0, 0, 1, 2],
+            [0, 0, 0, 0, 0, 0, 2, 2],
+            [0, 0, 0, 0, 0, 2, 1, 2],
+            [0, 0, 0, 0, 1, 2, 1, 0],
+            [0, 0, 0, 1, 0, 2, 2, 0],
+            [0, 0, 2, 2, 2, 0, 2, 0],
+            [1, 2, 1, 1, 2, 2, 0, 2],
+            [2, 2, 2, 0, 0, 0, 2, 0],
+        ]
+    ),
+    is_fractional=True,
+    k=7,
+)
 
-GAME_K7_NOEQUILIBRIUM_SIMPLE = HedonicGame(np.array([
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [0, 0, 0, 0, 0, 0, 1, 1, 1, 0],
-    [0, 0, 0, 0, 0, 1, 0, 1, 1, 1],
-    [0, 0, 0, 0, 1, 1, 0, 0, 1, 0],
-    [0, 0, 0, 1, 0, 1, 0, 0, 1, 1],
-    [0, 0, 1, 1, 1, 0, 0, 0, 1, 1],
-    [0, 1, 0, 0, 0, 0, 0, 1, 1, 1],
-    [0, 1, 1, 0, 0, 0, 1, 0, 1, 1],
-    [0, 1, 1, 1, 1, 1, 1, 1, 0, 1],
-    [1, 0, 1, 0, 1, 1, 1, 1, 1, 0]
-]), is_fractional=True, k=7)
+GAME_K7_NOEQUILIBRIUM_SIMPLE = HedonicGame(
+    np.array(
+        [
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+            [0, 0, 0, 0, 0, 0, 1, 1, 1, 0],
+            [0, 0, 0, 0, 0, 1, 0, 1, 1, 1],
+            [0, 0, 0, 0, 1, 1, 0, 0, 1, 0],
+            [0, 0, 0, 1, 0, 1, 0, 0, 1, 1],
+            [0, 0, 1, 1, 1, 0, 0, 0, 1, 1],
+            [0, 1, 0, 0, 0, 0, 0, 1, 1, 1],
+            [0, 1, 1, 0, 0, 0, 1, 0, 1, 1],
+            [0, 1, 1, 1, 1, 1, 1, 1, 0, 1],
+            [1, 0, 1, 0, 1, 1, 1, 1, 1, 0],
+        ]
+    ),
+    is_fractional=True,
+    k=7,
+)
 
-GAME_K8_NOEQUILIBRIUM = HedonicGame(np.array([
-    [0, 0, 0, 0, 0, 0, 0, 1, 2],
-    [0, 0, 0, 0, 0, 0, 1, 2, 0],
-    [0, 0, 0, 0, 1, 1, 0, 2, 2],
-    [0, 0, 0, 0, 1, 1, 1, 1, 0],
-    [0, 0, 1, 1, 0, 1, 0, 2, 2],
-    [0, 0, 1, 1, 1, 0, 0, 2, 2],
-    [0, 1, 0, 1, 0, 0, 0, 2, 0],
-    [1, 2, 2, 1, 2, 2, 2, 0, 1],
-    [2, 0, 2, 0, 2, 2, 0, 1, 0]
-]), is_fractional=True, k=8)
+GAME_K8_NOEQUILIBRIUM = HedonicGame(
+    np.array(
+        [
+            [0, 0, 0, 0, 0, 0, 0, 1, 2],
+            [0, 0, 0, 0, 0, 0, 1, 2, 0],
+            [0, 0, 0, 0, 1, 1, 0, 2, 2],
+            [0, 0, 0, 0, 1, 1, 1, 1, 0],
+            [0, 0, 1, 1, 0, 1, 0, 2, 2],
+            [0, 0, 1, 1, 1, 0, 0, 2, 2],
+            [0, 1, 0, 1, 0, 0, 0, 2, 0],
+            [1, 2, 2, 1, 2, 2, 2, 0, 1],
+            [2, 0, 2, 0, 2, 2, 0, 1, 0],
+        ]
+    ),
+    is_fractional=True,
+    k=8,
+)

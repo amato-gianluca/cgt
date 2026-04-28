@@ -4,6 +4,7 @@ with the results of the experiment relative to counting the number of games with
 coalition structures and only three possible valuations, that is 0, 1 and a variable
 value v.
 """
+
 import json
 from math import log2
 from pathlib import Path
@@ -24,8 +25,14 @@ df = df[df["weights"].apply(lambda x: len(x) == 3 and x[0] == 0 and x[1] == 1)]
 df[col_val] = df["weights"].apply(lambda x: x[2])
 
 grouped = df.groupby(col_order + [col_count])
-grouped = grouped.agg({
-    col_val: lambda x: f"{x.min()} - {x.max()}" if x.max() < 128 else f"{x.min()} - 2**{int(log2(x.max()))}"
-}).reset_index()
+grouped = grouped.agg(
+    {
+        col_val: lambda x: (
+            f"{x.min()} - {x.max()}"
+            if x.max() < 128
+            else f"{x.min()} - 2**{int(log2(x.max()))}"
+        )
+    }
+).reset_index()
 grouped = grouped[col_order + [col_val, col_count]]
 print(grouped.to_markdown(index=False))

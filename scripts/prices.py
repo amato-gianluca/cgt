@@ -2,7 +2,6 @@
 This script computes prices for games.
 """
 
-from sys import argv
 import pyhedonic.hedonicgame as hg
 
 k = 2
