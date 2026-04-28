@@ -1,5 +1,5 @@
 """
-This script reads data for the counts.json file and produces a table in markdown format
+This script reads data for the counts.json (or similar) file and produces a table in markdown format
 with the results of the experiments relative to counting the number of games without Nash stable
 coalition structures, with varying values for k and n (number of agents) and prefixes of
 natural numbers as valuations.
@@ -40,13 +40,11 @@ def total_games(df):
     print(pivot.to_markdown())
 
 
-def load_data(weights) -> list:
-    data = []
-    with open(Path(__file__).parent / "data/counts.json", "r") as f:
-        for line in f:
-            row = json.loads(line)
-            if has_valid_weights(row, weights):
-                data.append(row)
+def load_data(filename: str, weights) -> list:
+    with open(filename, "r") as f:
+        data = [
+            row for line in f if has_valid_weights(row := json.loads(line), weights)
+        ]
     return data
 
 
@@ -61,6 +59,12 @@ def main():
 
     weights_group = parser.add_mutually_exclusive_group()
 
+    parser.add_argument(
+        "-i",
+        "--input",
+        help="file containing data points to report about",
+        default=Path(__file__).parent / "data/counts.json",
+    )
     weights_group.add_argument(
         "--wp2",
         help="select counts whose weights are power of twos",
@@ -93,7 +97,7 @@ def main():
         else None
     )
 
-    data = load_data(weights)
+    data = load_data(args.input, weights)
     df = pd.DataFrame(data)
     df = df.drop(columns=["example", "weights"])
 
@@ -109,15 +113,16 @@ def main():
                     index="m",
                     columns="n",
                     values="unstable_game_count",
-                    aggfunc=max,
-                    fill_value=-2,
+                    aggfunc="max",
+                    fill_value=-2 # do not use NaN, because NaN forces a float type
                 )
-                .astype(int)
-                .astype(str)
             )
-            pivot = pivot.replace("-1", "(to)")
-            pivot = pivot.replace("-2", "")
-            print(f"\n\n**k={k}**")
+            pivot = pivot.astype(object)
+            pivot.iloc[:, :] = pivot.iloc[:, :].map(
+                lambda x: "" if x == -2 else "(to)" if x == -1 else f"**{x}**" if x > 0 else "0"
+            )
+            pivot.index.name = "m\\n"
+            print(f"\n\n### k={k}\n")
             print(pivot.to_markdown())
 
 
