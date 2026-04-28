@@ -740,22 +740,31 @@ def count_unstable_games(
 class GamePrices(NamedTuple):
     """A named tuple to hold the prices of anarchy and stability for a game, and related information."""
 
-    poa_best: Prices
-    """Price of anarchy and related coalition structures for the game with the worst price of anarchy."""
-    poa_best_game: Game
-    """The game with the worst price of anarchy."""
-    poa_worst: Prices
-    """Price of anarchy and related coalition structures for the game with the best price of anarchy."""
-    poa_worst_game: Game
-    """The game with the best price of anarchy."""
-    pos_best: Prices
-    """Price of stability and related coalition structures for the game with the worst price of stability."""
-    pos_best_game: Game
-    """The game with the worst price of stability."""
-    pos_worst: Prices
-    """Price of stability and related coalition structures for the game with the best price of stability."""
-    pos_worst_game: Game
-    """The game with the best price of stability."""
+    total_game_count: int
+    """Total number of games considered."""
+    poa_highest: Prices
+    """Price of anarchy and related coalition structures for the game with the highest price of anarchy."""
+    poa_highest_count: int
+    """Number of games with the highest price of anarchy."""
+    poa_highest_game: Game
+    """A game with the highest price of anarchy."""
+    poa_lowest: Prices
+    """Price of anarchy and related coalition structures for the game with the lowest price of anarchy."""
+    poa_lowest_count: int
+    """Number of games with the lowest price of anarchy."""
+    poa_lowest_game: Game
+    """A game with the lowest price of anarchy."""
+    pos_highest: Prices
+    """Price of stability and related coalition structures for the game with the highest price of stability."""
+    pos_highest_count: int
+    """Number of games with the highest price of stability."""
+    pos_highest_game: Game
+    """A game with the highest price of stability."""
+    pos_lowest: Prices
+    """Price of stability and related coalition structures for the game with the lowest price of stability."""
+    pos_lowest_count: int
+    pos_lowest_game: Game
+    """A game with the lowest price of stability."""
     poa_avg: float
     """The average price of anarchy across all games."""
     pos_avg: float
@@ -778,22 +787,23 @@ def compute_poa_pos(
             "The function compute_poa_pos does not support weights yet."
         )
     git = game_begin(agent_count, is_symmetric, m_begin, m_end, debug)
-    poa_worst_val = float("inf")
+    poa_lowest_val = float("inf")
     poa_sum_val = 0.0
-    poa_best_val = float("-inf")
-    pos_worst_val = float("inf")
+    poa_highest_val = float("-inf")
+    pos_lowest_val = float("inf")
     pos_sum_val = 0.0
-    pos_best_val = float("-inf")
-    poa_worst_game = poa_best_game = pos_worst_game = pos_best_game = np.zeros(
+    pos_highest_val = float("-inf")
+    poa_lowest_game = poa_highest_game = pos_lowest_game = pos_highest_game = np.zeros(
         (0, 0), dtype=np.int_
     )
-    poa_worst = poa_best = pos_worst = pos_best = Prices(
+    poa_lowest = poa_highest = pos_lowest = pos_highest = Prices(
         0.0,
         0.0,
         np.zeros(0, dtype=np.int_),
         np.zeros(0, dtype=np.int_),
         np.zeros(0, dtype=np.int_),
     )
+    pos_lowest_count = pos_highest_count = poa_lowest_count = poa_highest_count = 0
     count = 0
     valid_count = 0
     while game_next(git):
@@ -804,59 +814,76 @@ def compute_poa_pos(
         valid_count += 1
         poa = prices.poa
         pos = prices.pos
-        if poa > poa_best_val:
-            poa_best_val = poa
+        if poa > poa_highest_val:
+            poa_highest_val = poa
+            poa_highest_count = 1
             # Need to rebuild prices due to limitations of Numba
-            poa_best = Prices(
+            poa_highest = Prices(
                 poa,
                 pos,
                 prices.cs_best,
                 prices.cs_best_equilibrium,
                 prices.cs_worst_equilibrium,
             )
-            poa_best_game = np.copy(git.game)
+            poa_highest_game = np.copy(git.game)
+        elif poa == poa_highest_val:
+            poa_highest_count += 1
         poa_sum_val += poa
-        if poa < poa_worst_val:
-            poa_worst_val = poa
-            poa_worst = Prices(
+        if poa < poa_lowest_val:
+            poa_lowest_val = poa
+            poa_lowest_count = 1
+            poa_lowest = Prices(
                 poa,
                 pos,
                 prices.cs_best,
                 prices.cs_best_equilibrium,
                 prices.cs_worst_equilibrium,
             )
-            poa_worst_game = np.copy(git.game)
-        if pos > pos_best_val:
-            pos_best_val = pos
-            pos_best = Prices(
+            poa_lowest_game = np.copy(git.game)
+        elif poa == poa_lowest_val:
+            poa_lowest_count += 1
+        if pos > pos_highest_val:
+            pos_highest_val = pos
+            pos_highest_count = 1
+            pos_highest = Prices(
                 poa,
                 pos,
                 prices.cs_best,
                 prices.cs_best_equilibrium,
                 prices.cs_worst_equilibrium,
             )
-            pos_best_game = np.copy(git.game)
+            pos_highest_game = np.copy(git.game)
+        elif pos == pos_highest_val:
+            pos_highest_count += 1
         pos_sum_val += pos
-        if pos < pos_worst_val:
-            pos_worst_val = pos
-            pos_worst = Prices(
+        if pos < pos_lowest_val:
+            pos_lowest_val = pos
+            pos_lowest_count = 1
+            pos_lowest = Prices(
                 poa,
                 pos,
                 prices.cs_best,
                 prices.cs_best_equilibrium,
                 prices.cs_worst_equilibrium,
             )
-            pos_worst_game = np.copy(git.game)
+            pos_lowest_game = np.copy(git.game)
+        elif pos == pos_lowest_val:
+            pos_lowest_count += 1
     return (
         GamePrices(
-            poa_best,
-            poa_best_game,
-            poa_worst,
-            poa_worst_game,
-            pos_best,
-            pos_best_game,
-            pos_worst,
-            pos_worst_game,
+            count,
+            poa_highest,
+            poa_highest_count,
+            poa_highest_game,
+            poa_lowest,
+            poa_lowest_count,
+            poa_lowest_game,
+            pos_highest,
+            pos_highest_count,
+            pos_highest_game,
+            pos_lowest,
+            pos_lowest_count,
+            pos_lowest_game,
             poa_sum_val / valid_count,
             pos_sum_val / valid_count,
         )
