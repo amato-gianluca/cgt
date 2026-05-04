@@ -544,10 +544,22 @@ In the following experiments we are using 0 and odd prime numbers 3, 5, ... as w
 |   5 |   7 | 5 - 5     |    1122 |
 |   5 |   7 | 6 - 2**30 |    1169 |
 
-## Prices of anarchy and s
+## Prices of anarchy and stability
 
-For each value of $k$, $n$ and $m$, we compute the highest and lowest value for the *price of anarchy* and the *price of stability*, counting the number of cases where these
-values have been reached. Timeout for each combination is one hour.
+For each value of $k$, $n$ and $m$, we compute the highest and lowest value for the *price of anarchy* and the *price of stability*, at the same time counting the number of
+cases where these extremal values have been reached. Timeout for each combination of $k$, $n$ and $m$ is one hour.
+
+For example, the fact that for $k=3$, $n=4$ and $m=5$, we have
+`poa_highest` equal to $2$ and `poa_highest_count` equal to $1$ means that:
+  * among all the games with $k=3$, $n=4$ and $m=5$, the highest value of PoA is $2$;
+  * this value has been attained only in one game.
+
+Keep into consideration that:
+  * all internal computation is done using integer or rational numbers, even if prices shown as a float with two decimal positions. Hence, the value for the counts are exact;
+  * on the other side, the count is affected by the fact that the generation procedure is not able to remove all isomorhic copies of the same game.
+
+Regarding the columns `poa_lowest` and `pos_lowest`, are these interesting ? The columns are always equal to one, showing that in all search condition it was always possible to find a game with PoS=1.
+
 
 |   k |   n |   m |   poa_highest |   poa_highest_count |   poa_lowest |   poa_lowest_count |   pos_highest |   pos_highest_count |   pos_lowest |   pos_lowest_count |
 |----:|----:|----:|--------------:|--------------------:|-------------:|-------------------:|--------------:|--------------------:|-------------:|-------------------:|
@@ -624,11 +636,11 @@ values have been reached. Timeout for each combination is one hour.
 |   6 |   8 |   1 |          3.00 |                   1 |         1.00 |               1071 |          1.25 |                   1 |         1.00 |              61027 |
 |   7 |   8 |   1 |          3.00 |                   1 |         1.00 |               1490 |          1.31 |                   1 |         1.00 |              60470 |
 
-We now show some smaller table for speicific cases
+We now show some tables for speicific cases
 
 ### k=3, m=1
 
-In this case, we know from the theory that PoA $\leq$ 2
+In this case, we know from the theory that PoS=1 and PoA≤2.Moreover, there is a game with 9 agents and PoA=2.  The experimental results validate the theoretical ones and show that there is no game with PoA=2 with less than 9 agents.
 
 |   n |   poa_highest |   poa_highest_count |   poa_lowest |   poa_lowest_count |   pos_highest |   pos_highest_count |   pos_lowest |   pos_lowest_count |
 |----:|--------------:|--------------------:|-------------:|-------------------:|--------------:|--------------------:|-------------:|-------------------:|
@@ -640,7 +652,7 @@ In this case, we know from the theory that PoA $\leq$ 2
 
 ### k=4, m=1
 
-In this case, we know from the theory that PoA $\leq$ 3 and PoS $\leq \frac{10}{9}$.
+In this case, we know from the theory that PoA≤3 and PoS≤$\frac{10}{9}$. Moreover, there is a graph with 16 agents and PoA=3 and a graph with 6 agents and PoS=$\frac{10}{9}$. The experimental results validate the theoretical ones, and also show that 8 agents are enough to reach PoA=3 and that there is no game with PoS=1 with less than 6 agents.
 
 |   n |   poa_highest |   poa_highest_count |   poa_lowest |   poa_lowest_count |   pos_highest |   pos_highest_count |   pos_lowest |   pos_lowest_count |
 |----:|--------------:|--------------------:|-------------:|-------------------:|--------------:|--------------------:|-------------:|-------------------:|
