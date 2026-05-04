@@ -174,6 +174,6 @@ def test_count_games():
 
 def test_count_unstable_games():
     assert count_unstable_games(agent_count=6, m_begin=2, m_end=2, k=4)[:-1] \
-        == (9, 66515)
+        == (66515, 9)
     assert count_unstable_games(agent_count=4, m_begin=4, m_end=4, k=3, weights=np.array([0, 1, 4, 7, 9]))[:-1] \
-        == (2, 775)
+        == (775, 2)
