@@ -837,7 +837,7 @@ def compute_poa_pos(
         raise NotImplementedError(
             "The function compute_poa_pos does not support weights yet."
         )
-    denominator = lcm_upto(agent_count) if is_fractional else 1
+    denominator = lcm_upto(k) if is_fractional else 1
     maxint = np.iinfo(np.int64).max
     git = game_begin(agent_count, is_symmetric, m_begin, m_end, debug)
     poa_lowest_val = Rational(maxint // denominator, 1)
