@@ -4,9 +4,24 @@ This file contains unit tests for the pyhedonic library. In particular, it tests
 HedonicGameImpl module, which implements the core functionality of the library using Numba.
 """
 
-from pyhedonic.hedonicgame_impl import *
-
 import numpy as np
+
+from pyhedonic.hedonicgame_impl import (
+    Deviation,
+    agent_utility,
+    agent_utility_co,
+    coalition_social_welfare,
+    count_games,
+    count_unstable_games,
+    css,
+    css_givensize,
+    games,
+    improving_deviations,
+    is_improving_deviation,
+    nash_equilibria,
+    nash_equilibrium,
+    unstable_games,
+)
 
 GAME1 = np.array([
     [0, 0, 2],
@@ -158,11 +173,6 @@ def test_games():
     assert compare_nparray_list(games(2, m_begin=2, m_end=2), res[-1:])
 
 def test_unstable_games():
-    res = [
-        [[0, 0], [0, 0]],
-        [[0, 1], [1, 0]],
-        [[0, 2], [2, 0]],
-    ]
     assert compare_nparray_list(unstable_games(2, m_end=2), [])
     assert compare_nparray_list(unstable_games(2, m_begin=2, m_end=2), [])
 
