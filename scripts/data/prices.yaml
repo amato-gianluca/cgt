@@ -1,4 +1,5581 @@
 ---
+{k: 2, n: 3, m: 0, weights: null, elapsed_time: 0.1426243782043457, elapsed_time_human: '0:00:00',
+  payload: null}
+---
+k: 2
+n: 3
+m: 1
+weights: null
+elapsed_time: 0.1436762809753418
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 3
+  poa_highest:
+    poa: {numerator: 6, denominator: 6}
+    pos: {numerator: 6, denominator: 6}
+    sw_best: 6
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 6
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 6
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 3
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 1]
+  - [0, 1, 0]
+  poa_lowest:
+    poa: {numerator: 6, denominator: 6}
+    pos: {numerator: 6, denominator: 6}
+    sw_best: 6
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 6
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 6
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_lowest_count: 3
+  poa_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 1]
+  - [0, 1, 0]
+  pos_highest:
+    poa: {numerator: 6, denominator: 6}
+    pos: {numerator: 6, denominator: 6}
+    sw_best: 6
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 6
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 6
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 3
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 1]
+  - [0, 1, 0]
+  pos_lowest:
+    poa: {numerator: 6, denominator: 6}
+    pos: {numerator: 6, denominator: 6}
+    sw_best: 6
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 6
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 6
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_lowest_count: 3
+  pos_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 1]
+  - [0, 1, 0]
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 2
+weights: null
+elapsed_time: 0.13920378684997559
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 6
+  poa_highest:
+    poa: {numerator: 12, denominator: 12}
+    pos: {numerator: 12, denominator: 12}
+    sw_best: 12
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 12
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 12
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 6
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 2]
+  - [0, 2, 0]
+  poa_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  poa_lowest_count: 0
+  poa_lowest_game: []
+  pos_highest:
+    poa: {numerator: 12, denominator: 12}
+    pos: {numerator: 12, denominator: 12}
+    sw_best: 12
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 12
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 12
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 6
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 2]
+  - [0, 2, 0]
+  pos_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  pos_lowest_count: 0
+  pos_lowest_game: []
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 3
+weights: null
+elapsed_time: 0.13889551162719727
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 10
+  poa_highest:
+    poa: {numerator: 18, denominator: 18}
+    pos: {numerator: 18, denominator: 18}
+    sw_best: 18
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 18
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 18
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 10
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 3]
+  - [0, 3, 0]
+  poa_lowest:
+    poa: {numerator: 18, denominator: 18}
+    pos: {numerator: 18, denominator: 18}
+    sw_best: 18
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 18
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 18
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_lowest_count: 10
+  poa_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 3]
+  - [0, 3, 0]
+  pos_highest:
+    poa: {numerator: 18, denominator: 18}
+    pos: {numerator: 18, denominator: 18}
+    sw_best: 18
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 18
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 18
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 10
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 3]
+  - [0, 3, 0]
+  pos_lowest:
+    poa: {numerator: 18, denominator: 18}
+    pos: {numerator: 18, denominator: 18}
+    sw_best: 18
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 18
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 18
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_lowest_count: 10
+  pos_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 3]
+  - [0, 3, 0]
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 4
+weights: null
+elapsed_time: 0.1435239315032959
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 15
+  poa_highest:
+    poa: {numerator: 24, denominator: 24}
+    pos: {numerator: 24, denominator: 24}
+    sw_best: 24
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 24
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 15
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 4]
+  - [0, 4, 0]
+  poa_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  poa_lowest_count: 0
+  poa_lowest_game: []
+  pos_highest:
+    poa: {numerator: 24, denominator: 24}
+    pos: {numerator: 24, denominator: 24}
+    sw_best: 24
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 24
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 15
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 4]
+  - [0, 4, 0]
+  pos_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  pos_lowest_count: 0
+  pos_lowest_game: []
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 5
+weights: null
+elapsed_time: 0.13866353034973145
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 21
+  poa_highest:
+    poa: {numerator: 30, denominator: 30}
+    pos: {numerator: 30, denominator: 30}
+    sw_best: 30
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 30
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 30
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 21
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 5]
+  - [0, 5, 0]
+  poa_lowest:
+    poa: {numerator: 30, denominator: 30}
+    pos: {numerator: 30, denominator: 30}
+    sw_best: 30
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 30
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 30
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_lowest_count: 21
+  poa_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 5]
+  - [0, 5, 0]
+  pos_highest:
+    poa: {numerator: 30, denominator: 30}
+    pos: {numerator: 30, denominator: 30}
+    sw_best: 30
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 30
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 30
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 21
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 5]
+  - [0, 5, 0]
+  pos_lowest:
+    poa: {numerator: 30, denominator: 30}
+    pos: {numerator: 30, denominator: 30}
+    sw_best: 30
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 30
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 30
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_lowest_count: 21
+  pos_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 5]
+  - [0, 5, 0]
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 6
+weights: null
+elapsed_time: 0.14226484298706055
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 28
+  poa_highest:
+    poa: {numerator: 36, denominator: 36}
+    pos: {numerator: 36, denominator: 36}
+    sw_best: 36
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 36
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 36
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 28
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 6]
+  - [0, 6, 0]
+  poa_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  poa_lowest_count: 0
+  poa_lowest_game: []
+  pos_highest:
+    poa: {numerator: 36, denominator: 36}
+    pos: {numerator: 36, denominator: 36}
+    sw_best: 36
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 36
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 36
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 28
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 6]
+  - [0, 6, 0]
+  pos_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  pos_lowest_count: 0
+  pos_lowest_game: []
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 7
+weights: null
+elapsed_time: 0.14260268211364746
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 36
+  poa_highest:
+    poa: {numerator: 42, denominator: 42}
+    pos: {numerator: 42, denominator: 42}
+    sw_best: 42
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 42
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 42
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 36
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 7]
+  - [0, 7, 0]
+  poa_lowest:
+    poa: {numerator: 42, denominator: 42}
+    pos: {numerator: 42, denominator: 42}
+    sw_best: 42
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 42
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 42
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_lowest_count: 36
+  poa_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 7]
+  - [0, 7, 0]
+  pos_highest:
+    poa: {numerator: 42, denominator: 42}
+    pos: {numerator: 42, denominator: 42}
+    sw_best: 42
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 42
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 42
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 36
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 7]
+  - [0, 7, 0]
+  pos_lowest:
+    poa: {numerator: 42, denominator: 42}
+    pos: {numerator: 42, denominator: 42}
+    sw_best: 42
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 42
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 42
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_lowest_count: 36
+  pos_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 7]
+  - [0, 7, 0]
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 8
+weights: null
+elapsed_time: 0.13979077339172363
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 45
+  poa_highest:
+    poa: {numerator: 48, denominator: 48}
+    pos: {numerator: 48, denominator: 48}
+    sw_best: 48
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 48
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 48
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 45
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 8]
+  - [0, 8, 0]
+  poa_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  poa_lowest_count: 0
+  poa_lowest_game: []
+  pos_highest:
+    poa: {numerator: 48, denominator: 48}
+    pos: {numerator: 48, denominator: 48}
+    sw_best: 48
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 48
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 48
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 45
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 8]
+  - [0, 8, 0]
+  pos_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  pos_lowest_count: 0
+  pos_lowest_game: []
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 9
+weights: null
+elapsed_time: 0.13939642906188965
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 55
+  poa_highest:
+    poa: {numerator: 54, denominator: 54}
+    pos: {numerator: 54, denominator: 54}
+    sw_best: 54
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 54
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 54
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 55
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 9]
+  - [0, 9, 0]
+  poa_lowest:
+    poa: {numerator: 54, denominator: 54}
+    pos: {numerator: 54, denominator: 54}
+    sw_best: 54
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 54
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 54
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_lowest_count: 55
+  poa_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 9]
+  - [0, 9, 0]
+  pos_highest:
+    poa: {numerator: 54, denominator: 54}
+    pos: {numerator: 54, denominator: 54}
+    sw_best: 54
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 54
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 54
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 55
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 9]
+  - [0, 9, 0]
+  pos_lowest:
+    poa: {numerator: 54, denominator: 54}
+    pos: {numerator: 54, denominator: 54}
+    sw_best: 54
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 54
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 54
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_lowest_count: 55
+  pos_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 9]
+  - [0, 9, 0]
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 10
+weights: null
+elapsed_time: 0.14079594612121582
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 66
+  poa_highest:
+    poa: {numerator: 60, denominator: 60}
+    pos: {numerator: 60, denominator: 60}
+    sw_best: 60
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 60
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 60
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 66
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 10]
+  - [0, 10, 0]
+  poa_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  poa_lowest_count: 0
+  poa_lowest_game: []
+  pos_highest:
+    poa: {numerator: 60, denominator: 60}
+    pos: {numerator: 60, denominator: 60}
+    sw_best: 60
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 60
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 60
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 66
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 10]
+  - [0, 10, 0]
+  pos_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  pos_lowest_count: 0
+  pos_lowest_game: []
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 11
+weights: null
+elapsed_time: 0.13869309425354004
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 78
+  poa_highest:
+    poa: {numerator: 66, denominator: 66}
+    pos: {numerator: 66, denominator: 66}
+    sw_best: 66
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 66
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 66
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 78
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 11]
+  - [0, 11, 0]
+  poa_lowest:
+    poa: {numerator: 66, denominator: 66}
+    pos: {numerator: 66, denominator: 66}
+    sw_best: 66
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 66
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 66
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_lowest_count: 78
+  poa_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 11]
+  - [0, 11, 0]
+  pos_highest:
+    poa: {numerator: 66, denominator: 66}
+    pos: {numerator: 66, denominator: 66}
+    sw_best: 66
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 66
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 66
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 78
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 11]
+  - [0, 11, 0]
+  pos_lowest:
+    poa: {numerator: 66, denominator: 66}
+    pos: {numerator: 66, denominator: 66}
+    sw_best: 66
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 66
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 66
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_lowest_count: 78
+  pos_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 11]
+  - [0, 11, 0]
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 12
+weights: null
+elapsed_time: 0.13959884643554688
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 91
+  poa_highest:
+    poa: {numerator: 72, denominator: 72}
+    pos: {numerator: 72, denominator: 72}
+    sw_best: 72
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 72
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 72
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 91
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 12]
+  - [0, 12, 0]
+  poa_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  poa_lowest_count: 0
+  poa_lowest_game: []
+  pos_highest:
+    poa: {numerator: 72, denominator: 72}
+    pos: {numerator: 72, denominator: 72}
+    sw_best: 72
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 72
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 72
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 91
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 12]
+  - [0, 12, 0]
+  pos_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  pos_lowest_count: 0
+  pos_lowest_game: []
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 13
+weights: null
+elapsed_time: 0.14377069473266602
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 105
+  poa_highest:
+    poa: {numerator: 78, denominator: 78}
+    pos: {numerator: 78, denominator: 78}
+    sw_best: 78
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 78
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 78
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 105
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 13]
+  - [0, 13, 0]
+  poa_lowest:
+    poa: {numerator: 78, denominator: 78}
+    pos: {numerator: 78, denominator: 78}
+    sw_best: 78
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 78
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 78
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_lowest_count: 105
+  poa_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 13]
+  - [0, 13, 0]
+  pos_highest:
+    poa: {numerator: 78, denominator: 78}
+    pos: {numerator: 78, denominator: 78}
+    sw_best: 78
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 78
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 78
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 105
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 13]
+  - [0, 13, 0]
+  pos_lowest:
+    poa: {numerator: 78, denominator: 78}
+    pos: {numerator: 78, denominator: 78}
+    sw_best: 78
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 78
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 78
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_lowest_count: 105
+  pos_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 13]
+  - [0, 13, 0]
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 14
+weights: null
+elapsed_time: 0.14127397537231445
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 120
+  poa_highest:
+    poa: {numerator: 84, denominator: 84}
+    pos: {numerator: 84, denominator: 84}
+    sw_best: 84
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 84
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 84
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 120
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 14]
+  - [0, 14, 0]
+  poa_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  poa_lowest_count: 0
+  poa_lowest_game: []
+  pos_highest:
+    poa: {numerator: 84, denominator: 84}
+    pos: {numerator: 84, denominator: 84}
+    sw_best: 84
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 84
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 84
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 120
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 14]
+  - [0, 14, 0]
+  pos_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  pos_lowest_count: 0
+  pos_lowest_game: []
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 15
+weights: null
+elapsed_time: 0.14370226860046387
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 136
+  poa_highest:
+    poa: {numerator: 90, denominator: 90}
+    pos: {numerator: 90, denominator: 90}
+    sw_best: 90
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 90
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 90
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 136
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 15]
+  - [0, 15, 0]
+  poa_lowest:
+    poa: {numerator: 90, denominator: 90}
+    pos: {numerator: 90, denominator: 90}
+    sw_best: 90
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 90
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 90
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_lowest_count: 136
+  poa_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 15]
+  - [0, 15, 0]
+  pos_highest:
+    poa: {numerator: 90, denominator: 90}
+    pos: {numerator: 90, denominator: 90}
+    sw_best: 90
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 90
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 90
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 136
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 15]
+  - [0, 15, 0]
+  pos_lowest:
+    poa: {numerator: 90, denominator: 90}
+    pos: {numerator: 90, denominator: 90}
+    sw_best: 90
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 90
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 90
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_lowest_count: 136
+  pos_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 15]
+  - [0, 15, 0]
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 16
+weights: null
+elapsed_time: 0.1388258934020996
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 153
+  poa_highest:
+    poa: {numerator: 96, denominator: 96}
+    pos: {numerator: 96, denominator: 96}
+    sw_best: 96
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 96
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 96
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 153
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 16]
+  - [0, 16, 0]
+  poa_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  poa_lowest_count: 0
+  poa_lowest_game: []
+  pos_highest:
+    poa: {numerator: 96, denominator: 96}
+    pos: {numerator: 96, denominator: 96}
+    sw_best: 96
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 96
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 96
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 153
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 16]
+  - [0, 16, 0]
+  pos_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  pos_lowest_count: 0
+  pos_lowest_game: []
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 17
+weights: null
+elapsed_time: 0.14005756378173828
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 171
+  poa_highest:
+    poa: {numerator: 102, denominator: 102}
+    pos: {numerator: 102, denominator: 102}
+    sw_best: 102
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 102
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 102
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 171
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 17]
+  - [0, 17, 0]
+  poa_lowest:
+    poa: {numerator: 102, denominator: 102}
+    pos: {numerator: 102, denominator: 102}
+    sw_best: 102
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 102
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 102
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_lowest_count: 171
+  poa_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 17]
+  - [0, 17, 0]
+  pos_highest:
+    poa: {numerator: 102, denominator: 102}
+    pos: {numerator: 102, denominator: 102}
+    sw_best: 102
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 102
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 102
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 171
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 17]
+  - [0, 17, 0]
+  pos_lowest:
+    poa: {numerator: 102, denominator: 102}
+    pos: {numerator: 102, denominator: 102}
+    sw_best: 102
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 102
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 102
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_lowest_count: 171
+  pos_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 17]
+  - [0, 17, 0]
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 18
+weights: null
+elapsed_time: 0.14278483390808105
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 190
+  poa_highest:
+    poa: {numerator: 108, denominator: 108}
+    pos: {numerator: 108, denominator: 108}
+    sw_best: 108
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 108
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 108
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 190
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 18]
+  - [0, 18, 0]
+  poa_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  poa_lowest_count: 0
+  poa_lowest_game: []
+  pos_highest:
+    poa: {numerator: 108, denominator: 108}
+    pos: {numerator: 108, denominator: 108}
+    sw_best: 108
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 108
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 108
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 190
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 18]
+  - [0, 18, 0]
+  pos_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  pos_lowest_count: 0
+  pos_lowest_game: []
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 19
+weights: null
+elapsed_time: 0.14148354530334473
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 210
+  poa_highest:
+    poa: {numerator: 114, denominator: 114}
+    pos: {numerator: 114, denominator: 114}
+    sw_best: 114
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 114
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 114
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 210
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 19]
+  - [0, 19, 0]
+  poa_lowest:
+    poa: {numerator: 114, denominator: 114}
+    pos: {numerator: 114, denominator: 114}
+    sw_best: 114
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 114
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 114
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_lowest_count: 210
+  poa_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 19]
+  - [0, 19, 0]
+  pos_highest:
+    poa: {numerator: 114, denominator: 114}
+    pos: {numerator: 114, denominator: 114}
+    sw_best: 114
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 114
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 114
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 210
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 19]
+  - [0, 19, 0]
+  pos_lowest:
+    poa: {numerator: 114, denominator: 114}
+    pos: {numerator: 114, denominator: 114}
+    sw_best: 114
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 114
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 114
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_lowest_count: 210
+  pos_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 19]
+  - [0, 19, 0]
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 20
+weights: null
+elapsed_time: 0.14332890510559082
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 231
+  poa_highest:
+    poa: {numerator: 120, denominator: 120}
+    pos: {numerator: 120, denominator: 120}
+    sw_best: 120
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 120
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 120
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 231
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 20]
+  - [0, 20, 0]
+  poa_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  poa_lowest_count: 0
+  poa_lowest_game: []
+  pos_highest:
+    poa: {numerator: 120, denominator: 120}
+    pos: {numerator: 120, denominator: 120}
+    sw_best: 120
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 120
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 120
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 231
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 20]
+  - [0, 20, 0]
+  pos_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  pos_lowest_count: 0
+  pos_lowest_game: []
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 21
+weights: null
+elapsed_time: 0.14247560501098633
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 253
+  poa_highest:
+    poa: {numerator: 126, denominator: 126}
+    pos: {numerator: 126, denominator: 126}
+    sw_best: 126
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 126
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 126
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 253
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 21]
+  - [0, 21, 0]
+  poa_lowest:
+    poa: {numerator: 126, denominator: 126}
+    pos: {numerator: 126, denominator: 126}
+    sw_best: 126
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 126
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 126
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_lowest_count: 253
+  poa_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 21]
+  - [0, 21, 0]
+  pos_highest:
+    poa: {numerator: 126, denominator: 126}
+    pos: {numerator: 126, denominator: 126}
+    sw_best: 126
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 126
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 126
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 253
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 21]
+  - [0, 21, 0]
+  pos_lowest:
+    poa: {numerator: 126, denominator: 126}
+    pos: {numerator: 126, denominator: 126}
+    sw_best: 126
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 126
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 126
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_lowest_count: 253
+  pos_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 21]
+  - [0, 21, 0]
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 22
+weights: null
+elapsed_time: 0.14043688774108887
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 276
+  poa_highest:
+    poa: {numerator: 132, denominator: 132}
+    pos: {numerator: 132, denominator: 132}
+    sw_best: 132
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 132
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 132
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 276
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 22]
+  - [0, 22, 0]
+  poa_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  poa_lowest_count: 0
+  poa_lowest_game: []
+  pos_highest:
+    poa: {numerator: 132, denominator: 132}
+    pos: {numerator: 132, denominator: 132}
+    sw_best: 132
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 132
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 132
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 276
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 22]
+  - [0, 22, 0]
+  pos_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  pos_lowest_count: 0
+  pos_lowest_game: []
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 23
+weights: null
+elapsed_time: 0.14175081253051758
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 300
+  poa_highest:
+    poa: {numerator: 138, denominator: 138}
+    pos: {numerator: 138, denominator: 138}
+    sw_best: 138
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 138
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 138
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 300
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 23]
+  - [0, 23, 0]
+  poa_lowest:
+    poa: {numerator: 138, denominator: 138}
+    pos: {numerator: 138, denominator: 138}
+    sw_best: 138
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 138
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 138
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_lowest_count: 300
+  poa_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 23]
+  - [0, 23, 0]
+  pos_highest:
+    poa: {numerator: 138, denominator: 138}
+    pos: {numerator: 138, denominator: 138}
+    sw_best: 138
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 138
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 138
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 300
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 23]
+  - [0, 23, 0]
+  pos_lowest:
+    poa: {numerator: 138, denominator: 138}
+    pos: {numerator: 138, denominator: 138}
+    sw_best: 138
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 138
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 138
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_lowest_count: 300
+  pos_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 23]
+  - [0, 23, 0]
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 24
+weights: null
+elapsed_time: 0.14114022254943848
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 325
+  poa_highest:
+    poa: {numerator: 144, denominator: 144}
+    pos: {numerator: 144, denominator: 144}
+    sw_best: 144
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 144
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 144
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 325
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 24]
+  - [0, 24, 0]
+  poa_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  poa_lowest_count: 0
+  poa_lowest_game: []
+  pos_highest:
+    poa: {numerator: 144, denominator: 144}
+    pos: {numerator: 144, denominator: 144}
+    sw_best: 144
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 144
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 144
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 325
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 24]
+  - [0, 24, 0]
+  pos_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  pos_lowest_count: 0
+  pos_lowest_game: []
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 25
+weights: null
+elapsed_time: 0.1448521614074707
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 351
+  poa_highest:
+    poa: {numerator: 150, denominator: 150}
+    pos: {numerator: 150, denominator: 150}
+    sw_best: 150
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 150
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 150
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 351
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 25]
+  - [0, 25, 0]
+  poa_lowest:
+    poa: {numerator: 150, denominator: 150}
+    pos: {numerator: 150, denominator: 150}
+    sw_best: 150
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 150
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 150
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_lowest_count: 351
+  poa_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 25]
+  - [0, 25, 0]
+  pos_highest:
+    poa: {numerator: 150, denominator: 150}
+    pos: {numerator: 150, denominator: 150}
+    sw_best: 150
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 150
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 150
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 351
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 25]
+  - [0, 25, 0]
+  pos_lowest:
+    poa: {numerator: 150, denominator: 150}
+    pos: {numerator: 150, denominator: 150}
+    sw_best: 150
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 150
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 150
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_lowest_count: 351
+  pos_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 25]
+  - [0, 25, 0]
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 26
+weights: null
+elapsed_time: 0.1453840732574463
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 378
+  poa_highest:
+    poa: {numerator: 156, denominator: 156}
+    pos: {numerator: 156, denominator: 156}
+    sw_best: 156
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 156
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 156
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 378
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 26]
+  - [0, 26, 0]
+  poa_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  poa_lowest_count: 0
+  poa_lowest_game: []
+  pos_highest:
+    poa: {numerator: 156, denominator: 156}
+    pos: {numerator: 156, denominator: 156}
+    sw_best: 156
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 156
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 156
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 378
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 26]
+  - [0, 26, 0]
+  pos_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  pos_lowest_count: 0
+  pos_lowest_game: []
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 27
+weights: null
+elapsed_time: 0.14506959915161133
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 406
+  poa_highest:
+    poa: {numerator: 162, denominator: 162}
+    pos: {numerator: 162, denominator: 162}
+    sw_best: 162
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 162
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 162
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 406
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 27]
+  - [0, 27, 0]
+  poa_lowest:
+    poa: {numerator: 162, denominator: 162}
+    pos: {numerator: 162, denominator: 162}
+    sw_best: 162
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 162
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 162
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_lowest_count: 406
+  poa_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 27]
+  - [0, 27, 0]
+  pos_highest:
+    poa: {numerator: 162, denominator: 162}
+    pos: {numerator: 162, denominator: 162}
+    sw_best: 162
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 162
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 162
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 406
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 27]
+  - [0, 27, 0]
+  pos_lowest:
+    poa: {numerator: 162, denominator: 162}
+    pos: {numerator: 162, denominator: 162}
+    sw_best: 162
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 162
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 162
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_lowest_count: 406
+  pos_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 27]
+  - [0, 27, 0]
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 28
+weights: null
+elapsed_time: 0.14415669441223145
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 435
+  poa_highest:
+    poa: {numerator: 168, denominator: 168}
+    pos: {numerator: 168, denominator: 168}
+    sw_best: 168
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 168
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 168
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 435
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 28]
+  - [0, 28, 0]
+  poa_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  poa_lowest_count: 0
+  poa_lowest_game: []
+  pos_highest:
+    poa: {numerator: 168, denominator: 168}
+    pos: {numerator: 168, denominator: 168}
+    sw_best: 168
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 168
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 168
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 435
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 28]
+  - [0, 28, 0]
+  pos_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  pos_lowest_count: 0
+  pos_lowest_game: []
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 29
+weights: null
+elapsed_time: 0.1456584930419922
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 465
+  poa_highest:
+    poa: {numerator: 174, denominator: 174}
+    pos: {numerator: 174, denominator: 174}
+    sw_best: 174
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 174
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 174
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 465
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 29]
+  - [0, 29, 0]
+  poa_lowest:
+    poa: {numerator: 174, denominator: 174}
+    pos: {numerator: 174, denominator: 174}
+    sw_best: 174
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 174
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 174
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_lowest_count: 465
+  poa_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 29]
+  - [0, 29, 0]
+  pos_highest:
+    poa: {numerator: 174, denominator: 174}
+    pos: {numerator: 174, denominator: 174}
+    sw_best: 174
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 174
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 174
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 465
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 29]
+  - [0, 29, 0]
+  pos_lowest:
+    poa: {numerator: 174, denominator: 174}
+    pos: {numerator: 174, denominator: 174}
+    sw_best: 174
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 174
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 174
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_lowest_count: 465
+  pos_lowest_game:
+  - [0, 0, 0]
+  - [0, 0, 29]
+  - [0, 29, 0]
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+k: 2
+n: 3
+m: 30
+weights: null
+elapsed_time: 0.14537692070007324
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 496
+  poa_highest:
+    poa: {numerator: 180, denominator: 180}
+    pos: {numerator: 180, denominator: 180}
+    sw_best: 180
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 180
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 180
+    cs_worst_equilibrium: [0, 1, 1]
+  poa_highest_count: 496
+  poa_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 30]
+  - [0, 30, 0]
+  poa_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  poa_lowest_count: 0
+  poa_lowest_game: []
+  pos_highest:
+    poa: {numerator: 180, denominator: 180}
+    pos: {numerator: 180, denominator: 180}
+    sw_best: 180
+    cs_best: [0, 1, 1]
+    sw_best_equilibrium: 180
+    cs_best_equilibrium: [0, 1, 1]
+    sw_worst_equilibrium: 180
+    cs_worst_equilibrium: [0, 1, 1]
+  pos_highest_count: 496
+  pos_highest_game:
+  - [0, 0, 0]
+  - [0, 0, 30]
+  - [0, 30, 0]
+  pos_lowest:
+    poa: {numerator: 0, denominator: 1}
+    pos: {numerator: 0, denominator: 1}
+    sw_best: -1
+    cs_best: []
+    sw_best_equilibrium: 9223372036854775807
+    cs_best_equilibrium: []
+    sw_worst_equilibrium: -1
+    cs_worst_equilibrium: []
+  pos_lowest_count: 0
+  pos_lowest_game: []
+  poa_avg: 1.0
+  pos_avg: 1.0
+---
+{k: 2, n: 4, m: 0, weights: null, elapsed_time: 0.1382901668548584, elapsed_time_human: '0:00:00',
+  payload: null}
+---
+k: 2
+n: 4
+m: 1
+weights: null
+elapsed_time: 0.1402757167816162
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 10
+  poa_highest:
+    poa: {numerator: 24, denominator: 12}
+    pos: {numerator: 24, denominator: 24}
+    sw_best: 24
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 24
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 12
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_highest_count: 3
+  poa_highest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 1, 0]
+  - [0, 1, 0, 1]
+  - [1, 0, 1, 0]
+  poa_lowest:
+    poa: {numerator: 12, denominator: 12}
+    pos: {numerator: 12, denominator: 12}
+    sw_best: 12
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 12
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 12
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_lowest_count: 7
+  poa_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 1]
+  - [0, 0, 1, 0]
+  pos_highest:
+    poa: {numerator: 12, denominator: 12}
+    pos: {numerator: 12, denominator: 12}
+    sw_best: 12
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 12
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 12
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 10
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 1]
+  - [0, 0, 1, 0]
+  pos_lowest:
+    poa: {numerator: 12, denominator: 12}
+    pos: {numerator: 12, denominator: 12}
+    sw_best: 12
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 12
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 12
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_lowest_count: 10
+  pos_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 1]
+  - [0, 0, 1, 0]
+  poa_avg: 1.3
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 2
+weights: null
+elapsed_time: 0.13947153091430664
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 61
+  poa_highest:
+    poa: {numerator: 48, denominator: 24}
+    pos: {numerator: 48, denominator: 48}
+    sw_best: 48
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 48
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_highest_count: 12
+  poa_highest_game:
+  - [0, 0, 0, 2]
+  - [0, 0, 2, 0]
+  - [0, 2, 0, 2]
+  - [2, 0, 2, 0]
+  poa_lowest:
+    poa: {numerator: 36, denominator: 36}
+    pos: {numerator: 36, denominator: 36}
+    sw_best: 36
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 36
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 36
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  poa_lowest_count: 21
+  poa_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 2, 0]
+  - [0, 2, 0, 0]
+  - [1, 0, 0, 0]
+  pos_highest:
+    poa: {numerator: 24, denominator: 24}
+    pos: {numerator: 24, denominator: 24}
+    sw_best: 24
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 24
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 61
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 2]
+  - [0, 0, 2, 0]
+  pos_lowest:
+    poa: {numerator: 36, denominator: 36}
+    pos: {numerator: 36, denominator: 36}
+    sw_best: 36
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 36
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 36
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  pos_lowest_count: 50
+  pos_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 2, 0]
+  - [0, 2, 0, 0]
+  - [1, 0, 0, 0]
+  poa_avg: 1.325136612021858
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 3
+weights: null
+elapsed_time: 0.14060759544372559
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 250
+  poa_highest:
+    poa: {numerator: 72, denominator: 24}
+    pos: {numerator: 72, denominator: 72}
+    sw_best: 72
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 72
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 10
+  poa_highest_game:
+  - [0, 0, 1, 3]
+  - [0, 0, 3, 1]
+  - [1, 3, 0, 0]
+  - [3, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 36, denominator: 36}
+    pos: {numerator: 36, denominator: 36}
+    sw_best: 36
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 36
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 36
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_lowest_count: 88
+  poa_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 3]
+  - [0, 0, 3, 0]
+  pos_highest:
+    poa: {numerator: 36, denominator: 36}
+    pos: {numerator: 36, denominator: 36}
+    sw_best: 36
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 36
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 36
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 250
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 3]
+  - [0, 0, 3, 0]
+  pos_lowest:
+    poa: {numerator: 36, denominator: 36}
+    pos: {numerator: 36, denominator: 36}
+    sw_best: 36
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 36
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 36
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_lowest_count: 250
+  pos_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 3]
+  - [0, 0, 3, 0]
+  poa_avg: 1.4973333333333327
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 4
+weights: null
+elapsed_time: 0.14202570915222168
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 775
+  poa_highest:
+    poa: {numerator: 96, denominator: 24}
+    pos: {numerator: 96, denominator: 96}
+    sw_best: 96
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 96
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 16
+  poa_highest_game:
+  - [0, 0, 1, 4]
+  - [0, 0, 4, 1]
+  - [1, 4, 0, 0]
+  - [4, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 48, denominator: 48}
+    pos: {numerator: 48, denominator: 48}
+    sw_best: 48
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 48
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 48
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  poa_lowest_count: 171
+  poa_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 3, 0]
+  - [0, 3, 0, 4]
+  - [1, 0, 4, 0]
+  pos_highest:
+    poa: {numerator: 48, denominator: 48}
+    pos: {numerator: 48, denominator: 48}
+    sw_best: 48
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 48
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 48
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 775
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 4]
+  - [0, 0, 4, 0]
+  pos_lowest:
+    poa: {numerator: 60, denominator: 60}
+    pos: {numerator: 60, denominator: 60}
+    sw_best: 60
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 60
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 60
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  pos_lowest_count: 741
+  pos_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 4, 0]
+  - [0, 4, 0, 0]
+  - [1, 0, 0, 0]
+  poa_avg: 1.6757081413210446
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 5
+weights: null
+elapsed_time: 0.14617466926574707
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 1976
+  poa_highest:
+    poa: {numerator: 120, denominator: 24}
+    pos: {numerator: 120, denominator: 120}
+    sw_best: 120
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 120
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 24
+  poa_highest_game:
+  - [0, 0, 1, 5]
+  - [0, 0, 5, 1]
+  - [1, 5, 0, 0]
+  - [5, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 60, denominator: 60}
+    pos: {numerator: 60, denominator: 60}
+    sw_best: 60
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 60
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 60
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_lowest_count: 350
+  poa_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 5]
+  - [0, 0, 5, 0]
+  pos_highest:
+    poa: {numerator: 60, denominator: 60}
+    pos: {numerator: 60, denominator: 60}
+    sw_best: 60
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 60
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 60
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 1976
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 5]
+  - [0, 0, 5, 0]
+  pos_lowest:
+    poa: {numerator: 60, denominator: 60}
+    pos: {numerator: 60, denominator: 60}
+    sw_best: 60
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 60
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 60
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_lowest_count: 1976
+  pos_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 5]
+  - [0, 0, 5, 0]
+  poa_avg: 1.8306712293554417
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 6
+weights: null
+elapsed_time: 0.15450835227966309
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 4375
+  poa_highest:
+    poa: {numerator: 144, denominator: 24}
+    pos: {numerator: 144, denominator: 144}
+    sw_best: 144
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 144
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 34
+  poa_highest_game:
+  - [0, 0, 1, 6]
+  - [0, 0, 6, 1]
+  - [1, 6, 0, 0]
+  - [6, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 72, denominator: 72}
+    pos: {numerator: 72, denominator: 72}
+    sw_best: 72
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 72
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 72
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  poa_lowest_count: 549
+  poa_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 5, 0]
+  - [0, 5, 0, 6]
+  - [1, 0, 6, 0]
+  pos_highest:
+    poa: {numerator: 72, denominator: 72}
+    pos: {numerator: 72, denominator: 72}
+    sw_best: 72
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 72
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 72
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 4375
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 6]
+  - [0, 0, 6, 0]
+  pos_lowest:
+    poa: {numerator: 84, denominator: 84}
+    pos: {numerator: 84, denominator: 84}
+    sw_best: 84
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 84
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 84
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  pos_lowest_count: 4306
+  pos_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 6, 0]
+  - [0, 6, 0, 0]
+  - [1, 0, 0, 0]
+  poa_avg: 1.9592121294578484
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 7
+weights: null
+elapsed_time: 0.1675434112548828
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 8716
+  poa_highest:
+    poa: {numerator: 168, denominator: 24}
+    pos: {numerator: 168, denominator: 168}
+    sw_best: 168
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 168
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 46
+  poa_highest_game:
+  - [0, 0, 1, 7]
+  - [0, 0, 7, 1]
+  - [1, 7, 0, 0]
+  - [7, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 84, denominator: 84}
+    pos: {numerator: 84, denominator: 84}
+    sw_best: 84
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 84
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 84
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_lowest_count: 901
+  poa_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 7]
+  - [0, 0, 7, 0]
+  pos_highest:
+    poa: {numerator: 84, denominator: 84}
+    pos: {numerator: 84, denominator: 84}
+    sw_best: 84
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 84
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 84
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 8716
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 7]
+  - [0, 0, 7, 0]
+  pos_lowest:
+    poa: {numerator: 84, denominator: 84}
+    pos: {numerator: 84, denominator: 84}
+    sw_best: 84
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 84
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 84
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_lowest_count: 8716
+  pos_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 7]
+  - [0, 0, 7, 0]
+  poa_avg: 2.065398505680741
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 8
+weights: null
+elapsed_time: 0.19021081924438477
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 16005
+  poa_highest:
+    poa: {numerator: 192, denominator: 24}
+    pos: {numerator: 192, denominator: 192}
+    sw_best: 192
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 192
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 60
+  poa_highest_game:
+  - [0, 0, 1, 8]
+  - [0, 0, 8, 1]
+  - [1, 8, 0, 0]
+  - [8, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 96, denominator: 96}
+    pos: {numerator: 96, denominator: 96}
+    sw_best: 96
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 96
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 96
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  poa_lowest_count: 1266
+  poa_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 7, 0]
+  - [0, 7, 0, 8]
+  - [1, 0, 8, 0]
+  pos_highest:
+    poa: {numerator: 96, denominator: 96}
+    pos: {numerator: 96, denominator: 96}
+    sw_best: 96
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 96
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 96
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 16005
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 8]
+  - [0, 0, 8, 0]
+  pos_lowest:
+    poa: {numerator: 108, denominator: 108}
+    pos: {numerator: 108, denominator: 108}
+    sw_best: 108
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 108
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 108
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  pos_lowest_count: 15889
+  pos_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 8, 0]
+  - [0, 8, 0, 0]
+  - [1, 0, 0, 0]
+  poa_avg: 2.1536743197099404
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 9
+weights: null
+elapsed_time: 0.2243330478668213
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 27550
+  poa_highest:
+    poa: {numerator: 216, denominator: 24}
+    pos: {numerator: 216, denominator: 216}
+    sw_best: 216
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 216
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 76
+  poa_highest_game:
+  - [0, 0, 1, 9]
+  - [0, 0, 9, 1]
+  - [1, 9, 0, 0]
+  - [9, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 108, denominator: 108}
+    pos: {numerator: 108, denominator: 108}
+    sw_best: 108
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 108
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 108
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_lowest_count: 1849
+  poa_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 9]
+  - [0, 0, 9, 0]
+  pos_highest:
+    poa: {numerator: 108, denominator: 108}
+    pos: {numerator: 108, denominator: 108}
+    sw_best: 108
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 108
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 108
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 27550
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 9]
+  - [0, 0, 9, 0]
+  pos_lowest:
+    poa: {numerator: 108, denominator: 108}
+    pos: {numerator: 108, denominator: 108}
+    sw_best: 108
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 108
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 108
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_lowest_count: 27550
+  pos_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 9]
+  - [0, 0, 9, 0]
+  poa_avg: 2.227854972826954
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 10
+weights: null
+elapsed_time: 0.2803463935852051
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 45001
+  poa_highest:
+    poa: {numerator: 240, denominator: 24}
+    pos: {numerator: 240, denominator: 240}
+    sw_best: 240
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 240
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 94
+  poa_highest_game:
+  - [0, 0, 1, 10]
+  - [0, 0, 10, 1]
+  - [1, 10, 0, 0]
+  - [10, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 120, denominator: 120}
+    pos: {numerator: 120, denominator: 120}
+    sw_best: 120
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 120
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 120
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  poa_lowest_count: 2430
+  poa_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 9, 0]
+  - [0, 9, 0, 10]
+  - [1, 0, 10, 0]
+  pos_highest:
+    poa: {numerator: 120, denominator: 120}
+    pos: {numerator: 120, denominator: 120}
+    sw_best: 120
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 120
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 120
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 45001
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 10]
+  - [0, 0, 10, 0]
+  pos_lowest:
+    poa: {numerator: 132, denominator: 132}
+    pos: {numerator: 132, denominator: 132}
+    sw_best: 132
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 132
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 132
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  pos_lowest_count: 44826
+  pos_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 10, 0]
+  - [0, 10, 0, 0]
+  - [1, 0, 0, 0]
+  poa_avg: 2.2908763712843463
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 11
+weights: null
+elapsed_time: 0.357316255569458
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 70390
+  poa_highest:
+    poa: {numerator: 264, denominator: 24}
+    pos: {numerator: 264, denominator: 264}
+    sw_best: 264
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 264
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 114
+  poa_highest_game:
+  - [0, 0, 1, 11]
+  - [0, 0, 11, 1]
+  - [1, 11, 0, 0]
+  - [11, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 132, denominator: 132}
+    pos: {numerator: 132, denominator: 132}
+    sw_best: 132
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 132
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 132
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_lowest_count: 3302
+  poa_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 11]
+  - [0, 0, 11, 0]
+  pos_highest:
+    poa: {numerator: 132, denominator: 132}
+    pos: {numerator: 132, denominator: 132}
+    sw_best: 132
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 132
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 132
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 70390
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 11]
+  - [0, 0, 11, 0]
+  pos_lowest:
+    poa: {numerator: 132, denominator: 132}
+    pos: {numerator: 132, denominator: 132}
+    sw_best: 132
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 132
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 132
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_lowest_count: 70390
+  pos_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 11]
+  - [0, 0, 11, 0]
+  poa_avg: 2.3449977772333597
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 12
+weights: null
+elapsed_time: 0.4685981273651123
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 106171
+  poa_highest:
+    poa: {numerator: 288, denominator: 24}
+    pos: {numerator: 288, denominator: 288}
+    sw_best: 288
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 288
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 136
+  poa_highest_game:
+  - [0, 0, 1, 12]
+  - [0, 0, 12, 1]
+  - [1, 12, 0, 0]
+  - [12, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 144, denominator: 144}
+    pos: {numerator: 144, denominator: 144}
+    sw_best: 144
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 144
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 144
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  poa_lowest_count: 4149
+  poa_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 11, 0]
+  - [0, 11, 0, 12]
+  - [1, 0, 12, 0]
+  pos_highest:
+    poa: {numerator: 144, denominator: 144}
+    pos: {numerator: 144, denominator: 144}
+    sw_best: 144
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 144
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 144
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 106171
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 12]
+  - [0, 0, 12, 0]
+  pos_lowest:
+    poa: {numerator: 156, denominator: 156}
+    pos: {numerator: 156, denominator: 156}
+    sw_best: 156
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 156
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 156
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  pos_lowest_count: 105925
+  pos_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 12, 0]
+  - [0, 12, 0, 0]
+  - [1, 0, 0, 0]
+  poa_avg: 2.3919318426971077
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 13
+weights: null
+elapsed_time: 0.6158726215362549
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 155260
+  poa_highest:
+    poa: {numerator: 312, denominator: 24}
+    pos: {numerator: 312, denominator: 312}
+    sw_best: 312
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 312
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 160
+  poa_highest_game:
+  - [0, 0, 1, 13]
+  - [0, 0, 13, 1]
+  - [1, 13, 0, 0]
+  - [13, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 156, denominator: 156}
+    pos: {numerator: 156, denominator: 156}
+    sw_best: 156
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 156
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 156
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_lowest_count: 5368
+  poa_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 13]
+  - [0, 0, 13, 0]
+  pos_highest:
+    poa: {numerator: 156, denominator: 156}
+    pos: {numerator: 156, denominator: 156}
+    sw_best: 156
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 156
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 156
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 155260
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 13]
+  - [0, 0, 13, 0]
+  pos_lowest:
+    poa: {numerator: 156, denominator: 156}
+    pos: {numerator: 156, denominator: 156}
+    sw_best: 156
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 156
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 156
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_lowest_count: 155260
+  pos_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 13]
+  - [0, 0, 13, 0]
+  poa_avg: 2.4330008879196288
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 14
+weights: null
+elapsed_time: 0.818087100982666
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 221075
+  poa_highest:
+    poa: {numerator: 336, denominator: 24}
+    pos: {numerator: 336, denominator: 336}
+    sw_best: 336
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 336
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 186
+  poa_highest_game:
+  - [0, 0, 1, 14]
+  - [0, 0, 14, 1]
+  - [1, 14, 0, 0]
+  - [14, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 168, denominator: 168}
+    pos: {numerator: 168, denominator: 168}
+    sw_best: 168
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 168
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 168
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  poa_lowest_count: 6531
+  poa_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 13, 0]
+  - [0, 13, 0, 14]
+  - [1, 0, 14, 0]
+  pos_highest:
+    poa: {numerator: 168, denominator: 168}
+    pos: {numerator: 168, denominator: 168}
+    sw_best: 168
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 168
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 168
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 221075
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 14]
+  - [0, 0, 14, 0]
+  pos_lowest:
+    poa: {numerator: 180, denominator: 180}
+    pos: {numerator: 180, denominator: 180}
+    sw_best: 180
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 180
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 180
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  pos_lowest_count: 220746
+  pos_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 14, 0]
+  - [0, 14, 0, 0]
+  - [1, 0, 0, 0]
+  poa_avg: 2.469227159365212
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 15
+weights: null
+elapsed_time: 1.0974066257476807
+elapsed_time_human: 0:00:01
+payload:
+  total_game_count: 307576
+  poa_highest:
+    poa: {numerator: 360, denominator: 24}
+    pos: {numerator: 360, denominator: 360}
+    sw_best: 360
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 360
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 214
+  poa_highest_game:
+  - [0, 0, 1, 15]
+  - [0, 0, 15, 1]
+  - [1, 15, 0, 0]
+  - [15, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 180, denominator: 180}
+    pos: {numerator: 180, denominator: 180}
+    sw_best: 180
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 180
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 180
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_lowest_count: 8155
+  poa_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 15]
+  - [0, 0, 15, 0]
+  pos_highest:
+    poa: {numerator: 180, denominator: 180}
+    pos: {numerator: 180, denominator: 180}
+    sw_best: 180
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 180
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 180
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 307576
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 15]
+  - [0, 0, 15, 0]
+  pos_lowest:
+    poa: {numerator: 180, denominator: 180}
+    pos: {numerator: 180, denominator: 180}
+    sw_best: 180
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 180
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 180
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_lowest_count: 307576
+  pos_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 15]
+  - [0, 0, 15, 0]
+  poa_avg: 2.5014158089735807
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 16
+weights: null
+elapsed_time: 1.4244017601013184
+elapsed_time_human: 0:00:01
+payload:
+  total_game_count: 419305
+  poa_highest:
+    poa: {numerator: 384, denominator: 24}
+    pos: {numerator: 384, denominator: 384}
+    sw_best: 384
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 384
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 244
+  poa_highest_game:
+  - [0, 0, 1, 16]
+  - [0, 0, 16, 1]
+  - [1, 16, 0, 0]
+  - [16, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 192, denominator: 192}
+    pos: {numerator: 192, denominator: 192}
+    sw_best: 192
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 192
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 192
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  poa_lowest_count: 9684
+  poa_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 15, 0]
+  - [0, 15, 0, 16]
+  - [1, 0, 16, 0]
+  pos_highest:
+    poa: {numerator: 192, denominator: 192}
+    pos: {numerator: 192, denominator: 192}
+    sw_best: 192
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 192
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 192
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 419305
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 16]
+  - [0, 0, 16, 0]
+  pos_lowest:
+    poa: {numerator: 204, denominator: 204}
+    pos: {numerator: 204, denominator: 204}
+    sw_best: 204
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 204
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 204
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  pos_lowest_count: 418881
+  pos_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 16, 0]
+  - [0, 16, 0, 0]
+  - [1, 0, 0, 0]
+  poa_avg: 2.5302040788227136
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 17
+weights: null
+elapsed_time: 1.888890027999878
+elapsed_time_human: 0:00:01
+payload:
+  total_game_count: 561426
+  poa_highest:
+    poa: {numerator: 408, denominator: 24}
+    pos: {numerator: 408, denominator: 408}
+    sw_best: 408
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 408
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 276
+  poa_highest_game:
+  - [0, 0, 1, 17]
+  - [0, 0, 17, 1]
+  - [1, 17, 0, 0]
+  - [17, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 204, denominator: 204}
+    pos: {numerator: 204, denominator: 204}
+    sw_best: 204
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 204
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 204
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_lowest_count: 11771
+  poa_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 17]
+  - [0, 0, 17, 0]
+  pos_highest:
+    poa: {numerator: 204, denominator: 204}
+    pos: {numerator: 204, denominator: 204}
+    sw_best: 204
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 204
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 204
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 561426
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 17]
+  - [0, 0, 17, 0]
+  pos_lowest:
+    poa: {numerator: 204, denominator: 204}
+    pos: {numerator: 204, denominator: 204}
+    sw_best: 204
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 204
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 204
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_lowest_count: 561426
+  pos_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 17]
+  - [0, 0, 17, 0]
+  poa_avg: 2.556104635220171
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 18
+weights: null
+elapsed_time: 2.501192092895508
+elapsed_time_human: 0:00:02
+payload:
+  total_game_count: 739765
+  poa_highest:
+    poa: {numerator: 432, denominator: 24}
+    pos: {numerator: 432, denominator: 432}
+    sw_best: 432
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 432
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 310
+  poa_highest_game:
+  - [0, 0, 1, 18]
+  - [0, 0, 18, 1]
+  - [1, 18, 0, 0]
+  - [18, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 216, denominator: 216}
+    pos: {numerator: 216, denominator: 216}
+    sw_best: 216
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 216
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 216
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  poa_lowest_count: 13716
+  poa_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 17, 0]
+  - [0, 17, 0, 18]
+  - [1, 0, 18, 0]
+  pos_highest:
+    poa: {numerator: 216, denominator: 216}
+    pos: {numerator: 216, denominator: 216}
+    sw_best: 216
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 216
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 216
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 739765
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 18]
+  - [0, 0, 18, 0]
+  pos_lowest:
+    poa: {numerator: 228, denominator: 228}
+    pos: {numerator: 228, denominator: 228}
+    sw_best: 228
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 228
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 228
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  pos_lowest_count: 739234
+  pos_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 18, 0]
+  - [0, 18, 0, 0]
+  - [1, 0, 0, 0]
+  poa_avg: 2.5795321212026923
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 19
+weights: null
+elapsed_time: 3.1373355388641357
+elapsed_time_human: 0:00:03
+payload:
+  total_game_count: 960850
+  poa_highest:
+    poa: {numerator: 456, denominator: 24}
+    pos: {numerator: 456, denominator: 456}
+    sw_best: 456
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 456
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 346
+  poa_highest_game:
+  - [0, 0, 1, 19]
+  - [0, 0, 19, 1]
+  - [1, 19, 0, 0]
+  - [19, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 228, denominator: 228}
+    pos: {numerator: 228, denominator: 228}
+    sw_best: 228
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 228
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 228
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_lowest_count: 16324
+  poa_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 19]
+  - [0, 0, 19, 0]
+  pos_highest:
+    poa: {numerator: 228, denominator: 228}
+    pos: {numerator: 228, denominator: 228}
+    sw_best: 228
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 228
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 228
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 960850
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 19]
+  - [0, 0, 19, 0]
+  pos_lowest:
+    poa: {numerator: 228, denominator: 228}
+    pos: {numerator: 228, denominator: 228}
+    sw_best: 228
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 228
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 228
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_lowest_count: 960850
+  pos_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 19]
+  - [0, 0, 19, 0]
+  poa_avg: 2.600826607146072
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 20
+weights: null
+elapsed_time: 4.007220029830933
+elapsed_time_human: 0:00:04
+payload:
+  total_game_count: 1231951
+  poa_highest:
+    poa: {numerator: 480, denominator: 24}
+    pos: {numerator: 480, denominator: 480}
+    sw_best: 480
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 480
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 384
+  poa_highest_game:
+  - [0, 0, 1, 20]
+  - [0, 0, 20, 1]
+  - [1, 20, 0, 0]
+  - [20, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 240, denominator: 240}
+    pos: {numerator: 240, denominator: 240}
+    sw_best: 240
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 240
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 240
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  poa_lowest_count: 18735
+  poa_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 19, 0]
+  - [0, 19, 0, 20]
+  - [1, 0, 20, 0]
+  pos_highest:
+    poa: {numerator: 240, denominator: 240}
+    pos: {numerator: 240, denominator: 240}
+    sw_best: 240
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 240
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 240
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 1231951
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 20]
+  - [0, 0, 20, 0]
+  pos_lowest:
+    poa: {numerator: 252, denominator: 252}
+    pos: {numerator: 252, denominator: 252}
+    sw_best: 252
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 252
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 252
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  pos_lowest_count: 1231301
+  pos_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 20, 0]
+  - [0, 20, 0, 0]
+  - [1, 0, 0, 0]
+  poa_avg: 2.6202683833767773
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 21
+weights: null
+elapsed_time: 5.021683216094971
+elapsed_time_human: 0:00:05
+payload:
+  total_game_count: 1561120
+  poa_highest:
+    poa: {numerator: 504, denominator: 24}
+    pos: {numerator: 504, denominator: 504}
+    sw_best: 504
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 504
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 424
+  poa_highest_game:
+  - [0, 0, 1, 21]
+  - [0, 0, 21, 1]
+  - [1, 21, 0, 0]
+  - [21, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 252, denominator: 252}
+    pos: {numerator: 252, denominator: 252}
+    sw_best: 252
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 252
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 252
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_lowest_count: 21922
+  poa_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 21]
+  - [0, 0, 21, 0]
+  pos_highest:
+    poa: {numerator: 252, denominator: 252}
+    pos: {numerator: 252, denominator: 252}
+    sw_best: 252
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 252
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 252
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 1561120
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 21]
+  - [0, 0, 21, 0]
+  pos_lowest:
+    poa: {numerator: 252, denominator: 252}
+    pos: {numerator: 252, denominator: 252}
+    sw_best: 252
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 252
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 252
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_lowest_count: 1561120
+  pos_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 21]
+  - [0, 0, 21, 0]
+  poa_avg: 2.6380912272782564
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 22
+weights: null
+elapsed_time: 6.272886276245117
+elapsed_time_human: 0:00:06
+payload:
+  total_game_count: 1957231
+  poa_highest:
+    poa: {numerator: 528, denominator: 24}
+    pos: {numerator: 528, denominator: 528}
+    sw_best: 528
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 528
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 466
+  poa_highest_game:
+  - [0, 0, 1, 22]
+  - [0, 0, 22, 1]
+  - [1, 22, 0, 0]
+  - [22, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 264, denominator: 264}
+    pos: {numerator: 264, denominator: 264}
+    sw_best: 264
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 264
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 264
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  poa_lowest_count: 24849
+  poa_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 21, 0]
+  - [0, 21, 0, 22]
+  - [1, 0, 22, 0]
+  pos_highest:
+    poa: {numerator: 264, denominator: 264}
+    pos: {numerator: 264, denominator: 264}
+    sw_best: 264
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 264
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 264
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 1957231
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 22]
+  - [0, 0, 22, 0]
+  pos_lowest:
+    poa: {numerator: 276, denominator: 276}
+    pos: {numerator: 276, denominator: 276}
+    sw_best: 276
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 276
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 276
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  pos_lowest_count: 1956450
+  pos_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 22, 0]
+  - [0, 22, 0, 0]
+  - [1, 0, 0, 0]
+  poa_avg: 2.654490973464845
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 23
+weights: null
+elapsed_time: 7.8278563022613525
+elapsed_time_human: 0:00:07
+payload:
+  total_game_count: 2430020
+  poa_highest:
+    poa: {numerator: 552, denominator: 24}
+    pos: {numerator: 552, denominator: 552}
+    sw_best: 552
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 552
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 510
+  poa_highest_game:
+  - [0, 0, 1, 23]
+  - [0, 0, 23, 1]
+  - [1, 23, 0, 0]
+  - [23, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 276, denominator: 276}
+    pos: {numerator: 276, denominator: 276}
+    sw_best: 276
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 276
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 276
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_lowest_count: 28673
+  poa_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 23]
+  - [0, 0, 23, 0]
+  pos_highest:
+    poa: {numerator: 276, denominator: 276}
+    pos: {numerator: 276, denominator: 276}
+    sw_best: 276
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 276
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 276
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 2430020
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 23]
+  - [0, 0, 23, 0]
+  pos_lowest:
+    poa: {numerator: 276, denominator: 276}
+    pos: {numerator: 276, denominator: 276}
+    sw_best: 276
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 276
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 276
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_lowest_count: 2430020
+  pos_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 23]
+  - [0, 0, 23, 0]
+  poa_avg: 2.669633349581791
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 24
+weights: null
+elapsed_time: 9.672732830047607
+elapsed_time_human: 0:00:09
+payload:
+  total_game_count: 2990125
+  poa_highest:
+    poa: {numerator: 576, denominator: 24}
+    pos: {numerator: 576, denominator: 576}
+    sw_best: 576
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 576
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 556
+  poa_highest_game:
+  - [0, 0, 1, 24]
+  - [0, 0, 24, 1]
+  - [1, 24, 0, 0]
+  - [24, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 288, denominator: 288}
+    pos: {numerator: 288, denominator: 288}
+    sw_best: 288
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 288
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 288
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  poa_lowest_count: 32166
+  poa_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 23, 0]
+  - [0, 23, 0, 24]
+  - [1, 0, 24, 0]
+  pos_highest:
+    poa: {numerator: 288, denominator: 288}
+    pos: {numerator: 288, denominator: 288}
+    sw_best: 288
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 288
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 288
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 2990125
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 24]
+  - [0, 0, 24, 0]
+  pos_lowest:
+    poa: {numerator: 300, denominator: 300}
+    pos: {numerator: 300, denominator: 300}
+    sw_best: 300
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 300
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 300
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  pos_lowest_count: 2989201
+  pos_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 24, 0]
+  - [0, 24, 0, 0]
+  - [1, 0, 0, 0]
+  poa_avg: 2.683659135457207
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 25
+weights: null
+elapsed_time: 11.654661417007446
+elapsed_time_human: 0:00:11
+payload:
+  total_game_count: 3649126
+  poa_highest:
+    poa: {numerator: 600, denominator: 24}
+    pos: {numerator: 600, denominator: 600}
+    sw_best: 600
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 600
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 604
+  poa_highest_game:
+  - [0, 0, 1, 25]
+  - [0, 0, 25, 1]
+  - [1, 25, 0, 0]
+  - [25, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 300, denominator: 300}
+    pos: {numerator: 300, denominator: 300}
+    sw_best: 300
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 300
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 300
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_lowest_count: 36685
+  poa_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 25]
+  - [0, 0, 25, 0]
+  pos_highest:
+    poa: {numerator: 300, denominator: 300}
+    pos: {numerator: 300, denominator: 300}
+    sw_best: 300
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 300
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 300
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 3649126
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 25]
+  - [0, 0, 25, 0]
+  pos_lowest:
+    poa: {numerator: 300, denominator: 300}
+    pos: {numerator: 300, denominator: 300}
+    sw_best: 300
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 300
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 300
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_lowest_count: 3649126
+  pos_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 25]
+  - [0, 0, 25, 0]
+  poa_avg: 2.696688975405936
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 26
+weights: null
+elapsed_time: 14.225924730300903
+elapsed_time_human: 0:00:14
+payload:
+  total_game_count: 4419585
+  poa_highest:
+    poa: {numerator: 624, denominator: 24}
+    pos: {numerator: 624, denominator: 624}
+    sw_best: 624
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 624
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 654
+  poa_highest_game:
+  - [0, 0, 1, 26]
+  - [0, 0, 26, 1]
+  - [1, 26, 0, 0]
+  - [26, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 312, denominator: 312}
+    pos: {numerator: 312, denominator: 312}
+    sw_best: 312
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 312
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 312
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  poa_lowest_count: 40794
+  poa_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 25, 0]
+  - [0, 25, 0, 26]
+  - [1, 0, 26, 0]
+  pos_highest:
+    poa: {numerator: 312, denominator: 312}
+    pos: {numerator: 312, denominator: 312}
+    sw_best: 312
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 312
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 312
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 4419585
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 26]
+  - [0, 0, 26, 0]
+  pos_lowest:
+    poa: {numerator: 324, denominator: 324}
+    pos: {numerator: 324, denominator: 324}
+    sw_best: 324
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 324
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 324
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  pos_lowest_count: 4418506
+  pos_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 26, 0]
+  - [0, 26, 0, 0]
+  - [1, 0, 0, 0]
+  poa_avg: 2.708826595109464
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 27
+weights: null
+elapsed_time: 17.118500471115112
+elapsed_time_human: 0:00:17
+payload:
+  total_game_count: 5315086
+  poa_highest:
+    poa: {numerator: 648, denominator: 24}
+    pos: {numerator: 648, denominator: 648}
+    sw_best: 648
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 648
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 706
+  poa_highest_game:
+  - [0, 0, 1, 27]
+  - [0, 0, 27, 1]
+  - [1, 27, 0, 0]
+  - [27, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 324, denominator: 324}
+    pos: {numerator: 324, denominator: 324}
+    sw_best: 324
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 324
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 324
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_lowest_count: 46066
+  poa_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 27]
+  - [0, 0, 27, 0]
+  pos_highest:
+    poa: {numerator: 324, denominator: 324}
+    pos: {numerator: 324, denominator: 324}
+    sw_best: 324
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 324
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 324
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 5315086
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 27]
+  - [0, 0, 27, 0]
+  pos_lowest:
+    poa: {numerator: 324, denominator: 324}
+    pos: {numerator: 324, denominator: 324}
+    sw_best: 324
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 324
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 324
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_lowest_count: 5315086
+  pos_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 27]
+  - [0, 0, 27, 0]
+  poa_avg: 2.7201618615712695
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 28
+weights: null
+elapsed_time: 20.807971954345703
+elapsed_time_human: 0:00:20
+payload:
+  total_game_count: 6350275
+  poa_highest:
+    poa: {numerator: 672, denominator: 24}
+    pos: {numerator: 672, denominator: 672}
+    sw_best: 672
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 672
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 760
+  poa_highest_game:
+  - [0, 0, 1, 28]
+  - [0, 0, 28, 1]
+  - [1, 28, 0, 0]
+  - [28, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 336, denominator: 336}
+    pos: {numerator: 336, denominator: 336}
+    sw_best: 336
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 336
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 336
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  poa_lowest_count: 50841
+  poa_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 27, 0]
+  - [0, 27, 0, 28]
+  - [1, 0, 28, 0]
+  pos_highest:
+    poa: {numerator: 336, denominator: 336}
+    pos: {numerator: 336, denominator: 336}
+    sw_best: 336
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 336
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 336
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 6350275
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 28]
+  - [0, 0, 28, 0]
+  pos_lowest:
+    poa: {numerator: 348, denominator: 348}
+    pos: {numerator: 348, denominator: 348}
+    sw_best: 348
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 348
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 348
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  pos_lowest_count: 6349029
+  pos_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 28, 0]
+  - [0, 28, 0, 0]
+  - [1, 0, 0, 0]
+  poa_avg: 2.730772853321507
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 29
+weights: null
+elapsed_time: 24.306030988693237
+elapsed_time_human: 0:00:24
+payload:
+  total_game_count: 7540900
+  poa_highest:
+    poa: {numerator: 696, denominator: 24}
+    pos: {numerator: 696, denominator: 696}
+    sw_best: 696
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 696
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 816
+  poa_highest_game:
+  - [0, 0, 1, 29]
+  - [0, 0, 29, 1]
+  - [1, 29, 0, 0]
+  - [29, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 348, denominator: 348}
+    pos: {numerator: 348, denominator: 348}
+    sw_best: 348
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 348
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 348
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  poa_lowest_count: 56924
+  poa_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 29]
+  - [0, 0, 29, 0]
+  pos_highest:
+    poa: {numerator: 348, denominator: 348}
+    pos: {numerator: 348, denominator: 348}
+    sw_best: 348
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 348
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 348
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 7540900
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 29]
+  - [0, 0, 29, 0]
+  pos_lowest:
+    poa: {numerator: 348, denominator: 348}
+    pos: {numerator: 348, denominator: 348}
+    sw_best: 348
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 348
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 348
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_lowest_count: 7540900
+  pos_lowest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 29]
+  - [0, 0, 29, 0]
+  poa_avg: 2.7407278667665276
+  pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 30
+weights: null
+elapsed_time: 28.92507290840149
+elapsed_time_human: 0:00:28
+payload:
+  total_game_count: 8903851
+  poa_highest:
+    poa: {numerator: 720, denominator: 24}
+    pos: {numerator: 720, denominator: 720}
+    sw_best: 720
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 720
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 24
+    cs_worst_equilibrium: [0, 1, 0, 1]
+  poa_highest_count: 874
+  poa_highest_game:
+  - [0, 0, 1, 30]
+  - [0, 0, 30, 1]
+  - [1, 30, 0, 0]
+  - [30, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 360, denominator: 360}
+    pos: {numerator: 360, denominator: 360}
+    sw_best: 360
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 360
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 360
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  poa_lowest_count: 62415
+  poa_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 29, 0]
+  - [0, 29, 0, 30]
+  - [1, 0, 30, 0]
+  pos_highest:
+    poa: {numerator: 360, denominator: 360}
+    pos: {numerator: 360, denominator: 360}
+    sw_best: 360
+    cs_best: [0, 0, 1, 1]
+    sw_best_equilibrium: 360
+    cs_best_equilibrium: [0, 1, 2, 2]
+    sw_worst_equilibrium: 360
+    cs_worst_equilibrium: [0, 1, 2, 2]
+  pos_highest_count: 8903851
+  pos_highest_game:
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 0]
+  - [0, 0, 0, 30]
+  - [0, 0, 30, 0]
+  pos_lowest:
+    poa: {numerator: 372, denominator: 372}
+    pos: {numerator: 372, denominator: 372}
+    sw_best: 372
+    cs_best: [0, 1, 1, 0]
+    sw_best_equilibrium: 372
+    cs_best_equilibrium: [0, 1, 1, 0]
+    sw_worst_equilibrium: 372
+    cs_worst_equilibrium: [0, 1, 1, 0]
+  pos_lowest_count: 8902426
+  pos_lowest_game:
+  - [0, 0, 0, 1]
+  - [0, 0, 30, 0]
+  - [0, 30, 0, 0]
+  - [1, 0, 0, 0]
+  poa_avg: 2.7500867865231475
+  pos_avg: 1.0
+---
+{k: 2, n: 5, m: 0, weights: null, elapsed_time: 0.14156794548034668, elapsed_time_human: '0:00:00',
+  payload: null}
+---
+k: 2
+n: 5
+m: 1
+weights: null
+elapsed_time: 0.14302468299865723
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 42
+  poa_highest:
+    poa: {numerator: 120, denominator: 60}
+    pos: {numerator: 120, denominator: 120}
+    sw_best: 120
+    cs_best: [0, 1, 2, 2, 1]
+    sw_best_equilibrium: 120
+    cs_best_equilibrium: [0, 1, 2, 2, 1]
+    sw_worst_equilibrium: 60
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_highest_count: 9
+  poa_highest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 1, 0]
+  - [0, 0, 1, 0, 1]
+  - [0, 1, 0, 1, 0]
+  poa_lowest:
+    poa: {numerator: 60, denominator: 60}
+    pos: {numerator: 60, denominator: 60}
+    sw_best: 60
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 60
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    sw_worst_equilibrium: 60
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_lowest_count: 33
+  poa_lowest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 1, 0]
+  pos_highest:
+    poa: {numerator: 60, denominator: 60}
+    pos: {numerator: 60, denominator: 60}
+    sw_best: 60
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 60
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    sw_worst_equilibrium: 60
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_highest_count: 42
+  pos_highest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 1, 0]
+  pos_lowest:
+    poa: {numerator: 60, denominator: 60}
+    pos: {numerator: 60, denominator: 60}
+    sw_best: 60
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 60
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    sw_worst_equilibrium: 60
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_lowest_count: 42
+  pos_lowest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 1, 0]
+  poa_avg: 1.2142857142857142
+  pos_avg: 1.0
+---
+k: 2
+n: 5
+m: 2
+weights: null
+elapsed_time: 0.1508622169494629
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 1264
+  poa_highest:
+    poa: {numerator: 240, denominator: 120}
+    pos: {numerator: 240, denominator: 240}
+    sw_best: 240
+    cs_best: [0, 1, 2, 2, 1]
+    sw_best_equilibrium: 240
+    cs_best_equilibrium: [0, 1, 2, 2, 1]
+    sw_worst_equilibrium: 120
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_highest_count: 113
+  poa_highest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 2]
+  - [0, 0, 0, 2, 0]
+  - [0, 0, 2, 0, 2]
+  - [0, 2, 0, 2, 0]
+  poa_lowest:
+    poa: {numerator: 180, denominator: 180}
+    pos: {numerator: 180, denominator: 180}
+    sw_best: 180
+    cs_best: [0, 1, 2, 2, 1]
+    sw_best_equilibrium: 180
+    cs_best_equilibrium: [0, 1, 2, 2, 1]
+    sw_worst_equilibrium: 180
+    cs_worst_equilibrium: [0, 1, 2, 2, 1]
+  poa_lowest_count: 720
+  poa_lowest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 2, 0]
+  - [0, 0, 2, 0, 0]
+  - [0, 1, 0, 0, 0]
+  pos_highest:
+    poa: {numerator: 120, denominator: 120}
+    pos: {numerator: 120, denominator: 120}
+    sw_best: 120
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 120
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    sw_worst_equilibrium: 120
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_highest_count: 1264
+  pos_highest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 2]
+  - [0, 0, 0, 2, 0]
+  pos_lowest:
+    poa: {numerator: 180, denominator: 180}
+    pos: {numerator: 180, denominator: 180}
+    sw_best: 180
+    cs_best: [0, 1, 2, 2, 1]
+    sw_best_equilibrium: 180
+    cs_best_equilibrium: [0, 1, 2, 2, 1]
+    sw_worst_equilibrium: 180
+    cs_worst_equilibrium: [0, 1, 2, 2, 1]
+  pos_lowest_count: 1253
+  pos_lowest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 2, 0]
+  - [0, 0, 2, 0, 0]
+  - [0, 1, 0, 0, 0]
+  poa_avg: 1.219672995780589
+  pos_avg: 1.0
+---
+k: 2
+n: 5
+m: 3
+weights: null
+elapsed_time: 0.27068114280700684
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 17972
+  poa_highest:
+    poa: {numerator: 360, denominator: 120}
+    pos: {numerator: 360, denominator: 360}
+    sw_best: 360
+    cs_best: [0, 1, 2, 2, 1]
+    sw_best_equilibrium: 360
+    cs_best_equilibrium: [0, 1, 2, 2, 1]
+    sw_worst_equilibrium: 120
+    cs_worst_equilibrium: [0, 1, 2, 1, 2]
+  poa_highest_count: 114
+  poa_highest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 1, 3]
+  - [0, 0, 0, 3, 1]
+  - [0, 1, 3, 0, 0]
+  - [0, 3, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 180, denominator: 180}
+    pos: {numerator: 180, denominator: 180}
+    sw_best: 180
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 180
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    sw_worst_equilibrium: 180
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_lowest_count: 8949
+  poa_lowest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 3]
+  - [0, 0, 0, 3, 0]
+  pos_highest:
+    poa: {numerator: 180, denominator: 180}
+    pos: {numerator: 180, denominator: 180}
+    sw_best: 180
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 180
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    sw_worst_equilibrium: 180
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_highest_count: 17972
+  pos_highest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 3]
+  - [0, 0, 0, 3, 0]
+  pos_lowest:
+    poa: {numerator: 180, denominator: 180}
+    pos: {numerator: 180, denominator: 180}
+    sw_best: 180
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 180
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    sw_worst_equilibrium: 180
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_lowest_count: 17972
+  pos_lowest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 3]
+  - [0, 0, 0, 3, 0]
+  poa_avg: 1.2242571778322642
+  pos_avg: 1.0
+---
+k: 2
+n: 5
+m: 4
+weights: null
+elapsed_time: 1.147948980331421
+elapsed_time_human: 0:00:01
+payload:
+  total_game_count: 146016
+  poa_highest:
+    poa: {numerator: 480, denominator: 120}
+    pos: {numerator: 480, denominator: 480}
+    sw_best: 480
+    cs_best: [0, 1, 2, 2, 1]
+    sw_best_equilibrium: 480
+    cs_best_equilibrium: [0, 1, 2, 2, 1]
+    sw_worst_equilibrium: 120
+    cs_worst_equilibrium: [0, 1, 2, 1, 2]
+  poa_highest_count: 174
+  poa_highest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 1, 4]
+  - [0, 0, 0, 4, 1]
+  - [0, 1, 4, 0, 0]
+  - [0, 4, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 240, denominator: 240}
+    pos: {numerator: 240, denominator: 240}
+    sw_best: 240
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 240
+    cs_best_equilibrium: [0, 1, 2, 2, 1]
+    sw_worst_equilibrium: 240
+    cs_worst_equilibrium: [0, 1, 2, 2, 1]
+  poa_lowest_count: 68857
+  poa_lowest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 3, 0]
+  - [0, 0, 3, 0, 4]
+  - [0, 1, 0, 4, 0]
+  pos_highest:
+    poa: {numerator: 240, denominator: 240}
+    pos: {numerator: 240, denominator: 240}
+    sw_best: 240
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 240
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    sw_worst_equilibrium: 240
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_highest_count: 146016
+  pos_highest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 4]
+  - [0, 0, 0, 4, 0]
+  pos_lowest:
+    poa: {numerator: 300, denominator: 300}
+    pos: {numerator: 300, denominator: 300}
+    sw_best: 300
+    cs_best: [0, 1, 2, 2, 1]
+    sw_best_equilibrium: 300
+    cs_best_equilibrium: [0, 1, 2, 2, 1]
+    sw_worst_equilibrium: 300
+    cs_worst_equilibrium: [0, 1, 2, 2, 1]
+  pos_lowest_count: 145982
+  pos_lowest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 4, 0]
+  - [0, 0, 4, 0, 0]
+  - [0, 1, 0, 0, 0]
+  poa_avg: 1.212453168863738
+  pos_avg: 1.0
+---
+k: 2
+n: 5
+m: 5
+weights: null
+elapsed_time: 5.634399652481079
+elapsed_time_human: 0:00:05
+payload:
+  total_game_count: 809840
+  poa_highest:
+    poa: {numerator: 600, denominator: 120}
+    pos: {numerator: 600, denominator: 600}
+    sw_best: 600
+    cs_best: [0, 1, 2, 2, 1]
+    sw_best_equilibrium: 600
+    cs_best_equilibrium: [0, 1, 2, 2, 1]
+    sw_worst_equilibrium: 120
+    cs_worst_equilibrium: [0, 1, 2, 1, 2]
+  poa_highest_count: 248
+  poa_highest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 1, 5]
+  - [0, 0, 0, 5, 1]
+  - [0, 1, 5, 0, 0]
+  - [0, 5, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 300, denominator: 300}
+    pos: {numerator: 300, denominator: 300}
+    sw_best: 300
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 300
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    sw_worst_equilibrium: 300
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_lowest_count: 375080
+  poa_lowest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 5]
+  - [0, 0, 0, 5, 0]
+  pos_highest:
+    poa: {numerator: 300, denominator: 300}
+    pos: {numerator: 300, denominator: 300}
+    sw_best: 300
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 300
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    sw_worst_equilibrium: 300
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_highest_count: 809840
+  pos_highest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 5]
+  - [0, 0, 0, 5, 0]
+  pos_lowest:
+    poa: {numerator: 300, denominator: 300}
+    pos: {numerator: 300, denominator: 300}
+    sw_best: 300
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 300
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    sw_worst_equilibrium: 300
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_lowest_count: 809840
+  pos_lowest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 5]
+  - [0, 0, 0, 5, 0]
+  poa_avg: 1.1990548872862379
+  pos_avg: 1.0
+---
+k: 2
+n: 5
+m: 6
+weights: null
+elapsed_time: 23.399404048919678
+elapsed_time_human: 0:00:23
+payload:
+  total_game_count: 3432849
+  poa_highest:
+    poa: {numerator: 720, denominator: 120}
+    pos: {numerator: 720, denominator: 720}
+    sw_best: 720
+    cs_best: [0, 1, 2, 2, 1]
+    sw_best_equilibrium: 720
+    cs_best_equilibrium: [0, 1, 2, 2, 1]
+    sw_worst_equilibrium: 120
+    cs_worst_equilibrium: [0, 1, 2, 1, 2]
+  poa_highest_count: 336
+  poa_highest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 1, 6]
+  - [0, 0, 0, 6, 1]
+  - [0, 1, 6, 0, 0]
+  - [0, 6, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 360, denominator: 360}
+    pos: {numerator: 360, denominator: 360}
+    sw_best: 360
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 360
+    cs_best_equilibrium: [0, 1, 2, 2, 1]
+    sw_worst_equilibrium: 360
+    cs_worst_equilibrium: [0, 1, 2, 2, 1]
+  poa_lowest_count: 1582410
+  poa_lowest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 5, 0]
+  - [0, 0, 5, 0, 6]
+  - [0, 1, 0, 6, 0]
+  pos_highest:
+    poa: {numerator: 360, denominator: 360}
+    pos: {numerator: 360, denominator: 360}
+    sw_best: 360
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 360
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    sw_worst_equilibrium: 360
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_highest_count: 3432849
+  pos_highest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 6]
+  - [0, 0, 0, 6, 0]
+  pos_lowest:
+    poa: {numerator: 420, denominator: 420}
+    pos: {numerator: 420, denominator: 420}
+    sw_best: 420
+    cs_best: [0, 1, 2, 2, 1]
+    sw_best_equilibrium: 420
+    cs_best_equilibrium: [0, 1, 2, 2, 1]
+    sw_worst_equilibrium: 420
+    cs_worst_equilibrium: [0, 1, 2, 2, 1]
+  pos_lowest_count: 3432780
+  pos_lowest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 6, 0]
+  - [0, 0, 6, 0, 0]
+  - [0, 1, 0, 0, 0]
+  poa_avg: 1.1874750359477195
+  pos_avg: 1.0
+---
+k: 2
+n: 5
+m: 7
+weights: null
+elapsed_time: 80.86274576187134
+elapsed_time_human: 0:01:20
+payload:
+  total_game_count: 11943408
+  poa_highest:
+    poa: {numerator: 840, denominator: 120}
+    pos: {numerator: 840, denominator: 840}
+    sw_best: 840
+    cs_best: [0, 1, 2, 2, 1]
+    sw_best_equilibrium: 840
+    cs_best_equilibrium: [0, 1, 2, 2, 1]
+    sw_worst_equilibrium: 120
+    cs_worst_equilibrium: [0, 1, 2, 1, 2]
+  poa_highest_count: 438
+  poa_highest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 1, 7]
+  - [0, 0, 0, 7, 1]
+  - [0, 1, 7, 0, 0]
+  - [0, 7, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 420, denominator: 420}
+    pos: {numerator: 420, denominator: 420}
+    sw_best: 420
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 420
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    sw_worst_equilibrium: 420
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_lowest_count: 5508959
+  poa_lowest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 7]
+  - [0, 0, 0, 7, 0]
+  pos_highest:
+    poa: {numerator: 420, denominator: 420}
+    pos: {numerator: 420, denominator: 420}
+    sw_best: 420
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 420
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    sw_worst_equilibrium: 420
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_highest_count: 11943408
+  pos_highest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 7]
+  - [0, 0, 0, 7, 0]
+  pos_lowest:
+    poa: {numerator: 420, denominator: 420}
+    pos: {numerator: 420, denominator: 420}
+    sw_best: 420
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 420
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    sw_worst_equilibrium: 420
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_lowest_count: 11943408
+  pos_lowest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 7]
+  - [0, 0, 0, 7, 0]
+  poa_avg: 1.1780173304901234
+  pos_avg: 1.0
+---
+k: 2
+n: 5
+m: 8
+weights: null
+elapsed_time: 241.30404019355774
+elapsed_time_human: 0:04:01
+payload:
+  total_game_count: 35741811
+  poa_highest:
+    poa: {numerator: 960, denominator: 120}
+    pos: {numerator: 960, denominator: 960}
+    sw_best: 960
+    cs_best: [0, 1, 2, 2, 1]
+    sw_best_equilibrium: 960
+    cs_best_equilibrium: [0, 1, 2, 2, 1]
+    sw_worst_equilibrium: 120
+    cs_worst_equilibrium: [0, 1, 2, 1, 2]
+  poa_highest_count: 554
+  poa_highest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 1, 8]
+  - [0, 0, 0, 8, 1]
+  - [0, 1, 8, 0, 0]
+  - [0, 8, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 480, denominator: 480}
+    pos: {numerator: 480, denominator: 480}
+    sw_best: 480
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 480
+    cs_best_equilibrium: [0, 1, 2, 2, 1]
+    sw_worst_equilibrium: 480
+    cs_worst_equilibrium: [0, 1, 2, 2, 1]
+  poa_lowest_count: 16530896
+  poa_lowest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 7, 0]
+  - [0, 0, 7, 0, 8]
+  - [0, 1, 0, 8, 0]
+  pos_highest:
+    poa: {numerator: 480, denominator: 480}
+    pos: {numerator: 480, denominator: 480}
+    sw_best: 480
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 480
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    sw_worst_equilibrium: 480
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_highest_count: 35741811
+  pos_highest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 8]
+  - [0, 0, 0, 8, 0]
+  pos_lowest:
+    poa: {numerator: 540, denominator: 540}
+    pos: {numerator: 540, denominator: 540}
+    sw_best: 540
+    cs_best: [0, 1, 2, 2, 1]
+    sw_best_equilibrium: 540
+    cs_best_equilibrium: [0, 1, 2, 2, 1]
+    sw_worst_equilibrium: 540
+    cs_worst_equilibrium: [0, 1, 2, 2, 1]
+  pos_lowest_count: 35741695
+  pos_lowest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 8, 0]
+  - [0, 0, 8, 0, 0]
+  - [0, 1, 0, 0, 0]
+  poa_avg: 1.1703505337873061
+  pos_avg: 1.0
+---
+k: 2
+n: 5
+m: 9
+weights: null
+elapsed_time: 650.2444591522217
+elapsed_time_human: 0:10:50
+payload:
+  total_game_count: 95011942
+  poa_highest:
+    poa: {numerator: 1080, denominator: 120}
+    pos: {numerator: 1080, denominator: 1080}
+    sw_best: 1080
+    cs_best: [0, 1, 2, 2, 1]
+    sw_best_equilibrium: 1080
+    cs_best_equilibrium: [0, 1, 2, 2, 1]
+    sw_worst_equilibrium: 120
+    cs_worst_equilibrium: [0, 1, 2, 1, 2]
+  poa_highest_count: 684
+  poa_highest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 1, 9]
+  - [0, 0, 0, 9, 1]
+  - [0, 1, 9, 0, 0]
+  - [0, 9, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 540, denominator: 540}
+    pos: {numerator: 540, denominator: 540}
+    sw_best: 540
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 540
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    sw_worst_equilibrium: 540
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_lowest_count: 44096353
+  poa_lowest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 9]
+  - [0, 0, 0, 9, 0]
+  pos_highest:
+    poa: {numerator: 540, denominator: 540}
+    pos: {numerator: 540, denominator: 540}
+    sw_best: 540
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 540
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    sw_worst_equilibrium: 540
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_highest_count: 95011942
+  pos_highest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 9]
+  - [0, 0, 0, 9, 0]
+  pos_lowest:
+    poa: {numerator: 540, denominator: 540}
+    pos: {numerator: 540, denominator: 540}
+    sw_best: 540
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 540
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    sw_worst_equilibrium: 540
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_lowest_count: 95011942
+  pos_lowest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 9]
+  - [0, 0, 0, 9, 0]
+  poa_avg: 1.1640911779402434
+  pos_avg: 1.0
+---
+k: 2
+n: 5
+m: 10
+weights: null
+elapsed_time: 1567.489274263382
+elapsed_time_human: 0:26:07
+payload:
+  total_game_count: 229565094
+  poa_highest:
+    poa: {numerator: 1200, denominator: 120}
+    pos: {numerator: 1200, denominator: 1200}
+    sw_best: 1200
+    cs_best: [0, 1, 2, 2, 1]
+    sw_best_equilibrium: 1200
+    cs_best_equilibrium: [0, 1, 2, 2, 1]
+    sw_worst_equilibrium: 120
+    cs_worst_equilibrium: [0, 1, 2, 1, 2]
+  poa_highest_count: 828
+  poa_highest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 1, 10]
+  - [0, 0, 0, 10, 1]
+  - [0, 1, 10, 0, 0]
+  - [0, 10, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 600, denominator: 600}
+    pos: {numerator: 600, denominator: 600}
+    sw_best: 600
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 600
+    cs_best_equilibrium: [0, 1, 2, 2, 1]
+    sw_worst_equilibrium: 600
+    cs_worst_equilibrium: [0, 1, 2, 2, 1]
+  poa_lowest_count: 106930298
+  poa_lowest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 9, 0]
+  - [0, 0, 9, 0, 10]
+  - [0, 1, 0, 10, 0]
+  pos_highest:
+    poa: {numerator: 600, denominator: 600}
+    pos: {numerator: 600, denominator: 600}
+    sw_best: 600
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 600
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    sw_worst_equilibrium: 600
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_highest_count: 229565094
+  pos_highest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 10]
+  - [0, 0, 0, 10, 0]
+  pos_lowest:
+    poa: {numerator: 660, denominator: 660}
+    pos: {numerator: 660, denominator: 660}
+    sw_best: 660
+    cs_best: [0, 1, 2, 2, 1]
+    sw_best_equilibrium: 660
+    cs_best_equilibrium: [0, 1, 2, 2, 1]
+    sw_worst_equilibrium: 660
+    cs_worst_equilibrium: [0, 1, 2, 2, 1]
+  pos_lowest_count: 229564919
+  pos_lowest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1]
+  - [0, 0, 0, 10, 0]
+  - [0, 0, 10, 0, 0]
+  - [0, 1, 0, 0, 0]
+  poa_avg: 1.1589220389303232
+  pos_avg: 1.0
+---
+k: 2
+n: 5
+m: 11
+weights: null
+elapsed_time: 3467.391897201538
+elapsed_time_human: 0:57:47
+payload:
+  total_game_count: 512752516
+  poa_highest:
+    poa: {numerator: 1320, denominator: 120}
+    pos: {numerator: 1320, denominator: 1320}
+    sw_best: 1320
+    cs_best: [0, 1, 2, 2, 1]
+    sw_best_equilibrium: 1320
+    cs_best_equilibrium: [0, 1, 2, 2, 1]
+    sw_worst_equilibrium: 120
+    cs_worst_equilibrium: [0, 1, 2, 1, 2]
+  poa_highest_count: 986
+  poa_highest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 1, 11]
+  - [0, 0, 0, 11, 1]
+  - [0, 1, 11, 0, 0]
+  - [0, 11, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 660, denominator: 660}
+    pos: {numerator: 660, denominator: 660}
+    sw_best: 660
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 660
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    sw_worst_equilibrium: 660
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  poa_lowest_count: 239678893
+  poa_lowest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 11]
+  - [0, 0, 0, 11, 0]
+  pos_highest:
+    poa: {numerator: 660, denominator: 660}
+    pos: {numerator: 660, denominator: 660}
+    sw_best: 660
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 660
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    sw_worst_equilibrium: 660
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_highest_count: 512752516
+  pos_highest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 11]
+  - [0, 0, 0, 11, 0]
+  pos_lowest:
+    poa: {numerator: 660, denominator: 660}
+    pos: {numerator: 660, denominator: 660}
+    sw_best: 660
+    cs_best: [0, 0, 1, 2, 2]
+    sw_best_equilibrium: 660
+    cs_best_equilibrium: [0, 1, 2, 3, 3]
+    sw_worst_equilibrium: 660
+    cs_worst_equilibrium: [0, 1, 2, 3, 3]
+  pos_lowest_count: 512752516
+  pos_lowest_game:
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 11]
+  - [0, 0, 0, 11, 0]
+  poa_avg: 1.154600513473446
+  pos_avg: 1.0
+---
+{k: 2, n: 5, m: 12, weights: null, elapsed_time: 3600, elapsed_time_human: '1:00:00',
+  payload: null}
+---
+{k: 2, n: 6, m: 0, weights: null, elapsed_time: 0.1539473533630371, elapsed_time_human: '0:00:00',
+  payload: null}
+---
+k: 2
+n: 6
+m: 1
+weights: null
+elapsed_time: 0.15693044662475586
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 275
+  poa_highest:
+    poa: {numerator: 120, denominator: 60}
+    pos: {numerator: 120, denominator: 120}
+    sw_best: 120
+    cs_best: [0, 0, 1, 2, 2, 1]
+    sw_best_equilibrium: 120
+    cs_best_equilibrium: [0, 1, 2, 3, 3, 2]
+    sw_worst_equilibrium: 60
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  poa_highest_count: 19
+  poa_highest_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 1, 0]
+  - [0, 0, 0, 1, 0, 1]
+  - [0, 0, 1, 0, 1, 0]
+  poa_lowest:
+    poa: {numerator: 60, denominator: 60}
+    pos: {numerator: 60, denominator: 60}
+    sw_best: 60
+    cs_best: [0, 0, 1, 1, 2, 2]
+    sw_best_equilibrium: 60
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    sw_worst_equilibrium: 60
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  poa_lowest_count: 61
+  poa_lowest_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 1, 0]
+  pos_highest:
+    poa: {numerator: 60, denominator: 60}
+    pos: {numerator: 60, denominator: 60}
+    sw_best: 60
+    cs_best: [0, 0, 1, 1, 2, 2]
+    sw_best_equilibrium: 60
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    sw_worst_equilibrium: 60
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  pos_highest_count: 275
+  pos_highest_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 1, 0]
+  pos_lowest:
+    poa: {numerator: 60, denominator: 60}
+    pos: {numerator: 60, denominator: 60}
+    sw_best: 60
+    cs_best: [0, 0, 1, 1, 2, 2]
+    sw_best_equilibrium: 60
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    sw_worst_equilibrium: 60
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  pos_lowest_count: 275
+  pos_lowest_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 1, 0]
+  poa_avg: 1.4236363636363636
+  pos_avg: 1.0
+---
+k: 2
+n: 6
+m: 2
+weights: null
+elapsed_time: 1.487098217010498
+elapsed_time_human: 0:00:01
+payload:
+  total_game_count: 66515
+  poa_highest:
+    poa: {numerator: 240, denominator: 120}
+    pos: {numerator: 240, denominator: 240}
+    sw_best: 240
+    cs_best: [0, 0, 1, 2, 2, 1]
+    sw_best_equilibrium: 240
+    cs_best_equilibrium: [0, 1, 2, 3, 3, 2]
+    sw_worst_equilibrium: 120
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  poa_highest_count: 8605
+  poa_highest_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 2]
+  - [0, 0, 0, 0, 2, 0]
+  - [0, 0, 0, 2, 0, 2]
+  - [0, 0, 2, 0, 2, 0]
+  poa_lowest:
+    poa: {numerator: 180, denominator: 180}
+    pos: {numerator: 180, denominator: 180}
+    sw_best: 180
+    cs_best: [0, 0, 1, 2, 2, 1]
+    sw_best_equilibrium: 180
+    cs_best_equilibrium: [0, 1, 2, 3, 3, 2]
+    sw_worst_equilibrium: 180
+    cs_worst_equilibrium: [0, 1, 2, 3, 3, 2]
+  poa_lowest_count: 3687
+  poa_lowest_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 2, 0]
+  - [0, 0, 0, 2, 0, 0]
+  - [0, 0, 1, 0, 0, 0]
+  pos_highest:
+    poa: {numerator: 120, denominator: 120}
+    pos: {numerator: 120, denominator: 120}
+    sw_best: 120
+    cs_best: [0, 0, 1, 1, 2, 2]
+    sw_best_equilibrium: 120
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    sw_worst_equilibrium: 120
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  pos_highest_count: 66515
+  pos_highest_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 2]
+  - [0, 0, 0, 0, 2, 0]
+  pos_lowest:
+    poa: {numerator: 180, denominator: 180}
+    pos: {numerator: 180, denominator: 180}
+    sw_best: 180
+    cs_best: [0, 0, 1, 2, 2, 1]
+    sw_best_equilibrium: 180
+    cs_best_equilibrium: [0, 1, 2, 3, 3, 2]
+    sw_worst_equilibrium: 180
+    cs_worst_equilibrium: [0, 1, 2, 3, 3, 2]
+  pos_lowest_count: 66504
+  pos_lowest_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 2, 0]
+  - [0, 0, 0, 2, 0, 0]
+  - [0, 0, 1, 0, 0, 0]
+  poa_avg: 1.5213230098475536
+  pos_avg: 1.0
+---
+k: 2
+n: 6
+m: 3
+weights: null
+elapsed_time: 84.94327044487
+elapsed_time_human: 0:01:24
+payload:
+  total_game_count: 4256478
+  poa_highest:
+    poa: {numerator: 360, denominator: 120}
+    pos: {numerator: 360, denominator: 360}
+    sw_best: 360
+    cs_best: [0, 0, 1, 2, 2, 1]
+    sw_best_equilibrium: 360
+    cs_best_equilibrium: [0, 1, 2, 3, 3, 2]
+    sw_worst_equilibrium: 120
+    cs_worst_equilibrium: [0, 1, 2, 3, 2, 3]
+  poa_highest_count: 107808
+  poa_highest_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1, 3]
+  - [0, 0, 0, 0, 3, 1]
+  - [0, 0, 1, 3, 0, 0]
+  - [0, 0, 3, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 180, denominator: 180}
+    pos: {numerator: 180, denominator: 180}
+    sw_best: 180
+    cs_best: [0, 0, 1, 1, 2, 2]
+    sw_best_equilibrium: 180
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    sw_worst_equilibrium: 180
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  poa_lowest_count: 59045
+  poa_lowest_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 3]
+  - [0, 0, 0, 0, 3, 0]
+  pos_highest:
+    poa: {numerator: 180, denominator: 180}
+    pos: {numerator: 180, denominator: 180}
+    sw_best: 180
+    cs_best: [0, 0, 1, 1, 2, 2]
+    sw_best_equilibrium: 180
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    sw_worst_equilibrium: 180
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  pos_highest_count: 4256478
+  pos_highest_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 3]
+  - [0, 0, 0, 0, 3, 0]
+  pos_lowest:
+    poa: {numerator: 180, denominator: 180}
+    pos: {numerator: 180, denominator: 180}
+    sw_best: 180
+    cs_best: [0, 0, 1, 1, 2, 2]
+    sw_best_equilibrium: 180
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    sw_worst_equilibrium: 180
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  pos_lowest_count: 4256478
+  pos_lowest_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 3]
+  - [0, 0, 0, 0, 3, 0]
+  poa_avg: 1.7899470247544917
+  pos_avg: 1.0
+---
+k: 2
+n: 6
+m: 4
+weights: null
+elapsed_time: 2153.531861305237
+elapsed_time_human: 0:35:53
+payload:
+  total_game_count: 109376621
+  poa_highest:
+    poa: {numerator: 480, denominator: 120}
+    pos: {numerator: 480, denominator: 480}
+    sw_best: 480
+    cs_best: [0, 0, 1, 2, 2, 1]
+    sw_best_equilibrium: 480
+    cs_best_equilibrium: [0, 1, 2, 3, 3, 2]
+    sw_worst_equilibrium: 120
+    cs_worst_equilibrium: [0, 1, 2, 3, 2, 3]
+  poa_highest_count: 852976
+  poa_highest_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 1, 4]
+  - [0, 0, 0, 0, 4, 1]
+  - [0, 0, 1, 4, 0, 0]
+  - [0, 0, 4, 1, 0, 0]
+  poa_lowest:
+    poa: {numerator: 240, denominator: 240}
+    pos: {numerator: 240, denominator: 240}
+    sw_best: 240
+    cs_best: [0, 0, 1, 1, 2, 2]
+    sw_best_equilibrium: 240
+    cs_best_equilibrium: [0, 1, 2, 3, 3, 2]
+    sw_worst_equilibrium: 240
+    cs_worst_equilibrium: [0, 1, 2, 3, 3, 2]
+  poa_lowest_count: 467238
+  poa_lowest_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 3, 0]
+  - [0, 0, 0, 3, 0, 4]
+  - [0, 0, 1, 0, 4, 0]
+  pos_highest:
+    poa: {numerator: 240, denominator: 240}
+    pos: {numerator: 240, denominator: 240}
+    sw_best: 240
+    cs_best: [0, 0, 1, 1, 2, 2]
+    sw_best_equilibrium: 240
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4]
+    sw_worst_equilibrium: 240
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4]
+  pos_highest_count: 109376621
+  pos_highest_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 4]
+  - [0, 0, 0, 0, 4, 0]
+  pos_lowest:
+    poa: {numerator: 300, denominator: 300}
+    pos: {numerator: 300, denominator: 300}
+    sw_best: 300
+    cs_best: [0, 0, 1, 2, 2, 1]
+    sw_best_equilibrium: 300
+    cs_best_equilibrium: [0, 1, 2, 3, 3, 2]
+    sw_worst_equilibrium: 300
+    cs_worst_equilibrium: [0, 1, 2, 3, 3, 2]
+  pos_lowest_count: 109376587
+  pos_lowest_game:
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 4, 0]
+  - [0, 0, 0, 4, 0, 0]
+  - [0, 0, 1, 0, 0, 0]
+  poa_avg: 2.0396930291031876
+  pos_avg: 1.0
+---
+{k: 2, n: 6, m: 5, weights: null, elapsed_time: 3600, elapsed_time_human: '1:00:00',
+  payload: null}
+---
+{k: 2, n: 7, m: 0, weights: null, elapsed_time: 0.1580355167388916, elapsed_time_human: '0:00:00',
+  payload: null}
+---
+k: 2
+n: 7
+m: 1
+weights: null
+elapsed_time: 0.3918037414550781
+elapsed_time_human: 0:00:00
+payload:
+  total_game_count: 3157
+  poa_highest:
+    poa: {numerator: 840, denominator: 420}
+    pos: {numerator: 840, denominator: 840}
+    sw_best: 840
+    cs_best: [0, 0, 1, 2, 3, 3, 2]
+    sw_best_equilibrium: 840
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4, 3]
+    sw_worst_equilibrium: 420
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+  poa_highest_count: 34
+  poa_highest_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 1, 0]
+  - [0, 0, 0, 0, 1, 0, 1]
+  - [0, 0, 0, 1, 0, 1, 0]
+  poa_lowest:
+    poa: {numerator: 420, denominator: 420}
+    pos: {numerator: 420, denominator: 420}
+    sw_best: 420
+    cs_best: [0, 0, 1, 1, 2, 3, 3]
+    sw_best_equilibrium: 420
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+    sw_worst_equilibrium: 420
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+  poa_lowest_count: 741
+  poa_lowest_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 1, 0]
+  pos_highest:
+    poa: {numerator: 420, denominator: 420}
+    pos: {numerator: 420, denominator: 420}
+    sw_best: 420
+    cs_best: [0, 0, 1, 1, 2, 3, 3]
+    sw_best_equilibrium: 420
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+    sw_worst_equilibrium: 420
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+  pos_highest_count: 3157
+  pos_highest_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 1, 0]
+  pos_lowest:
+    poa: {numerator: 420, denominator: 420}
+    pos: {numerator: 420, denominator: 420}
+    sw_best: 420
+    cs_best: [0, 0, 1, 1, 2, 3, 3]
+    sw_best_equilibrium: 420
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+    sw_worst_equilibrium: 420
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+  pos_lowest_count: 3157
+  pos_lowest_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 1, 0]
+  poa_avg: 1.3880266075388026
+  pos_avg: 1.0
+---
+k: 2
+n: 7
+m: 2
+weights: null
+elapsed_time: 676.8277642726898
+elapsed_time_human: 0:11:16
+payload:
+  total_game_count: 9219851
+  poa_highest:
+    poa: {numerator: 1680, denominator: 840}
+    pos: {numerator: 1680, denominator: 1680}
+    sw_best: 1680
+    cs_best: [0, 0, 1, 2, 3, 3, 2]
+    sw_best_equilibrium: 1680
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4, 3]
+    sw_worst_equilibrium: 840
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+  poa_highest_count: 514221
+  poa_highest_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 2]
+  - [0, 0, 0, 0, 0, 2, 0]
+  - [0, 0, 0, 0, 2, 0, 2]
+  - [0, 0, 0, 2, 0, 2, 0]
+  poa_lowest:
+    poa: {numerator: 1260, denominator: 1260}
+    pos: {numerator: 1260, denominator: 1260}
+    sw_best: 1260
+    cs_best: [0, 0, 1, 2, 3, 3, 2]
+    sw_best_equilibrium: 1260
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4, 3]
+    sw_worst_equilibrium: 1260
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4, 3]
+  poa_lowest_count: 604507
+  poa_lowest_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 2, 0]
+  - [0, 0, 0, 0, 2, 0, 0]
+  - [0, 0, 0, 1, 0, 0, 0]
+  pos_highest:
+    poa: {numerator: 840, denominator: 840}
+    pos: {numerator: 840, denominator: 840}
+    sw_best: 840
+    cs_best: [0, 0, 1, 1, 2, 3, 3]
+    sw_best_equilibrium: 840
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+    sw_worst_equilibrium: 840
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 5]
+  pos_highest_count: 9219851
+  pos_highest_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 2]
+  - [0, 0, 0, 0, 0, 2, 0]
+  pos_lowest:
+    poa: {numerator: 1260, denominator: 1260}
+    pos: {numerator: 1260, denominator: 1260}
+    sw_best: 1260
+    cs_best: [0, 0, 1, 2, 3, 3, 2]
+    sw_best_equilibrium: 1260
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 4, 3]
+    sw_worst_equilibrium: 1260
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 4, 3]
+  pos_lowest_count: 9219840
+  pos_lowest_game:
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 2, 0]
+  - [0, 0, 0, 0, 2, 0, 0]
+  - [0, 0, 0, 1, 0, 0, 0]
+  poa_avg: 1.4229890934230767
+  pos_avg: 1.0
+---
+{k: 2, n: 7, m: 3, weights: null, elapsed_time: 3600, elapsed_time_human: '1:00:00',
+  payload: null}
+---
+{k: 2, n: 8, m: 0, weights: null, elapsed_time: 0.15744590759277344, elapsed_time_human: '0:00:00',
+  payload: null}
+---
+k: 2
+n: 8
+m: 1
+weights: null
+elapsed_time: 16.720062971115112
+elapsed_time_human: 0:00:16
+payload:
+  total_game_count: 66594
+  poa_highest:
+    poa: {numerator: 1680, denominator: 840}
+    pos: {numerator: 1680, denominator: 1680}
+    sw_best: 1680
+    cs_best: [0, 0, 1, 1, 2, 3, 3, 2]
+    sw_best_equilibrium: 1680
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 5, 4]
+    sw_worst_equilibrium: 840
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+  poa_highest_count: 13707
+  poa_highest_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 1, 0]
+  - [0, 0, 0, 0, 0, 1, 0, 1]
+  - [0, 0, 0, 0, 1, 0, 1, 0]
+  poa_lowest:
+    poa: {numerator: 840, denominator: 840}
+    pos: {numerator: 840, denominator: 840}
+    sw_best: 840
+    cs_best: [0, 0, 1, 1, 2, 2, 3, 3]
+    sw_best_equilibrium: 840
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+    sw_worst_equilibrium: 840
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+  poa_lowest_count: 1239
+  poa_lowest_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 1, 0]
+  pos_highest:
+    poa: {numerator: 840, denominator: 840}
+    pos: {numerator: 840, denominator: 840}
+    sw_best: 840
+    cs_best: [0, 0, 1, 1, 2, 2, 3, 3]
+    sw_best_equilibrium: 840
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+    sw_worst_equilibrium: 840
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+  pos_highest_count: 66594
+  pos_highest_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 1, 0]
+  pos_lowest:
+    poa: {numerator: 840, denominator: 840}
+    pos: {numerator: 840, denominator: 840}
+    sw_best: 840
+    cs_best: [0, 0, 1, 1, 2, 2, 3, 3]
+    sw_best_equilibrium: 840
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+    sw_worst_equilibrium: 840
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6]
+  pos_lowest_count: 66594
+  pos_lowest_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 1, 0]
+  poa_avg: 1.4762641278983837
+  pos_avg: 1.0
+---
+{k: 2, n: 8, m: 2, weights: null, elapsed_time: 3600, elapsed_time_human: '1:00:00',
+  payload: null}
+---
+{k: 2, n: 9, m: 0, weights: null, elapsed_time: 0.15625667572021484, elapsed_time_human: '0:00:00',
+  payload: null}
+---
+k: 2
+n: 9
+m: 1
+weights: null
+elapsed_time: 2409.5506126880646
+elapsed_time_human: 0:40:09
+payload:
+  total_game_count: 2587487
+  poa_highest:
+    poa: {numerator: 5040, denominator: 2520}
+    pos: {numerator: 5040, denominator: 5040}
+    sw_best: 5040
+    cs_best: [0, 0, 1, 1, 2, 3, 4, 4, 3]
+    sw_best_equilibrium: 5040
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6, 5]
+    sw_worst_equilibrium: 2520
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 7]
+  poa_highest_count: 93094
+  poa_highest_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 0, 1, 0]
+  - [0, 0, 0, 0, 0, 0, 1, 0, 1]
+  - [0, 0, 0, 0, 0, 1, 0, 1, 0]
+  poa_lowest:
+    poa: {numerator: 2520, denominator: 2520}
+    pos: {numerator: 2520, denominator: 2520}
+    sw_best: 2520
+    cs_best: [0, 0, 1, 1, 2, 2, 3, 4, 4]
+    sw_best_equilibrium: 2520
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 7]
+    sw_worst_equilibrium: 2520
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 7]
+  poa_lowest_count: 21601
+  poa_lowest_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 0, 1, 0]
+  pos_highest:
+    poa: {numerator: 2520, denominator: 2520}
+    pos: {numerator: 2520, denominator: 2520}
+    sw_best: 2520
+    cs_best: [0, 0, 1, 1, 2, 2, 3, 4, 4]
+    sw_best_equilibrium: 2520
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 7]
+    sw_worst_equilibrium: 2520
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 7]
+  pos_highest_count: 2587487
+  pos_highest_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 0, 1, 0]
+  pos_lowest:
+    poa: {numerator: 2520, denominator: 2520}
+    pos: {numerator: 2520, denominator: 2520}
+    sw_best: 2520
+    cs_best: [0, 0, 1, 1, 2, 2, 3, 4, 4]
+    sw_best_equilibrium: 2520
+    cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 7]
+    sw_worst_equilibrium: 2520
+    cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 7]
+  pos_lowest_count: 2587487
+  pos_lowest_game:
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+  - [0, 0, 0, 0, 0, 0, 0, 1, 0]
+  poa_avg: 1.3551399485722517
+  pos_avg: 1.0
+---
+{k: 2, n: 9, m: 2, weights: null, elapsed_time: 3600, elapsed_time_human: '1:00:00',
+  payload: null}
+---
+{k: 2, n: 10, m: 0, weights: null, elapsed_time: 0.15644288063049316, elapsed_time_human: '0:00:00',
+  payload: null}
+---
+{k: 2, n: 10, m: 1, weights: null, elapsed_time: 3600, elapsed_time_human: '1:00:00',
+  payload: null}
+---
 {k: 3, n: 4, m: 0, weights: null, elapsed_time: 0.15446758270263672, elapsed_time_human: '0:00:00',
   payload: null}
 ---
