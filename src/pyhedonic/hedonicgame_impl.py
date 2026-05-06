@@ -29,7 +29,7 @@ from typing import Iterator, NamedTuple
 
 import numpy as np
 import numpy.typing as npt
-from numba import config, njit
+from numba import config, njit, prange
 
 # pyright: reportAttributeAccessIssue=false
 config.DISABLE_JIT = False
@@ -50,29 +50,42 @@ type CoalitionStructure = IntArray1D
 
 type Weights = IntArray1D
 
+
 @njit
 def lcm_upto(m: int) -> int:
+    """
+    Compute the least common multiple of the numbers from 1 to m, which is useful to
+    convert fractional games to integer games.
+    """
     lcm = 1
     for i in range(2, m + 1):
         lcm = np.lcm(lcm, i)
     return lcm
 
+
 class Rational(NamedTuple):
+    """
+    A rational number, represented as a pair of integers (numerator and denominator).
+    """
+
     numerator: int
     """Numerator of the rational number"""
 
     denominator: int
     """Denominator of the rational number"""
 
+
 @njit
 def rational_compare(self: Rational, other: Rational) -> int:
     v1 = self.numerator * other.denominator
     v2 = other.numerator * self.denominator
-    return (v1 > v2) - (v1 < v2)
+    return int(v1 > v2) - int(v1 < v2)
+
 
 @njit
 def rational_to_float(self: Rational) -> float:
     return self.numerator / self.denominator
+
 
 class Deviation(NamedTuple):
     """A deviation in a coalition structure"""
@@ -144,6 +157,9 @@ def coalition_social_welfare(
 def social_welfare(
     game: Game, is_fractional: bool, cs: CoalitionStructure, cs_sizes: IntArray1D
 ) -> float:
+    """
+    Compute the social welfare of the given coalition structure in the given game.
+    """
     agent_count = len(game)
     sw: float = 0.0
     for i in range(agent_count):
@@ -155,13 +171,17 @@ def social_welfare(
         sw += ut / cs_sizes[co] if is_fractional else ut  # type: ignore
     return sw
 
+
 @njit
-def social_welfare_rational(
-    game: Game, is_fractional: bool, cs: CoalitionStructure, cs_sizes: IntArray1D, denominator: int
+def social_welfare_integer(
+    game: Game,
+    is_fractional: bool,
+    cs: CoalitionStructure,
+    cs_sizes: IntArray1D,
 ) -> int:
     """
-    Compute the social welfare of the given coalition structure in the given game, multiplied by the denominator.
-    This should be high enough to avoid eror due to rounding, but low enough to avoid overflow.
+    Compute the social welfare of the given coalition structure in the given game,
+    rounded to an integer value.
     """
     agent_count = len(game)
     sw: int = 0
@@ -171,7 +191,7 @@ def social_welfare_rational(
         for j in range(agent_count):
             if cs[j] == co:
                 ut += game[j, i]
-        sw += (ut * denominator) // cs_sizes[co] if is_fractional else ut  # type: ignore
+        sw += ut // cs_sizes[co] if is_fractional else ut  # type: ignore
     return sw
 
 
@@ -447,12 +467,13 @@ def nash_equilibrium(
             return cs
 
 
-class Prices(NamedTuple):
-    poa: Rational
-    """Price of anarchy"""
-
-    pos: Rational
-    """Price of stability"""
+class GamePrices(NamedTuple):
+    """
+    A named tuple which holds the best social welfare, the best social welfare of a Nash equilibrium,
+    and the worst social welfare of a Nash equilibrium, together with examples of coalition structures
+    where such values are achieved. The social welfare values are assumed to be integer values, even for
+    fractional games. Thiese can be used to compute the price of anarchy and price of stability for the game.
+    """
 
     sw_best: int
     """Social welfare of the best coalition structure"""
@@ -473,43 +494,77 @@ class Prices(NamedTuple):
     """Nash stable coalition structure with worst social welfare"""
 
 
-@njit(error_model="numpy")
-def poa_pos_rational(
-    game: Game, is_fractional: bool = True, k: int | None = None, denominator: int = 1
-) -> Prices | None:
+@njit
+def game_prices_copy(gi: GamePrices) -> GamePrices:
+    """Copy a GameInfo named tuple."""
+    return GamePrices(
+        gi.sw_best,
+        gi.cs_best,
+        gi.sw_best_equilibrium,
+        gi.cs_best_equilibrium,
+        gi.sw_worst_equilibrium,
+        gi.cs_worst_equilibrium,
+    )
+
+
+@njit
+def game_prices_dummy() -> GamePrices:
     """
-    Return the PoA (price of anarchy) and PoS (price of stability) for the given game, and related coalition structures.
-    The social welfare is computed with rational numbers, i.e., it is multiplied by the given denominator to avoid errors due to rounding.
+    A dummy GameInfo structure to accomodate Numba typing inference.
+    The values in this structure are not meaningful.
+    """
+    return GamePrices(
+        -1,
+        np.zeros(0, dtype=np.int_),
+        np.iinfo(np.int64).max,
+        np.zeros(0, dtype=np.int_),
+        -1,
+        np.zeros(0, dtype=np.int_),
+    )
+
+
+@njit
+def game_prices_compute(
+    game: Game, is_fractional: bool = True, k: int | None = None
+) -> GamePrices | None:
+    """
+    Return information on the prices for the given game, or None if the game as no Nash stable coalition structure.
     """
     cit = cs_begin(len(game))
     sw_best_equilibrium = -1
-    cs_best_equilibrium = np.zeros(0, dtype=np.int_)
+    cs_best_equilibrium = np.copy(cit.cs)
     sw_worst_equilibrium = np.iinfo(np.int64).max
-    cs_worst_equilibrium = np.zeros(0, dtype=np.int_)
+    cs_worst_equilibrium = np.copy(cit.cs)
     sw_best = -1
-    cs_best = np.zeros(0, dtype=np.int_)
+    cs_best = np.copy(cit.cs)
     valid = False
     while cs_next(cit, k):
         cs, cs_sizes, _, cs_data = cit
-        sw = social_welfare_rational(game, is_fractional, cs, cs_sizes, denominator)
+        sw = social_welfare_integer(game, is_fractional, cs, cs_sizes)
         if sw > sw_best:
             sw_best = sw
-            cs_best = np.copy(cs)
+            cs_best[:] = cs
         res = next_improving_deviation(game, is_fractional, cs, cs_sizes, cs_data[0], k)
         if res is None:
             valid = True
             if sw > sw_best_equilibrium:
                 sw_best_equilibrium = sw
-                cs_best_equilibrium = np.copy(cs)
+                cs_best_equilibrium[:] = cs
             if sw < sw_worst_equilibrium:
                 sw_worst_equilibrium = sw
-                cs_worst_equilibrium = np.copy(cs)
-    if valid and sw_worst_equilibrium > 0:
-        poa = Rational(sw_best, sw_worst_equilibrium)
-        pos = Rational(sw_best, sw_best_equilibrium)
-        return Prices(poa, pos, sw_best, cs_best, sw_best_equilibrium, cs_best_equilibrium, sw_worst_equilibrium, cs_worst_equilibrium)
-    else:
-        return None
+                cs_worst_equilibrium[:] = cs
+    return (
+        GamePrices(
+            sw_best,
+            cs_best,
+            sw_best_equilibrium,
+            cs_best_equilibrium,
+            sw_worst_equilibrium,
+            cs_worst_equilibrium,
+        )
+        if valid
+        else None
+    )
 
 
 class GameIterator(NamedTuple):
@@ -737,7 +792,7 @@ def count_games(
     return count_total
 
 
-class GameCounts(NamedTuple):
+class GameCollectionCounts(NamedTuple):
     """
     A named tuple to hold the counts of games.
     """
@@ -750,7 +805,7 @@ class GameCounts(NamedTuple):
     """
     Number of games without a Nash stable coalition structure.
     """
-    example_noequilibrium: Game
+    example_noequilibrium: Game | None
     """
     An example of a game without a Nash stable coalition structure, or None if there are no such games.
     """
@@ -785,41 +840,76 @@ def count_unstable_games(
                 if debug > 0:
                     print(example_noequilibrium)
             count_noequilibrium += 1
-    return GameCounts(count_total, count_noequilibrium, example_noequilibrium)
+    return GameCollectionCounts(count_total, count_noequilibrium, example_noequilibrium)
 
 
-class GamePrices(NamedTuple):
-    """A named tuple to hold the prices of anarchy and stability for a game, and related information."""
+class GameCollectionPrices(NamedTuple):
+    """
+    A named tuple to hold the extremal values for the prices of anarchy and stability in
+    a set of games.
+    """
 
-    total_game_count: int
-    """Total number of games considered."""
-    poa_highest: Prices
-    """Price of anarchy and related coalition structures for the game with the highest price of anarchy."""
+    poa_highest: Rational
+    """The highest price of anarchy across all games."""
+
     poa_highest_count: int
     """Number of games with the highest price of anarchy."""
+
     poa_highest_game: Game
     """A game with the highest price of anarchy."""
-    poa_lowest: Prices
-    """Price of anarchy and related coalition structures for the game with the lowest price of anarchy."""
+
+    poa_highest_info: GamePrices
+    """Price of anarchy and related coalition structures for the game with the highest price of anarchy."""
+
+    poa_lowest: Rational
+    """The lowest price of anarchy across all games."""
+
     poa_lowest_count: int
     """Number of games with the lowest price of anarchy."""
+
     poa_lowest_game: Game
     """A game with the lowest price of anarchy."""
-    pos_highest: Prices
-    """Price of stability and related coalition structures for the game with the highest price of stability."""
+
+    poa_lowest_info: GamePrices
+    """Price of anarchy and related coalition structures for the game with the lowest price of anarchy."""
+
+    pos_highest: Rational
+    """The highest price of stability across all games."""
+
     pos_highest_count: int
     """Number of games with the highest price of stability."""
+
     pos_highest_game: Game
     """A game with the highest price of stability."""
-    pos_lowest: Prices
-    """Price of stability and related coalition structures for the game with the lowest price of stability."""
+
+    pos_highest_info: GamePrices
+    """Price of stability and related coalition structures for the game with the highest price of stability."""
+
+    pos_lowest: Rational
+    """The lowest price of stability across all games."""
+
     pos_lowest_count: int
+    """Number of games with the lowest price of stability."""
+
     pos_lowest_game: Game
     """A game with the lowest price of stability."""
+
+    pos_lowest_info: GamePrices
+    """Price of stability and related coalition structures for the game with the lowest price of stability."""
+
     poa_avg: float
     """The average price of anarchy across all games."""
+
     pos_avg: float
     """The average price of stability across all games."""
+
+
+class GameCollectionInfo(NamedTuple):
+    """A named tuple to hold informations on a set of games."""
+
+    counts: GameCollectionCounts
+
+    prices: GameCollectionPrices | None
 
 
 @njit(cache=True)
@@ -832,134 +922,124 @@ def compute_poa_pos(
     is_fractional: bool = True,
     weights: Weights | None = None,
     debug: int = 0,
-) -> GamePrices | None:
-    if weights is not None:
-        raise NotImplementedError(
-            "The function compute_poa_pos does not support weights yet."
-        )
-    denominator = lcm_upto(k) if is_fractional else 1
-    maxint = np.iinfo(np.int64).max
+) -> GameCollectionInfo | None:
+    """
+    Count the number of games without a Nash stable coalition structure, together with the extremal
+    values of the price of anarchy and price of stability.
+    """
+    denominator = (
+        1
+        if not is_fractional
+        else lcm_upto(k)
+        if k is not None
+        else lcm_upto(agent_count)
+    )
     git = game_begin(agent_count, is_symmetric, m_begin, m_end, debug)
-    poa_lowest_val = Rational(maxint // denominator, 1)
-    poa_sum_val = 0.0
-    poa_highest_val = Rational(-1, 1)
-    pos_lowest_val = Rational(maxint // denominator, 1)
-    pos_sum_val = 0.0
-    pos_highest_val = Rational(-1, 1)
-    poa_lowest_game = poa_highest_game = pos_lowest_game = pos_highest_game = np.zeros(
-        (0, 0), dtype=np.int_
-    )
-    poa_lowest = poa_highest = pos_lowest = pos_highest = Prices(
-        Rational(0, 1),
-        Rational(0, 1),
-        -1,
-        np.zeros(0, dtype=np.int_),
-        np.iinfo(np.int64).max,
-        np.zeros(0, dtype=np.int_),
-        -1,
-        np.zeros(0, dtype=np.int_),
-    )
+    game = git.game if weights is None else np.copy(git.game)
+    scaled_game = game if denominator == 1 else np.copy(game)
+    # data for counting information on the collection of games
+    total_count = 0
+    noequilibrium_count = 0
+    noequilibrium_game = np.copy(game)
+    # data for pricining information on the collection of games
+    poa_highest = Rational(-1, 1)
+    poa_lowest = Rational(1, 0)
+    pos_highest = Rational(-1, 1)
+    pos_lowest = Rational(1, 0)
     pos_lowest_count = pos_highest_count = poa_lowest_count = poa_highest_count = 0
-    count = 0
+    poa_lowest_game = np.copy(game)
+    poa_highest_game = np.copy(game)
+    pos_lowest_game = np.copy(game)
+    pos_highest_game = np.copy(game)
+    poa_lowest_info = poa_highest_info = pos_lowest_info = pos_highest_info = (
+        game_prices_dummy()
+    )
+    poa_sum_val = pos_sum_val = 0.0
     valid_count = 0
     while game_next(git):
-        count += 1
-        prices = poa_pos_rational(git.game, is_fractional, k, denominator)
-        if prices is None:
+        if weights is not None:
+            for i in range(len(game)):
+                for j in range(len(game)):
+                    game[i, j] = weights[int(git.game[i, j])]
+        if denominator != 1:
+            for i in range(len(game)):
+                for j in range(len(game)):
+                    scaled_game[i, j] = game[i, j] * denominator
+        total_count += 1
+        game_prices = game_prices_compute(scaled_game, is_fractional, k)
+        # game with no Nash stable coalition structure
+        if game_prices is None:
+            noequilibrium_count += 1
+            noequilibrium_game[:] = game
+            continue
+        # game with no valid price of anarchy or price of stability (i.e., best social welfare is zero)
+        if game_prices.sw_best == 0:
             continue
         valid_count += 1
-        poa = prices.poa
-        pos = prices.pos
+        poa = Rational(game_prices.sw_best, game_prices.sw_worst_equilibrium)
+        pos = Rational(game_prices.sw_best, game_prices.sw_best_equilibrium)
         poa_sum_val += rational_to_float(poa)
         pos_sum_val += rational_to_float(pos)
-        compare_poa = rational_compare(poa, poa_highest_val)
+        compare_poa = rational_compare(poa, poa_highest)
         if compare_poa > 0:
-            poa_highest_val = poa
+            poa_highest = poa
             poa_highest_count = 1
-            # Need to rebuild prices due to limitations of Numba
-            poa_highest = Prices(
-                poa,
-                pos,
-                prices.sw_best,
-                prices.cs_best,
-                prices.sw_best_equilibrium,
-                prices.cs_best_equilibrium,
-                prices.sw_worst_equilibrium,
-                prices.cs_worst_equilibrium,
-            )
-            poa_highest_game = np.copy(git.game)
+            poa_highest_game[:] = game
+            # for some reason, the copy of the GameInfoEquilibria named tuple is needed in numba
+            poa_highest_info = game_prices_copy(game_prices)
         elif compare_poa == 0:
             poa_highest_count += 1
-        compare_poa = rational_compare(poa, poa_lowest_val)
+        compare_poa = rational_compare(poa, poa_lowest)
         if compare_poa < 0:
-            poa_lowest_val = poa
+            poa_lowest = poa
             poa_lowest_count = 1
-            poa_lowest = Prices(
-                poa,
-                pos,
-                prices.sw_best,
-                prices.cs_best,
-                prices.sw_best_equilibrium,
-                prices.cs_best_equilibrium,
-                prices.sw_worst_equilibrium,
-                prices.cs_worst_equilibrium,
-            )
-            poa_lowest_game = np.copy(git.game)
+            poa_lowest_info = game_prices_copy(game_prices)
+            poa_lowest_game[:] = game
         elif compare_poa == 0:
             poa_lowest_count += 1
-        compare_pos = rational_compare(pos, pos_highest_val)
+        compare_pos = rational_compare(pos, pos_highest)
         if compare_pos > 0:
-            pos_highest_val = pos
+            pos_highest = pos
             pos_highest_count = 1
-            pos_highest = Prices(
-                poa,
-                pos,
-                prices.sw_best,
-                prices.cs_best,
-                prices.sw_best_equilibrium,
-                prices.cs_best_equilibrium,
-                prices.sw_worst_equilibrium,
-                prices.cs_worst_equilibrium,
-
-            )
-            pos_highest_game = np.copy(git.game)
+            pos_highest_info = game_prices_copy(game_prices)
+            pos_highest_game[:] = game
         elif compare_pos == 0:
             pos_highest_count += 1
-        compare_pos = rational_compare(pos, pos_lowest_val)
+        compare_pos = rational_compare(pos, pos_lowest)
         if compare_pos < 0:
-            pos_lowest_val = pos
+            pos_lowest = pos
             pos_lowest_count = 1
-            pos_lowest = Prices(
-                poa,
-                pos,
-                prices.sw_best,
-                prices.cs_best,
-                prices.sw_best_equilibrium,
-                prices.cs_best_equilibrium,
-                prices.sw_worst_equilibrium,
-                prices.cs_worst_equilibrium,
-            )
-            pos_lowest_game = np.copy(git.game)
+            pos_lowest_info = game_prices_copy(game_prices)
+            pos_lowest_game[:] = game
         elif compare_pos == 0:
             pos_lowest_count += 1
-    return (
-        GamePrices(
-            count,
+    game_collection_count = GameCollectionCounts(
+        total_count,
+        noequilibrium_count,
+        noequilibrium_game if noequilibrium_count > 0 else None,
+    )
+    game_collection_prices = (
+        GameCollectionPrices(
             poa_highest,
             poa_highest_count,
             poa_highest_game,
+            poa_highest_info,
             poa_lowest,
             poa_lowest_count,
             poa_lowest_game,
+            poa_lowest_info,
             pos_highest,
             pos_highest_count,
             pos_highest_game,
+            pos_highest_info,
             pos_lowest,
             pos_lowest_count,
             pos_lowest_game,
+            pos_lowest_info,
             poa_sum_val / valid_count,
             pos_sum_val / valid_count,
         )
         if valid_count > 0
         else None
     )
+    return GameCollectionInfo(game_collection_count, game_collection_prices)

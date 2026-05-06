@@ -1,5 +1,8 @@
 """
-This script counts the number of games with no Nash stable coalition structures.
+This script counts the number of games with no Nash stable coalition structures. It
+can also compute the price of anarchy and stability for games with given parameters.
+The results are logged in YAML or JSON format, and the script supports resuming from
+a previous log file.
 """
 
 import argparse
@@ -9,12 +12,12 @@ import multiprocessing as mp
 import time
 from typing import Any, Callable, cast
 
-import numpy
+import numpy as np
 import yaml
 
 from pyhedonic.hedonicgame_impl import (
     Game,
-    GamePrices,
+    GameCollectionInfo,
     IntArray1D,
     compute_poa_pos,
     count_unstable_games,
@@ -27,15 +30,22 @@ def yaml_serialize(obj: Any) -> Any:
 
     This is needed to serialize numpy arrays and other non-serializable objects.
     """
-    if isinstance(obj, numpy.ndarray):
+    if isinstance(obj, np.ndarray):
         return obj.tolist()
-    if isinstance(obj, dict):
+    elif isinstance(obj, np.generic):
+        return obj.item()
+    elif isinstance(obj, dict):
         return {key: yaml_serialize(value) for key, value in obj.items()}
-    if isinstance(obj, tuple) and hasattr(obj, "_asdict"):
+    elif isinstance(obj, tuple) and hasattr(obj, "_asdict"):
         return {key: yaml_serialize(value) for key, value in obj._asdict().items()}  # type: ignore
-    if isinstance(obj, (list, tuple)):
+    elif isinstance(obj, (list, tuple)):
         return [yaml_serialize(value) for value in obj]
     return obj
+
+
+yaml.add_representer(
+    np.float64, lambda dumper, value: dumper.represent_float(float(value))
+)
 
 
 def yaml_log(
@@ -62,7 +72,7 @@ def yaml_log(
 
 
 def json_serialize(obj: Any) -> Any:
-    if isinstance(obj, numpy.ndarray):
+    if isinstance(obj, np.ndarray):
         return obj.tolist()
     if isinstance(obj, dict):
         return {key: json_serialize(value) for key, value in obj.items()}
@@ -178,7 +188,7 @@ def count_with_timing(**kwargs) -> tuple[tuple[int, int, Game | None], float]:
     return (res, elapsed_time)
 
 
-def prices_with_timing(**kwargs) -> tuple[GamePrices | None, float]:
+def prices_with_timing(**kwargs) -> tuple[GameCollectionInfo | None, float]:
     start_time = time.time()
     res = compute_poa_pos(**kwargs)
     elapsed_time = time.time() - start_time
@@ -230,7 +240,6 @@ def main():
     timeout: float | None = args.timeout
 
     old_data = yaml_load(args.input) if args.input else []
-    print(old_data)
 
     # warmup jit
     if args.prices:
@@ -242,7 +251,7 @@ def main():
             agent_count=2, k=1, m_begin=1, m_end=1, weights=weights, debug=0
         )
 
-    local_k_range = range(3, 9) if k_range is None else k_range
+    local_k_range = range(2, 9) if k_range is None else k_range
 
     for k in local_k_range:
         local_n_range = range(k + 1, 11) if n_range is None else n_range

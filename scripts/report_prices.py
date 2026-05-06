@@ -51,9 +51,9 @@ def main():
     df = df.dropna(subset= ["payload"])
     columns = ["k", "n", "m"]
     for price in ["poa", "pos"]:
-        for value in ["highest"]:  # add "lowest" later if needed
+        for value in ["highest"]:
             columns += [f"{price}_{value}", f"{price}_{value}_count"]
-            df[f"{price}_{value}"] = df["payload"].map(lambda x: x[f"{price}_{value}"][f"{price}"]["numerator"] / x[f"{price}_{value}"][f"{price}"]["denominator"])
+            df[f"{price}_{value}"] = df["payload"].map(lambda x: x[f"{price}_{value}"]["numerator"] / x[f"{price}_{value}"]["denominator"])
             df[f"{price}_{value}_count"] = df["payload"].map(lambda x: x[f"{price}_{value}_count"]).astype(str)
     prices = df[columns].copy()
     if args.k is not None:
