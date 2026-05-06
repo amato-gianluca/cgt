@@ -40,6 +40,10 @@ def main():
         "-m",
         help="specify the required valued of m to report about"
     )
+    parser.add_argument(
+        "-n",
+        help="specify the required valued of n to report about"
+    )
     args = parser.parse_args()
 
     data = yaml_load(args.input)
@@ -58,6 +62,9 @@ def main():
     if args.m is not None:
         prices = prices[prices["m"] == int(args.m)]
         prices.drop(columns=["m"], inplace=True)
+    if args.n is not None:
+        prices = prices[prices["n"] == int(args.n)]
+        prices.drop(columns=["n"], inplace=True)
     print(prices.to_markdown(index=False, floatfmt='.2f'))
 
 if __name__ == "__main__":
