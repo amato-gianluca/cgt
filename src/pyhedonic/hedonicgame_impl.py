@@ -29,7 +29,7 @@ from typing import Iterator, NamedTuple
 
 import numpy as np
 import numpy.typing as npt
-from numba import config, njit, prange
+from numba import config, njit
 
 # pyright: reportAttributeAccessIssue=false
 config.DISABLE_JIT = False
@@ -572,9 +572,14 @@ class GameIterator(NamedTuple):
     An internal iterator over games.
     """
 
+    game_internal: Game
+    """
+    The last game computed by the iterator, without considering weights.
+    """
+
     game: Game
     """
-    The last game computed by the iterator.
+    The last game computed by the iterator, considering weights.
     """
 
     data: IntArray1D
@@ -590,6 +595,13 @@ class GameIterator(NamedTuple):
     m_end: int
     """
     Max value of `m` to be considered.
+    """
+
+    # We cannot use Weights | None for limitations of the numba type checker.
+    weights: Weights
+    """
+    Weights for the valuations in the game. An empty array means that the original valuations are used
+    and that game is an alias for game_internal.
     """
 
     debug: int
@@ -610,18 +622,30 @@ def game_begin(
     is_symmetric: bool = True,
     m_begin: int = 0,
     m_end: int = 1,
+    weights: Weights | None = None,
     debug: int = 0,
 ) -> GameIterator:
     """
     Build an iterator over games.
     """
-    game = np.zeros((agent_count, agent_count), dtype=np.int_)
-    game[agent_count - 1, agent_count - 1] = -1
+    if weights is not None and len(weights) < m_end + 1:
+        raise ValueError("Weights should have length at least m_end + 1")
+    game_internal = np.zeros((agent_count, agent_count), dtype=np.int_)
+    game_internal[agent_count - 1, agent_count - 1] = -1
+    game = game_internal if weights is None else np.zeros_like(game_internal)
     if debug > 0:
         print("sought_reward:", m_begin)
         for col in range(1, min(debug, agent_count) + 1):
             print(f"{'  ' * col}[{col}] v: 0")
-    return GameIterator(game, np.array([m_begin, -1]), is_symmetric, m_end, debug)
+    return GameIterator(
+        game_internal,
+        game,
+        np.array([m_begin, -1]),
+        is_symmetric,
+        m_end,
+        weights if weights is not None else np.zeros(0, dtype=np.int_),
+        debug,
+    )
 
 
 @njit
@@ -639,8 +663,8 @@ def game_next(git: GameIterator) -> bool:
     def prev_pos(row: int, col: int, agent_count: int) -> tuple[int, int]:
         return (row, col - 1) if col > 0 else (row - 1, agent_count - 1)
 
-    game, data, is_symmetric, max_valuation, debug = git
-    agent_count = len(game)
+    game_internal, game, data, is_symmetric, max_valuation, weights, debug = git
+    agent_count = len(game_internal)
     pos_final = agent_count * agent_count - 1
     row = agent_count - 1
     col = agent_count - 1
@@ -652,27 +676,27 @@ def game_next(git: GameIterator) -> bool:
             # on the code will subsume them, but they are kept because they make the execution faster.
 
             bot = (
-                game[col][row]
+                game_internal[col][row]
                 if is_symmetric and row > col
-                else game[row][col - 1]
+                else game_internal[row][col - 1]
                 if row == 0 and col > 0
-                else game[0][1]
+                else game_internal[0][1]
                 if row > 0 and row != col
                 else 0
             )
             top = (
                 0
                 if row == col
-                else game[col][row]
+                else game_internal[col][row]
                 if is_symmetric and row > col
                 else data[_SOUGHT_MAX_VALUATION]
             )
 
-            v = game[row][col]
+            v = game_internal[row][col]
             v_new = max(v + 1, bot)
 
             if v_new <= top:
-                game[row][col] = v_new
+                game_internal[row][col] = v_new
 
                 # ISOMORPHISM CHECK
                 # Codish et al, Constraints for symmetry breaking in graph representation, Constraints 24 (2019)
@@ -684,9 +708,9 @@ def game_next(git: GameIterator) -> bool:
                         for j in range(0, agent_count):
                             if j == i or j == row:
                                 continue
-                            if game[i, j] == game[row, j]:
+                            if game_internal[i, j] == game_internal[row, j]:
                                 continue
-                            if game[i, j] > game[row, j]:
+                            if game_internal[i, j] > game_internal[row, j]:
                                 is_invalid_graph = True
                             break
                         if is_invalid_graph:
@@ -702,12 +726,16 @@ def game_next(git: GameIterator) -> bool:
                         data[_REACHED_MAX_VALUATION] = pos
                     if pos == pos_final:
                         if data[_REACHED_MAX_VALUATION] != -1:
+                            if len(weights) > 0:
+                                for i in range(agent_count):
+                                    for j in range(agent_count):
+                                        game[i, j] = weights[game_internal[i, j]]
                             return True
                     else:
                         row, col = next_pos(row, col, agent_count)
                         pos += 1
             elif v_new > top:
-                game[row][col] = -1
+                game_internal[row][col] = -1
                 if data[_REACHED_MAX_VALUATION] == pos:
                     data[_REACHED_MAX_VALUATION] = -1
                 row, col = prev_pos(row, col, agent_count)
@@ -767,8 +795,8 @@ def unstable_games(
     """
     Return a Python iterator over games without a Nash stable coalition structure.
     """
-    git = game_begin(agent_count, is_symmetric, m_begin, m_end, debug)
-    while game_next_unstable(git, is_fractional, k, weights):
+    git = game_begin(agent_count, is_symmetric, m_begin, m_end, weights, debug)
+    while game_next_unstable(git, is_fractional, k):
         yield np.copy(git.game)
 
 
@@ -785,7 +813,7 @@ def count_games(
 
     This is the same value as the second element of the tuple returned by count_unstable_games.
     """
-    git = game_begin(agent_count, is_symmetric, m_begin, m_end, debug)
+    git = game_begin(agent_count, is_symmetric, m_begin, m_end, None, debug)
     count_total = 0
     while game_next(git):
         count_total += 1
@@ -828,13 +856,13 @@ def count_unstable_games(
     The first returned value is the number of games without a Nash stable coalition structure, while the second value
     is the total number of games considered.
     """
-    git = game_begin(agent_count, is_symmetric, m_begin, m_end, debug)
+    git = game_begin(agent_count, is_symmetric, m_begin, m_end, weights, debug)
     count_total = 0
     count_noequilibrium = 0
     example_noequilibrium = np.zeros((0, 0), dtype=np.int_)
     while game_next(git):
         count_total += 1
-        if nash_equilibrium(git.game, is_fractional, k, weights) is None:
+        if nash_equilibrium(git.game, is_fractional, k) is None:
             if count_noequilibrium == 0:
                 example_noequilibrium = np.copy(git.game)
                 if debug > 0:
@@ -934,38 +962,32 @@ def compute_poa_pos(
         if k is not None
         else lcm_upto(agent_count)
     )
-    git = game_begin(agent_count, is_symmetric, m_begin, m_end, debug)
-    game = git.game if weights is None else np.copy(git.game)
-    scaled_game = game if denominator == 1 else np.copy(game)
+    git = game_begin(agent_count, is_symmetric, m_begin, m_end, weights, debug)
+    game = git.game
+    scaled_game = game if denominator == 1 else np.zeros_like(game)
     # data for counting information on the collection of games
     total_count = 0
     noequilibrium_count = 0
-    noequilibrium_game = np.copy(game)
+    noequilibrium_game = np.zeros_like(game)
     # data for pricining information on the collection of games
     poa_highest = Rational(-1, 1)
     poa_lowest = Rational(1, 0)
     pos_highest = Rational(-1, 1)
     pos_lowest = Rational(1, 0)
     pos_lowest_count = pos_highest_count = poa_lowest_count = poa_highest_count = 0
-    poa_lowest_game = np.copy(game)
-    poa_highest_game = np.copy(game)
-    pos_lowest_game = np.copy(game)
-    pos_highest_game = np.copy(game)
+    poa_lowest_game = np.zeros_like(game)
+    poa_highest_game = np.zeros_like(game)
+    pos_lowest_game = np.zeros_like(game)
+    pos_highest_game = np.zeros_like(game)
     poa_lowest_info = poa_highest_info = pos_lowest_info = pos_highest_info = (
         game_prices_dummy()
     )
     poa_sum_val = pos_sum_val = 0.0
     valid_count = 0
     while game_next(git):
-        if weights is not None:
-            for i in range(len(game)):
-                for j in range(len(game)):
-                    game[i, j] = weights[int(git.game[i, j])]
-        if denominator != 1:
-            for i in range(len(game)):
-                for j in range(len(game)):
-                    scaled_game[i, j] = game[i, j] * denominator
         total_count += 1
+        if denominator != 1:
+            scaled_game[:] = game * denominator
         game_prices = game_prices_compute(scaled_game, is_fractional, k)
         # game with no Nash stable coalition structure
         if game_prices is None:

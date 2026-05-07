@@ -235,7 +235,7 @@ def count_unstable_games(
     first = True
     while game_next(git):
         count_total += 1
-        if nash_equilibrium(git.game, is_fractional, k, weights) is None:
+        if nash_equilibrium(git.game_internal, is_fractional, k, weights) is None:
             if debug > 0 and first:
                 first = False
                 print(git.game)
