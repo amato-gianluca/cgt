@@ -20,8 +20,8 @@ Parameters mostly have the same meaning in all functions, namely:
 - dev -- a deviation, i.e., a pair `(ag, co)`
 - weights -- a vector mapping evaluations in `game` to a different scale;
     - None means that the original valuations are used
-- m_begin -- the minimum valuation for edges in a game
-- m_end -- the maximum valuation for edges in a game
+- m_begin -- the initial maximum valuation when enumerating games
+- m_end -- the final maximum valuation when enumerating games
 - debug -- debug verbosity: zero or negative is no debug
 """
 
@@ -54,7 +54,7 @@ type Weights = IntArray1D
 @njit
 def lcm_upto(m: int) -> int:
     """
-    Compute the least common multiple of the numbers from 1 to m, which is useful to
+    Compute the least common multiple of the natural numbers from 1 to m. This is used
     convert fractional games to integer games.
     """
     lcm = 1
@@ -66,6 +66,8 @@ def lcm_upto(m: int) -> int:
 class Rational(NamedTuple):
     """
     A rational number, represented as a pair of integers (numerator and denominator).
+    Positive and negative infinity may be represented as a positive or negative
+    numerator and a zero denominator. However, NaN's are not supported.
     """
 
     numerator: int
@@ -77,6 +79,10 @@ class Rational(NamedTuple):
 
 @njit
 def rational_compare(self: Rational, other: Rational) -> int:
+    """
+    Compare two rational numbers. Return a positive value if self > other, a negative
+    value if self < other, and zero if self == other.
+    """
     v1 = self.numerator * other.denominator
     v2 = other.numerator * self.denominator
     return int(v1 > v2) - int(v1 < v2)
@@ -84,6 +90,9 @@ def rational_compare(self: Rational, other: Rational) -> int:
 
 @njit
 def rational_to_float(self: Rational) -> float:
+    """
+    Convert a rational number to a float. Rounding errors may occur.
+    """
     return self.numerator / self.denominator
 
 
@@ -105,9 +114,11 @@ def agent_utility_co(
     co: Coalition,
 ) -> tuple[int, int]:
     """
-    Compute the utility of the agent ag w.r.t. the coalition co in the given game and coalition structure.
+    Compute the utility of the agent ag w.r.t. the coalition co in the given game and
+    coalition structure.
 
-    It returns two values: the sum of the valuations of ag w.r.t. the agents in co and the number of agents in co.
+    It returns two values: the sum of the valuations of ag w.r.t. the agents in co and
+    the number of agents in co.
     """
     ut = 0
     size = 0
@@ -123,8 +134,8 @@ def agent_utility(game: Game, cs: CoalitionStructure, ag: Agent) -> tuple[int, i
     """
     Compute the utility of the agent ag in the given game.
 
-    It returns two values: the sum of the valuations of ag with the other agents in the same coalition
-    and the number of agents in the same coalition as ag.
+    It returns two values: the sum of the valuations of ag with the other agents in the
+    same coalition and the number of agents in the same coalition as ag.
     """
     return agent_utility_co(game, cs, ag, cs[ag])
 
@@ -134,9 +145,11 @@ def coalition_social_welfare(
     game: Game, cs: CoalitionStructure, co: Coalition
 ) -> tuple[int, int]:
     """
-    Compute the social welfare of the coalition co in the given game and coalition structure.
+    Compute the social welfare of the coalition co in the given game and coalition
+    structure.
 
-    It returns two values: the sum of the valuations between agents in co and the number of agents in co.
+    It returns two values: the sum of the valuations between agents in co and the
+    number of agents in co.
     """
     agent_count = len(game)
     ut = 0
@@ -158,14 +171,14 @@ def social_welfare(
     Compute the social welfare of the given coalition structure in the given game.
     """
     agent_count = len(game)
-    sw: float = 0.0
+    sw = 0.0
     for i in range(agent_count):
         ut = 0
-        co = cs[i]
+        co: int = cs[i]
         for j in range(agent_count):
             if cs[j] == co:
                 ut += game[j, i]
-        sw += ut / cs_sizes[co] if is_fractional else ut  # type: ignore
+        sw += ut / cs_sizes[co] if is_fractional else ut
     return sw
 
 
@@ -181,14 +194,14 @@ def social_welfare_integer(
     rounded to an integer value.
     """
     agent_count = len(game)
-    sw: int = 0
+    sw = 0
     for i in range(agent_count):
         ut = 0
-        co = cs[i]
+        co: int = cs[i]
         for j in range(agent_count):
             if cs[j] == co:
                 ut += game[j, i]
-        sw += ut // cs_sizes[co] if is_fractional else ut  # type: ignore
+        sw += ut // cs_sizes[co] if is_fractional else ut
     return sw
 
 
@@ -604,17 +617,17 @@ def game_begin(
     is_symmetric: bool = True,
     m_begin: int = 0,
     m_end: int = 1,
-    weights: Weights = np.zeros(0, dtype=np.int_),
+    weights: Weights | None = None,
     debug: int = 0,
 ) -> GameIterator:
     """
     Build an iterator over games.
     """
-    if 0 < len(weights) < m_end + 1:
+    if weights is not None and len(weights) < m_end + 1:
         raise ValueError("Weights should have length at least m_end + 1")
     game_internal = np.zeros((agent_count, agent_count), dtype=np.int_)
     game_internal[agent_count - 1, agent_count - 1] = -1
-    game = game_internal if len(weights)==0 else np.zeros_like(game_internal)
+    game = game_internal if weights is None else np.zeros_like(game_internal)
     if debug > 0:
         print("sought_reward:", m_begin)
         for col in range(1, min(debug, agent_count) + 1):
@@ -625,7 +638,7 @@ def game_begin(
         np.array([m_begin, -1]),
         is_symmetric,
         m_end,
-        weights,
+        weights if weights is not None else np.zeros(0, dtype=np.int_),
         debug,
     )
 
@@ -776,8 +789,7 @@ def unstable_games(
     """
     Return a Python iterator over games without a Nash stable coalition structure.
     """
-    real_weights = weights if weights is not None else np.zeros(0, dtype=np.int_)
-    git = game_begin(agent_count, is_symmetric, m_begin, m_end, real_weights, debug)
+    git = game_begin(agent_count, is_symmetric, m_begin, m_end, weights, debug)
     while game_next_unstable(git, is_fractional, k):
         yield np.copy(git.game)
 
@@ -795,9 +807,7 @@ def count_games(
 
     This is the same value as the second element of the tuple returned by count_unstable_games.
     """
-    git = game_begin(
-        agent_count, is_symmetric, m_begin, m_end, np.zeros(0, dtype=np.int_), debug
-    )
+    git = game_begin(agent_count, is_symmetric, m_begin, m_end, None, debug)
     count_total = 0
     while game_next(git):
         count_total += 1
@@ -840,8 +850,7 @@ def count_unstable_games(
     The first returned value is the number of games without a Nash stable coalition structure, while the second value
     is the total number of games considered.
     """
-    real_weights = weights if weights is not None else np.zeros(0, dtype=np.int64)
-    git = game_begin(agent_count, is_symmetric, m_begin, m_end, real_weights, debug)
+    git = game_begin(agent_count, is_symmetric, m_begin, m_end, weights, debug)
     count_total = 0
     count_noequilibrium = 0
     example_noequilibrium = np.zeros((0, 0), dtype=np.int_)
@@ -947,8 +956,7 @@ def compute_poa_pos(
         if k is not None
         else lcm_upto(agent_count)
     )
-    real_weights = weights if weights is not None else np.zeros(0, dtype=np.int_)
-    git = game_begin(agent_count, is_symmetric, m_begin, m_end, real_weights, debug)
+    git = game_begin(agent_count, is_symmetric, m_begin, m_end, weights, debug)
     game = git.game
     scaled_game = game if denominator == 1 else np.zeros_like(game)
     # data for counting information on the collection of games
