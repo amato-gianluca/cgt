@@ -229,7 +229,7 @@ def count_unstable_games(
     The first returned value is the number of games without a Nash stable coalition structure, while the second value
     is the total number of games considered.
     """
-    git = game_begin(num_agents, is_symmetric, m_begin, m_end, debug)
+    git = game_begin(num_agents, is_symmetric, m_begin, m_end, None, debug)
     count_total = 0
     count_noequilibrium = 0
     first = True
@@ -256,7 +256,7 @@ def count_games(
 
     This is the same value as the second element of the tuple returned by count_unstable_games.
     """
-    git = game_begin(num_agents, is_symmetric, m_begin, m_end, debug)
+    git = game_begin(num_agents, is_symmetric, m_begin, m_end, None, debug)
     count_total = 0
     while game_next(git):
         count_total += 1
