@@ -103,7 +103,6 @@ def agent_utility_co(
     cs: CoalitionStructure,
     ag: Agent,
     co: Coalition,
-    weights: Weights | None = None,
 ) -> tuple[int, int]:
     """
     Compute the utility of the agent ag w.r.t. the coalition co in the given game and coalition structure.
@@ -114,27 +113,25 @@ def agent_utility_co(
     size = 0
     for j in range(len(game)):
         if cs[j] == co:
-            ut += game[ag, j] if weights is None else weights[int(game[ag, j])]
+            ut += game[ag, j]
             size += 1
     return ut, size
 
 
 @njit
-def agent_utility(
-    game: Game, cs: CoalitionStructure, ag: Agent, weights: Weights | None = None
-) -> tuple[int, int]:
+def agent_utility(game: Game, cs: CoalitionStructure, ag: Agent) -> tuple[int, int]:
     """
     Compute the utility of the agent ag in the given game.
 
     It returns two values: the sum of the valuations of ag with the other agents in the same coalition
     and the number of agents in the same coalition as ag.
     """
-    return agent_utility_co(game, cs, ag, cs[ag], weights)
+    return agent_utility_co(game, cs, ag, cs[ag])
 
 
 @njit
 def coalition_social_welfare(
-    game: Game, cs: CoalitionStructure, co: Coalition, weights: Weights | None = None
+    game: Game, cs: CoalitionStructure, co: Coalition
 ) -> tuple[int, int]:
     """
     Compute the social welfare of the coalition co in the given game and coalition structure.
@@ -149,7 +146,7 @@ def coalition_social_welfare(
             size += 1
             for j in range(agent_count):
                 if cs[j] == co:
-                    ut += game[i, j] if weights is None else weights[int(game[i, j])]
+                    ut += game[i, j]
     return ut, size
 
 
@@ -202,7 +199,6 @@ def is_improving_deviation(
     cs: CoalitionStructure,
     cs_sizes: IntArray1D,
     dev: Deviation,
-    weights: Weights | None = None,
 ) -> bool:
     """
     Determine if dev is an improving deviation for the given game and coalition structure.
@@ -215,9 +211,9 @@ def is_improving_deviation(
     ut_new = 0
     for j in range(len(game)):
         if cs[j] == co_old:
-            ut_old += game[ag, j] if weights is None else weights[int(game[ag, j])]
+            ut_old += game[ag, j]
         elif cs[j] == co_new:
-            ut_new += game[ag, j] if weights is None else weights[int(game[ag, j])]
+            ut_new += game[ag, j]
 
     if not is_fractional:
         return ut_new > ut_old
@@ -239,7 +235,6 @@ def next_improving_deviation(
     cs_sizes: IntArray1D,
     max_coalition: int,
     k: int | None,
-    weights: Weights | None = None,
     dev: Deviation = Deviation(0, -1),
 ) -> Deviation | None:
     """
@@ -255,9 +250,7 @@ def next_improving_deviation(
         while co <= max_coalition and co < len(cs_sizes):
             if k is None or cs_sizes[co] < k:
                 dev = Deviation(ag, co)
-                if is_improving_deviation(
-                    game, is_fractional, cs, cs_sizes, dev, weights
-                ):
+                if is_improving_deviation(game, is_fractional, cs, cs_sizes, dev):
                     return dev
             co += 1
         ag += 1
@@ -273,7 +266,6 @@ def improving_deviations(
     cs_sizes: IntArray1D,
     co_max: int,
     k: int | None,
-    weights: Weights | None = None,
 ) -> Iterator[Deviation]:
     """
     Return a Python iterator of improving deviations for the given game and coalition structure.
@@ -281,14 +273,12 @@ def improving_deviations(
     Normally, the maximum target coalition in an improving deviation is equal to len(cs_sizes).
     However, the parameter co_max may be used to further restrict this value.
     """
-    dev = next_improving_deviation(
-        game, is_fractional, cs, cs_sizes, co_max, k, weights
-    )
+    dev = next_improving_deviation(game, is_fractional, cs, cs_sizes, co_max, k)
     while dev is not None:
         # cannot directly yield dev due to limitations of Numba
         yield Deviation(dev.ag, dev.co)
         dev = next_improving_deviation(
-            game, is_fractional, cs, cs_sizes, co_max, k, weights, dev
+            game, is_fractional, cs, cs_sizes, co_max, k, dev
         )
 
 
@@ -429,10 +419,7 @@ def css(agent_count: int, k: int | None = None) -> Iterator[CoalitionStructure]:
 
 @njit
 def nash_equilibria(
-    game: Game,
-    is_fractional: bool = True,
-    k: int | None = None,
-    weights: Weights | None = None,
+    game: Game, is_fractional: bool = True, k: int | None = None
 ) -> Iterator[CoalitionStructure]:
     """
     Return a Python iterator for all Nash equilibria of the given game.
@@ -440,9 +427,7 @@ def nash_equilibria(
     cit = cs_begin(len(game))
     while cs_next(cit, k):
         cs, cs_sizes, _, cs_data = cit
-        res = next_improving_deviation(
-            game, is_fractional, cs, cs_sizes, cs_data[0], k, weights
-        )
+        res = next_improving_deviation(game, is_fractional, cs, cs_sizes, cs_data[0], k)
         if res is None:
             yield np.copy(cs)
 
@@ -452,7 +437,6 @@ def nash_equilibrium(
     game: Game,
     is_fractional: bool = True,
     k: int | None = None,
-    weights: Weights | None = None,
 ) -> CoalitionStructure | None:
     """
     Return the first Nash equilibrium of the given game, if it exists.
@@ -460,9 +444,7 @@ def nash_equilibrium(
     cit = cs_begin(len(game))
     while cs_next(cit, k):
         cs, cs_sizes, _, cs_data = cit
-        res = next_improving_deviation(
-            game, is_fractional, cs, cs_sizes, cs_data[0], k, weights
-        )
+        res = next_improving_deviation(game, is_fractional, cs, cs_sizes, cs_data[0], k)
         if res is None:
             return cs
 
@@ -597,11 +579,11 @@ class GameIterator(NamedTuple):
     Max value of `m` to be considered.
     """
 
-    # We cannot use Weights | None for limitations of the numba type checker.
     weights: Weights
     """
     Weights for the valuations in the game. An empty array means that the original valuations are used
-    and that game is an alias for game_internal.
+    and that game is an alias for game_internal. We cannot use Weights | None as type for
+    limitations of the numba type checker.
     """
 
     debug: int
@@ -622,17 +604,17 @@ def game_begin(
     is_symmetric: bool = True,
     m_begin: int = 0,
     m_end: int = 1,
-    weights: Weights | None = None,
+    weights: Weights = np.zeros(0, dtype=np.int_),
     debug: int = 0,
 ) -> GameIterator:
     """
     Build an iterator over games.
     """
-    if weights is not None and len(weights) < m_end + 1:
+    if 0 < len(weights) < m_end + 1:
         raise ValueError("Weights should have length at least m_end + 1")
     game_internal = np.zeros((agent_count, agent_count), dtype=np.int_)
     game_internal[agent_count - 1, agent_count - 1] = -1
-    game = game_internal if weights is None else np.zeros_like(game_internal)
+    game = game_internal if len(weights)==0 else np.zeros_like(game_internal)
     if debug > 0:
         print("sought_reward:", m_begin)
         for col in range(1, min(debug, agent_count) + 1):
@@ -643,7 +625,7 @@ def game_begin(
         np.array([m_begin, -1]),
         is_symmetric,
         m_end,
-        weights if weights is not None else np.zeros(0, dtype=np.int_),
+        weights,
         debug,
     )
 
@@ -755,7 +737,6 @@ def game_next_unstable(
     git: GameIterator,
     is_fractional: bool = True,
     k: int | None = None,
-    weights: Weights | None = None,
 ) -> bool:
     """
     Update the iterator with a new game with no Nash stable coalition structures.
@@ -764,7 +745,7 @@ def game_next_unstable(
     otherwise it returns True.
     """
     while game_next(git):
-        if nash_equilibrium(git.game, is_fractional, k, weights) is None:
+        if nash_equilibrium(git.game, is_fractional, k) is None:
             return True
     return False
 
@@ -795,7 +776,8 @@ def unstable_games(
     """
     Return a Python iterator over games without a Nash stable coalition structure.
     """
-    git = game_begin(agent_count, is_symmetric, m_begin, m_end, weights, debug)
+    real_weights = weights if weights is not None else np.zeros(0, dtype=np.int_)
+    git = game_begin(agent_count, is_symmetric, m_begin, m_end, real_weights, debug)
     while game_next_unstable(git, is_fractional, k):
         yield np.copy(git.game)
 
@@ -813,7 +795,9 @@ def count_games(
 
     This is the same value as the second element of the tuple returned by count_unstable_games.
     """
-    git = game_begin(agent_count, is_symmetric, m_begin, m_end, None, debug)
+    git = game_begin(
+        agent_count, is_symmetric, m_begin, m_end, np.zeros(0, dtype=np.int_), debug
+    )
     count_total = 0
     while game_next(git):
         count_total += 1
@@ -856,7 +840,8 @@ def count_unstable_games(
     The first returned value is the number of games without a Nash stable coalition structure, while the second value
     is the total number of games considered.
     """
-    git = game_begin(agent_count, is_symmetric, m_begin, m_end, weights, debug)
+    real_weights = weights if weights is not None else np.zeros(0, dtype=np.int64)
+    git = game_begin(agent_count, is_symmetric, m_begin, m_end, real_weights, debug)
     count_total = 0
     count_noequilibrium = 0
     example_noequilibrium = np.zeros((0, 0), dtype=np.int_)
@@ -962,7 +947,8 @@ def compute_poa_pos(
         if k is not None
         else lcm_upto(agent_count)
     )
-    git = game_begin(agent_count, is_symmetric, m_begin, m_end, weights, debug)
+    real_weights = weights if weights is not None else np.zeros(0, dtype=np.int_)
+    git = game_begin(agent_count, is_symmetric, m_begin, m_end, real_weights, debug)
     game = git.game
     scaled_game = game if denominator == 1 else np.zeros_like(game)
     # data for counting information on the collection of games

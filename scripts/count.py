@@ -235,7 +235,7 @@ def main():
 
     f = None if args.output is None else open(args.output, "a")
     weights: IntArray1D | None = (
-        None if args.weights is None else json.loads(args.weights)
+        None if args.weights is None else np.array(json.loads(args.weights))
     )
     timeout: float | None = args.timeout
 
