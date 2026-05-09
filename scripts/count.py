@@ -19,7 +19,7 @@ from pyhedonic.hedonicgame_impl import (
     Game,
     GameCollectionInfo,
     IntArray1D,
-    compute_poa_pos,
+    game_collection_info,
     count_unstable_games,
 )
 
@@ -190,7 +190,7 @@ def count_with_timing(**kwargs) -> tuple[tuple[int, int, Game | None], float]:
 
 def prices_with_timing(**kwargs) -> tuple[GameCollectionInfo | None, float]:
     start_time = time.time()
-    res = compute_poa_pos(**kwargs)
+    res = game_collection_info(**kwargs)
     elapsed_time = time.time() - start_time
     return (res, elapsed_time)
 
@@ -243,7 +243,7 @@ def main():
 
     # warmup jit
     if args.prices:
-        compute_poa_pos(
+        game_collection_info(
             agent_count=2, k=1, m_begin=1, m_end=1, weights=weights, debug=0
         )
     else:
