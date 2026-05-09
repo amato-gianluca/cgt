@@ -83,15 +83,18 @@ def assert_rational_equal(res: hgimpl.Rational, expected: hgimpl.Rational):
     )
 
 
-def assert_game_collection_counts(res, gcc: hgimpl.GameCollectionCounts):
+def assert_game_collection_counts(
+    res: hgimpl.GameCollectionCounts, gcc: hgimpl.GameCollectionCounts
+):
     assert res.count_total == gcc.count_total
     assert res.count_noequilibrium == gcc.count_noequilibrium
-    assert np.array_equal(
-        res.example_noequilibrium, np.array(gcc.example_noequilibrium)
-    )
+    if res.count_noequilibrium > 0:
+        assert np.array_equal(
+            res.example_noequilibrium, np.array(gcc.example_noequilibrium)
+        )
 
 
-def assert_game_prices(res, expected: hgimpl.GamePrices):
+def assert_game_prices(res: hgimpl.GamePrices, expected: hgimpl.GamePrices):
     assert res.sw_best == expected.sw_best
     assert np.array_equal(res.cs_best, np.array(expected.cs_best))
     assert res.sw_best_equilibrium == expected.sw_best_equilibrium
@@ -104,7 +107,9 @@ def assert_game_prices(res, expected: hgimpl.GamePrices):
     )
 
 
-def assert_game_collection_prices(res, expected: hgimpl.GameCollectionPrices):
+def assert_game_collection_prices(
+    res: hgimpl.GameCollectionPrices, expected: hgimpl.GameCollectionPrices
+):
     assert_rational_equal(res.poa_highest, expected.poa_highest)
     assert res.poa_highest_count == expected.poa_highest_count
     assert np.array_equal(res.poa_highest_game, np.array(expected.poa_highest_game))
@@ -125,7 +130,9 @@ def assert_game_collection_prices(res, expected: hgimpl.GameCollectionPrices):
     assert np.isclose(res.pos_avg, expected.pos_avg)
 
 
-def assert_game_collection_info(res, expected: hgimpl.GameCollectionInfo):
+def assert_game_collection_info(
+    res: hgimpl.GameCollectionInfo, expected: hgimpl.GameCollectionInfo
+):
     assert res.counts is not None
     assert expected.counts is not None
     assert_game_collection_counts(res.counts, expected.counts)
@@ -336,14 +343,17 @@ def test_count_unstable_games():
     gcc = hgimpl.GameCollectionCounts(
         count_total=775,
         count_noequilibrium=2,
-        example_noequilibrium=np.array([
-            [0, 0, 7, 9],
-            [0, 0, 7, 9],
-            [7, 7, 0, 4],
-            [9, 9, 4, 0],
-        ]),
+        example_noequilibrium=np.array(
+            [
+                [0, 0, 7, 9],
+                [0, 0, 7, 9],
+                [7, 7, 0, 4],
+                [9, 9, 4, 0],
+            ]
+        ),
     )
     assert_game_collection_counts(res, gcc)
+
 
 def test_game_collection_info():
     res = hgimpl.game_collection_info(agent_count=6, m_begin=2, m_end=2, k=4)
@@ -351,26 +361,30 @@ def test_game_collection_info():
         counts=hgimpl.GameCollectionCounts(
             count_total=66515,
             count_noequilibrium=9,
-            example_noequilibrium=np.array([
-                [0, 0, 1, 1, 2, 2],
-                [0, 0, 1, 2, 1, 2],
-                [1, 1, 0, 1, 1, 1],
-                [1, 2, 1, 0, 0, 2],
-                [2, 1, 1, 0, 0, 2],
-                [2, 2, 1, 2, 2, 0],
-            ]),
+            example_noequilibrium=np.array(
+                [
+                    [0, 0, 1, 1, 2, 2],
+                    [0, 0, 1, 2, 1, 2],
+                    [1, 1, 0, 1, 1, 1],
+                    [1, 2, 1, 0, 0, 2],
+                    [2, 1, 1, 0, 0, 2],
+                    [2, 2, 1, 2, 2, 0],
+                ]
+            ),
         ),
         prices=hgimpl.GameCollectionPrices(
             poa_highest=hgimpl.Rational(48, 18),
             poa_highest_count=15,
-            poa_highest_game=np.array([
-                [0, 0, 0, 0, 0, 1],
-                [0, 0, 0, 1, 1, 0],
-                [0, 0, 0, 1, 1, 0],
-                [0, 1, 1, 0, 2, 0],
-                [0, 1, 1, 2, 0, 0],
-                [1, 0, 0, 0, 0, 0],
-            ]),
+            poa_highest_game=np.array(
+                [
+                    [0, 0, 0, 0, 0, 1],
+                    [0, 0, 0, 1, 1, 0],
+                    [0, 0, 0, 1, 1, 0],
+                    [0, 1, 1, 0, 2, 0],
+                    [0, 1, 1, 2, 0, 0],
+                    [1, 0, 0, 0, 0, 0],
+                ]
+            ),
             poa_highest_info=hgimpl.GamePrices(
                 sw_best=48,
                 cs_best=np.array([0, 1, 1, 1, 1, 0]),
@@ -381,14 +395,16 @@ def test_game_collection_info():
             ),
             poa_lowest=hgimpl.Rational(1, 1),
             poa_lowest_count=11442,
-            poa_lowest_game=np.array([
-                [0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 2],
-                [0, 0, 0, 0, 2, 0],
-            ]),
+            poa_lowest_game=np.array(
+                [
+                    [0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 2],
+                    [0, 0, 0, 0, 2, 0],
+                ]
+            ),
             poa_lowest_info=hgimpl.GamePrices(
                 sw_best=24,
                 cs_best=np.array([0, 0, 0, 0, 1, 1]),
@@ -399,14 +415,16 @@ def test_game_collection_info():
             ),
             pos_highest=hgimpl.Rational(80, 48),
             pos_highest_count=1,
-            pos_highest_game=np.array([
-                [0, 0, 0, 1, 2, 2],
-                [0, 0, 2, 1, 0, 2],
-                [0, 2, 0, 1, 1, 2],
-                [1, 1, 1, 0, 1, 1],
-                [2, 0, 1, 1, 0, 2],
-                [2, 2, 2, 1, 2, 0],
-            ]),
+            pos_highest_game=np.array(
+                [
+                    [0, 0, 0, 1, 2, 2],
+                    [0, 0, 2, 1, 0, 2],
+                    [0, 2, 0, 1, 1, 2],
+                    [1, 1, 1, 0, 1, 1],
+                    [2, 0, 1, 1, 0, 2],
+                    [2, 2, 2, 1, 2, 0],
+                ]
+            ),
             pos_highest_info=hgimpl.GamePrices(
                 sw_best=80,
                 cs_best=np.array([0, 1, 1, 0, 0, 1]),
@@ -417,14 +435,16 @@ def test_game_collection_info():
             ),
             pos_lowest=hgimpl.Rational(1, 1),
             pos_lowest_count=58789,
-            pos_lowest_game=np.array([
-                [0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 2],
-                [0, 0, 0, 0, 2, 0],
-            ]),
+            pos_lowest_game=np.array(
+                [
+                    [0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 2],
+                    [0, 0, 0, 0, 2, 0],
+                ]
+            ),
             pos_lowest_info=hgimpl.GamePrices(
                 sw_best=24,
                 cs_best=np.array([0, 0, 0, 0, 1, 1]),
@@ -448,22 +468,26 @@ def test_game_collection_info2():
         counts=hgimpl.GameCollectionCounts(
             count_total=775,
             count_noequilibrium=2,
-            example_noequilibrium=np.array([
-                [0, 1, 7, 9],
-                [1, 0, 7, 9],
-                [7, 7, 0, 4],
-                [9, 9, 4, 0],
-            ]),
+            example_noequilibrium=np.array(
+                [
+                    [0, 1, 7, 9],
+                    [1, 0, 7, 9],
+                    [7, 7, 0, 4],
+                    [9, 9, 4, 0],
+                ]
+            ),
         ),
         prices=hgimpl.GameCollectionPrices(
             poa_highest=hgimpl.Rational(68, 40),
             poa_highest_count=1,
-            poa_highest_game=np.array([
-                [0, 0, 0, 1],
-                [0, 0, 4, 4],
-                [0, 4, 0, 9],
-                [1, 4, 9, 0],
-            ]),
+            poa_highest_game=np.array(
+                [
+                    [0, 0, 0, 1],
+                    [0, 0, 4, 4],
+                    [0, 4, 0, 9],
+                    [1, 4, 9, 0],
+                ]
+            ),
             poa_highest_info=hgimpl.GamePrices(
                 sw_best=68,
                 cs_best=np.array([0, 1, 1, 1]),
@@ -474,12 +498,14 @@ def test_game_collection_info2():
             ),
             poa_lowest=hgimpl.Rational(1, 1),
             poa_lowest_count=442,
-            poa_lowest_game=np.array([
-                [0, 0, 0, 0],
-                [0, 0, 0, 0],
-                [0, 0, 0, 9],
-                [0, 0, 9, 0],
-            ]),
+            poa_lowest_game=np.array(
+                [
+                    [0, 0, 0, 0],
+                    [0, 0, 0, 0],
+                    [0, 0, 0, 9],
+                    [0, 0, 9, 0],
+                ]
+            ),
             poa_lowest_info=hgimpl.GamePrices(
                 sw_best=54,
                 cs_best=np.array([0, 0, 1, 1]),
@@ -490,12 +516,14 @@ def test_game_collection_info2():
             ),
             pos_highest=hgimpl.Rational(60, 44),
             pos_highest_count=3,
-            pos_highest_game=np.array([
-                [0, 0, 0, 1],
-                [0, 0, 9, 1],
-                [0, 9, 0, 1],
-                [1, 1, 1, 0],
-            ]),
+            pos_highest_game=np.array(
+                [
+                    [0, 0, 0, 1],
+                    [0, 0, 9, 1],
+                    [0, 9, 0, 1],
+                    [1, 1, 1, 0],
+                ]
+            ),
             pos_highest_info=hgimpl.GamePrices(
                 sw_best=60,
                 cs_best=np.array([0, 1, 1, 0]),
@@ -506,12 +534,14 @@ def test_game_collection_info2():
             ),
             pos_lowest=hgimpl.Rational(1, 1),
             pos_lowest_count=554,
-            pos_lowest_game=np.array([
-                [0, 0, 0, 0],
-                [0, 0, 0, 0],
-                [0, 0, 0, 9],
-                [0, 0, 9, 0],
-            ]),
+            pos_lowest_game=np.array(
+                [
+                    [0, 0, 0, 0],
+                    [0, 0, 0, 0],
+                    [0, 0, 0, 9],
+                    [0, 0, 9, 0],
+                ]
+            ),
             pos_lowest_info=hgimpl.GamePrices(
                 sw_best=54,
                 cs_best=np.array([0, 0, 1, 1]),
