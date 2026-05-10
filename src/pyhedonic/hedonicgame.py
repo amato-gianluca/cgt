@@ -368,7 +368,9 @@ class HedonicGame:
             is not None
         )
 
-    def optimal_coalition_structure(self) -> tuple["CoalitionStructure", int]:
+    def _optimal_coalition_structure_fast(
+        self,
+    ) -> tuple["CoalitionStructure", int | Fraction]:
         """
         Return one of the optimal coalition structures of the game and the
         corresponding social welfare. Currently, this function only works fo
@@ -399,7 +401,39 @@ class HedonicGame:
             if cs[i] == -1:
                 cs[i] = next_coalition
                 next_coalition += 1
+        CoalitionStructure._normalize(cs)
         return CoalitionStructure(self, cs), welfare
+
+    def optimal_coalition_social_welfare(self) -> int | Fraction:
+        """
+        Return the social welfare of an optimal coalition structure of the game.
+        """
+        if not self.is_directed() and self._k == 2:
+            _, opt = self._optimal_coalition_structure_fast()
+            return opt
+        else:
+            return max(cs.social_welfare() for cs in self.coalition_structures())
+
+    def optimal_coalition_structures(self) -> Iterator["CoalitionStructure"]:
+        """
+        Return all the optimal coalition structures of the game.
+        """
+        opt = self.optimal_coalition_social_welfare()
+        yield from (
+            cs for cs in self.coalition_structures() if cs.social_welfare() == opt
+        )
+
+    def optimal_coalition_structure(
+        self,
+    ) -> tuple["CoalitionStructure", int | Fraction]:
+        """
+        Return one of the optimal coalition structures of the game and the corresponding social welfare.
+        """
+        if not self.is_directed() and self._k == 2:
+            return self._optimal_coalition_structure_fast()
+        else:
+            cs = next(self.optimal_coalition_structures())
+            return cs, cs.social_welfare()
 
     def prices(self) -> PriceResult | None:
         """

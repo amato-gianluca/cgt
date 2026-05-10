@@ -51,20 +51,29 @@ def test_CoalitionStructure_coalition_size():
 
 
 def test_CoalitionStructure_agent_utility():
-    assert GAME1_FRAC_CS1.agent_utility(0) == 1.0
-    assert GAME1_FRAC_CS1.agent_utility(1) == 0.0
-    assert GAME1_FRAC_CS1.agent_utility(2) == 1.0
+    assert GAME1_FRAC_CS1.agent_utility(0) == 1
+    assert GAME1_FRAC_CS1.agent_utility(1) == 0
+    assert GAME1_FRAC_CS1.agent_utility(2) == 1
     assert GAME1_NOFRAC_CS1.agent_utility(0) == 2
     assert GAME1_NOFRAC_CS1.agent_utility(1) == 0
 
 
+def test_CoalitionStructure_agent_utility_fractional():
+    assert GAME1_FRAC_CS2.agent_utility(0) == Fraction(2, 3)
+    assert GAME1_FRAC_CS2.agent_utility(1) == Fraction(4, 3)
+
+
 def test_CoalitionStructure_coalition_social_welfare():
-    assert GAME1_FRAC_CS1.coalition_social_welfare(0) == 2.0
-    assert GAME1_FRAC_CS1.coalition_social_welfare(1) == 0.0
+    assert GAME1_FRAC_CS1.coalition_social_welfare(0) == 2
+    assert GAME1_FRAC_CS1.coalition_social_welfare(1) == 0
+
+
+def test_CoalitionStructure_coalition_social_welfare_fractional():
+    assert GAME1_FRAC_CS2.coalition_social_welfare(0) == Fraction(8, 3)
 
 
 def test_CoalitionStructure_social_welfare():
-    assert GAME1_FRAC_CS1.social_welfare() == 2.0
+    assert GAME1_FRAC_CS1.social_welfare() == 2
     assert GAME1_NOFRAC_CS1.social_welfare() == 4
 
 
@@ -181,10 +190,22 @@ def test_HedonicGame_optimal_coalition_structure1():
         ),
         k=2,
     )
+    assert game.optimal_coalition_social_welfare() == 2
+
+    opt_coalitions = [
+        hg.CoalitionStructure(game, np.array([0, 0, 1, 2, 1])),
+        hg.CoalitionStructure(game, np.array([0, 0, 1, 2, 2])),
+        hg.CoalitionStructure(game, np.array([0, 1, 1, 0, 2])),
+        hg.CoalitionStructure(game, np.array([0, 1, 1, 2, 2])),
+        hg.CoalitionStructure(game, np.array([0, 1, 2, 0, 2])),
+        hg.CoalitionStructure(game, np.array([0, 1, 2, 1, 2])),
+    ]
+    opt_coalitions_found = list(game.optimal_coalition_structures())
+    opt_coalitions_found = list(game.optimal_coalition_structures())
+    assert opt_coalitions_found == opt_coalitions
     cs, opt = game.optimal_coalition_structure()
-    print(cs)
-    assert all(cs.coalition_size(co) <= 2 for co in cs.coalitions())
-    assert cs.social_welfare() == opt
+    assert cs in opt_coalitions
+    assert opt == 2
 
 
 def test_HedonicGame_optimal_coalition_structure2():
@@ -202,9 +223,87 @@ def test_HedonicGame_optimal_coalition_structure2():
         k=2,
         is_fractional=True,
     )
+    assert game.optimal_coalition_social_welfare() == 3
+
+    opt_coalitions = [
+        hg.CoalitionStructure(game, np.array([0, 1, 2, 1, 2, 0])),
+        hg.CoalitionStructure(game, np.array([0, 1, 2, 2, 0, 1])),
+    ]
+    opt_coalitions_found = list(game.optimal_coalition_structures())
+    assert opt_coalitions_found == opt_coalitions
     cs, opt = game.optimal_coalition_structure()
-    assert all(cs.coalition_size(co) <= 2 for co in cs.coalitions())
+    assert cs in opt_coalitions
     assert opt == 3
+
+
+def test_HedonicGame_optimal_coalition_structure3():
+    game = hg.HedonicGame(
+        np.array(
+            [
+                [0, 1, 1, 0],
+                [1, 0, 1, 0],
+                [1, 1, 0, 0],
+                [0, 0, 0, 0],
+            ]
+        ),
+        k=3,
+    )
+    assert game.optimal_coalition_social_welfare() == 2
+    opt_coalitions = [hg.CoalitionStructure(game, np.array([0, 0, 0, 1]))]
+    opt_coalitions_found = list(game.optimal_coalition_structures())
+    assert opt_coalitions_found == opt_coalitions
+    cs, opt = game.optimal_coalition_structure()
+    assert cs in opt_coalitions
+    assert opt == 2
+
+
+def test_HedonicGameisolated_coalition_structure():
+    game = hg.HedonicGame(
+        np.array(
+            [
+                [0, 1, 1, 0],
+                [1, 0, 1, 0],
+                [1, 1, 0, 0],
+                [0, 0, 0, 0],
+            ]
+        ),
+        k=3,
+    )
+    cs = game.isolated_coalition_structure()
+    assert cs == hg.CoalitionStructure(game, np.array([0, 1, 2, 3]))
+    assert cs.social_welfare() == 0
+
+
+def test_HedonicGame_big_coalition_structure1():
+    game = hg.HedonicGame(
+        np.array(
+            [
+                [0, 1, 1, 0],
+                [1, 0, 1, 0],
+                [1, 1, 0, 0],
+                [0, 0, 0, 0],
+            ]
+        ),
+    )
+    cs = game.big_coalition_structure()
+    assert cs is not None
+    assert cs == hg.CoalitionStructure(game, np.array([0, 0, 0, 0]))
+    assert cs.social_welfare() == Fraction(6, 4)
+
+
+def test_HedonicGame_big_coalition_structure2():
+    game = hg.HedonicGame(
+        np.array(
+            [
+                [0, 1, 1, 0],
+                [1, 0, 1, 0],
+                [1, 1, 0, 0],
+                [0, 0, 0, 0],
+            ]
+        ),
+        k=3,
+    )
+    assert game.big_coalition_structure() is None
 
 
 def test_Graph_to_nx_graph():
