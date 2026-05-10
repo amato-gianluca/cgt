@@ -343,7 +343,7 @@ class HedonicGame:
         Return the big coalition structure of the game, or None if it is not valid.
 
         The big coalition structure is the one where all agents are in the same
-        coalition. If this is not a valid coalition structure, an exception is raised.
+        coalition. If this is not a valid coalition structure, None is retuned.
         """
         if self._k is not None and self._k < self.agent_count:
             return None
@@ -416,7 +416,7 @@ class HedonicGame:
 
     def optimal_coalition_structures(self) -> Iterator["CoalitionStructure"]:
         """
-        Return all the optimal coalition structures of the game.
+        Return all the optimal coalition structures of the game, in lexicographic order.
         """
         opt = self.optimal_coalition_social_welfare()
         yield from (

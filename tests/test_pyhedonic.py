@@ -201,7 +201,6 @@ def test_HedonicGame_optimal_coalition_structure1():
         hg.CoalitionStructure(game, np.array([0, 1, 2, 1, 2])),
     ]
     opt_coalitions_found = list(game.optimal_coalition_structures())
-    opt_coalitions_found = list(game.optimal_coalition_structures())
     assert opt_coalitions_found == opt_coalitions
     cs, opt = game.optimal_coalition_structure()
     assert cs in opt_coalitions
