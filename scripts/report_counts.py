@@ -1,5 +1,5 @@
 """
-This script reads data for the counts.json (or similar) file and produces a table in markdown format
+This script reads data for the counts.yaml (or similar) file and produces a table in markdown format
 with the results of the experiments relative to counting the number of games without Nash stable
 coalition structures, with varying values for k and n (number of agents) and prefixes of
 natural numbers as valuations.
@@ -8,48 +8,95 @@ natural numbers as valuations.
 import argparse
 import json
 from pathlib import Path
+from typing import Any
 
 import pandas as pd
+import yaml
+
+type GCILike = dict[str, Any]
+type InputData = list[GCILike]
 
 
-def has_valid_weights(row, weights: list[int] | None) -> bool:
-    if weights is None and row["weights"] is None:
-        return True
-    elif weights is None or row["weights"] is None:
-        return False
-    elif row["m"] > len(weights):
-        return False
-    else:
-        return weights[: row["m"] + 1] == row["weights"][: row["m"] + 1]
-
-
-def total_games(df):
-    pivot = (
-        df.pivot_table(
-            index="m",
-            columns="n",
-            values="total_game_count",
-            aggfunc=max,
-            fill_value=-2,
-        )
-        .astype(int)
-        .astype(str)
-    )
-    pivot = pivot.replace("-1", "(to)")
-    pivot = pivot.replace("-2", "")
-    print(pivot.to_markdown())
-
-
-def load_data(filename: str, weights) -> list:
+def yaml_load(filename: str) -> InputData:
+    """
+    Loads the data from a yaml file, which is expected to contain a list of documents, each
+    being a dictionary with informations serialized from a `GameCollectionInfo` object.
+    """
     with open(filename, "r") as f:
-        data = [
-            row for line in f if has_valid_weights(row := json.loads(line), weights)
-        ]
+        data = list(yaml.load_all(f, Loader=yaml.FullLoader))
     return data
 
 
-def main():
+def has_compatible_weights(gci: GCILike, weights: list[int] | None) -> bool:
+    """
+    Determines if the weights of a given row are compatible with the specified weights.
+    """
+    if weights is None and gci["weights"] is None:
+        return True
+    elif weights is None or gci["weights"] is None:
+        return False
+    elif gci["m"] > len(weights):
+        return False
+    else:
+        return weights[: gci["m"] + 1] == gci["weights"][: gci["m"] + 1]
 
+
+def generate_df(data: InputData, weights: list[int] | None) -> pd.DataFrame:
+    """
+    Generates a pandas DataFrame from the list of dictionaries, filtering the rows based on the
+    compatibility of their weights with the specified weights.
+    """
+    data_clean = [
+        row
+        for row in data
+        if row["payload"] is not None
+        and row["payload"].get("counts") is not None
+        and has_compatible_weights(row, weights)
+    ]
+    df = pd.json_normalize(data_clean)
+    return df
+
+
+def total_games(df: pd.DataFrame):
+    """
+    Prints a table in markdown format with the total number of games for each combination of m and n.
+    """
+    pivot = df.pivot_table(
+        index="m",
+        columns="n",
+        values="payload.counts.count_total",
+        aggfunc=max,
+        fill_value=-2,
+    )
+    pivot = pivot.replace(-1, "(to)")
+    pivot = pivot.replace(-2, "")
+    print(pivot.to_markdown())
+
+
+def noequilibrium_games(df: pd.DataFrame):
+    ks = df["k"].unique()
+    ks.sort()
+    for k in ks:
+        dfk = df[df["k"] == k]
+        pivot = dfk.pivot_table(
+            index="m",
+            columns="n",
+            values="payload.counts.count_noequilibrium",
+            aggfunc="max",
+            fill_value=-2,  # do not use NaN, because NaN forces a float type
+        )
+        pivot = pivot.astype(object)
+        pivot.iloc[:, :] = pivot.iloc[:, :].map(
+            lambda x: (
+                "" if x == -2 else "(to)" if x == -1 else f"**{x}**" if x > 0 else "0"
+            )
+        )
+        pivot.index.name = "m\\n"
+        print(f"\n\n### k={k}\n")
+        print(pivot.to_markdown())
+
+
+def main():
     parser = argparse.ArgumentParser(
         prog="report_counts.py",
         description="""
@@ -63,7 +110,7 @@ def main():
         "-i",
         "--input",
         help="file containing data points to report about",
-        default=Path(__file__).parent / "data/counts.json",
+        default=Path(__file__).parent / "data/counts.yaml",
     )
     weights_group.add_argument(
         "--wp2",
@@ -72,7 +119,7 @@ def main():
     )
     weights_group.add_argument(
         "--wzerop2",
-        help="select counts whise weights are power of twos with an initial zero",
+        help="select counts whose weights are power of twos with an initial zero",
         action="store_true",
     )
     weights_group.add_argument(
@@ -97,33 +144,13 @@ def main():
         else None
     )
 
-    data = load_data(args.input, weights)
-    df = pd.DataFrame(data)
-    df = df.drop(columns=["example", "weights"])
+    data = yaml_load(args.input)
+    df = generate_df(data, weights)
 
     if args.totals:
         total_games(df)
     else:
-        ks = df["k"].unique()
-        ks.sort()
-        for k in ks:
-            dfk = df[df["k"] == k]
-            pivot = (
-                dfk.pivot_table(
-                    index="m",
-                    columns="n",
-                    values="unstable_game_count",
-                    aggfunc="max",
-                    fill_value=-2 # do not use NaN, because NaN forces a float type
-                )
-            )
-            pivot = pivot.astype(object)
-            pivot.iloc[:, :] = pivot.iloc[:, :].map(
-                lambda x: "" if x == -2 else "(to)" if x == -1 else f"**{x}**" if x > 0 else "0"
-            )
-            pivot.index.name = "m\\n"
-            print(f"\n\n### k={k}\n")
-            print(pivot.to_markdown())
+        noequilibrium_games(df)
 
 
 if __name__ == "__main__":
