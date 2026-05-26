@@ -46,14 +46,9 @@ def generate_df(data: InputData, weights: list[int] | None) -> pd.DataFrame:
     Generates a pandas DataFrame from the list of dictionaries, filtering the rows based on the
     compatibility of their weights with the specified weights.
     """
-    data_clean = [
-        row
-        for row in data
-        if row["payload"] is not None
-        and row["payload"].get("counts") is not None
-        and has_compatible_weights(row, weights)
-    ]
-    df = pd.json_normalize(data_clean)
+    data_clean = [row for row in data if has_compatible_weights(row, weights)]
+    df = pd.json_normalize(data_clean).convert_dtypes()
+    df.fillna(-1, inplace=True)
     return df
 
 
@@ -68,15 +63,14 @@ def total_games(df: pd.DataFrame):
         aggfunc=max,
         fill_value=-2,
     )
+    pivot = pivot.astype(object)
     pivot = pivot.replace(-1, "(to)")
     pivot = pivot.replace(-2, "")
     print(pivot.to_markdown())
 
 
 def noequilibrium_games(df: pd.DataFrame):
-    ks = df["k"].unique()
-    ks.sort()
-    for k in ks:
+    for k in df["k"].sort_values().unique():
         dfk = df[df["k"] == k]
         pivot = dfk.pivot_table(
             index="m",
