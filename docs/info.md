@@ -632,10 +632,16 @@ We also computed the lowest values for PoA and PoS in the same combinations, but
 |   2 |   5 |   9 |          9.00 |                 684 |          1.00 |            95011942 |
 |   2 |   5 |  10 |         10.00 |                 828 |          1.00 |           229565094 |
 |   2 |   5 |  11 |         11.00 |                 986 |          1.00 |           512752516 |
+|   2 |   5 |  12 |         12.00 |                1158 |          1.00 |          1072377722 |
+|   2 |   5 |  13 |         13.00 |                1344 |          1.00 |          2120979420 |
+|   2 |   5 |  14 |         14.00 |                1544 |          1.00 |          3998341103 |
+|   2 |   5 |  15 |         15.00 |                1758 |          1.00 |          7229613888 |
+|   2 |   5 |  16 |         16.00 |                1986 |          1.00 |         12603015093 |
 |   2 |   6 |   1 |          2.00 |                  19 |          1.00 |                 275 |
 |   2 |   6 |   2 |          2.00 |                8605 |          1.00 |               66515 |
 |   2 |   6 |   3 |          3.00 |              107808 |          1.00 |             4256478 |
 |   2 |   6 |   4 |          4.00 |              852976 |          1.00 |           109376621 |
+|   2 |   6 |   5 |          5.00 |             4617182 |          1.00 |          1541858582 |
 |   2 |   7 |   1 |          2.00 |                  34 |          1.00 |                3157 |
 |   2 |   7 |   2 |          2.00 |              514221 |          1.00 |             9219851 |
 |   2 |   8 |   1 |          2.00 |               13707 |          1.00 |               66594 |
@@ -680,12 +686,20 @@ We also computed the lowest values for PoA and PoS in the same combinations, but
 |   3 |   5 |   8 |          2.48 |                   4 |          2.14 |                   2 |
 |   3 |   5 |   9 |          2.52 |                   2 |          2.22 |                   2 |
 |   3 |   5 |  10 |          2.57 |                   2 |          2.28 |                   2 |
+|   3 |   5 |  11 |          2.60 |                   2 |          2.33 |                   2 |
+|   3 |   5 |  12 |          2.63 |                   2 |          2.38 |                   2 |
+|   3 |   5 |  13 |          2.66 |                   2 |          2.42 |                   2 |
+|   3 |   5 |  14 |          2.68 |                   2 |          2.45 |                   2 |
+|   3 |   5 |  15 |          2.70 |                   2 |          2.49 |                   2 |
 |   3 |   6 |   1 |          1.67 |                  16 |          1.00 |                 275 |
 |   3 |   6 |   2 |          2.50 |                 427 |          1.12 |                   9 |
 |   3 |   6 |   3 |          3.50 |                1947 |          1.20 |                  10 |
+|   3 |   6 |   4 |          4.50 |               44308 |          1.25 |                  11 |
+|   3 |   6 |   5 |          5.62 |              125944 |          2.00 |                   1 |
 |   3 |   7 |   1 |          1.67 |                  90 |          1.00 |                3157 |
 |   3 |   7 |   2 |          2.50 |                2148 |          1.12 |                   9 |
 |   3 |   8 |   1 |          1.83 |                 167 |          1.00 |               66594 |
+|   3 |   9 |   1 |          2.00 |                 283 |          1.00 |             2587487 |
 |   4 |   5 |   1 |          2.00 |                   1 |          1.00 |                  42 |
 |   4 |   5 |   2 |          2.44 |                   2 |          1.20 |                   3 |
 |   4 |   5 |   3 |          2.27 |                   6 |          1.33 |                   3 |
@@ -696,22 +710,36 @@ We also computed the lowest values for PoA and PoS in the same combinations, but
 |   4 |   5 |   8 |          2.59 |                   2 |          1.64 |                   3 |
 |   4 |   5 |   9 |          2.47 |                   2 |          1.67 |                   3 |
 |   4 |   5 |  10 |          2.61 |                   2 |          1.69 |                   3 |
+|   4 |   5 |  11 |          2.50 |                   2 |          1.71 |                   3 |
+|   4 |   5 |  12 |          2.62 |                   2 |          1.73 |                   3 |
+|   4 |   5 |  13 |          2.52 |                   2 |          1.75 |                   3 |
+|   4 |   5 |  14 |          2.62 |                   2 |          1.76 |                   3 |
+|   4 |   5 |  15 |          2.54 |                   2 |          1.78 |                   3 |
 |   4 |   6 |   1 |          2.00 |                  16 |          1.11 |                   2 |
 |   4 |   6 |   2 |          2.67 |                  15 |          1.67 |                   1 |
 |   4 |   6 |   3 |          2.40 |                  37 |          1.92 |                   1 |
+|   4 |   6 |   4 |          2.80 |                   2 |          2.13 |                   1 |
+|   4 |   6 |   5 |          2.55 |                   2 |          2.12 |                   2 |
 |   4 |   7 |   1 |          2.25 |                  60 |          1.11 |                   2 |
 |   4 |   7 |   2 |          2.83 |                  49 |          1.80 |                   1 |
 |   4 |   8 |   1 |          3.00 |                  54 |          1.11 |                   2 |
+|   4 |   9 |   1 |          3.00 |                  54 |          1.11 |                   2 |
 |   5 |   6 |   1 |          2.00 |                   1 |          1.19 |                   1 |
 |   5 |   6 |   2 |          2.14 |                   2 |          1.39 |                   1 |
 |   5 |   6 |   3 |          2.33 |                   2 |          1.50 |                   4 |
+|   5 |   6 |   4 |          2.41 |                   8 |          1.59 |                   4 |
+|   5 |   6 |   5 |          2.62 |                   2 |          1.67 |                  10 |
 |   5 |   7 |   1 |          2.00 |                   1 |          1.19 |                   1 |
 |   5 |   7 |   2 |          2.29 |                   2 |          1.44 |                   2 |
 |   5 |   8 |   1 |          2.00 |                  33 |          1.19 |                   1 |
+|   5 |   9 |   1 |          2.50 |                  26 |          1.19 |                   1 |
 |   6 |   7 |   1 |          3.00 |                   1 |          1.25 |                   1 |
 |   6 |   7 |   2 |          3.00 |                   7 |          1.45 |                   3 |
 |   6 |   8 |   1 |          3.00 |                   1 |          1.25 |                   1 |
+|   6 |   9 |   1 |          3.00 |                   1 |          1.25 |                   1 |
 |   7 |   8 |   1 |          3.00 |                   1 |          1.31 |                   1 |
+|   7 |   9 |   1 |          3.00 |                   1 |          1.31 |                   1 |
+|   8 |   9 |   1 |          4.00 |                   1 |          1.38 |                   1 |
 
 We now show some tables for specific cases.
 
@@ -731,7 +759,7 @@ In this case, we know from the theory that PoS=1 and PoA≤2. Moreover, there is
 
 ### k=2, any m
 
-In this case, we know from the theory that PoS=1 while PoA is unbounded. In particular, for each value V there is a game G with 4 agents and $m=2V$ such that PoA(G)=V. The experimental results validate the theoretical ones and *suggest* that probably a graph G with PoA(G)=V may be built with 4 agents and $m=V$ instead of $2V$.
+In this case, we know from the theory that PoS=1 while PoA is unbounded. In particular, for each value V there is a game G with 4 agents and $m=2V$ such that PoA(G)=V. The **experimental results below for $n=4$** validate the theoretical ones and *suggest* that probably a graph G with PoA(G)=V may be built with 4 agents and $m=V$ instead of $2V$.
 
 |   m |   poa_highest |   poa_highest_count |   pos_highest |   pos_highest_count |
 |----:|--------------:|--------------------:|--------------:|--------------------:|
@@ -768,7 +796,7 @@ In this case, we know from the theory that PoS=1 while PoA is unbounded. In part
 
 ### k=3, m=1
 
-In this case, we know from the theory that PoS=1 and PoA≤2.Moreover, there is a game with 9 agents and PoA=2. The experimental results validate the theoretical ones and show that there is no game with PoA=2 with less than 9 agents.
+In this case, we know from the theory that PoS=1 and PoA≤2. Moreover, there is a game with 9 agents and PoA=2. The experimental results validate the theoretical ones and show that there is no game with PoA=2 with less than 9 agents.
 
 |   n |   poa_highest |   poa_highest_count |   pos_highest |   pos_highest_count |
 |----:|--------------:|--------------------:|--------------:|--------------------:|
@@ -777,6 +805,7 @@ In this case, we know from the theory that PoS=1 and PoA≤2.Moreover, there is 
 |   6 |          1.67 |                  16 |          1.00 |                 275 |
 |   7 |          1.67 |                  90 |          1.00 |                3157 |
 |   8 |          1.83 |                 167 |          1.00 |               66594 |
+|   9 |          2.00 |                 283 |          1.00 |             2587487 |
 
 ### k=4, m=1
 
@@ -788,3 +817,4 @@ In this case, we know from the theory that PoA≤3 and PoS≤$\frac{10}{9}$. Mor
 |   6 |          2.00 |                  16 |          1.11 |                   2 |
 |   7 |          2.25 |                  60 |          1.11 |                   2 |
 |   8 |          3.00 |                  54 |          1.11 |                   2 |
+|   9 |          3.00 |                  54 |          1.11 |                   2 |
