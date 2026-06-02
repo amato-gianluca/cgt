@@ -547,7 +547,7 @@ In the following experiments we are using 0 and odd prime numbers 3, 5, ... as w
 ## Prices of anarchy and stability
 
 For each value of $k$, $n$ and $m$, we compute the highest value for the *price of anarchy* and the *price of stability*, at the same time counting the number of
-cases where these extremal values have been reached. Timeout for each combination of $k$, $n$ and $m$ is one hour.
+cases where these extremal values have been reached. Timeout for each combination of $k$, $n$ and $m$ is 24 hour.
 
 For example, for $k=3$, $n=4$ and $m=5$ we have `poa_highest` equal to $2$ and `poa_highest_count` equal to $1$. This means that:
   * among all the games with $k=3$, $n=4$ and $m=5$, the highest value of PoA is $2$;
@@ -557,7 +557,7 @@ Keep into consideration that:
   * all internal computation is done using integer or rational numbers, even if prices shown as a float with two decimal positions. Hence, the value for the counts are exact;
   * on the other side, the count is affected by the fact that the generation procedure is not able to remove all isomorhic copies of the same game.
 
-We also computed the lowest values for PoA and PoS in the same combinations, but we do not report the results in the table since in all cases these values vere equal to one.
+We also computed the lowest values for PoA and PoS in the same combinations, but we do not report the results in the table since in all cases these values were equal to one.
 
 |   k |   n |   m |   poa_highest |   poa_highest_count |   pos_highest |   pos_highest_count |
 |----:|----:|----:|--------------:|--------------------:|--------------:|--------------------:|
@@ -745,7 +745,7 @@ We now show some tables for specific cases.
 
 ### k=2, m=1
 
-In this case, we know from the theory that PoS=1 and PoA≤2. Moreover, there is a game with 4 agents and PoA=2.  The experimental results validate the theoretical ones and show that there is no game with PoA=2 with less than 4 agents.
+In this case, we know from the theory that PoS=1 and PoA≤2. Moreover, there is a game with 4 agents and PoA=2. The experimental results validate the theoretical ones and show that there is no game with PoA=2 with less than 4 agents.
 
 |   n |   poa_highest |   poa_highest_count |   pos_highest |   pos_highest_count |
 |----:|--------------:|--------------------:|--------------:|--------------------:|
