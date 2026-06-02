@@ -329,6 +329,22 @@ class HedonicGame:
             for cs in hgimpl.css(self.agent_count, self._k):
                 yield CoalitionStructure(self, cs)
 
+    def coalition_structures_as_nx(
+        self, cs_size: int | None = None
+    ) -> tuple[nx.DiGraph["CoalitionStructure"], set["CoalitionStructure"]]:
+        equilibria = set()
+        graph = nx.DiGraph()
+        graph.add_nodes_from(self.coalition_structures())
+        for cs in self.coalition_structures():
+            equilibrium = True
+            for ag, co in cs.improving_deviations():
+                equilibrium = False
+                cs_new = cs.move_to(ag, co)
+                graph.add_edge(cs, cs_new)
+            if equilibrium:
+                equilibria.add(cs)
+        return graph, equilibria
+
     def isolated_coalition_structure(self) -> "CoalitionStructure":
         """
         Return the isolated coalition structure of the game.
