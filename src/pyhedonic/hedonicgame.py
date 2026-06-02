@@ -554,6 +554,9 @@ class CoalitionStructure:
             return False
         return self.game == value.game and np.array_equal(self.cs, value.cs)
 
+    def __hash__(self):
+        return hash(self.cs.tobytes())
+
     @property
     def size(self) -> int:
         """
