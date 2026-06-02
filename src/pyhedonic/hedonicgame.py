@@ -642,7 +642,7 @@ class CoalitionStructure:
         improve its utility.
         """
         assert 0 <= ag < len(self.cs), "Agent number out of range."
-        for co_new in range(self.size + 1):
+        for co_new in range(min(self.size + 1, self.game.agent_count)):
             if self.is_improving_deviation(ag, co_new):
                 yield co_new
 
