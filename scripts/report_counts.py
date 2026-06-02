@@ -16,6 +16,7 @@ import yaml
 type GCILike = dict[str, Any]
 type InputData = list[GCILike]
 
+args: argparse.Namespace
 
 def yaml_load(filename: str) -> InputData:
     """
@@ -66,7 +67,13 @@ def total_games(df: pd.DataFrame):
     pivot = pivot.astype(object)
     pivot = pivot.replace(-1, "(to)")
     pivot = pivot.replace(-2, "")
-    print(pivot.to_markdown())
+    if args.latex:
+        print(pivot.to_latex(escape=False))
+    else:
+        print(pivot.to_markdown())
+
+def format_number(x: int) -> str:
+    return str(x) if args.latex else f"**{x}**"
 
 
 def noequilibrium_games(df: pd.DataFrame):
@@ -82,15 +89,20 @@ def noequilibrium_games(df: pd.DataFrame):
         pivot = pivot.astype(object)
         pivot.iloc[:, :] = pivot.iloc[:, :].map(
             lambda x: (
-                "" if x == -2 else "(to)" if x == -1 else f"**{x}**" if x > 0 else "0"
+                "" if x == -2 else "(to)" if x == -1 else format_number(x) if x > 0 else "0"
             )
         )
         pivot.index.name = "m\\n"
         print(f"\n\n### k={k}\n")
-        print(pivot.to_markdown())
+        if args.latex:
+            print(pivot.to_latex(escape=False))
+        else:
+            print(pivot.to_markdown())
 
 
 def main():
+    global args
+
     parser = argparse.ArgumentParser(
         prog="report_counts.py",
         description="""
@@ -125,6 +137,11 @@ def main():
         "-t",
         "--totals",
         help="report about total games instead of unstable ones",
+        action="store_true",
+    )
+    parser.add_argument(
+        "--latex",
+        help="output the tables in LaTeX format instead of markdown",
         action="store_true",
     )
     args = parser.parse_args()

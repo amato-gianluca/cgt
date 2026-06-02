@@ -41,7 +41,6 @@ def generate_df(data: InputData) -> pd.DataFrame:
 
 
 def main():
-
     parser = argparse.ArgumentParser(
         prog="report_prices.py",
         description="""
@@ -57,6 +56,11 @@ def main():
     parser.add_argument("-k", help="specify the required valued of k to report about")
     parser.add_argument("-m", help="specify the required valued of m to report about")
     parser.add_argument("-n", help="specify the required valued of n to report about")
+    parser.add_argument(
+        "--latex",
+        help="output the tables in LaTeX format instead of markdown",
+        action="store_true",
+    )
     args = parser.parse_args()
 
     data = yaml_load(args.input)
@@ -86,7 +90,10 @@ def main():
     if args.n is not None:
         prices = prices[prices["n"] == int(args.n)]
         prices.drop(columns=["n"], inplace=True)
-    print(prices.to_markdown(index=False, floatfmt=".2f"))
+    if args.latex:
+        print(prices.to_latex(index=False, float_format="%.2f"))
+    else:
+        print(prices.to_markdown(index=False, floatfmt=".2f"))
 
 
 if __name__ == "__main__":
