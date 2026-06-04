@@ -714,8 +714,7 @@ class CoalitionStructure:
 
         if self.game.k is not None and self._sizes[co_new] == self.game.k:
             return False
-        co_old = self.cs[ag]
-        if co_old == co_new:
+        if self.cs[ag] == co_new:
             return False
         ut_old, size_old = hgimpl.agent_utility(self.game.valuations, self.cs, ag)
         ut_new, size_new = hgimpl.agent_utility_co(
