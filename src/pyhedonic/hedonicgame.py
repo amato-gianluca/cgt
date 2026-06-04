@@ -91,18 +91,18 @@ class Graph:
             else not np.array_equal(weights, weights.T)
         )
 
-    def __eq__(self, value: object) -> bool:
+    def __eq__(self, other: object) -> bool:
         """
         Compare the graph with another object.
 
         The graph is equal to another object if the latter is a graph with the same
         weights and the same directedness.
         """
-        if not isinstance(value, Graph):
-            return False
+        if not isinstance(other, Graph):
+            return NotImplemented
         return (
-            np.array_equal(self.weights, value.weights)
-            and self.is_directed() == value.is_directed()
+            np.array_equal(self.weights, other.weights)
+            and self.is_directed() == other.is_directed()
         )
 
     @property
@@ -295,19 +295,19 @@ class HedonicGame:
         self._k = k
         self._is_fractional = is_fractional
 
-    def __eq__(self, value: object) -> bool:
+    def __eq__(self, other: object) -> bool:
         """
         Compare the game with another object.
 
         A game is equal to another object if the latter is a game with the same weights
         and same values of k and is_fractional.
         """
-        if not isinstance(value, HedonicGame):
-            return False
+        if not isinstance(other, HedonicGame):
+            return NotImplemented
         return (
-            self.graph == value.graph
-            and self._k == value._k
-            and self.is_fractional() == value.is_fractional()
+            self.graph == other.graph
+            and self._k == other._k
+            and self.is_fractional() == other.is_fractional()
         )
 
     def coalition_structures(
