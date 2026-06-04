@@ -51,16 +51,16 @@ def test_CoalitionStructure_coalition_size():
 
 
 def test_CoalitionStructure_agent_utility():
-    assert GAME1_FRAC_CS1.agent_utility(0) == 1
-    assert GAME1_FRAC_CS1.agent_utility(1) == 0
-    assert GAME1_FRAC_CS1.agent_utility(2) == 1
+    assert GAME1_FRAC_CS1.agent_utility(0).to_fraction() == 1
+    assert GAME1_FRAC_CS1.agent_utility(1).to_fraction() == 0
+    assert GAME1_FRAC_CS1.agent_utility(2).to_fraction() == 1
     assert GAME1_NOFRAC_CS1.agent_utility(0) == 2
     assert GAME1_NOFRAC_CS1.agent_utility(1) == 0
 
 
 def test_CoalitionStructure_agent_utility_fractional():
-    assert GAME1_FRAC_CS2.agent_utility(0) == Fraction(2, 3)
-    assert GAME1_FRAC_CS2.agent_utility(1) == Fraction(4, 3)
+    assert GAME1_FRAC_CS2.agent_utility(0) == hg.FractionalAgentUtility(2, 3)
+    assert GAME1_FRAC_CS2.agent_utility(1) == hg.FractionalAgentUtility(4, 3)
 
 
 def test_CoalitionStructure_coalition_social_welfare():

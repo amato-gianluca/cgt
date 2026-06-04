@@ -142,27 +142,27 @@ def assert_game_collection_info(
 
 
 def test_agent_utility_co():
-    assert hgimpl.agent_utility_co(GAME1, GAME1_CS1, ag=0, co=0) == (0, 1)
-    assert hgimpl.agent_utility_co(GAME1, GAME1_CS1, ag=0, co=1) == (2, 2)
-    assert hgimpl.agent_utility_co(GAME1, GAME1_CS1, ag=1, co=0) == (0, 1)
-    assert hgimpl.agent_utility_co(GAME1, GAME1_CS1, ag=1, co=1) == (4, 2)
+    assert hgimpl.agent_utility_co(GAME1, GAME1_CS1, ag=0, co=0) == hgimpl.AgentUtility(0, 2)
+    assert hgimpl.agent_utility_co(GAME1, GAME1_CS1, ag=0, co=1) == hgimpl.AgentUtility(2, 2)
+    assert hgimpl.agent_utility_co(GAME1, GAME1_CS1, ag=1, co=0) == hgimpl.AgentUtility(0, 1)
+    assert hgimpl.agent_utility_co(GAME1, GAME1_CS1, ag=1, co=1) == hgimpl.AgentUtility(4, 3)
     # non existent coalition
-    assert hgimpl.agent_utility_co(GAME1, GAME1_CS1, ag=0, co=2) == (0, 0)
-    assert hgimpl.agent_utility_co(GAME1, GAME1_CS1, ag=1, co=2) == (0, 0)
+    assert hgimpl.agent_utility_co(GAME1, GAME1_CS1, ag=0, co=2) == hgimpl.AgentUtility(0, 1)
+    assert hgimpl.agent_utility_co(GAME1, GAME1_CS1, ag=1, co=2) == hgimpl.AgentUtility(0, 1)
 
 
 def test_agent_utility():
-    assert hgimpl.agent_utility(GAME1, GAME1_CS1, ag=0) == (2, 2)
-    assert hgimpl.agent_utility(GAME1, GAME1_CS1, ag=1) == (0, 1)
-    assert hgimpl.agent_utility(GAME1, GAME1_CS2, ag=1) == (4, 3)
+    assert hgimpl.agent_utility(GAME1, GAME1_CS1, ag=0) == hgimpl.AgentUtility(2, 2)
+    assert hgimpl.agent_utility(GAME1, GAME1_CS1, ag=1) == hgimpl.AgentUtility(0, 1)
+    assert hgimpl.agent_utility(GAME1, GAME1_CS2, ag=1) == hgimpl.AgentUtility(4, 3)
 
 
 def test_coalition_social_welfare():
-    assert hgimpl.coalition_social_welfare(GAME1, GAME1_CS1, co=0) == (0, 1)
-    assert hgimpl.coalition_social_welfare(GAME1, GAME1_CS1, co=1) == (4, 2)
-    assert hgimpl.coalition_social_welfare(GAME1, GAME1_CS2, co=0) == (8, 3)
+    assert hgimpl.coalition_social_welfare(GAME1, GAME1_CS1, co=0) == hgimpl.Rational(0, 1)
+    assert hgimpl.coalition_social_welfare(GAME1, GAME1_CS1, co=1) == hgimpl.Rational(4, 2)
+    assert hgimpl.coalition_social_welfare(GAME1, GAME1_CS2, co=0) == hgimpl.Rational(8, 3)
     # non-existent coalition
-    assert hgimpl.coalition_social_welfare(GAME1, GAME1_CS2, co=1) == (0, 0)
+    assert hgimpl.coalition_social_welfare(GAME1, GAME1_CS2, co=1) == hgimpl.Rational(0, 0)
 
 
 def test_is_improving_deviation():

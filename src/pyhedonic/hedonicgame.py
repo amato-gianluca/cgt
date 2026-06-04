@@ -6,7 +6,9 @@ module.
 """
 
 from collections.abc import Iterable, Iterator
+from dataclasses import dataclass
 from fractions import Fraction
+from functools import total_ordering
 from typing import NamedTuple
 
 import networkx as nx
@@ -46,6 +48,42 @@ class PriceResult(NamedTuple):
 
     cs_best: "CoalitionStructure"
     """Optimal coalition structure with the best social welfare"""
+
+
+@total_ordering
+@dataclass(frozen=True)
+class FractionalAgentUtility:
+    """
+    A dataclass to store the utility of an agent in a fractional game. It contains
+    the sum of the valuations and the size of the coalition of the agent.
+    """
+
+    value: int
+    """The sum of the valuations."""
+
+    size: int
+    """The size of the coalition of the agent."""
+
+    def to_fraction(self) -> Fraction:
+        """
+        Convert the utility to a fraction.
+        """
+        return Fraction(self.value, self.size)
+
+    def __lt__(self, other) -> bool:
+        """
+        Compare the utility with another utility.
+
+        The comparison is done by comparing the values of the utilities, after converting
+        them to fractions.
+        """
+        if self.value == other.value == 0:
+            return self.size > other.size
+        else:
+            return self.value * other.size < other.value * self.size
+
+    def __str__(self) -> str:
+        return f"{self.value}/{self.size}"
 
 
 class Graph:
@@ -600,13 +638,22 @@ class CoalitionStructure:
         assert 0 <= ag < len(self.cs), "Agent number out of range."
         return self.cs[ag]
 
-    def agent_utility(self, ag: Agent) -> int | Fraction:
+    def agent_utility(
+        self, ag: Agent, co: Coalition | None = None
+    ) -> int | FractionalAgentUtility:
         """
-        Returns the utility of the given agent.
+        Returns the utility of the given agent. If co is provided, the utility is computed as if the agent were in coalition co.
         """
         assert 0 <= ag < len(self.cs), "Agent number out of range."
-        val, size = hgimpl.agent_utility(self.game.valuations, self.cs, ag)
-        return Fraction(val, size) if self.game.is_fractional() else val
+        assert co is None or (0 <= co < self.size + 1 and co < self.game.agent_count), (
+            "Coalition number out of range."
+        )
+        val, size = (
+            hgimpl.agent_utility(self.game.valuations, self.cs, ag)
+            if co is None
+            else hgimpl.agent_utility_co(self.game.valuations, self.cs, ag, co)
+        )
+        return FractionalAgentUtility(val, size) if self.game.is_fractional() else val
 
     def coalition_social_welfare(self, co: Coalition) -> int | Fraction:
         """
@@ -649,9 +696,9 @@ class CoalitionStructure:
         if not self.game.is_fractional():
             return ut_new > ut_old
         elif ut_old == ut_new == 0:
-            return size_new + 1 < size_old
+            return size_new < size_old
         else:
-            return ut_new * size_old > ut_old * (size_new + 1)
+            return ut_new * size_old > ut_old * size_new
 
     def improving_deviations_for_agents(self, ag: Agent) -> Iterable[Coalition]:
         """

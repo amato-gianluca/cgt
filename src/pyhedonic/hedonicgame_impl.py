@@ -95,6 +95,35 @@ def rational_to_float(self: Rational) -> float:
     return self.numerator / self.denominator
 
 
+class AgentUtility(NamedTuple):
+    """
+    A dataclass to store the utility of an agent in a fractional game. It contains
+    the sum of the valuations and the size of the coalition of the agent.
+    """
+
+    value: int
+    """The sum of the valuations."""
+
+    size: int
+    """The size of the coalition of the agent."""
+
+
+@njit
+def fau_lt(ut1: AgentUtility, ut2: AgentUtility, is_fractional: bool) -> bool:
+    """
+    Compare the utility with another utility.
+
+    The comparison is done by comparing the values of the utilities, after converting
+    them to fractions.
+    """
+    if is_fractional:
+        return ut1.value < ut2.value
+    elif ut1.value == ut2.value == 0:
+        return ut1.size > ut2.size
+    else:
+        return ut1.value * ut2.size < ut2.value * ut1.size
+
+
 class Deviation(NamedTuple):
     """A deviation in a coalition structure"""
 
@@ -111,13 +140,13 @@ def agent_utility_co(
     cs: CoalitionStructure,
     ag: Agent,
     co: Coalition,
-) -> tuple[int, int]:
+) -> AgentUtility:
     """
     Compute the utility of the agent ag w.r.t. the coalition co in the given game and
     coalition structure.
 
     It returns two values: the sum of the valuations of ag w.r.t. the agents in co and
-    the number of agents in co.
+    the number of agents in co (including ag if not already in co).
     """
     ut = 0
     size = 0
@@ -125,11 +154,13 @@ def agent_utility_co(
         if cs[j] == co:
             ut += game[ag, j]
             size += 1
-    return ut, size
+    if cs[ag] != co:
+        size += 1
+    return AgentUtility(ut, size)
 
 
 @njit
-def agent_utility(game: Game, cs: CoalitionStructure, ag: Agent) -> tuple[int, int]:
+def agent_utility(game: Game, cs: CoalitionStructure, ag: Agent) -> AgentUtility:
     """
     Compute the utility of the agent ag in the given game.
 
@@ -142,7 +173,7 @@ def agent_utility(game: Game, cs: CoalitionStructure, ag: Agent) -> tuple[int, i
 @njit
 def coalition_social_welfare(
     game: Game, cs: CoalitionStructure, co: Coalition
-) -> tuple[int, int]:
+) -> Rational:
     """
     Compute the social welfare of the coalition co in the given game and coalition
     structure.
@@ -159,7 +190,7 @@ def coalition_social_welfare(
             for j in range(agent_count):
                 if cs[j] == co:
                     ut += game[i, j]
-    return ut, size
+    return Rational(ut, size)
 
 
 @njit
