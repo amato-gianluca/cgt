@@ -395,19 +395,35 @@ class HedonicGame:
                 yield CoalitionStructure(self, cs)
 
     def coalition_structures_as_nx(
-        self, cs_size: int | None = None
-    ) -> tuple[nx.DiGraph["CoalitionStructure"], set["CoalitionStructure"]]:
-        equilibria = set()
+        self, cs_size: int | None = None, best_response_only: bool = False
+    ) -> tuple[nx.DiGraph["CoalitionStructure"], list["CoalitionStructure"]]:
+        """
+        Return the coalition structures of the game as a networkx graph, where the
+        nodes are the coalition structures and there is an edge from cs to cs' if cs'
+        can be obtained from cs by an improving deviation. It also returns the
+        list of Nash stable coalition structures.
+
+        If best_response_only is True, only edges corresponding to best response
+        deviations are included in the graph. Otherwise, all improving deviations are
+        included.
+        """
+        equilibria = []
         graph = nx.DiGraph()
-        graph.add_nodes_from(self.coalition_structures())
-        for cs in self.coalition_structures():
+        graph.add_nodes_from(self.coalition_structures(cs_size))
+        for cs in self.coalition_structures(cs_size):
             equilibrium = True
-            for ag, co in cs.improving_deviations():
-                equilibrium = False
-                cs_new = cs.move_to(ag, co)
-                graph.add_edge(cs, cs_new)
+            if best_response_only:
+                for ag, co in cs.best_improving_deviations():
+                    equilibrium = False
+                    cs_new = cs.move_to(ag, co)
+                    graph.add_edge(cs, cs_new)
+            else:
+                for ag, co in cs.improving_deviations():
+                    equilibrium = False
+                    cs_new = cs.move_to(ag, co)
+                    graph.add_edge(cs, cs_new)
             if equilibrium:
-                equilibria.add(cs)
+                equilibria.append(cs)
         return graph, equilibria
 
     def isolated_coalition_structure(self) -> "CoalitionStructure":
@@ -749,6 +765,19 @@ class CoalitionStructure:
         for ag in self.game.agents():
             for co_new in self.improving_deviations_for_agents(ag):
                 yield ag, co_new
+
+    def best_improving_deviations(self) -> Iterable[tuple[Agent, Coalition]]:
+        """
+        Iterates over the best improving deviations of the coalition structure.
+        """
+        return hgimpl.best_improving_deviations(
+            self.game.valuations,
+            self.game.is_fractional(),
+            self.cs,
+            self._sizes,
+            len(self._sizes),
+            self.game.k,
+        )
 
     def move_to(self, ag: Agent, co_new: Coalition) -> "CoalitionStructure":
         """

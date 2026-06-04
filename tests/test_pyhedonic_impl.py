@@ -20,7 +20,8 @@ GAME1_CS1 = np.array([1, 0, 1])
 GAME1_CS1_SIZES = np.array([1, 2, 0])
 GAME1_CS2 = np.array([0, 0, 0])
 GAME1_CS2_SIZES = np.array([3, 0, 0])
-
+GAME1_CS3 = np.array([0, 1, 2])
+GAME1_CS3_SIZES = np.array([1, 1, 1])
 
 GAME2 = np.array(
     [
@@ -204,6 +205,19 @@ def test_improving_deviations():
         )
         == []
     )
+    assert (
+        list(
+            hgimpl.improving_deviations(
+                GAME1,
+                True,
+                GAME1_CS3,
+                GAME1_CS3_SIZES,
+                co_max=len(GAME1_CS3_SIZES),
+                k=None,
+            )
+        )
+        == [(0, 2), (1, 0), (1, 2), (2, 0)]
+    )
     assert list(
         hgimpl.improving_deviations(
             GAME2, True, GAME2_CS1, GAME2_CS1_SIZES, co_max=len(GAME2_CS1_SIZES), k=None
@@ -240,6 +254,77 @@ def test_improving_deviations():
     assert list(
         hgimpl.improving_deviations(GAME5, True, GAME5_CS1, GAME5_CS1_SIZES, 3, None)
     ) == [(0, 1), (0, 2), (1, 0), (1, 2), (2, 0), (2, 1)]
+
+
+def test_best_improving_deviations():
+    assert list(
+        hgimpl.best_improving_deviations(
+            GAME1, True, GAME1_CS1, GAME1_CS1_SIZES, co_max=len(GAME1_CS1_SIZES), k=None
+        )
+    ) == [(1, 1)]
+    assert (
+        list(
+            hgimpl.best_improving_deviations(
+                GAME1,
+                True,
+                GAME1_CS2,
+                GAME1_CS2_SIZES,
+                co_max=len(GAME1_CS2_SIZES),
+                k=None,
+            )
+        )
+        == []
+    )
+    assert (
+        list(
+            hgimpl.best_improving_deviations(
+                GAME1,
+                True,
+                GAME1_CS3,
+                GAME1_CS3_SIZES,
+                co_max=len(GAME1_CS3_SIZES),
+                k=None,
+            )
+        )
+        == [(0, 2), (1, 2), (2, 0)]
+    )
+    assert list(
+        hgimpl.best_improving_deviations(
+            GAME2, True, GAME2_CS1, GAME2_CS1_SIZES, co_max=len(GAME2_CS1_SIZES), k=None
+        )
+    ) == [(1, 1)]
+    assert (
+        list(
+            hgimpl.best_improving_deviations(
+                GAME2,
+                False,
+                GAME2_CS1,
+                GAME2_CS1_SIZES,
+                co_max=len(GAME2_CS1_SIZES),
+                k=None,
+            )
+        )
+        == []
+    )
+    assert list(
+        hgimpl.best_improving_deviations(
+            GAME3, True, GAME3_CS1, GAME3_CS1_SIZES, co_max=len(GAME3_CS1_SIZES), k=None
+        )
+    ) == [(1, 1), (1, 2), (2, 1), (2, 2)]
+    assert list(
+        hgimpl.best_improving_deviations(
+            GAME3, True, GAME3_CS1, GAME3_CS1_SIZES, co_max=len(GAME3_CS1_SIZES), k=None
+        )
+    ) == [(1, 1), (1, 2), (2, 1), (2, 2)]
+    assert list(
+        hgimpl.best_improving_deviations(
+            GAME3, True, GAME3_CS1, GAME3_CS1_SIZES, co_max=1, k=None
+        )
+    ) == [(1, 1), (2, 1)]
+    assert list(
+        hgimpl.best_improving_deviations(GAME5, True, GAME5_CS1, GAME5_CS1_SIZES, 3, None)
+    ) == [(0, 1), (0, 2), (1, 0), (1, 2), (2, 0), (2, 1)]
+
 
 
 def test_css_givensize():

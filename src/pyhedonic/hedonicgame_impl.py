@@ -328,6 +328,85 @@ def improving_deviations(
         )
 
 
+@njit
+def next_best_improving_deviation(
+    game: Game,
+    is_fractional: bool,
+    cs: CoalitionStructure,
+    cs_sizes: IntArray1D,
+    max_coalition: int,
+    k: int | None,
+    dev: Deviation = Deviation(0, -1),
+    maxut: AgentUtility = AgentUtility(-1, 1),
+) -> tuple[Deviation, AgentUtility] | None:
+    """
+    Return the next best improving deviation in the given game and coalition structure,
+    None if there are no more deviations.
+    """
+    ag, co = dev
+    while ag < len(game):
+        if maxut == AgentUtility(-1, 1):
+            for candidate_co in range(co + 1, min(max_coalition + 1, len(cs_sizes))):
+                if is_improving_deviation(
+                    game, is_fractional, cs, cs_sizes, Deviation(ag, candidate_co)
+                ):
+                    ut = agent_utility_co(game, cs, ag, candidate_co)
+                    if fau_lt(maxut, ut, is_fractional):
+                        maxut = ut
+        co += 1
+        while co <= max_coalition and co < len(cs_sizes):
+            if k is None or cs_sizes[co] < k:
+                dev = Deviation(ag, co)
+                if is_improving_deviation(game, is_fractional, cs, cs_sizes, dev):
+                    ut = agent_utility_co(game, cs, ag, co)
+                    if ut == maxut:
+                        return dev, ut
+            co += 1
+        ag += 1
+        maxut = AgentUtility(-1, 1)
+        co = -1
+    return None
+
+
+@njit
+def best_improving_deviations(
+    game: Game,
+    is_fractional: bool,
+    cs: CoalitionStructure,
+    cs_sizes: IntArray1D,
+    co_max: int,
+    k: int | None,
+) -> Iterator[Deviation]:
+    """
+    Return a Python iterator of improving deviations for the given game and coalition
+    structure.
+
+    Normally, the maximum target coalition in an improving deviation is equal to
+    len(cs_sizes). However, the parameter co_max may be used to further restrict this
+    value.
+    """
+    res = next_best_improving_deviation(game, is_fractional, cs, cs_sizes, co_max, k)
+    while res is not None:
+        dev, ut = res
+        # cannot directly yield dev due to limitations of Numba
+        yield Deviation(dev.ag, dev.co)
+        res = next_best_improving_deviation(
+            game, is_fractional, cs, cs_sizes, co_max, k, dev, ut
+        )
+
+
+@njit
+def list_best_improving_deviations(
+    game: Game,
+    is_fractional: bool,
+    cs: CoalitionStructure,
+    cs_sizes: IntArray1D,
+    co_max: int,
+    k: int | None,
+) -> list[Deviation]:
+    return list(best_improving_deviations(game, is_fractional, cs, cs_sizes, co_max, k))
+
+
 class CoalitionStructureIterator(NamedTuple):
     """An iterator over coalition structures."""
 
