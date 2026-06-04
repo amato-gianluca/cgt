@@ -348,6 +348,33 @@ class HedonicGame:
             and self.is_fractional() == other.is_fractional()
         )
 
+    def coalition_structure_from_groups(
+        self, coalitions: Iterable[Iterable[int]]
+    ) -> "CoalitionStructure":
+        """
+        Return the coalition structure corresponding to the given list of coalitions.
+
+        The list of coalitions should be a partition of the set of agents. The i-th
+        element of the list is the set of agents in the i-th coalition.
+        """
+        cs = np.full(self.agent_count, -1, dtype=np.int_)
+        for i, co in enumerate(coalitions):
+            for ag in co:
+                assert 0 <= ag < self.agent_count, "Agent number out of range."
+                assert cs[ag] == -1, "Agent appears in more than one coalition."
+                cs[ag] = i
+        assert np.all(cs >= 0), "Some agent does not appear in any coalition."
+        CoalitionStructure._normalize(cs)
+        return CoalitionStructure(self, cs)
+
+    def coalition_structure_from_indices(
+        self, cs: Iterable[int]
+    ) -> "CoalitionStructure":
+        """
+        Return the coalition structure corresponding to the given list of coalition indices.
+        """
+        return CoalitionStructure(self, np.array(cs, dtype=np.int_))
+
     def coalition_structures(
         self, cs_size: int | None = None
     ) -> Iterator["CoalitionStructure"]:
