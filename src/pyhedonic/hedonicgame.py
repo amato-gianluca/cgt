@@ -215,7 +215,7 @@ class Graph:
 
     def to_nx_graph(self) -> nx.Graph | nx.DiGraph:
         """
-        Convert the game in the networkx format.
+        Convert the game to the networkx format.
 
         All the edges in the resulting graph have the weight attribute.
         """
@@ -321,7 +321,7 @@ class HedonicGame:
         is_fractional: bool = True,
     ):
         """
-        Creates a hedonic game from the given graph.
+        Creates an hedonic game from the given graph.
         """
         assert k is None or k >= 0, (
             "The maximum size of the coalitions should be non-negative."
@@ -508,7 +508,8 @@ class HedonicGame:
         self,
     ) -> tuple["CoalitionStructure", int | Fraction]:
         """
-        Return one of the optimal coalition structures of the game and the corresponding social welfare.
+        Return one of the optimal coalition structures of the game and the corresponding
+        social welfare.
         """
         if not self.is_directed() and self._k == 2:
             return self._optimal_coalition_structure_fast()
