@@ -5,8 +5,9 @@ cycle, by verifying that the cycle is indeed a sequence of improving deviations.
 It also check that some of these deviations are not the best possible ones.
 """
 
-from pyhedonic import hedonicgame as hg
 import numpy as np
+
+from pyhedonic import hedonicgame as hg
 
 # fmt: off
 edges = [

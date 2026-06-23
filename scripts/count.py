@@ -71,6 +71,12 @@ def yaml_log(
 
 
 def json_serialize(obj: Any) -> Any:
+    """
+    Serialize an object to a JSON-compatible format.
+
+    This is needed to serialize numpy arrays and other non-serializable objects.
+    """
+
     if isinstance(obj, np.ndarray):
         return obj.tolist()
     if isinstance(obj, dict):
@@ -122,6 +128,10 @@ def parse_range(s: str) -> range:
 
 
 def _runner(q: mp.Queue, fn: Callable, args: tuple, kwargs: dict):
+    """
+    Run a function and put the result in a queue. This is used to run a function in a separate
+    process with a timeout.
+    """
     try:
         q.put((True, fn(*args, **kwargs)))
     except BaseException as e:
@@ -129,6 +139,10 @@ def _runner(q: mp.Queue, fn: Callable, args: tuple, kwargs: dict):
 
 
 def run_with_timeout(fn: Callable, timeout: float | None, *args, **kwargs) -> Any:
+    """
+    Run a function with a timeout. If the function does not return within the timeout, it is
+    terminated and a TimeoutError is raised.
+    """
     ctx = mp.get_context("spawn")  # cross-platform, safe with numba too
     q = ctx.Queue()
     p = ctx.Process(target=_runner, args=(q, fn, args, kwargs))
@@ -149,6 +163,9 @@ def run_with_timeout(fn: Callable, timeout: float | None, *args, **kwargs) -> An
 
 
 def yaml_load(filename: str) -> list[dict[str, Any]]:
+    """
+    Loads the data containing the results of previous computations from a yaml file.
+    """
     with open(filename, "r") as f:
         data = list(yaml.load_all(f, Loader=yaml.FullLoader))
     return data
@@ -162,6 +179,10 @@ def skip_processing(
     weights: Any,
     timeout: float | None,
 ) -> bool:
+    """
+    Check if a given processing step should be skipped based on the results of previous
+    computations.
+    """
     for ex in data:
         if (
             ex["k"] == k
@@ -175,6 +196,10 @@ def skip_processing(
 
 
 def count_with_timing(**kwargs) -> tuple[tuple[int, int, Game | None], float]:
+    """
+    Execute the count_unstable_games function and measure the elapsed time. Returns a tuple
+    containing the result of the function and the elapsed time in seconds.
+    """
     # I tried to generalize count_with_timing to make it works with any function, but this
     # interferes with numba caching.
     start_time = time.time()
@@ -183,7 +208,11 @@ def count_with_timing(**kwargs) -> tuple[tuple[int, int, Game | None], float]:
     return (res, elapsed_time)
 
 
-def prices_with_timing(**kwargs) -> tuple[GameCollectionInfo | None, float]:
+def game_collection_info_with_timing(**kwargs) -> tuple[GameCollectionInfo | None, float]:
+    """
+    Execute the game_collection_info function and measure the elapsed time. Returns a tuple
+    containing the result of the function and the elapsed time in seconds.
+    """
     start_time = time.time()
     res = game_collection_info(**kwargs)
     elapsed_time = time.time() - start_time
@@ -257,7 +286,7 @@ def main():
                     print("k:", k, "n:", n, "m: ", m, "------ SKIPPED")
                     continue
                 print("k:", k, "n:", n, "m: ", m)
-                fn = prices_with_timing if args.prices else count_with_timing
+                fn = game_collection_info_with_timing if args.prices else count_with_timing
                 result = None
                 try:
                     result, elapsed_time = run_with_timeout(
