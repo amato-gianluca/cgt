@@ -53,8 +53,9 @@ type Weights = IntArray1D
 @njit
 def lcm_upto(m: int) -> int:
     """
-    Compute the least common multiple of the natural numbers from 1 to m. This is used
-    when converting fractional games to integer games.
+    Compute the least common multiple of the natural numbers from 1 to m.
+
+    This is used when converting fractional games to integer games.
     """
     lcm = 1
     for i in range(2, m + 1):
@@ -65,22 +66,29 @@ def lcm_upto(m: int) -> int:
 class Rational(NamedTuple):
     """
     A rational number, represented as a pair of integers (numerator and denominator).
-    Positive and negative infinity may be represented as a positive or negative
-    numerator and a zero denominator. However, NaN's are not supported.
+
+    Positive and negative infinity may be represented as a positive or negative numerator and a zero
+    denominator. However, NaN's are not supported.
     """
 
     numerator: int
-    """Numerator of the rational number"""
+    """
+    Numerator of the rational number.
+    """
 
     denominator: int
-    """Denominator of the rational number"""
+    """
+    Denominator of the rational number.
+    """
 
 
 @njit
 def rational_compare(self: Rational, other: Rational) -> int:
     """
-    Compare two rational numbers. Return a positive value if self > other, a negative
-    value if self < other, and zero if self == other.
+    Compare two rational numbers.
+
+    Return a positive value if self > other, a negative value if self < other, and zero if self ==
+    other.
     """
     v1 = self.numerator * other.denominator
     v2 = other.numerator * self.denominator
@@ -90,22 +98,29 @@ def rational_compare(self: Rational, other: Rational) -> int:
 @njit
 def rational_to_float(self: Rational) -> float:
     """
-    Convert a rational number to a float. Rounding errors may occur.
+    Convert a rational number to a float.
+
+    Rounding errors may occur.
     """
     return self.numerator / self.denominator
 
 
 class AgentUtility(NamedTuple):
     """
-    A dataclass to store the utility of an agent in a fractional game. It contains
-    the sum of the valuations and the size of the coalition of the agent.
+    A dataclass to store the utility of an agent in a fractional game.
+
+    It contains the sum of the valuations and the size of the coalition of the agent.
     """
 
     value: int
-    """The sum of the valuations."""
+    """
+    The sum of the valuations.
+    """
 
     size: int
-    """The size of the coalition of the agent."""
+    """
+    The size of the coalition of the agent.
+    """
 
 
 @njit
@@ -113,8 +128,8 @@ def fau_lt(ut1: AgentUtility, ut2: AgentUtility, is_fractional: bool) -> bool:
     """
     Compare the utility with another utility.
 
-    The comparison is done by comparing the values of the utilities, after converting
-    them to fractions.
+    The comparison is done by comparing the values of the utilities, after converting them to
+    fractions.
     """
     if is_fractional:
         return ut1.value < ut2.value
@@ -125,13 +140,19 @@ def fau_lt(ut1: AgentUtility, ut2: AgentUtility, is_fractional: bool) -> bool:
 
 
 class Deviation(NamedTuple):
-    """A deviation in a coalition structure"""
+    """
+    A deviation in a coalition structure.
+    """
 
     ag: Agent
-    """Agent performing the deviation"""
+    """
+    Agent performing the deviation.
+    """
 
     co: Coalition
-    """New coalition of the agent"""
+    """
+    New coalition of the agent.
+    """
 
 
 @njit
@@ -142,8 +163,9 @@ def agent_utility_co(
     co: Coalition,
 ) -> AgentUtility:
     """
-    Compute the utility of the agent ag w.r.t. the coalition co in the given game and
-    coalition structure.
+    Compute the utility of the agent ag w.r.t.
+
+    the coalition co in the given game and coalition structure.
 
     It returns two values: the sum of the valuations of ag w.r.t. the agents in co and
     the number of agents in co (including ag if not already in co).
@@ -171,12 +193,9 @@ def agent_utility(game: Game, cs: CoalitionStructure, ag: Agent) -> AgentUtility
 
 
 @njit
-def coalition_social_welfare(
-    game: Game, cs: CoalitionStructure, co: Coalition
-) -> Rational:
+def coalition_social_welfare(game: Game, cs: CoalitionStructure, co: Coalition) -> Rational:
     """
-    Compute the social welfare of the coalition co in the given game and coalition
-    structure.
+    Compute the social welfare of the coalition co in the given game and coalition structure.
 
     It returns two values: the sum of the valuations between agents in co and the
     number of agents in co.
@@ -220,8 +239,8 @@ def social_welfare_integer(
     cs_sizes: IntArray1D,
 ) -> int:
     """
-    Compute the social welfare of the given coalition structure in the given game,
-    rounded to an integer value.
+    Compute the social welfare of the given coalition structure in the given game, rounded to an
+    integer value.
     """
     agent_count = len(game)
     sw = 0
@@ -244,8 +263,7 @@ def is_improving_deviation(
     dev: Deviation,
 ) -> bool:
     """
-    Determine if dev is an improving deviation for the given game and coalition
-    structure.
+    Determine if dev is an improving deviation for the given game and coalition structure.
     """
     ag, co_new = dev
     co_old = cs[ag]
@@ -280,13 +298,13 @@ def next_improving_deviation(
     dev: Deviation = Deviation(0, -1),
 ) -> Deviation | None:
     """
-    Return the next improving deviation in the given game and coalition structure,
-    None if there are no more deviations.
+    Return the next improving deviation in the given game and coalition structure, None if there are
+    no more deviations.
 
-    The parameter dev is the last found improving deviation (use default value if you
-    need to find the first deviation). Normally, the maximum target coalition in an
-    improving deviation is equal to len(cs_sizes). However, the parameter max_coalition
-    may be used to further restrict this value.
+    The parameter dev is the last found improving deviation (use default value if you need to find
+    the first deviation). Normally, the maximum target coalition in an improving deviation is equal
+    to len(cs_sizes). However, the parameter max_coalition may be used to further restrict this
+    value.
     """
     ag, co = dev
     while ag < len(game):
@@ -312,20 +330,16 @@ def improving_deviations(
     k: int | None,
 ) -> Iterator[Deviation]:
     """
-    Return a Python iterator of improving deviations for the given game and coalition
-    structure.
+    Return a Python iterator of improving deviations for the given game and coalition structure.
 
-    Normally, the maximum target coalition in an improving deviation is equal to
-    len(cs_sizes). However, the parameter co_max may be used to further restrict this
-    value.
+    Normally, the maximum target coalition in an improving deviation is equal to len(cs_sizes).
+    However, the parameter co_max may be used to further restrict this value.
     """
     dev = next_improving_deviation(game, is_fractional, cs, cs_sizes, co_max, k)
     while dev is not None:
         # cannot directly yield dev due to limitations of Numba
         yield Deviation(dev.ag, dev.co)
-        dev = next_improving_deviation(
-            game, is_fractional, cs, cs_sizes, co_max, k, dev
-        )
+        dev = next_improving_deviation(game, is_fractional, cs, cs_sizes, co_max, k, dev)
 
 
 @njit
@@ -340,8 +354,8 @@ def next_best_improving_deviation(
     maxut: AgentUtility = AgentUtility(-1, 1),
 ) -> tuple[Deviation, AgentUtility] | None:
     """
-    Return the next best improving deviation in the given game and coalition structure,
-    None if there are no more deviations.
+    Return the next best improving deviation in the given game and coalition structure, None if
+    there are no more deviations.
     """
     ag, co = dev
     while ag < len(game):
@@ -378,21 +392,17 @@ def best_improving_deviations(
     k: int | None,
 ) -> Iterator[Deviation]:
     """
-    Return a Python iterator of improving deviations for the given game and coalition
-    structure.
+    Return a Python iterator of improving deviations for the given game and coalition structure.
 
-    Normally, the maximum target coalition in an improving deviation is equal to
-    len(cs_sizes). However, the parameter co_max may be used to further restrict this
-    value.
+    Normally, the maximum target coalition in an improving deviation is equal to len(cs_sizes).
+    However, the parameter co_max may be used to further restrict this value.
     """
     res = next_best_improving_deviation(game, is_fractional, cs, cs_sizes, co_max, k)
     while res is not None:
         dev, ut = res
         # cannot directly yield dev due to limitations of Numba
         yield Deviation(dev.ag, dev.co)
-        res = next_best_improving_deviation(
-            game, is_fractional, cs, cs_sizes, co_max, k, dev, ut
-        )
+        res = next_best_improving_deviation(game, is_fractional, cs, cs_sizes, co_max, k, dev, ut)
 
 
 @njit
@@ -408,7 +418,9 @@ def list_best_improving_deviations(
 
 
 class CoalitionStructureIterator(NamedTuple):
-    """An iterator over coalition structures."""
+    """
+    An iterator over coalition structures.
+    """
 
     cs: CoalitionStructure
     """
@@ -429,9 +441,10 @@ class CoalitionStructureIterator(NamedTuple):
 
     cs_data: IntArray1D
     """
-    Additional data for the iterator, i.e., a list whose first (and only) element is
-    the sought number of coalitions. We put this information in an array because we
-    need to modify it during the iterations.
+    Additional data for the iterator, i.e., a list whose first (and only) element is the sought
+    number of coalitions.
+
+    We put this information in an array because we need to modify it during the iterations.
     """
 
 
@@ -464,8 +477,8 @@ def cs_givensize_next(cit: CoalitionStructureIterator, k: int | None = None) -> 
     """
     Update the iterator with a new coalition structure.
 
-    The function returns False when the iterator has not been updated since there are
-    no more coalition structures, otherwise it returns True.
+    The function returns False when the iterator has not been updated since there are no more
+    coalition structures, otherwise it returns True.
     """
     cs, cs_sizes, cs_nums, cs_data = cit
     agent_count = len(cs)
@@ -511,8 +524,8 @@ def cs_next(cit: CoalitionStructureIterator, k: int | None) -> bool:
     """
     Update the iterator with a new coalition structure.
 
-    The function returns False when the iterator has not been updated since there are
-    no more coalition structures, otherwise it returns True.
+    The function returns False when the iterator has not been updated since there are no more
+    coalition structures, otherwise it returns True.
     """
     cs, cs_sizes, cs_nums, cs_data = cit
     while cs_data[0] <= len(cs):
@@ -531,8 +544,7 @@ def css_givensize(
     agent_count: int, size: int, k: int | None = None
 ) -> Iterator[CoalitionStructure]:
     """
-    Return a Python iterator for the coalition structures of the given name and
-    specified size.
+    Return a Python iterator for the coalition structures of the given name and specified size.
     """
     cit = cs_givensize_begin(agent_count, size)
     while cs_givensize_next(cit, k):
@@ -583,35 +595,50 @@ def nash_equilibrium(
 
 class GamePrices(NamedTuple):
     """
-    A named tuple which holds the best social welfare, the best social welfare of a
-    Nash equilibrium, and the worst social welfare of a Nash equilibrium, together with
-    examples of coalition structures where such values are achieved. The social welfare
-    values are assumed to be integer values, even for fractional games. This can be
-    achieved by multiplying the valuations in the game by an appropriate factor.
+    A named tuple which holds the best social welfare, the best social welfare of a Nash
+    equilibrium, and the worst social welfare of a Nash equilibrium, together with examples of
+    coalition structures where such values are achieved.
+
+    The social welfare values are assumed to be integer values, even for fractional games. This can
+    be achieved by multiplying the valuations in the game by an appropriate factor.
     """
 
     sw_best: int
-    """Social welfare of the best coalition structure."""
+    """
+    Social welfare of the best coalition structure.
+    """
 
     cs_best: CoalitionStructure
-    """Coalition structure with best social welfare."""
+    """
+    Coalition structure with best social welfare.
+    """
 
     sw_best_equilibrium: int
-    """Social welfare of the best Nash stable coalition structure."""
+    """
+    Social welfare of the best Nash stable coalition structure.
+    """
 
     cs_best_equilibrium: CoalitionStructure
-    """Nash stable coalition structure with best social welfare."""
+    """
+    Nash stable coalition structure with best social welfare.
+    """
 
     sw_worst_equilibrium: int
-    """Social welfare of the worst Nash stable coalition structure."""
+    """
+    Social welfare of the worst Nash stable coalition structure.
+    """
 
     cs_worst_equilibrium: CoalitionStructure
-    """Nash stable coalition structure with worst social welfare."""
+    """
+    Nash stable coalition structure with worst social welfare.
+    """
 
 
 @njit
 def game_prices_copy(gi: GamePrices) -> GamePrices:
-    """Copy a GameInfo named tuple."""
+    """
+    Copy a GameInfo named tuple.
+    """
     return GamePrices(
         gi.sw_best,
         gi.cs_best,
@@ -625,8 +652,9 @@ def game_prices_copy(gi: GamePrices) -> GamePrices:
 @njit
 def game_prices_dummy() -> GamePrices:
     """
-    A dummy GameInfo structure to accomodate Numba typing inference. The values in this
-    structure are not meaningful.
+    A dummy GameInfo structure to accomodate Numba typing inference.
+
+    The values in this structure are not meaningful.
     """
     return GamePrices(
         -1,
@@ -643,11 +671,11 @@ def game_prices_compute(
     game: Game, is_fractional: bool = True, k: int | None = None
 ) -> GamePrices | None:
     """
-    Return information on the prices for the given game, or None if the game as no Nash
-    stable coalition structure.
+    Return information on the prices for the given game, or None if the game as no Nash stable
+    coalition structure.
 
-    An error may occur if the social welfare computed for some coalition structure
-    exceeds the maximum value of an np.int64.
+    An error may occur if the social welfare computed for some coalition structure exceeds the
+    maximum value of an np.int64.
     """
     cit = cs_begin(len(game))
     sw_best_equilibrium = -1
@@ -718,14 +746,17 @@ class GameIterator(NamedTuple):
 
     weights: Weights
     """
-    Weights for the valuations in the game. An empty array means that the original
-    valuations are used and that game is an alias for game_internal. We cannot use
-    Weights | None as type for limitations of the numba type checker.
+    Weights for the valuations in the game.
+
+    An empty array means that the original valuations are used and that game is an alias for
+    game_internal. We cannot use Weights | None as type for limitations of the numba type checker.
     """
 
     debug: int
     """
-    Debug verbosity. Zero or negative is no debug.
+    Debug verbosity.
+
+    Zero or negative is no debug.
     """
 
 
@@ -772,8 +803,8 @@ def game_next(git: GameIterator) -> bool:
     """
     Update the iterator with a new game.
 
-    The function returns False when the iterator has not been updated since there are
-    no more games, otherwise it returns True.
+    The function returns False when the iterator has not been updated since there are no more games,
+    otherwise it returns True.
     """
 
     def next_pos(row: int, col: int, agent_count: int) -> tuple[int, int]:
@@ -839,10 +870,7 @@ def game_next(git: GameIterator) -> bool:
                 if not is_invalid_graph:
                     if debug > 0 and row == 0 and 0 < col <= debug:
                         print(f"{'  ' * col}[{col}] v: {v_new}")
-                    if (
-                        v_new == data[_SOUGHT_MAX_VALUATION]
-                        and data[_REACHED_MAX_VALUATION] == -1
-                    ):
+                    if v_new == data[_SOUGHT_MAX_VALUATION] and data[_REACHED_MAX_VALUATION] == -1:
                         data[_REACHED_MAX_VALUATION] = pos
                     if pos == pos_final:
                         if data[_REACHED_MAX_VALUATION] != -1:
@@ -879,8 +907,8 @@ def game_next_unstable(
     """
     Update the iterator with a new game with no Nash stable coalition structures.
 
-    The function returns False when the iterator has not been updated since there are
-    no more games, otherwise it returns True.
+    The function returns False when the iterator has not been updated since there are no more games,
+    otherwise it returns True.
     """
     while game_next(git):
         if nash_equilibrium(git.game, is_fractional, k) is None:
@@ -935,8 +963,7 @@ def count_games(
     """
     Count the number of games generated by our procedure.
 
-    This is the same value as the count_total field returned by
-    count_unstable_games.
+    This is the same value as the count_total field returned by count_unstable_games.
     """
     git = game_begin(agent_count, is_symmetric, m_begin, m_end, None, debug)
     count_total = 0
@@ -954,14 +981,17 @@ class GameCollectionCounts(NamedTuple):
     """
     Number of games generated by our procedure.
     """
+
     count_noequilibrium: int
     """
     Number of games without a Nash stable coalition structure.
     """
+
     example_noequilibrium: Game
     """
-    An example of a game without a Nash stable coalition structure. This is only
-    meaningful if count_noequilibrium is greater than zero, otherwise it is a dummy
+    An example of a game without a Nash stable coalition structure.
+
+    This is only meaningful if count_noequilibrium is greater than zero, otherwise it is a dummy
     value. We cannot use None as type for limitations of the numba type checker.
     """
 
@@ -980,9 +1010,8 @@ def count_unstable_games(
     """
     Count the number of games without a Nash stable coalition structure.
 
-    The returned named tuple contains the total number of games considered, the
-    number of games without a Nash stable coalition structure, and an example of
-    such a game when one exists.
+    The returned named tuple contains the total number of games considered, the number of games
+    without a Nash stable coalition structure, and an example of such a game when one exists.
     """
     git = game_begin(agent_count, is_symmetric, m_begin, m_end, weights, debug)
     count_total = 0
@@ -1001,73 +1030,118 @@ def count_unstable_games(
 
 class GameCollectionPrices(NamedTuple):
     """
-    A named tuple to hold the extremal values for the prices of anarchy and stability in
-    a set of games.
+    A named tuple to hold the extremal values for the prices of anarchy and stability in a set of
+    games.
     """
 
     poa_highest: Rational
-    """The highest price of anarchy across all games."""
+    """
+    The highest price of anarchy across all games.
+    """
 
     poa_highest_count: int
-    """Number of games with the highest price of anarchy."""
+    """
+    Number of games with the highest price of anarchy.
+    """
 
     poa_highest_game: Game
-    """A game with the highest price of anarchy."""
+    """
+    A game with the highest price of anarchy.
+    """
 
     poa_highest_info: GamePrices
-    """Price of anarchy and related coalition structures for the game with the highest price of anarchy."""
+    """
+    Price of anarchy and related coalition structures for the game with the highest price of
+    anarchy.
+    """
 
     poa_lowest: Rational
-    """The lowest price of anarchy across all games."""
+    """
+    The lowest price of anarchy across all games.
+    """
 
     poa_lowest_count: int
-    """Number of games with the lowest price of anarchy."""
+    """
+    Number of games with the lowest price of anarchy.
+    """
 
     poa_lowest_game: Game
-    """A game with the lowest price of anarchy."""
+    """
+    A game with the lowest price of anarchy.
+    """
 
     poa_lowest_info: GamePrices
-    """Price of anarchy and related coalition structures for the game with the lowest price of anarchy."""
+    """
+    Price of anarchy and related coalition structures for the game with the lowest price of anarchy.
+    """
 
     pos_highest: Rational
-    """The highest price of stability across all games."""
+    """
+    The highest price of stability across all games.
+    """
 
     pos_highest_count: int
-    """Number of games with the highest price of stability."""
+    """
+    Number of games with the highest price of stability.
+    """
 
     pos_highest_game: Game
-    """A game with the highest price of stability."""
+    """
+    A game with the highest price of stability.
+    """
 
     pos_highest_info: GamePrices
-    """Price of stability and related coalition structures for the game with the highest price of stability."""
+    """
+    Price of stability and related coalition structures for the game with the highest price of
+    stability.
+    """
 
     pos_lowest: Rational
-    """The lowest price of stability across all games."""
+    """
+    The lowest price of stability across all games.
+    """
 
     pos_lowest_count: int
-    """Number of games with the lowest price of stability."""
+    """
+    Number of games with the lowest price of stability.
+    """
 
     pos_lowest_game: Game
-    """A game with the lowest price of stability."""
+    """
+    A game with the lowest price of stability.
+    """
 
     pos_lowest_info: GamePrices
-    """Price of stability and related coalition structures for the game with the lowest price of stability."""
+    """
+    Price of stability and related coalition structures for the game with the lowest price of
+    stability.
+    """
 
     poa_avg: float
-    """The average price of anarchy across all games."""
+    """
+    The average price of anarchy across all games.
+    """
 
     pos_avg: float
-    """The average price of stability across all games."""
+    """
+    The average price of stability across all games.
+    """
 
 
 class GameCollectionInfo(NamedTuple):
-    """A named tuple to hold informations on a set of games."""
+    """
+    A named tuple to hold informations on a set of games.
+    """
 
     counts: GameCollectionCounts | None
-    """Information on the number of games withtout Nash stable coalition structures."""
+    """
+    Information on the number of games withtout Nash stable coalition structures.
+    """
 
     prices: GameCollectionPrices | None
-    """Information on the extremal values for the prices of anarchy and stability."""
+    """
+    Information on the extremal values for the prices of anarchy and stability.
+    """
 
 
 @njit(cache=True)
@@ -1086,11 +1160,7 @@ def game_collection_info(
     values of the price of anarchy and price of stability.
     """
     denominator = (
-        1
-        if not is_fractional
-        else lcm_upto(k)
-        if k is not None
-        else lcm_upto(agent_count)
+        1 if not is_fractional else lcm_upto(k) if k is not None else lcm_upto(agent_count)
     )
     git = game_begin(agent_count, is_symmetric, m_begin, m_end, weights, debug)
     game = git.game
@@ -1109,9 +1179,7 @@ def game_collection_info(
     poa_highest_game = np.zeros_like(game)
     pos_lowest_game = np.zeros_like(game)
     pos_highest_game = np.zeros_like(game)
-    poa_lowest_info = poa_highest_info = pos_lowest_info = pos_highest_info = (
-        game_prices_dummy()
-    )
+    poa_lowest_info = poa_highest_info = pos_lowest_info = pos_highest_info = game_prices_dummy()
     poa_sum_val = pos_sum_val = 0.0
     valid_count = 0
     while game_next(git):

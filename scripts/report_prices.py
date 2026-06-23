@@ -1,8 +1,7 @@
 """
-This script reads data for the prices.yaml file and produces tables in markdown format
-with the results of the experiments relative to counting the prices of anarchy and
-stability, with varying values for k and n (number of agents) and prefixes of
-natural numbers as valuations.
+This script reads data for the prices.yaml file and produces tables in markdown format with the
+results of the experiments relative to counting the prices of anarchy and stability, with varying
+values for k and n (number of agents) and prefixes of natural numbers as valuations.
 """
 
 import argparse
@@ -18,8 +17,8 @@ type InputData = list[GCILike]
 
 def yaml_load(filename: str) -> InputData:
     """
-    Loads the data from a yaml file, which is expected to contain a list of documents, each
-    being a dictionary with informations serialized from a `GameCollectionInfo` object.
+    Loads the data from a yaml file, which is expected to contain a list of documents, each being a
+    dictionary with informations serialized from a `GameCollectionInfo` object.
     """
     with open(filename, "r") as f:
         data = list(yaml.load_all(f, Loader=yaml.FullLoader))
@@ -43,9 +42,9 @@ def generate_df(data: InputData) -> pd.DataFrame:
 def main():
     parser = argparse.ArgumentParser(
         prog="report_prices.py",
-        description="""
-        Reports on prices of anarchy and stability collected by the counting program count.py.
-        """,
+        description=""
+        "Reports on prices of anarchy and stability collected by the counting "
+        "program count.py.",
     )
     parser.add_argument(
         "-i",
@@ -77,9 +76,7 @@ def main():
                 df[f"payload.prices.{price}_{value}.numerator"]
                 / df[f"payload.prices.{price}_{value}.denominator"]
             )
-            df[f"{price}_{value}_count"] = df[
-                f"payload.prices.{price}_{value}_count"
-            ].astype(str)
+            df[f"{price}_{value}_count"] = df[f"payload.prices.{price}_{value}_count"].astype(str)
     prices = df[columns].copy()
     if args.k is not None:
         prices = prices[prices["k"] == int(args.k)]

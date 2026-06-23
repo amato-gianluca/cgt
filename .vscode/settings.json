@@ -7,5 +7,5 @@
     "python.testing.pytestEnabled": true,
     "python.analysis.typeCheckingMode": "standard",
     "makefile.configureOnOpen": false,
-    "editor.rulers": [88]
+    "editor.rulers": [100]
 }

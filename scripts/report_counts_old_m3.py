@@ -1,8 +1,7 @@
 """
-This script reads data for the counts.json file and produces a table in markdown format
-with the results of the experiment relative to counting the number of games without Nash stable
-coalition structures and only three possible valuations, that is 0, 1 and a variable
-value v.
+This script reads data for the counts.json file and produces a table in markdown format with the
+results of the experiment relative to counting the number of games without Nash stable coalition
+structures and only three possible valuations, that is 0, 1 and a variable value v.
 """
 
 import json
@@ -28,9 +27,7 @@ grouped = df.groupby(col_order + [col_count])
 grouped = grouped.agg(
     {
         col_val: lambda x: (
-            f"{x.min()} - {x.max()}"
-            if x.max() < 128
-            else f"{x.min()} - 2**{int(log2(x.max()))}"
+            f"{x.min()} - {x.max()}" if x.max() < 128 else f"{x.min()} - 2**{int(log2(x.max()))}"
         )
     }
 ).reset_index()

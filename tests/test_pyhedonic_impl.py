@@ -1,6 +1,8 @@
 """
-This file contains unit tests for the pyhedonic library. In particular, it tests the
-HedonicGameImpl module, which implements the core functionality of the library using Numba.
+This file contains unit tests for the pyhedonic library.
+
+In particular, it tests the HedonicGameImpl module, which implements the core functionality of the
+library using Numba.
 """
 
 from fractions import Fraction
@@ -90,22 +92,16 @@ def assert_game_collection_counts(
     assert res.count_total == gcc.count_total
     assert res.count_noequilibrium == gcc.count_noequilibrium
     if res.count_noequilibrium > 0:
-        assert np.array_equal(
-            res.example_noequilibrium, np.array(gcc.example_noequilibrium)
-        )
+        assert np.array_equal(res.example_noequilibrium, np.array(gcc.example_noequilibrium))
 
 
 def assert_game_prices(res: hgimpl.GamePrices, expected: hgimpl.GamePrices):
     assert res.sw_best == expected.sw_best
     assert np.array_equal(res.cs_best, np.array(expected.cs_best))
     assert res.sw_best_equilibrium == expected.sw_best_equilibrium
-    assert np.array_equal(
-        res.cs_best_equilibrium, np.array(expected.cs_best_equilibrium)
-    )
+    assert np.array_equal(res.cs_best_equilibrium, np.array(expected.cs_best_equilibrium))
     assert res.sw_worst_equilibrium == expected.sw_worst_equilibrium
-    assert np.array_equal(
-        res.cs_worst_equilibrium, np.array(expected.cs_worst_equilibrium)
-    )
+    assert np.array_equal(res.cs_worst_equilibrium, np.array(expected.cs_worst_equilibrium))
 
 
 def assert_game_collection_prices(
@@ -205,19 +201,16 @@ def test_improving_deviations():
         )
         == []
     )
-    assert (
-        list(
-            hgimpl.improving_deviations(
-                GAME1,
-                True,
-                GAME1_CS3,
-                GAME1_CS3_SIZES,
-                co_max=len(GAME1_CS3_SIZES),
-                k=None,
-            )
+    assert list(
+        hgimpl.improving_deviations(
+            GAME1,
+            True,
+            GAME1_CS3,
+            GAME1_CS3_SIZES,
+            co_max=len(GAME1_CS3_SIZES),
+            k=None,
         )
-        == [(0, 2), (1, 0), (1, 2), (2, 0)]
-    )
+    ) == [(0, 2), (1, 0), (1, 2), (2, 0)]
     assert list(
         hgimpl.improving_deviations(
             GAME2, True, GAME2_CS1, GAME2_CS1_SIZES, co_max=len(GAME2_CS1_SIZES), k=None
@@ -247,13 +240,16 @@ def test_improving_deviations():
         )
     ) == [(1, 1), (1, 2), (2, 1), (2, 2)]
     assert list(
-        hgimpl.improving_deviations(
-            GAME3, True, GAME3_CS1, GAME3_CS1_SIZES, co_max=1, k=None
-        )
+        hgimpl.improving_deviations(GAME3, True, GAME3_CS1, GAME3_CS1_SIZES, co_max=1, k=None)
     ) == [(1, 1), (2, 1)]
-    assert list(
-        hgimpl.improving_deviations(GAME5, True, GAME5_CS1, GAME5_CS1_SIZES, 3, None)
-    ) == [(0, 1), (0, 2), (1, 0), (1, 2), (2, 0), (2, 1)]
+    assert list(hgimpl.improving_deviations(GAME5, True, GAME5_CS1, GAME5_CS1_SIZES, 3, None)) == [
+        (0, 1),
+        (0, 2),
+        (1, 0),
+        (1, 2),
+        (2, 0),
+        (2, 1),
+    ]
 
 
 def test_best_improving_deviations():
@@ -275,19 +271,16 @@ def test_best_improving_deviations():
         )
         == []
     )
-    assert (
-        list(
-            hgimpl.best_improving_deviations(
-                GAME1,
-                True,
-                GAME1_CS3,
-                GAME1_CS3_SIZES,
-                co_max=len(GAME1_CS3_SIZES),
-                k=None,
-            )
+    assert list(
+        hgimpl.best_improving_deviations(
+            GAME1,
+            True,
+            GAME1_CS3,
+            GAME1_CS3_SIZES,
+            co_max=len(GAME1_CS3_SIZES),
+            k=None,
         )
-        == [(0, 2), (1, 2), (2, 0)]
-    )
+    ) == [(0, 2), (1, 2), (2, 0)]
     assert list(
         hgimpl.best_improving_deviations(
             GAME2, True, GAME2_CS1, GAME2_CS1_SIZES, co_max=len(GAME2_CS1_SIZES), k=None
@@ -317,24 +310,17 @@ def test_best_improving_deviations():
         )
     ) == [(1, 1), (1, 2), (2, 1), (2, 2)]
     assert list(
-        hgimpl.best_improving_deviations(
-            GAME3, True, GAME3_CS1, GAME3_CS1_SIZES, co_max=1, k=None
-        )
+        hgimpl.best_improving_deviations(GAME3, True, GAME3_CS1, GAME3_CS1_SIZES, co_max=1, k=None)
     ) == [(1, 1), (2, 1)]
     assert list(
         hgimpl.best_improving_deviations(GAME5, True, GAME5_CS1, GAME5_CS1_SIZES, 3, None)
     ) == [(0, 1), (0, 2), (1, 0), (1, 2), (2, 0), (2, 1)]
 
 
-
 def test_css_givensize():
     assert compare_nparray_list(hgimpl.css_givensize(3, 1), [[0, 0, 0]])
-    assert compare_nparray_list(
-        hgimpl.css_givensize(3, 2), [[0, 0, 1], [0, 1, 0], [0, 1, 1]]
-    )
-    assert compare_nparray_list(
-        hgimpl.css_givensize(3, 2, k=2), [[0, 0, 1], [0, 1, 0], [0, 1, 1]]
-    )
+    assert compare_nparray_list(hgimpl.css_givensize(3, 2), [[0, 0, 1], [0, 1, 0], [0, 1, 1]])
+    assert compare_nparray_list(hgimpl.css_givensize(3, 2, k=2), [[0, 0, 1], [0, 1, 0], [0, 1, 1]])
     assert compare_nparray_list(hgimpl.css_givensize(3, 2, k=1), [])
     assert compare_nparray_list(hgimpl.css_givensize(3, 3), [[0, 1, 2]])
     assert compare_nparray_list(
@@ -347,9 +333,7 @@ def test_css():
     assert compare_nparray_list(
         hgimpl.css(3), [[0, 0, 0], [0, 0, 1], [0, 1, 0], [0, 1, 1], [0, 1, 2]]
     )
-    assert compare_nparray_list(
-        hgimpl.css(3, k=2), [[0, 0, 1], [0, 1, 0], [0, 1, 1], [0, 1, 2]]
-    )
+    assert compare_nparray_list(hgimpl.css(3, k=2), [[0, 0, 1], [0, 1, 0], [0, 1, 1], [0, 1, 2]])
     assert compare_nparray_list(hgimpl.css(3, k=1), [[0, 1, 2]])
     assert compare_nparray_list(
         hgimpl.css(4, k=2),

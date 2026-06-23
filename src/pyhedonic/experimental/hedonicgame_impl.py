@@ -1,9 +1,9 @@
 """
-This is an experimental version of the HedonicGameImpl module with an alternative implementation
-of nash_equilibrium and nash_equilibria functions. This implementation, instead of building a
-complete coalition structure and determine if there are improving deviations, tries to combine
-these two things together, so that improving deviations are found as soon as possible even for
-a partial coalition structure.
+This is an experimental version of the HedonicGameImpl module with an alternative implementation of
+nash_equilibrium and nash_equilibria functions. This implementation, instead of building a complete
+coalition structure and determine if there are improving deviations, tries to combine these two
+things together, so that improving deviations are found as soon as possible even for a partial
+coalition structure.
 
 Unfortunately, this seems to improve efficiency only for very small values of k.
 """
@@ -30,23 +30,24 @@ def cs_partial_next(
     cs: CoalitionStructure, cs_sizes: IntArray1D, co: int, ag: int, k: int | None
 ) -> bool:
     """
-    Update the partial coalition structure cs by enumerating all possible ways to add a new partition co.
+    Update the partial coalition structure cs by enumerating all possible ways to add a new
+    partition co.
 
     All successive calls of cs_partial_next with the same values for cs and ag are logically
     related.
 
-    The first time the function is called with a given combination (co, ag), agent ag should be
-    the first non-assigned agent in the partial coalition structure, all coalitions from 0 to
-    co-1 should already exist and no other coalition should exist. The function creates the coalition
-    co by assigning to it the agent ag.
+    The first time the function is called with a given combination (co, ag), agent ag should be the
+    first non-assigned agent in the partial coalition structure, all coalitions from 0 to co-1
+    should already exist and no other coalition should exist. The function creates the coalition co
+    by assigning to it the agent ag.
 
-    Successive calls of cs_partial_next with the same combination (co, ag) assume that cs and cs_sizes
-    contain the same value of the original call. The function tries to enumerate all possible ways to
-    define the coalition co, respecting the value of k and the fact that ag should be the first element
-    of the coalition.
+    Successive calls of cs_partial_next with the same combination (co, ag) assume that cs and
+    cs_sizes contain the same value of the original call. The function tries to enumerate all
+    possible ways to define the coalition co, respecting the value of k and the fact that ag should
+    be the first element of the coalition.
 
-    The function returns True if a new partial coalition structure has been obtained, otherwise it removes
-    coalition co and returns False.
+    The function returns True if a new partial coalition structure has been obtained, otherwise it
+    removes coalition co and returns False.
     """
     if cs[ag] == -1:
         cs[ag] = co
@@ -79,11 +80,13 @@ def has_improving_deviation_partial(
     k: int | None,
 ) -> bool:
     """
-    Determines whether the partial coalition structure cs has an improving deviation involving coalition co.
+    Determines whether the partial coalition structure cs has an improving deviation involving
+    coalition co.
 
-    The function tries deviations where agents in coalitions different from co are moved to co, and deviations where
-    agents in coalition co are moved to a different coalition or even out of any coalition. If any of these deviations
-    is improving, the function returns True, otherwise returns False.
+    The function tries deviations where agents in coalitions different from co are moved to co, and
+    deviations where agents in coalition co are moved to a different coalition or even out of any
+    coalition. If any of these deviations is improving, the function returns True, otherwise returns
+    False.
     """
     for ag in range(len(game)):
         if cs[ag] == -1:
@@ -105,15 +108,15 @@ def has_improving_deviation_partial(
                     ):
                         return True
             if cs_sizes[co] > 1 and co < len(game):
-                if is_improving_deviation(
-                    game, is_fractional, cs, cs_sizes, Deviation(ag, co + 1)
-                ):
+                if is_improving_deviation(game, is_fractional, cs, cs_sizes, Deviation(ag, co + 1)):
                     return True
     return False
 
 
 class StableCoalitionStructureIterator(NamedTuple):
-    """An iterator for Nash stable coalition structures."""
+    """
+    An iterator for Nash stable coalition structures.
+    """
 
     cs: CoalitionStructure
     """
@@ -127,7 +130,9 @@ class StableCoalitionStructureIterator(NamedTuple):
 
     data: IntArray1D
     """
-    Additional data for the iterator, i.e., a list whose first (and only) element is the number of coalitions.
+    Additional data for the iterator, i.e., a list whose first (and only) element is the number of
+    coalitions.
+
     We put this information in an array because we need to modify it during the iterations.
     """
 
@@ -152,8 +157,8 @@ def cs_stable_next1(
     """
     Update the iterator with a new Nash stable coalition structure.
 
-    The function returns False when the iterator has not been updated since there are no more coalition
-    structures, otherwise it returns True.
+    The function returns False when the iterator has not been updated since there are no more
+    coalition structures, otherwise it returns True.
     """
     # If you want to get sensible performance improvements, we should first consider partitions with
     # fewer coalitions.
@@ -171,9 +176,7 @@ def cs_stable_next1(
             data[0] = co - 1
             return True
         res = cs_partial_next(cs, cs_sizes, co, ag, k)
-        while res and has_improving_deviation_partial(
-            game, is_fractional, cs, cs_sizes, co, k
-        ):
+        while res and has_improving_deviation_partial(game, is_fractional, cs, cs_sizes, co, k):
             res = cs_partial_next(cs, cs_sizes, co, ag, k)
         co += 1 if res else -1
     return False
@@ -221,8 +224,8 @@ def count_unstable_games(
     """
     Count the number of games without a Nash stable coalition structure.
 
-    The first returned value is the number of games without a Nash stable coalition structure, while the second value
-    is the total number of games considered.
+    The first returned value is the number of games without a Nash stable coalition structure, while
+    the second value is the total number of games considered.
     """
     real_weights = weights if weights is not None else np.zeros(0, dtype=np.int_)
     git = game_begin(num_agents, is_symmetric, m_begin, m_end, real_weights, debug)

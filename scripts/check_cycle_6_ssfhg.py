@@ -1,30 +1,22 @@
-# This script checks that the dynamic of a specific 6-SSFH game presented in the paper contains a cycle, by
-# verifying that the cycle is indeed a sequence of improving deviations. It also check that some of these
-# deviations are not the best possible ones.
+"""
+This script checks that the dynamic of a specific 6-SSFH game presented in the paper contains a
+cycle, by verifying that the cycle is indeed a sequence of improving deviations.
+
+It also check that some of these deviations are not the best possible ones.
+"""
 
 from pyhedonic import hedonicgame as hg
 import numpy as np
 
+# fmt: off
 edges = [
-    (1, 2),
-    (4, 5),
-    (7, 8),
-    (3, 1),
-    (3, 2),
-    (3, 4),
-    (3, 5),
-    (3, 7),
-    (3, 8),
-    (6, 1),
-    (6, 2),
-    (6, 4),
-    (6, 5),
-    (6, 7),
-    (6, 8),
-    (9, 3),
-    (9, 6),
+    (1, 2), (4, 5), (7, 8),
+    (3, 1), (3, 2), (3, 4), (3, 5), (3, 7), (3, 8),
+    (6, 1), (6, 2), (6, 4), (6, 5), (6, 7), (6, 8),
+    (9, 3), (9, 6),
     (10, 11),
 ] + [(10, i) for i in range(1, 9)]
+# fmt: on
 
 cycle = [
     {"X": {1, 2, 9}, "Y": {3, 4, 5, 10, 11}, "W": {6, 7, 8}, "c": 3},
@@ -35,8 +27,8 @@ cycle = [
     {"X": {7, 8, 9}, "Y": {1, 2, 6, 10, 11}, "W": {3, 4, 5}, "c": 6},
 ]
 
-# We add a dummy agent 0, that is alone in its coalition and has no edge with anyone. This is to make agent numbers here
-# the same as in the paper.
+# We add a dummy agent 0, that is alone in its coalition and has no edge with anyone. This is to
+# make agent numbers here the same as in the paper.
 
 weights = np.array([[0] * 12] * 12)
 for a, b in edges:
@@ -49,6 +41,7 @@ print("** Equilibra **")
 equilibria = g.nash_stable_coalition_structures()
 for equilibrium in equilibria:
     print(equilibrium)
+
 
 def check_best_deviation(state: hg.CoalitionStructure, ag: int, tgt: int) -> bool:
     chosen = state.agent_utility(ag, tgt)
@@ -64,9 +57,7 @@ def check_best_deviation(state: hg.CoalitionStructure, ag: int, tgt: int) -> boo
 
 
 print("** Cycle Verification **")
-state = g.coalition_structure_from_groups(
-    [{0}, cycle[0]["X"], cycle[0]["Y"], cycle[0]["W"]]
-)
+state = g.coalition_structure_from_groups([{0}, cycle[0]["X"], cycle[0]["Y"], cycle[0]["W"]])
 print(state)
 for macro_step in cycle:
     assert state == g.coalition_structure_from_groups(

@@ -18,16 +18,24 @@ dependencies = [
   "tabulate",
   "networkx",
   "PyYAML",
-  "jinja2"
+  "jinja2",
 ]
 
 [project.optional-dependencies]
-dev = [
-    "pytest",
-]
+dev = ["pytest", "ruff", "docformatter"]
 
 [tool.setuptools]
 package-dir = { "" = "src" }
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.docformatter]
+pre-summary-newline = true
+make-summary-multi-line = true
+black = true
+wrap-summaries = 100
+wrap-descriptions = 100

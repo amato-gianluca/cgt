@@ -1,5 +1,9 @@
-# This script checks that the dynamic of 5-SSFH games always terminates, by computing the minimum delta of the
-# potential fuction phi for each possible deviation. The minimum delta should be strictly positive for all deviations.
+"""
+This script checks that the dynamic of 5-SSFH games always terminates, by computing the minimum
+delta of the potential fuction phi for each possible deviation.
+
+The minimum delta should be strictly positive for all deviations.
+"""
 
 k = 5
 

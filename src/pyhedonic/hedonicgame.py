@@ -1,8 +1,7 @@
 """
 Python interface.
 
-This is a pythonic wrapper around functions implemented in the pyhedonicgame_impl
-module.
+This is a pythonic wrapper around functions implemented in the pyhedonicgame_impl module.
 """
 
 from collections.abc import Iterable, Iterator
@@ -21,48 +20,61 @@ from .hedonicgame_impl import Agent, Coalition, IntArray1D, IntArray2D
 
 class PriceResult(NamedTuple):
     """
-    A named tuple to store the price of anarchy, the price of stability and the
-    corresponding coalition structures.
+    A named tuple to store the price of anarchy, the price of stability and the corresponding
+    coalition structures.
     """
 
     poa: Fraction
     """Price of anarchy"""
 
     pos: Fraction
-    """Price of stability"""
+    """
+    Price of stability.
+    """
 
     sw_best_equilibrium: Fraction
     """Social welfare of the best Nash stable coalition structure."""
 
     cs_best_equilibrium: "CoalitionStructure"
-    """Nash stable coalition structure with the best social welfare."""
+    """
+    Nash stable coalition structure with the best social welfare.
+    """
 
     sw_worst_equilibrium: Fraction
     """Social welfare of the worst Nash stable coalition structure."""
 
     cs_worst_equilibrium: "CoalitionStructure"
-    """Nash stable coalition structure with the worst social welfare."""
+    """
+    Nash stable coalition structure with the worst social welfare.
+    """
 
     sw_best: Fraction
     """Social welfare of the optimal coalition structure."""
 
     cs_best: "CoalitionStructure"
-    """Optimal coalition structure with the best social welfare"""
+    """
+    Optimal coalition structure with the best social welfare.
+    """
 
 
 @total_ordering
 @dataclass(frozen=True)
 class FractionalAgentUtility:
     """
-    A dataclass to store the utility of an agent in a fractional game. It contains
-    the sum of the valuations and the size of the coalition of the agent.
+    A dataclass to store the utility of an agent in a fractional game.
+
+    It contains the sum of the valuations and the size of the coalition of the agent.
     """
 
     value: int
-    """The sum of the valuations."""
+    """
+    The sum of the valuations.
+    """
 
     size: int
-    """The size of the coalition of the agent."""
+    """
+    The size of the coalition of the agent.
+    """
 
     def to_fraction(self) -> Fraction:
         """
@@ -74,8 +86,8 @@ class FractionalAgentUtility:
         """
         Compare the utility with another utility.
 
-        The comparison is done by comparing the values of the utilities, after converting
-        them to fractions.
+        The comparison is done by comparing the values of the utilities, after converting them to
+        fractions.
         """
         if self.value == other.value == 0:
             return self.size > other.size
@@ -88,53 +100,52 @@ class FractionalAgentUtility:
 
 class Graph:
     """
-    The class represents a weighted directed or undirected graph, according to the
-    value of the field _is_directed.
+    The class represents a weighted directed or undirected graph, according to the value of the
+    field _is_directed.
     """
 
     weights: IntArray2D
     """
-    The weight matrix of the graph. Its values should be non-negative integers.
+    The weight matrix of the graph.
+
+    Its values should be non-negative integers.
     """
 
     _is_directed: bool
     """
-    Whether the graph is directed or not. If True, the matrix weights should be
-    symmetric.
+    Whether the graph is directed or not.
+
+    If True, the matrix weights should be symmetric.
     """
 
     def __init__(self, weights: IntArray2D, is_directed: bool | None = None):
         """
         Creates a graph from the given weights.
 
-        The weights matrix should be square and its values should be non-negative
-        integers. If the graph is undirected the matrix should be symmetric, while the
-        opposite is not generally required.  However, if the parameter is_directed is
-        not provided, its value is inferred from the weights matrix. If the matrix is
-        symmetric, the graph is undirected, otherwise it is directed.
+        The weights matrix should be square and its values should be non-negative integers. If the
+        graph is undirected the matrix should be symmetric, while the opposite is not generally
+        required.  However, if the parameter is_directed is not provided, its value is inferred from
+        the weights matrix. If the matrix is symmetric, the graph is undirected, otherwise it is
+        directed.
         """
         assert weights.ndim == 2 and weights.shape[0] == weights.shape[1], (
             "The weights matrix should be square."
         )
-        assert np.all(weights >= 0), (
-            "The weights matrix should contain only non-negative integers."
-        )
+        assert np.all(weights >= 0), "The weights matrix should contain only non-negative integers."
         assert is_directed is not False or np.array_equal(weights, weights.T), (
             "The graph is undirected, but the weights matrix is not symmetric."
         )
         self.weights = weights
         self._is_directed = (
-            is_directed
-            if is_directed is not None
-            else not np.array_equal(weights, weights.T)
+            is_directed if is_directed is not None else not np.array_equal(weights, weights.T)
         )
 
     def __eq__(self, other: object) -> bool:
         """
         Compare the graph with another object.
 
-        The graph is equal to another object if the latter is a graph with the same
-        weights and the same directedness.
+        The graph is equal to another object if the latter is a graph with the same weights and the
+        same directedness.
         """
         if not isinstance(other, Graph):
             return NotImplemented
@@ -157,8 +168,7 @@ class Graph:
         """
         Iterates over the edges of the graph.
 
-        For each edge, the tuple (i, j, w) is returned where w is the weight of the
-        edge (i, j).
+        For each edge, the tuple (i, j, w) is returned where w is the weight of the edge (i, j).
         """
         return ((i, j, int(w)) for (i, j), w in np.ndenumerate(self.weights) if w > 0)
 
@@ -198,8 +208,8 @@ class Graph:
         """
         Convert a networkx graph to the `Graph` class.
 
-        It expect weights to be non-negative integers and node labels to be integers
-        from 0 to n-1, where n is the number of nodes in the graph.
+        It expect weights to be non-negative integers and node labels to be integers from 0 to n-1,
+        where n is the number of nodes in the graph.
         """
         assert all(
             isinstance(weight, int) or weight is None
@@ -231,19 +241,17 @@ class Graph:
         return f"{repr(self.weights)}, is_directed={self.is_directed()}"
 
     @classmethod
-    def enumerate(
-        cls, n: int, is_directed: bool, m_min: int, m_max: int
-    ) -> Iterator["Graph"]:
+    def enumerate(cls, n: int, is_directed: bool, m_min: int, m_max: int) -> Iterator["Graph"]:
         """
-        Iterates over all the graphs with n nodes, with the given directedness. The
-        values m_min and m_max are the minimum and maximum value of m, where m is the
-        maximum weight of the edges. For example, if one wants to generate only simple
-        graphs, m_max should be set to 1 and m_min to 0.
+        Iterates over all the graphs with n nodes, with the given directedness.
 
-        The graphs are generated in a lexicographic order. Some attempt is made to
-        generate the graphs in a canonical form, avoiding isomorphism variants of the
-        same graph. However, isomophic variants of the same graph are almost always
-        generated.
+        The values m_min and m_max are the minimum and maximum value of m, where m is the maximum
+        weight of the edges. For example, if one wants to generate only simple graphs, m_max should
+        be set to 1 and m_min to 0.
+
+        The graphs are generated in a lexicographic order. Some attempt is made to generate the
+        graphs in a canonical form, avoiding isomorphism variants of the same graph. However,
+        isomophic variants of the same graph are almost always generated.
         """
         for weights in hgimpl.games(n, not is_directed, m_min, m_max):
             yield cls(weights, is_directed)
@@ -259,8 +267,8 @@ class HedonicGame:
     """
     The maximum size of the coalitions.
 
-    If None, there is no limit on the size of the coalitions. If it is an integer, it
-    should be non-negative.
+    If None, there is no limit on the size of the coalitions. If it is an integer, it should be non-
+    negative.
     """
 
     _is_fractional: bool
@@ -275,17 +283,19 @@ class HedonicGame:
     @property
     def valuations(self) -> IntArray2D:
         """
-        Return the valuations of the game. The valuations are represented as a matrix,
-        where the i-th row contains the valuations of the i-th agent for all the other
-        agents.
+        Return the valuations of the game.
+
+        The valuations are represented as a matrix, where the i-th row contains the valuations of
+        the i-th agent for all the other agents.
         """
         return self.graph.weights
 
     @property
     def k(self) -> int | None:
         """
-        Return the maximum size of the coalitions. If None, there is no limit on the
-        size of the coalitions.
+        Return the maximum size of the coalitions.
+
+        If None, there is no limit on the size of the coalitions.
         """
         return self._k
 
@@ -309,8 +319,9 @@ class HedonicGame:
 
     def is_simple(self) -> bool:
         """
-        Return whether the game is simple or not. A game is simple if weights are all
-        0 or 1.
+        Return whether the game is simple or not.
+
+        A game is simple if weights are all 0 or 1.
         """
         return self.graph.is_simple()
 
@@ -323,9 +334,7 @@ class HedonicGame:
         """
         Creates an hedonic game from the given graph.
         """
-        assert k is None or k >= 0, (
-            "The maximum size of the coalitions should be non-negative."
-        )
+        assert k is None or k >= 0, "The maximum size of the coalitions should be non-negative."
         assert not isinstance(graph, Graph) or (
             graph.is_directed() != np.array_equal(graph.weights, graph.weights.T)
         ), "The graph is directed, but the weights matrix is symmetric."
@@ -337,8 +346,8 @@ class HedonicGame:
         """
         Compare the game with another object.
 
-        A game is equal to another object if the latter is a game with the same weights
-        and same values of k and is_fractional.
+        A game is equal to another object if the latter is a game with the same weights and same
+        values of k and is_fractional.
         """
         if not isinstance(other, HedonicGame):
             return NotImplemented
@@ -354,8 +363,8 @@ class HedonicGame:
         """
         Return the coalition structure corresponding to the given list of coalitions.
 
-        The list of coalitions should be a partition of the set of agents. The i-th
-        element of the list is the set of agents in the i-th coalition.
+        The list of coalitions should be a partition of the set of agents. The i-th element of the
+        list is the set of agents in the i-th coalition.
         """
         cs = np.full(self.agent_count, -1, dtype=np.int_)
         for i, co in enumerate(coalitions):
@@ -367,26 +376,20 @@ class HedonicGame:
         CoalitionStructure._normalize(cs)
         return CoalitionStructure(self, cs)
 
-    def coalition_structure_from_indices(
-        self, cs: Iterable[int]
-    ) -> "CoalitionStructure":
+    def coalition_structure_from_indices(self, cs: Iterable[int]) -> "CoalitionStructure":
         """
         Return the coalition structure corresponding to the given list of coalition indices.
         """
         return CoalitionStructure(self, np.array(cs, dtype=np.int_))
 
-    def coalition_structures(
-        self, cs_size: int | None = None
-    ) -> Iterator["CoalitionStructure"]:
+    def coalition_structures(self, cs_size: int | None = None) -> Iterator["CoalitionStructure"]:
         """
         Iterates over the coalition structures of the game.
 
-        If provided, `cs_size` restrict the coalitions structures to those with the
-        specified number of coalitions.
+        If provided, `cs_size` restrict the coalitions structures to those with the specified number
+        of coalitions.
         """
-        assert cs_size is None or cs_size >= 0, (
-            "The number of coalitions should be non-negative."
-        )
+        assert cs_size is None or cs_size >= 0, "The number of coalitions should be non-negative."
         if cs_size is not None:
             for cs in hgimpl.css_givensize(self.agent_count, cs_size, self._k):
                 yield CoalitionStructure(self, cs)
@@ -398,14 +401,12 @@ class HedonicGame:
         self, cs_size: int | None = None, best_response_only: bool = False
     ) -> tuple[nx.DiGraph["CoalitionStructure"], list["CoalitionStructure"]]:
         """
-        Return the coalition structures of the game as a networkx graph, where the
-        nodes are the coalition structures and there is an edge from cs to cs' if cs'
-        can be obtained from cs by an improving deviation. It also returns the
-        list of Nash stable coalition structures.
+        Return the coalition structures of the game as a networkx graph, where the nodes are the
+        coalition structures and there is an edge from cs to cs' if cs' can be obtained from cs by
+        an improving deviation. It also returns the list of Nash stable coalition structures.
 
-        If best_response_only is True, only edges corresponding to best response
-        deviations are included in the graph. Otherwise, all improving deviations are
-        included.
+        If best_response_only is True, only edges corresponding to best response deviations are
+        included in the graph. Otherwise, all improving deviations are included.
         """
         equilibria = []
         graph = nx.DiGraph()
@@ -430,8 +431,7 @@ class HedonicGame:
         """
         Return the isolated coalition structure of the game.
 
-        The isolated coalition structure is the one where each agent is in its own
-        coalition.
+        The isolated coalition structure is the one where each agent is in its own coalition.
         """
         return CoalitionStructure(self, np.arange(self.agent_count))
 
@@ -439,8 +439,8 @@ class HedonicGame:
         """
         Return the big coalition structure of the game, or None if it is not valid.
 
-        The big coalition structure is the one where all agents are in the same
-        coalition. If this is not a valid coalition structure, None is retuned.
+        The big coalition structure is the one where all agents are in the same coalition. If this
+        is not a valid coalition structure, None is retuned.
         """
         if self._k is not None and self._k < self.agent_count:
             return None
@@ -451,33 +451,27 @@ class HedonicGame:
         """
         Iterates over the Nash stable coalition structures of the game.
         """
-        for cs in hgimpl.nash_equilibria(
-            self.valuations, self.is_fractional(), self._k
-        ):
+        for cs in hgimpl.nash_equilibria(self.valuations, self.is_fractional(), self._k):
             yield CoalitionStructure(self, cs)
 
     def has_nash_stable_coalition_structure(self) -> bool:
         """
         Return whether the game has a Nash stable coalition structure.
         """
-        return (
-            hgimpl.nash_equilibrium(self.valuations, self.is_fractional(), self._k)
-            is not None
-        )
+        return hgimpl.nash_equilibrium(self.valuations, self.is_fractional(), self._k) is not None
 
     def _optimal_coalition_structure_fast(
         self,
     ) -> tuple["CoalitionStructure", int | Fraction]:
         """
-        Return one of the optimal coalition structures of the game and the
-        corresponding social welfare. Currently, this function only works fo
-        undirected games with k=2, where the optimal coalition structure can be found
-        by computing a maximum weight matching in the graph.
+        Return one of the optimal coalition structures of the game and the corresponding social
+        welfare.
+
+        Currently, this function only works fo undirected games with k=2, where the optimal
+        coalition structure can be found by computing a maximum weight matching in the graph.
         """
         if self.is_directed():
-            raise ValueError(
-                "The game is directed, cannot compute optimal coalition structure."
-            )
+            raise ValueError("The game is directed, cannot compute optimal coalition structure.")
         if self._k != 2:
             raise ValueError(
                 "k is different from 2, cannot compute the optimal coalition structure."
@@ -516,16 +510,14 @@ class HedonicGame:
         Return all the optimal coalition structures of the game, in lexicographic order.
         """
         opt = self.optimal_coalition_social_welfare()
-        yield from (
-            cs for cs in self.coalition_structures() if cs.social_welfare() == opt
-        )
+        yield from (cs for cs in self.coalition_structures() if cs.social_welfare() == opt)
 
     def optimal_coalition_structure(
         self,
     ) -> tuple["CoalitionStructure", int | Fraction]:
         """
-        Return one of the optimal coalition structures of the game and the corresponding
-        social welfare.
+        Return one of the optimal coalition structures of the game and the corresponding social
+        welfare.
         """
         if not self.is_directed() and self._k == 2:
             return self._optimal_coalition_structure_fast()
@@ -537,8 +529,8 @@ class HedonicGame:
         """
         Return the prices of anarchy and the price of stability for the game.
 
-        It also returns examples of the coalition structures that achieve them. If the
-        game has no Nash stable coalition structure, the result is None.
+        It also returns examples of the coalition structures that achieve them. If the game has no
+        Nash stable coalition structure, the result is None.
         """
         denominator = (
             1
@@ -569,9 +561,7 @@ class HedonicGame:
         return f"HedonicGame({repr(self.valuations)}, k={self._k}, is_fractional={self.is_fractional()}))"
 
     def __str__(self) -> str:
-        return (
-            f"{str(self.valuations)}, k={self._k}, is_fractional={self.is_fractional()}"
-        )
+        return f"{str(self.valuations)}, k={self._k}, is_fractional={self.is_fractional()}"
 
 
 class CoalitionStructure:
@@ -588,8 +578,8 @@ class CoalitionStructure:
     """
     The coalition structure.
 
-    The i-th element is the coalition number of the i-th agent. Elements of cs are all
-    and only the integers in the range [0, max(cs)].
+    The i-th element is the coalition number of the i-th agent. Elements of cs are all and only the
+    integers in the range [0, max(cs)].
     """
 
     _sizes: IntArray1D
@@ -602,8 +592,8 @@ class CoalitionStructure:
         """
         Normalize the coalition structure.
 
-        The coalition numbers are shifted to be in the range [0, size-1] and they
-        appear in increasing order.
+        The coalition numbers are shifted to be in the range [0, size-1] and they appear in
+        increasing order.
         """
         current = 0
         map = np.full(len(cs), -1)
@@ -619,20 +609,17 @@ class CoalitionStructure:
         """
         Creates a coalition structure for a given game.
 
-        The coalition structure is represented as an array of integers, where the i-th
-        element is the coalition number of the i-th agent. Elements of cs are all and
-        only the integers in the range [0, max(cs)]. New coalitions indexes should
-        appear for the first time in the order of their number. Therefore `[0, 2, 0, 1]`
-        is not a valid coalition structure, because the coalition `1` appears for the
-        first time before the coalition `2`. However, `[0, 1, 0, 2]` is a valid
-        coalition structure.
+        The coalition structure is represented as an array of integers, where the i-th element is
+        the coalition number of the i-th agent. Elements of cs are all and only the integers in the
+        range [0, max(cs)]. New coalitions indexes should appear for the first time in the order of
+        their number. Therefore `[0, 2, 0, 1]` is not a valid coalition structure, because the
+        coalition `1` appears for the first time before the coalition `2`. However, `[0, 1, 0, 2]`
+        is a valid coalition structure.
         """
         assert len(cs) == game.agent_count, (
             "The coalition structure should have the same size as the number of agents."
         )
-        assert np.all(cs >= 0), (
-            "The coalition structure should contain only non-negative integers."
-        )
+        assert np.all(cs >= 0), "The coalition structure should contain only non-negative integers."
         assert max(cs) + 1 == len(np.unique(cs)), (
             "The coalition structure should contain all integers from `0` to `max(cs)`."
         )
@@ -645,8 +632,8 @@ class CoalitionStructure:
         """
         Compare the coalition structure with another object.
 
-        The coalition structure is equal to another object if the latter is a coalition
-        structure for the same game with the same coalitions.
+        The coalition structure is equal to another object if the latter is a coalition structure
+        for the same game with the same coalitions.
         """
         if not isinstance(value, CoalitionStructure):
             return False
@@ -682,11 +669,11 @@ class CoalitionStructure:
         assert 0 <= ag < len(self.cs), "Agent number out of range."
         return self.cs[ag]
 
-    def agent_utility(
-        self, ag: Agent, co: Coalition | None = None
-    ) -> int | FractionalAgentUtility:
+    def agent_utility(self, ag: Agent, co: Coalition | None = None) -> int | FractionalAgentUtility:
         """
-        Returns the utility of the given agent. If co is provided, the utility is computed as if the agent were in coalition co.
+        Returns the utility of the given agent.
+
+        If co is provided, the utility is computed as if the agent were in coalition co.
         """
         assert 0 <= ag < len(self.cs), "Agent number out of range."
         assert co is None or (0 <= co < self.size + 1 and co < self.game.agent_count), (
@@ -715,13 +702,11 @@ class CoalitionStructure:
 
     def is_improving_deviation(self, ag: Agent, co_new: Coalition) -> bool:
         """
-        Determine if the given agent can improve its utility by moving to the new
-        coalition.
+        Determine if the given agent can improve its utility by moving to the new coalition.
 
-        Note that co_new may be one larger than the current coalition structure size.
-        This means that the agent ag is moving its current coalition to form a new
-        coalition alone. In all cases, co_new should be smaller than the number of
-        agents in the game.
+        Note that co_new may be one larger than the current coalition structure size. This means
+        that the agent ag is moving its current coalition to form a new coalition alone. In all
+        cases, co_new should be smaller than the number of agents in the game.
         """
         assert 0 <= ag < len(self.cs), "Agent number out of range."
         assert 0 <= co_new <= self.size and co_new < self.game.agent_count, (
@@ -733,9 +718,7 @@ class CoalitionStructure:
         if self.cs[ag] == co_new:
             return False
         ut_old, size_old = hgimpl.agent_utility(self.game.valuations, self.cs, ag)
-        ut_new, size_new = hgimpl.agent_utility_co(
-            self.game.valuations, self.cs, ag, co_new
-        )
+        ut_new, size_new = hgimpl.agent_utility_co(self.game.valuations, self.cs, ag, co_new)
         if not self.game.is_fractional():
             return ut_new > ut_old
         elif ut_old == ut_new == 0:
@@ -747,8 +730,8 @@ class CoalitionStructure:
         """
         Iterates over the improving deviations of the given agent.
 
-        The improving deviations are the coalitions to which the agent can move to
-        improve its utility.
+        The improving deviations are the coalitions to which the agent can move to improve its
+        utility.
         """
         assert 0 <= ag < len(self.cs), "Agent number out of range."
         for co_new in range(min(self.size + 1, self.game.agent_count)):
@@ -759,8 +742,8 @@ class CoalitionStructure:
         """
         Iterates over the improving deviations of the coalition structure.
 
-        The improving deviations are the pairs (agent, coalition) such that the agent
-        can move to the coalition to improve its utility.
+        The improving deviations are the pairs (agent, coalition) such that the agent can move to
+        the coalition to improve its utility.
         """
         for ag in self.game.agents():
             for co_new in self.improving_deviations_for_agents(ag):
@@ -781,8 +764,8 @@ class CoalitionStructure:
 
     def move_to(self, ag: Agent, co_new: Coalition) -> "CoalitionStructure":
         """
-        Move the given agent to the new coalition and return the new coalition structure
-        we obtain in this way.
+        Move the given agent to the new coalition and return the new coalition structure we obtain
+        in this way.
         """
         assert 0 <= ag < len(self.cs), "Agent number out of range."
         assert 0 <= co_new <= self.size and co_new < self.game.agent_count, (
@@ -821,8 +804,9 @@ class CoalitionStructure:
 
     def to_list(self) -> list[set[int]]:
         """
-        Return the coalition structure as a list of sets. Each set contains the agents
-        in the corresponding coalition.
+        Return the coalition structure as a list of sets.
+
+        Each set contains the agents in the corresponding coalition.
         """
         s = [set[int]() for _ in range(self.size)]
         for ag in self.game.agents():

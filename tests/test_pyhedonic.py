@@ -1,9 +1,11 @@
 """
-This file contains unit tests for the pyhedonic library. In particular, it tests the
-HedonicGame module, which contain pythonic wrapper for the HedonicGameImpl module.
+This file contains unit tests for the pyhedonic library.
 
-The notation [PAPER] refers to the paper "Nash Stability in Fractional Hedonic Games
-with Bounded Size Coalitions".
+In particular, it tests the HedonicGame module, which contain pythonic wrapper for the
+HedonicGameImpl module.
+
+The notation [PAPER] refers to the paper "Nash Stability in Fractional Hedonic Games with Bounded
+Size Coalitions".
 """
 
 from collections.abc import Iterable
@@ -30,9 +32,7 @@ GAME1_FRAC_CS2 = hg.CoalitionStructure(GAME1_FRAC, np.array([0, 0, 0]))
 GAME1_NOFRAC_CS1 = hg.CoalitionStructure(GAME1_NOFRAC, np.array([0, 1, 0]))
 
 
-def compare_iterable_nparray(
-    value: Iterable[hg.CoalitionStructure], expected: Iterable[list[int]]
-):
+def compare_iterable_nparray(value: Iterable[hg.CoalitionStructure], expected: Iterable[list[int]]):
     l1 = list(value)
     l2 = list(expected)
     assert len(l1) == len(l2)
@@ -119,9 +119,7 @@ def test_HedonicGame_coalition_structures_2():
 
 def test_HedonicGame_nash_stable_coalition_structures():
     compare_iterable_nparray(GAME1_FRAC.nash_stable_coalition_structures(), [[0, 0, 0]])
-    compare_iterable_nparray(
-        GAME1_FRAC_K1.nash_stable_coalition_structures(), [[0, 1, 2]]
-    )
+    compare_iterable_nparray(GAME1_FRAC_K1.nash_stable_coalition_structures(), [[0, 1, 2]])
 
 
 def test_HedonicGame_has_nash_stable_coalition_structure():
@@ -310,9 +308,7 @@ def test_Graph_to_nx_graph():
     graph.add_weighted_edges_from(
         [(0, 1, 9), (0, 2, 9), (0, 3, 4), (1, 2, 1), (1, 3, 7), (2, 3, 7)]
     )
-    assert nx.utils.graphs_equal(
-        hg.GAME_K3_NOEQUILIBRIUM_PAPER.graph.to_nx_graph(), graph
-    )
+    assert nx.utils.graphs_equal(hg.GAME_K3_NOEQUILIBRIUM_PAPER.graph.to_nx_graph(), graph)
 
 
 def test_Graph_from_nx_graph():

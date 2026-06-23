@@ -1,8 +1,8 @@
 """
-This script counts the number of games with no Nash stable coalition structures. It
-can also compute the price of anarchy and stability for games with given parameters.
-The results are logged in YAML or JSON format, and the script supports resuming from
-a previous log file.
+This script counts the number of games with no Nash stable coalition structures.
+
+It can also compute the price of anarchy and stability for games with given parameters. The results
+are logged in YAML or JSON format, and the script supports resuming from a previous log file.
 """
 
 import argparse
@@ -10,6 +10,7 @@ import datetime
 import json
 import multiprocessing as mp
 import time
+from textwrap import dedent
 from typing import Any, Callable, cast
 
 import numpy as np
@@ -19,8 +20,8 @@ from pyhedonic.hedonicgame_impl import (
     Game,
     GameCollectionInfo,
     IntArray1D,
-    game_collection_info,
     count_unstable_games,
+    game_collection_info,
 )
 
 
@@ -43,9 +44,7 @@ def yaml_serialize(obj: Any) -> Any:
     return obj
 
 
-yaml.add_representer(
-    np.float64, lambda dumper, value: dumper.represent_float(float(value))
-)
+yaml.add_representer(np.float64, lambda dumper, value: dumper.represent_float(float(value)))
 
 
 def yaml_log(
@@ -169,11 +168,7 @@ def skip_processing(
             and ex["n"] == n
             and ex["m"] == m
             and ex["weights"] == weights
-            and (
-                ex["payload"] is not None
-                or timeout is None
-                or ex["elapsed_time"] > timeout
-            )
+            and (ex["payload"] is not None or timeout is None or ex["elapsed_time"] > timeout)
         ):
             return True
     return False
@@ -198,24 +193,22 @@ def prices_with_timing(**kwargs) -> tuple[GameCollectionInfo | None, float]:
 def main():
     parser = argparse.ArgumentParser(
         prog="count.py",
-        description="""
-        Count games without Nash table coalition structures.
-        Arguments n, k and m may be either a natural number or a range min-max of natural numbers.
-        """,
+        description=dedent(
+            """
+            Count games without Nash table coalition structures.
+
+            Arguments n, k and m may be either a natural number or a range min-max of natural
+            numbers.
+            """
+        ),
     )
     parser.add_argument("-k", help="upper bound on the size of coalitions")
     parser.add_argument("-n", help="number of agents in the game")
     parser.add_argument("-m", help="maximum valuation in the game")
-    parser.add_argument(
-        "-i", "--input", help="input file containing already counted data points"
-    )
+    parser.add_argument("-i", "--input", help="input file containing already counted data points")
     parser.add_argument("-o", "--output", help="output file")
-    parser.add_argument(
-        "-w", "--weights", help="weights to use instead of consecutive numbers"
-    )
-    parser.add_argument(
-        "-t", "--timeout", type=int, help="timeout for a single game count"
-    )
+    parser.add_argument("-w", "--weights", help="weights to use instead of consecutive numbers")
+    parser.add_argument("-t", "--timeout", type=int, help="timeout for a single game count")
     parser.add_argument(
         "--prices",
         help="compute price of anarchy and stability instead of counting games",
@@ -243,13 +236,9 @@ def main():
 
     # warmup jit
     if args.prices:
-        game_collection_info(
-            agent_count=2, k=1, m_begin=1, m_end=1, weights=weights, debug=0
-        )
+        game_collection_info(agent_count=2, k=1, m_begin=1, m_end=1, weights=weights, debug=0)
     else:
-        count_unstable_games(
-            agent_count=2, k=1, m_begin=1, m_end=1, weights=weights, debug=0
-        )
+        count_unstable_games(agent_count=2, k=1, m_begin=1, m_end=1, weights=weights, debug=0)
 
     local_k_range = range(2, 9) if k_range is None else k_range
 
@@ -260,9 +249,7 @@ def main():
             local_m_range = range(0, 31) if m_range is None else m_range
 
             if weights is not None:
-                local_m_range = range(
-                    local_m_range.start, min(local_m_range.stop, len(weights))
-                )
+                local_m_range = range(local_m_range.start, min(local_m_range.stop, len(weights)))
 
             for m in local_m_range:
                 timeout_occured = False

@@ -1,8 +1,8 @@
 """
 This script reads data for the counts.yaml (or similar) file and produces a table in markdown format
 with the results of the experiments relative to counting the number of games without Nash stable
-coalition structures, with varying values for k and n (number of agents) and prefixes of
-natural numbers as valuations.
+coalition structures, with varying values for k and n (number of agents) and prefixes of natural
+numbers as valuations.
 """
 
 import argparse
@@ -18,10 +18,11 @@ type InputData = list[GCILike]
 
 args: argparse.Namespace
 
+
 def yaml_load(filename: str) -> InputData:
     """
-    Loads the data from a yaml file, which is expected to contain a list of documents, each
-    being a dictionary with informations serialized from a `GameCollectionInfo` object.
+    Loads the data from a yaml file, which is expected to contain a list of documents, each being a
+    dictionary with informations serialized from a `GameCollectionInfo` object.
     """
     with open(filename, "r") as f:
         data = list(yaml.load_all(f, Loader=yaml.FullLoader))
@@ -55,7 +56,8 @@ def generate_df(data: InputData, weights: list[int] | None) -> pd.DataFrame:
 
 def total_games(df: pd.DataFrame):
     """
-    Prints a table in markdown format with the total number of games for each combination of m and n.
+    Prints a table in markdown format with the total number of games for each combination of m and
+    n.
     """
     pivot = df.pivot_table(
         index="m",
@@ -71,6 +73,7 @@ def total_games(df: pd.DataFrame):
         print(pivot.to_latex(escape=False))
     else:
         print(pivot.to_markdown())
+
 
 def format_number(x: int) -> str:
     return str(x) if args.latex else f"**{x}**"
@@ -88,9 +91,7 @@ def noequilibrium_games(df: pd.DataFrame):
         )
         pivot = pivot.astype(object)
         pivot.iloc[:, :] = pivot.iloc[:, :].map(
-            lambda x: (
-                "" if x == -2 else "(to)" if x == -1 else format_number(x) if x > 0 else "0"
-            )
+            lambda x: "" if x == -2 else "(to)" if x == -1 else format_number(x) if x > 0 else "0"
         )
         pivot.index.name = "m\\n"
         print(f"\n\n### k={k}\n")
@@ -105,9 +106,7 @@ def main():
 
     parser = argparse.ArgumentParser(
         prog="report_counts.py",
-        description="""
-        Reports the counts collected by the counting program count.py.
-        """,
+        description="Reports the counts collected by the counting program count.py.",
     )
 
     weights_group = parser.add_mutually_exclusive_group()
