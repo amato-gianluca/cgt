@@ -812,6 +812,12 @@ class CoalitionStructure:
             s[self.cs[ag]].add(ag)
         return s
 
+    def __getitem__(self, co: Coalition) -> set[Agent]:
+        """
+        Return the set of agents in the given coalition.
+        """
+        return {ag for ag in self.game.agents() if self.cs[ag] == co}
+
     def __repr__(self) -> str:
         return f"CoalitionStructure({repr(self.game)},{repr(self.cs)})"
 

@@ -88,6 +88,12 @@ def test_CoalitionStructure_equality():
     assert GAME1_FRAC_CS1 != GAME1_NOFRAC_CS1
 
 
+def test_CoalitionStructure_getitem():
+    assert GAME1_FRAC_CS1[0] == {0, 2}
+    assert GAME1_FRAC_CS1[1] == {1}
+    assert GAME1_FRAC_CS1[2] == set()
+
+
 def test_HedonicGame_coalition_structures_1():
     compare_iterable_nparray(GAME1_FRAC.coalition_structures(cs_size=1), [[0, 0, 0]])
     compare_iterable_nparray(GAME1_FRAC_K2.coalition_structures(cs_size=1), [])
