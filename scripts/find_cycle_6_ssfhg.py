@@ -28,15 +28,19 @@ for a, b in edges:
 g = hg.HedonicGame(weights, k=6)
 
 print("** Generating coalition structures **")
-css, equilibria = g.coalition_structures_as_nx(best_response_only=True)
-for equilibrium in equilibria:
-    print(equilibrium)
+css = g.coalition_structures_as_nx()
+
 print("** Equilibria **")
-cycle = nx.find_cycle(css)
+equilibria = [n for n, d in css.out_degree() if d == 0]
+for cseq in equilibria:
+    print(cseq)
+
 print("** Cycle **")
+cycle = nx.find_cycle(css)
 for u, _ in cycle:
     print(f"{u} -> ", end="")
 print(cycle[0][0])
+
 print("** Unreachable CSs **")
 dist = nx.multi_source_dijkstra_path_length(
     css.reverse(copy=False),

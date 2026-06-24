@@ -692,6 +692,35 @@ class CoalitionStructure:
         """
         return sum(self.coalition_social_welfare(co) for co in self.coalitions())
 
+    def deviation_value(self, ag: Agent, co_new: Coalition) -> int | tuple[Fraction, int]:
+        """
+        Returns the value of the deviation of the given agent to the new coalition.
+
+        For additively
+        separable games, the value is the difference between the new utility and the old one. For
+        fractional games, the value is a tuple (delta_utility, delta_size), where delta_utility is
+        the difference between the new utility and the old one, and delta_size is the difference
+        between the old coalition size and the new one when both the utilities are zero, and 0
+        otherwise.
+        """
+        assert 0 <= ag < len(self.cs), "Agent number out of range."
+        assert 0 <= co_new <= self.size and co_new < self.game.agent_count, (
+            "Coalition number out of range."
+        )
+        assert self.game.k is None or self._sizes[co_new] < self.game.k, (
+            "The target coalition size is too large."
+        )
+        assert self.cs[ag] != co_new, "The agent is already in the target coalition."
+        ut_old, size_old = hgimpl.agent_utility(self.game.valuations, self.cs, ag)
+        ut_new, size_new = hgimpl.agent_utility_co(self.game.valuations, self.cs, ag, co_new)
+        if self.game.is_fractional():
+            if ut_new == ut_old == 0:
+                return (Fraction(0, 1), size_old - size_new)
+            else:
+                return (Fraction(ut_new, size_new) - Fraction(ut_old, size_old), 0)
+        else:
+            return ut_new - ut_old
+
     def is_improving_deviation(self, ag: Agent, co_new: Coalition) -> bool:
         """
         Determine if the given agent can improve its utility by moving to the new coalition.
@@ -927,3 +956,26 @@ GAME_K8_NOEQUILIBRIUM = HedonicGame(
     is_fractional=True,
     k=8,
 )
+
+GAME_K3_CYCLIC_DYNAMIC = HedonicGame(
+    np.array([[0, 0, 0, 1], [0, 0, 0, 3], [0, 0, 0, 3], [1, 3, 3, 0]]), k=3, is_fractional=True
+)
+
+GAME_K3_CYCLIC_DYNAMIC_CYCLE = [
+    GAME_K3_CYCLIC_DYNAMIC.coalition_structure_from_groups([[0, 1, 3], [2]]),
+    GAME_K3_CYCLIC_DYNAMIC.coalition_structure_from_groups([[0, 1], [2, 3]]),
+    GAME_K3_CYCLIC_DYNAMIC.coalition_structure_from_groups([[0, 2, 3], [1]]),
+    GAME_K3_CYCLIC_DYNAMIC.coalition_structure_from_groups([[0, 2], [1, 3]]),
+]
+
+GAME_K3_DISCONNECTED_DYNAMIC = HedonicGame(
+    np.array([[0, 0, 6, 9], [0, 0, 6, 9], [6, 6, 0, 4], [9, 9, 4, 0]]), k=3, is_fractional=True
+)
+
+GAME_K3_DISCONNECTED_DYNAMIC_ISOLATED_CSS = [
+    CoalitionStructure(GAME_K3_DISCONNECTED_DYNAMIC, np.array([0, 0, 0, 1])),
+    CoalitionStructure(GAME_K3_DISCONNECTED_DYNAMIC, np.array([0, 1, 0, 0])),
+    CoalitionStructure(GAME_K3_DISCONNECTED_DYNAMIC, np.array([0, 1, 0, 1])),
+    CoalitionStructure(GAME_K3_DISCONNECTED_DYNAMIC, np.array([0, 1, 1, 0])),
+    CoalitionStructure(GAME_K3_DISCONNECTED_DYNAMIC, np.array([0, 1, 1, 1])),
+]
