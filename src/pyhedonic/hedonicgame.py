@@ -757,9 +757,8 @@ class CoalitionStructure:
             self.game.valuations,
             self.game.is_fractional(),
             self.cs,
-            self._sizes,
-            max(self.cs) + 1,
-            self.game.k,
+            cs_sizes=self._sizes,
+            k=self.game.k,
         )
 
     def move_to(self, ag: Agent, co_new: Coalition) -> "CoalitionStructure":

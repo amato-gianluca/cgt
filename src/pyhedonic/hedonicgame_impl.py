@@ -320,14 +320,14 @@ def next_improving_deviation(
     return None
 
 
-@njit
 def improving_deviations(
     game: Game,
     is_fractional: bool,
     cs: CoalitionStructure,
-    cs_sizes: IntArray1D,
-    co_max: int,
-    k: int | None,
+    *,
+    k: int | None = None,
+    cs_sizes: IntArray1D | None = None,
+    co_max: int | None = None,
 ) -> Iterator[Deviation]:
     """
     Return a Python iterator of improving deviations for the given game and coalition structure.
@@ -335,11 +335,13 @@ def improving_deviations(
     Normally, the maximum target coalition in an improving deviation is equal to max(cs_sizes)+1.
     However, the parameter co_max may be used to further restrict this value.
     """
-    dev = next_improving_deviation(game, is_fractional, cs, cs_sizes, co_max, k)
+    cs_sizes_real = cs_sizes if cs_sizes is not None else np.bincount(cs, minlength=len(cs))
+    co_max_real = co_max if co_max is not None else max(cs) + 1
+    dev = next_improving_deviation(game, is_fractional, cs, cs_sizes_real, co_max_real, k)
     while dev is not None:
         # cannot directly yield dev due to limitations of Numba
         yield Deviation(dev.ag, dev.co)
-        dev = next_improving_deviation(game, is_fractional, cs, cs_sizes, co_max, k, dev)
+        dev = next_improving_deviation(game, is_fractional, cs, cs_sizes_real, co_max_real, k, dev)
 
 
 @njit
@@ -385,14 +387,14 @@ def next_best_improving_deviation(
     return None
 
 
-@njit
 def best_improving_deviations(
     game: Game,
     is_fractional: bool,
     cs: CoalitionStructure,
-    cs_sizes: IntArray1D,
-    co_max: int,
-    k: int | None,
+    *,
+    k: int | None = None,
+    cs_sizes: IntArray1D | None = None,
+    co_max: int | None = None,
 ) -> Iterator[Deviation]:
     """
     Return a Python iterator of improving deviations for the given game and coalition structure.
@@ -400,24 +402,16 @@ def best_improving_deviations(
     Normally, the maximum target coalition in an improving deviation is equal to max(cs_sizes)+1.
     However, the parameter co_max may be used to further restrict this value.
     """
-    res = next_best_improving_deviation(game, is_fractional, cs, cs_sizes, co_max, k)
+    cs_sizes_real = cs_sizes if cs_sizes is not None else np.bincount(cs, minlength=len(cs))
+    co_max_real = co_max if co_max is not None else max(cs) + 1
+    res = next_best_improving_deviation(game, is_fractional, cs, cs_sizes_real, co_max_real, k)
     while res is not None:
         dev, ut = res
         # cannot directly yield dev due to limitations of Numba
         yield Deviation(dev.ag, dev.co)
-        res = next_best_improving_deviation(game, is_fractional, cs, cs_sizes, co_max, k, dev, ut)
-
-
-@njit
-def list_best_improving_deviations(
-    game: Game,
-    is_fractional: bool,
-    cs: CoalitionStructure,
-    cs_sizes: IntArray1D,
-    co_max: int,
-    k: int | None,
-) -> list[Deviation]:
-    return list(best_improving_deviations(game, is_fractional, cs, cs_sizes, co_max, k))
+        res = next_best_improving_deviation(
+            game, is_fractional, cs, cs_sizes_real, co_max_real, k, dev, ut
+        )
 
 
 class CoalitionStructureIterator(NamedTuple):
