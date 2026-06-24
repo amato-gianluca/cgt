@@ -123,6 +123,29 @@ def test_HedonicGame_coalition_structures_2():
     )
 
 
+def test_HedonicGame_coalition_structures_as_nx():
+    all_cs = list(GAME1_FRAC.coalition_structures())
+
+    graph = GAME1_FRAC.coalition_structures_as_nx()
+    graph_br = GAME1_FRAC.coalition_structures_as_nx(best_response_only=True)
+
+    assert graph.number_of_nodes() == len(all_cs)
+    assert set(graph.nodes) == set(all_cs)
+    equilibria = [n for n, d in graph.out_degree() if d == 0]
+    assert equilibria == [GAME1_FRAC_CS2]
+
+    for cs, cs_new, data in graph.edges(data=True):
+        ag = data["agent"]
+        co = data["target_coalition"]
+        assert cs.is_improving_deviation(ag, co)
+        assert cs_new == cs.move_to(ag, co)
+
+    # The best-response graph has the same nodes and can only remove edges.
+    assert graph_br.number_of_nodes() == graph.number_of_nodes()
+    assert graph_br.number_of_edges() <= graph.number_of_edges()
+    assert set(graph_br.nodes) == set(graph.nodes)
+
+
 def test_HedonicGame_nash_stable_coalition_structures():
     compare_iterable_nparray(GAME1_FRAC.nash_stable_coalition_structures(), [[0, 0, 0]])
     compare_iterable_nparray(GAME1_FRAC_K1.nash_stable_coalition_structures(), [[0, 1, 2]])

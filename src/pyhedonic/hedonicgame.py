@@ -399,7 +399,7 @@ class HedonicGame:
 
     def coalition_structures_as_nx(
         self, cs_size: int | None = None, best_response_only: bool = False
-    ) -> tuple[nx.DiGraph["CoalitionStructure"], list["CoalitionStructure"]]:
+    ) -> nx.DiGraph["CoalitionStructure"]:
         """
         Return the coalition structures of the game as a networkx graph, where the nodes are the
         coalition structures and there is an edge from cs to cs' if cs' can be obtained from cs by
@@ -408,24 +408,16 @@ class HedonicGame:
         If best_response_only is True, only edges corresponding to best response deviations are
         included in the graph. Otherwise, all improving deviations are included.
         """
-        equilibria = []
         graph = nx.DiGraph()
         graph.add_nodes_from(self.coalition_structures(cs_size))
         for cs in self.coalition_structures(cs_size):
-            equilibrium = True
-            if best_response_only:
-                for ag, co in cs.best_improving_deviations():
-                    equilibrium = False
-                    cs_new = cs.move_to(ag, co)
-                    graph.add_edge(cs, cs_new)
-            else:
-                for ag, co in cs.improving_deviations():
-                    equilibrium = False
-                    cs_new = cs.move_to(ag, co)
-                    graph.add_edge(cs, cs_new)
-            if equilibrium:
-                equilibria.append(cs)
-        return graph, equilibria
+            deviations = (
+                cs.best_improving_deviations() if best_response_only else cs.improving_deviations()
+            )
+            for ag, co in deviations:
+                cs_new = cs.move_to(ag, co)
+                graph.add_edge(cs, cs_new, agent=ag, target_coalition=co)
+        return graph
 
     def isolated_coalition_structure(self) -> "CoalitionStructure":
         """
