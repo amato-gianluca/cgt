@@ -76,7 +76,6 @@ def json_serialize(obj: Any) -> Any:
 
     This is needed to serialize numpy arrays and other non-serializable objects.
     """
-
     if isinstance(obj, np.ndarray):
         return obj.tolist()
     if isinstance(obj, dict):
@@ -129,8 +128,9 @@ def parse_range(s: str) -> range:
 
 def _runner(q: mp.Queue, fn: Callable, args: tuple, kwargs: dict):
     """
-    Run a function and put the result in a queue. This is used to run a function in a separate
-    process with a timeout.
+    Run a function and put the result in a queue.
+
+    This is used to run a function in a separate process with a timeout.
     """
     try:
         q.put((True, fn(*args, **kwargs)))
@@ -140,8 +140,10 @@ def _runner(q: mp.Queue, fn: Callable, args: tuple, kwargs: dict):
 
 def run_with_timeout(fn: Callable, timeout: float | None, *args, **kwargs) -> Any:
     """
-    Run a function with a timeout. If the function does not return within the timeout, it is
-    terminated and a TimeoutError is raised.
+    Run a function with a timeout.
+
+    If the function does not return within the timeout, it is terminated and a TimeoutError is
+    raised.
     """
     ctx = mp.get_context("spawn")  # cross-platform, safe with numba too
     q = ctx.Queue()
@@ -197,8 +199,9 @@ def skip_processing(
 
 def count_with_timing(**kwargs) -> tuple[tuple[int, int, Game | None], float]:
     """
-    Execute the count_unstable_games function and measure the elapsed time. Returns a tuple
-    containing the result of the function and the elapsed time in seconds.
+    Execute the count_unstable_games function and measure the elapsed time.
+
+    Returns a tuple containing the result of the function and the elapsed time in seconds.
     """
     # I tried to generalize count_with_timing to make it works with any function, but this
     # interferes with numba caching.
@@ -210,8 +213,9 @@ def count_with_timing(**kwargs) -> tuple[tuple[int, int, Game | None], float]:
 
 def game_collection_info_with_timing(**kwargs) -> tuple[GameCollectionInfo | None, float]:
     """
-    Execute the game_collection_info function and measure the elapsed time. Returns a tuple
-    containing the result of the function and the elapsed time in seconds.
+    Execute the game_collection_info function and measure the elapsed time.
+
+    Returns a tuple containing the result of the function and the elapsed time in seconds.
     """
     start_time = time.time()
     res = game_collection_info(**kwargs)

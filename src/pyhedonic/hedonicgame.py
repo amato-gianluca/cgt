@@ -696,12 +696,11 @@ class CoalitionStructure:
         """
         Returns the value of the deviation of the given agent to the new coalition.
 
-        For additively
-        separable games, the value is the difference between the new utility and the old one. For
-        fractional games, the value is a tuple (delta_utility, delta_size), where delta_utility is
-        the difference between the new utility and the old one, and delta_size is the difference
-        between the old coalition size and the new one when both the utilities are zero, and 0
-        otherwise.
+        For additively separable games, the value is the difference between the new utility and the
+        old one. For fractional games, the value is a tuple (delta_utility, delta_size), where
+        delta_utility is the difference between the new utility and the old one, and delta_size is
+        the difference between the old coalition size and the new one when both the utilities are
+        zero, and 0 otherwise.
         """
         assert 0 <= ag < len(self.cs), "Agent number out of range."
         assert 0 <= co_new <= self.size and co_new < self.game.agent_count, (

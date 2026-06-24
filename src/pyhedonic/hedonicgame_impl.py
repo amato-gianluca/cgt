@@ -303,8 +303,7 @@ def next_improving_deviation(
 
     The parameter dev is the last found improving deviation (use default value if you need to find
     the first deviation). Normally, the maximum target coalition in an improving deviation is equal
-    to max(cs)+1. However, the parameter max_coalition may be used to further restrict this
-    value.
+    to max(cs)+1. However, the parameter max_coalition may be used to further restrict this value.
     """
     ag, co = dev
     while ag < len(game):
