@@ -758,7 +758,7 @@ class CoalitionStructure:
             self.game.is_fractional(),
             self.cs,
             self._sizes,
-            len(self._sizes),
+            max(self.cs) + 1,
             self.game.k,
         )
 

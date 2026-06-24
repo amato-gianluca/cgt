@@ -16,7 +16,7 @@ Parameters mostly have the same meaning in all functions, namely:
 - ag -- an agent number
 - co -- a coalition number:
     - it is generally allowed for this parameter to refer to a non-existent coalition
-    - if a cs_sizes parameter is also provided, co should be in range(len(cs_sizes))
+    - it should be at most max(cs)+1, where max(cs) is the maximum coalition number in cs
 - dev -- a deviation, i.e., a pair `(ag, co)`
 - weights -- a vector mapping evaluations in `game` to a different scale;
     - None means that the original valuations are used
@@ -293,7 +293,7 @@ def next_improving_deviation(
     is_fractional: bool,
     cs: CoalitionStructure,
     cs_sizes: IntArray1D,
-    max_coalition: int,
+    co_max: int,
     k: int | None,
     dev: Deviation = Deviation(0, -1),
 ) -> Deviation | None:
@@ -303,13 +303,13 @@ def next_improving_deviation(
 
     The parameter dev is the last found improving deviation (use default value if you need to find
     the first deviation). Normally, the maximum target coalition in an improving deviation is equal
-    to len(cs_sizes). However, the parameter max_coalition may be used to further restrict this
+    to max(cs)+1. However, the parameter max_coalition may be used to further restrict this
     value.
     """
     ag, co = dev
     while ag < len(game):
         co += 1
-        while co <= max_coalition and co < len(cs_sizes):
+        while co <= co_max and co < len(cs_sizes):
             if k is None or cs_sizes[co] < k:
                 dev = Deviation(ag, co)
                 if is_improving_deviation(game, is_fractional, cs, cs_sizes, dev):
@@ -332,7 +332,7 @@ def improving_deviations(
     """
     Return a Python iterator of improving deviations for the given game and coalition structure.
 
-    Normally, the maximum target coalition in an improving deviation is equal to len(cs_sizes).
+    Normally, the maximum target coalition in an improving deviation is equal to max(cs_sizes)+1.
     However, the parameter co_max may be used to further restrict this value.
     """
     dev = next_improving_deviation(game, is_fractional, cs, cs_sizes, co_max, k)
@@ -348,7 +348,7 @@ def next_best_improving_deviation(
     is_fractional: bool,
     cs: CoalitionStructure,
     cs_sizes: IntArray1D,
-    max_coalition: int,
+    co_max: int,
     k: int | None,
     dev: Deviation = Deviation(0, -1),
     maxut: AgentUtility = AgentUtility(-1, 1),
@@ -356,11 +356,14 @@ def next_best_improving_deviation(
     """
     Return the next best improving deviation in the given game and coalition structure, None if
     there are no more deviations.
+
+    Normally, the maximum target coalition in an improving deviation is equal to max(cs_sizes)+1.
+    However, the parameter co_max may be used to further restrict this value.
     """
     ag, co = dev
     while ag < len(game):
         if maxut == AgentUtility(-1, 1):
-            for candidate_co in range(co + 1, min(max_coalition + 1, len(cs_sizes))):
+            for candidate_co in range(co + 1, min(co_max + 1, len(cs_sizes))):
                 if is_improving_deviation(
                     game, is_fractional, cs, cs_sizes, Deviation(ag, candidate_co)
                 ):
@@ -368,7 +371,7 @@ def next_best_improving_deviation(
                     if fau_lt(maxut, ut, is_fractional):
                         maxut = ut
         co += 1
-        while co <= max_coalition and co < len(cs_sizes):
+        while co <= co_max and co < len(cs_sizes):
             if k is None or cs_sizes[co] < k:
                 dev = Deviation(ag, co)
                 if is_improving_deviation(game, is_fractional, cs, cs_sizes, dev):
@@ -394,7 +397,7 @@ def best_improving_deviations(
     """
     Return a Python iterator of improving deviations for the given game and coalition structure.
 
-    Normally, the maximum target coalition in an improving deviation is equal to len(cs_sizes).
+    Normally, the maximum target coalition in an improving deviation is equal to max(cs_sizes)+1.
     However, the parameter co_max may be used to further restrict this value.
     """
     res = next_best_improving_deviation(game, is_fractional, cs, cs_sizes, co_max, k)
