@@ -277,7 +277,7 @@ dependencies = [
     { name = "tabulate" },
 ]
 
-[package.optional-dependencies]
+[package.dev-dependencies]
 dev = [
     { name = "docformatter" },
     { name = "pytest" },
@@ -286,19 +286,22 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "docformatter", marker = "extra == 'dev'" },
     { name = "jinja2" },
     { name = "networkx" },
     { name = "numba" },
     { name = "numpy" },
     { name = "pandas" },
     { name = "pydot" },
-    { name = "pytest", marker = "extra == 'dev'" },
     { name = "pyyaml" },
-    { name = "ruff", marker = "extra == 'dev'" },
     { name = "tabulate" },
 ]
-provides-extras = ["dev"]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "docformatter" },
+    { name = "pytest" },
+    { name = "ruff" },
+]
 
 [[package]]
 name = "pyparsing"

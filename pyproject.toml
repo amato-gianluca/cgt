@@ -21,7 +21,7 @@ dependencies = [
   "jinja2",
 ]
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = ["pytest", "ruff", "docformatter"]
 
 [tool.setuptools]
