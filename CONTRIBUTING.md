@@ -7,9 +7,7 @@ This project uses a `src/` layout and is packaged via `pyproject.toml`.
 Create an environment and install dependencies:
 
 ```bash
-python3 -m venv .venv
-. .venv/bin/activate
-pip install -e .[dev]
+uv sync --group dev
 ```
 
 ## Running Tests
@@ -17,19 +15,19 @@ pip install -e .[dev]
 Run the full test suite:
 
 ```bash
-PYTHONPATH=src pytest -q
+uv run pytest
 ```
 
 Run a single file:
 
 ```bash
-PYTHONPATH=src pytest -q tests/test_pyhedonic_impl.py
+uv run pytest tests/test_pyhedonic_impl.py
 ```
 
 Run a focused subset:
 
 ```bash
-PYTHONPATH=src pytest -q tests/test_pyhedonic_impl.py -k unstable
+uv run pytest tests/test_pyhedonic_impl.py -k unstable
 ```
 
 ## Development Notes

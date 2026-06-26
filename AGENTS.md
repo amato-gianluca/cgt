@@ -13,16 +13,14 @@ This repository contains Python code for experimenting with fractional hedonic g
 
 ## Environment
 
-- Python: `>=3.12`
+- Python: `>=3.14`
 - Main dependencies: `numpy`, `numba`, `pandas`, `PyYAML`, `networkx`, `pydot`
-- Dev dependency: `pytest`
+- Dev dependency: `pytest`, `ruff`, `docformatter`
 
 Recommended setup:
 
 ```bash
-python3 -m venv .venv
-. .venv/bin/activate
-pip install -e .[dev]
+uv sync --group dev
 ```
 
 ## Commands
@@ -30,19 +28,19 @@ pip install -e .[dev]
 Run the full test suite:
 
 ```bash
-PYTHONPATH=src pytest -q
+uv run pytest
 ```
 
 Run one test module:
 
 ```bash
-PYTHONPATH=src pytest -q tests/test_pyhedonic_impl.py
+uv run pytest tests/test_pyhedonic_impl.py
 ```
 
 Run a specific test:
 
 ```bash
-PYTHONPATH=src pytest -q tests/test_pyhedonic_impl.py -k test_count_unstable_games
+uv run pytest tests/test_pyhedonic_impl.py -k test_count_unstable_games
 ```
 
 ## Code Guidelines
