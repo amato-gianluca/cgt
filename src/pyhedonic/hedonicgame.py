@@ -204,7 +204,7 @@ class Graph:
         return graph
 
     @classmethod
-    def from_nx_graph(cls, graph: nx.Graph | nx.DiGraph) -> "Graph":
+    def from_nx_graph(cls, graph: nx.Graph | nx.DiGraph) -> Graph:
         """
         Convert a networkx graph to the `Graph` class.
 
@@ -359,7 +359,7 @@ class HedonicGame:
 
     def coalition_structure_from_groups(
         self, coalitions: Iterable[Iterable[int]]
-    ) -> "CoalitionStructure":
+    ) -> CoalitionStructure:
         """
         Return the coalition structure corresponding to the given list of coalitions.
 
@@ -376,13 +376,13 @@ class HedonicGame:
         CoalitionStructure._normalize(cs)
         return CoalitionStructure(self, cs)
 
-    def coalition_structure_from_indices(self, cs: Iterable[int]) -> "CoalitionStructure":
+    def coalition_structure_from_indices(self, cs: Iterable[int]) -> CoalitionStructure:
         """
         Return the coalition structure corresponding to the given list of coalition indices.
         """
         return CoalitionStructure(self, np.array(cs, dtype=np.int_))
 
-    def coalition_structures(self, cs_size: int | None = None) -> Iterator["CoalitionStructure"]:
+    def coalition_structures(self, cs_size: int | None = None) -> Iterator[CoalitionStructure]:
         """
         Iterates over the coalition structures of the game.
 
@@ -419,7 +419,7 @@ class HedonicGame:
                 graph.add_edge(cs, cs_new, agent=ag, target_coalition=co)
         return graph
 
-    def isolated_coalition_structure(self) -> "CoalitionStructure":
+    def isolated_coalition_structure(self) -> CoalitionStructure:
         """
         Return the isolated coalition structure of the game.
 
@@ -427,7 +427,7 @@ class HedonicGame:
         """
         return CoalitionStructure(self, np.arange(self.agent_count))
 
-    def big_coalition_structure(self) -> "CoalitionStructure | None":
+    def big_coalition_structure(self) -> CoalitionStructure | None:
         """
         Return the big coalition structure of the game, or None if it is not valid.
 
@@ -439,7 +439,7 @@ class HedonicGame:
         else:
             return CoalitionStructure(self, np.zeros(self.agent_count, dtype=np.int_))
 
-    def nash_stable_coalition_structures(self) -> Iterator["CoalitionStructure"]:
+    def nash_stable_coalition_structures(self) -> Iterator[CoalitionStructure]:
         """
         Iterates over the Nash stable coalition structures of the game.
         """
@@ -454,7 +454,7 @@ class HedonicGame:
 
     def _optimal_coalition_structure_fast(
         self,
-    ) -> tuple["CoalitionStructure", int | Fraction]:
+    ) -> tuple[CoalitionStructure, int | Fraction]:
         """
         Return one of the optimal coalition structures of the game and the corresponding social
         welfare.
@@ -497,7 +497,7 @@ class HedonicGame:
         else:
             return max(cs.social_welfare() for cs in self.coalition_structures())
 
-    def optimal_coalition_structures(self) -> Iterator["CoalitionStructure"]:
+    def optimal_coalition_structures(self) -> Iterator[CoalitionStructure]:
         """
         Return all the optimal coalition structures of the game, in lexicographic order.
         """
@@ -506,7 +506,7 @@ class HedonicGame:
 
     def optimal_coalition_structure(
         self,
-    ) -> tuple["CoalitionStructure", int | Fraction]:
+    ) -> tuple[CoalitionStructure, int | Fraction]:
         """
         Return one of the optimal coalition structures of the game and the corresponding social
         welfare.
@@ -781,7 +781,7 @@ class CoalitionStructure:
             k=self.game.k,
         )
 
-    def move_to(self, ag: Agent, co_new: Coalition) -> "CoalitionStructure":
+    def move_to(self, ag: Agent, co_new: Coalition) -> CoalitionStructure:
         """
         Move the given agent to the new coalition and return the new coalition structure we obtain
         in this way.
