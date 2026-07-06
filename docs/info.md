@@ -182,6 +182,7 @@ The value `(to)` means execution took more than 24h and was interrupted. Values 
 |     2 | **11736** | (to) | (to)   |
 |     3 | (to)      |      |        |
 
+Note the value 13 for $m=1$ and $n=10$ which is the case of a simple game with no Nash-stable coalition structures. Actually, these 13 examples correspond to three different non-isomorphic graphs.
 
 ### k=8
 

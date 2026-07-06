@@ -28,7 +28,7 @@ Parameters mostly have the same meaning in all functions, namely:
 from typing import Iterator, NamedTuple
 
 import numpy as np
-from numba import config, njit
+from numba import config, njit, prange
 
 # pyright: reportAttributeAccessIssue=false
 config.DISABLE_JIT = False
@@ -1024,6 +1024,36 @@ def count_unstable_games(
     return GameCollectionCounts(count_total, count_noequilibrium, example_noequilibrium)
 
 
+@njit(parallel=True, cache=True)
+def count_unstable_games_from_collection(
+    games: list[Game],
+    k: int | None = None,
+    is_fractional: bool = True,
+) -> GameCollectionCounts:
+    """
+    Count the number of games without a Nash stable coalition structure from a given collection of games.
+
+    The returned named tuple contains the total number of games considered, the number of games
+    without a Nash stable coalition structure, and an example of such a game when one exists.
+    """
+    count_noequilibrium = 0
+    n = len(games)
+    mask = np.zeros(n, dtype=np.bool_)
+    for i in prange(n):
+        if nash_equilibrium(games[i], is_fractional, k) is None:
+            mask[i] = True
+
+    count_noequilibrium = 0
+    example_noequilibrium = np.zeros((0, 0), dtype=np.int_)
+    for i in range(n):
+        if mask[i]:
+            count_noequilibrium += 1
+            if example_noequilibrium.size == 0:
+                example_noequilibrium = games[i]
+
+    return GameCollectionCounts(n, count_noequilibrium, example_noequilibrium)
+
+
 class GameCollectionPrices(NamedTuple):
     """
     A named tuple to hold the extremal values for the prices of anarchy and stability in a set of
@@ -1257,3 +1287,42 @@ def game_collection_info(
         else None
     )
     return GameCollectionInfo(game_collection_count, game_collection_prices)
+
+
+@njit
+def graph6_to_weight_matrix(g6: bytes) -> IntArray2D:
+    """
+    Parse a graph6 string/bytes object with n <= 62 and return
+    a dense NumPy adjacency matrix with weights 0.0 / 1.0.
+
+    Input should be bytes, e.g. b'Dhc'
+    """
+    # Remove trailing newline if present
+    length = len(g6)
+    if length > 0 and g6[length - 1] == 10:
+        length -= 1
+
+    # This simple version supports graph6 with n <= 62
+    n = g6[0] - 63
+
+    A = np.zeros((n, n), dtype=np.int_)
+
+    bit_index = 0
+
+    # graph6 encodes upper-triangular adjacency bits:
+    # (0,1), (0,2), (1,2), (0,3), (1,3), (2,3), ...
+    for j in range(1, n):
+        for i in range(j):
+            byte_pos = 1 + bit_index // 6
+            offset = bit_index % 6
+
+            value = g6[byte_pos] - 63
+            bit = (value >> (5 - offset)) & 1
+
+            if bit == 1:
+                A[i, j] = 1.0
+                A[j, i] = 1.0
+
+            bit_index += 1
+
+    return A

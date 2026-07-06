@@ -7,22 +7,20 @@ are logged in YAML or JSON format, and the script supports resuming from a previ
 
 import argparse
 import datetime
+import itertools
 import json
 import multiprocessing as mp
+import subprocess
+import sys
 import time
 from textwrap import dedent
-from typing import Any, Callable, cast
+from typing import Any, Callable, Iterator, cast
 
 import numpy as np
 import yaml
 
-from pyhedonic.hedonicgame_impl import (
-    Game,
-    GameCollectionInfo,
-    IntArray1D,
-    count_unstable_games,
-    game_collection_info,
-)
+import pyhedonic.hedonicgame_impl as hgimpl
+from pyhedonic.hedonicgame_impl import IntArray1D, Game
 
 
 def yaml_serialize(obj: Any) -> Any:
@@ -48,9 +46,9 @@ yaml.add_representer(np.float64, lambda dumper, value: dumper.represent_float(fl
 
 
 def yaml_log(
-    k: int,
-    n: int,
-    m: int,
+    k: int | None,
+    n: int | None,
+    m: int | None,
     weights: IntArray1D | None,
     payload: Any,
     elapsed_time: float,
@@ -88,9 +86,9 @@ def json_serialize(obj: Any) -> Any:
 
 
 def json_log(
-    k: int,
-    n: int,
-    m: int,
+    k: int | None,
+    n: int | None,
+    m: int | None,
     weights: IntArray1D | None,
     payload: Any,
     elapsed_time: float,
@@ -206,20 +204,86 @@ def count_with_timing(**kwargs) -> tuple[tuple[int, int, Game | None], float]:
     # I tried to generalize count_with_timing to make it works with any function, but this
     # interferes with numba caching.
     start_time = time.time()
-    res = count_unstable_games(**kwargs)
+    res = hgimpl.count_unstable_games(**kwargs)
     elapsed_time = time.time() - start_time
     return (res, elapsed_time)
 
 
-def game_collection_info_with_timing(**kwargs) -> tuple[GameCollectionInfo | None, float]:
+def game_collection_info_with_timing(**kwargs) -> tuple[hgimpl.GameCollectionInfo | None, float]:
     """
     Execute the game_collection_info function and measure the elapsed time.
 
     Returns a tuple containing the result of the function and the elapsed time in seconds.
     """
     start_time = time.time()
-    res = game_collection_info(**kwargs)
+    res = hgimpl.game_collection_info(**kwargs)
     elapsed_time = time.time() - start_time
+    return (res, elapsed_time)
+
+
+def generate_graphs(
+    n: int, geng_path: str = "geng", geng_args: tuple = (), verbose: bool = True
+) -> Iterator[Game]:
+    """
+    Generate all non-isomorphic simple graphs on n vertices using nauty's geng and return them
+    as weight matrices.
+    """
+    cmd = [geng_path, *geng_args, str(n)]
+
+    proc = subprocess.Popen(
+        cmd,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+
+    assert proc.stdout is not None
+
+    for i, line in enumerate(proc.stdout):
+        if verbose and i % 10000 == 0:
+            print(f"Processing graph {i}\r", end="", file=sys.stderr)
+        graph = hgimpl.graph6_to_weight_matrix(line)
+        yield graph
+    if verbose:
+        print()
+
+    _, stderr = proc.communicate()
+
+    if proc.returncode != 0:
+        raise RuntimeError(f"geng failed:\n{stderr}")
+
+
+def count_unstable_games_from_collection_with_timing(
+    agent_count: int,
+    k: int,
+    is_fractional: bool = True,
+    geng_path: str = "geng",
+    debug: int = 0,
+    **_,
+) -> tuple[tuple[int, int, Game | None], float]:
+    """
+    Execute the count_unstable_games_from_collection function and measure the elapsed time.
+
+    Returns a tuple containing the result of the function and the elapsed time in seconds. The
+    functions is called in batches of 1000 graphs to avoid memory issues with large graph
+    collections.
+    """
+    graphs = generate_graphs(agent_count, geng_path)
+    batches = itertools.batched(graphs, 10000)
+    start_time = time.time()
+    count_total = 0
+    count_noequilibrium = 0
+    example_noequilibrium = np.zeros((0, 0), dtype=np.int_)
+    for batch in batches:
+        games = list(batch)
+        res = hgimpl.count_unstable_games_from_collection(games, k, is_fractional)
+        count_total += res.count_total
+        count_noequilibrium += res.count_noequilibrium
+        if example_noequilibrium.size == 0 and res.example_noequilibrium.size > 0 and debug > 0:
+            print()
+            print(res.example_noequilibrium)
+            example_noequilibrium = res.example_noequilibrium
+    elapsed_time = time.time() - start_time
+    res = hgimpl.GameCollectionCounts(count_total, count_noequilibrium, example_noequilibrium)
     return (res, elapsed_time)
 
 
@@ -238,6 +302,8 @@ def main():
     parser.add_argument("-k", help="upper bound on the size of coalitions")
     parser.add_argument("-n", help="number of agents in the game")
     parser.add_argument("-m", help="maximum valuation in the game")
+    parser.add_argument("--geng", help="generate graphs using nauty's geng", action="store_true")
+    parser.add_argument("--geng-binary", help="name of the geng binary", default="geng")
     parser.add_argument("-i", "--input", help="input file containing already counted data points")
     parser.add_argument("-o", "--output", help="output file")
     parser.add_argument("-w", "--weights", help="weights to use instead of consecutive numbers")
@@ -259,27 +325,42 @@ def main():
     k_range = None if args.k is None else parse_range(args.k)
     m_range = None if args.m is None else parse_range(args.m)
 
-    f = None if args.output is None else open(args.output, "a")
-    weights: IntArray1D | None = (
-        None if args.weights is None else np.array(json.loads(args.weights))
-    )
-    timeout: float | None = args.timeout
-
     old_data = yaml_load(args.input) if args.input else []
+
+    out_file = None if args.output is None else open(args.output, "a")
+    timeout = None if args.timeout is None else int(args.timeout)
+    weights = None if args.weights is None else np.array(json.loads(args.weights))
 
     # warmup jit
     if args.prices:
-        game_collection_info(agent_count=2, k=1, m_begin=1, m_end=1, weights=weights, debug=0)
+        hgimpl.game_collection_info(
+            agent_count=2, k=1, m_begin=1, m_end=1, weights=weights, debug=0
+        )
     else:
-        count_unstable_games(agent_count=2, k=1, m_begin=1, m_end=1, weights=weights, debug=0)
+        hgimpl.count_unstable_games(
+            agent_count=2, k=1, m_begin=1, m_end=1, weights=weights, debug=0
+        )
 
     local_k_range = range(2, 9) if k_range is None else k_range
+
+    if args.geng:
+        if weights is not None or m_range is not None:
+            raise ValueError(
+                "Cannot use weights or m range when generating graphs with nauty's geng"
+            )
+
+        if args.prices:
+            raise ValueError(
+                "Cannot compute prices of anarchy and stability with a graph collection"
+            )
 
     for k in local_k_range:
         local_n_range = range(k + 1, 11) if n_range is None else n_range
 
         for n in local_n_range:
-            local_m_range = range(0, 31) if m_range is None else m_range
+            local_m_range = (
+                range(1, 2) if args.geng else range(0, 31) if m_range is None else m_range
+            )
 
             if weights is not None:
                 local_m_range = range(local_m_range.start, min(local_m_range.stop, len(weights)))
@@ -287,10 +368,17 @@ def main():
             for m in local_m_range:
                 timeout_occured = False
                 if skip_processing(old_data, k, n, m, weights, timeout):
-                    print("k:", k, "n:", n, "m: ", m, "------ SKIPPED")
+                    print("k:", k, "n:", n, "m:", m, "------ SKIPPED")
                     continue
-                print("k:", k, "n:", n, "m: ", m)
-                fn = game_collection_info_with_timing if args.prices else count_with_timing
+                print("k:", k, "n:", n, "m:", m)
+
+                fn = (
+                    count_unstable_games_from_collection_with_timing
+                    if args.geng
+                    else game_collection_info_with_timing
+                    if args.prices
+                    else count_with_timing
+                )
                 result = None
                 try:
                     result, elapsed_time = run_with_timeout(
@@ -301,6 +389,7 @@ def main():
                         m_begin=m,
                         m_end=m,
                         weights=weights,
+                        geng_path=args.geng_binary,
                         debug=1,
                     )
                 except TimeoutError:
@@ -312,16 +401,16 @@ def main():
                     else json_log(k, n, m, weights, result, elapsed_time)
                 )
                 print(log_msg)
-                if f:
-                    print("---", file=f, flush=True)
-                    print(log_msg, file=f, flush=True, end="")
+                if out_file:
+                    print("---", file=out_file, flush=True)
+                    print(log_msg, file=out_file, flush=True, end="")
 
                 if timeout_occured:
                     # do not try greater values for m if the current has timed out
                     break
 
-    if f:
-        f.close()
+    if out_file:
+        out_file.close()
 
 
 if __name__ == "__main__":
