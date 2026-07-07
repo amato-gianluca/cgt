@@ -230,6 +230,31 @@ def generate_graphs(
     """
     cmd = [geng_path, *geng_args, str(n)]
 
+    # The number of non-isomorphic simple graphs on n vertices is given by the OEIS sequence A000088.
+    GRAPH_COUNTS = [
+        1,
+        1,
+        2,
+        4,
+        11,
+        34,
+        156,
+        1044,
+        12346,
+        274668,
+        12005168,
+        1018997864,
+        165091172592,
+        50502031367952,
+        29054155657235488,
+        31426485969804308768,
+        64001015704527557894928,
+        245935864153532932683719776,
+        1787577725145611700547878190848,
+        24637809253125004524383007491432768,
+    ]
+    total = GRAPH_COUNTS[n] if n < len(GRAPH_COUNTS) else None
+
     proc = subprocess.Popen(
         cmd,
         stdout=subprocess.PIPE,
@@ -240,7 +265,10 @@ def generate_graphs(
 
     for i, line in enumerate(proc.stdout):
         if verbose and i % 10000 == 0:
-            print(f"Processing graph {i}\r", end="", file=sys.stderr)
+            if total is not None:
+                print(f"Processing graph {i/total*100:.3f}%\r", end="", file=sys.stderr)
+            else:
+                print(f"Processing graph {i}\r", end="", file=sys.stderr)
         graph = hgimpl.graph6_to_weight_matrix(line)
         yield graph
     if verbose:
