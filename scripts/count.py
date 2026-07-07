@@ -195,7 +195,16 @@ def skip_processing(
     return False
 
 
-def count_with_timing(**kwargs) -> tuple[tuple[int, int, Game | None], float]:
+def count_with_timing(
+    agent_count: int,
+    k: int,
+    m_begin: int,
+    m_end: int,
+    weights: IntArray1D | None = None,
+    is_fractional: bool = True,
+    debug: int = 0,
+    **_,
+) -> tuple[tuple[int, int, Game | None], float]:
     """
     Execute the count_unstable_games function and measure the elapsed time.
 
@@ -204,19 +213,44 @@ def count_with_timing(**kwargs) -> tuple[tuple[int, int, Game | None], float]:
     # I tried to generalize count_with_timing to make it works with any function, but this
     # interferes with numba caching.
     start_time = time.time()
-    res = hgimpl.count_unstable_games(**kwargs)
+    res = hgimpl.count_unstable_games(
+        agent_count=agent_count,
+        k=k,
+        m_begin=m_begin,
+        m_end=m_end,
+        weights=weights,
+        is_fractional=is_fractional,
+        debug=debug,
+    )
     elapsed_time = time.time() - start_time
     return (res, elapsed_time)
 
 
-def game_collection_info_with_timing(**kwargs) -> tuple[hgimpl.GameCollectionInfo | None, float]:
+def game_collection_info_with_timing(
+    agent_count: int,
+    k: int,
+    m_begin: int,
+    m_end: int,
+    weights: IntArray1D | None = None,
+    is_fractional: bool = True,
+    debug: int = 0,
+    **_,
+) -> tuple[hgimpl.GameCollectionInfo | None, float]:
     """
     Execute the game_collection_info function and measure the elapsed time.
 
     Returns a tuple containing the result of the function and the elapsed time in seconds.
     """
     start_time = time.time()
-    res = hgimpl.game_collection_info(**kwargs)
+    res = hgimpl.game_collection_info(
+        agent_count=agent_count,
+        k=k,
+        m_begin=m_begin,
+        m_end=m_end,
+        weights=weights,
+        is_fractional=is_fractional,
+        debug=debug,
+    )
     elapsed_time = time.time() - start_time
     return (res, elapsed_time)
 
@@ -266,7 +300,7 @@ def generate_graphs(
     for i, line in enumerate(proc.stdout):
         if verbose and i % 10000 == 0:
             if total is not None:
-                print(f"Processing graph {i/total*100:.3f}%\r", end="", file=sys.stderr)
+                print(f"Processing graph {i / total * 100:.3f}%\r", end="", file=sys.stderr)
             else:
                 print(f"Processing graph {i}\r", end="", file=sys.stderr)
         graph = hgimpl.graph6_to_weight_matrix(line)
