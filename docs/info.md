@@ -13,14 +13,14 @@ Note that $m$ is intended as the maximum value of all the weights in the graph, 
 
 ## Exhaustive game generation procedure
 
-Games are generated using the heuristics in _[Codish et al, Constraints for symmetry breaking in graph representation, Constraints 24 (2019)](https://doi.org/10.1007/s10601-018-9294-5)_. Using these heuristics, it is possible to avoid the generation of many (but not all) isomorphic copies of the same graph.
+**Simple games** are generated using the [nauty](https://pallini.di.uniroma1.it/), a program for computing automorphism groups of graphs and digraphs, based on the paper _[B.D. McKay,  A. Piperno , Practical Graph Isomorphism II](https://doi.org/10.1016/j.jsc.2013.09.003)_. This procedure guarantess that only a representative for every isomorphism class is generated.
 
-The following table shows the number of games we generate for each combination given by the number of nodes *n* and the maximum valuation *m*. The first line shows the number of non-isomorphic graphs in the case when m=1, taken from https://users.cecs.anu.edu.au/~bdm/data/graphs.html. Note that we subtract one unit from the values taken from this web page in order to account for the only graph without edges (m=0) that we do not count in our procedure.
+**Non-simple games** are generated using the heuristics in _[Codish et al, Constraints for symmetry breaking in graph representation, Constraints 24 (2019)](https://doi.org/10.1007/s10601-018-9294-5)_. Using these heuristics, it is possible to avoid the generation of many (but not all) isomorphic copies of the same graph. The following table shows the number of games the heuristic procedure generates for each combination given by the number of nodes *n* and the maximum valuation *m*. The first line shows the number of non-isomorphic graphs in the case when m=1, taken from the [OEIS sequence A0088](https://oeis.org/A000088). Note that we subtract one unit from the values taken from this web page in order to account for the only graph without edges (m=0) that we do not count in our procedure.
 
  m\n | 3   | 4       | 5         | 6            | 7          | 8          | 9       | 10        | 11         |
 ----:|----:|--------:|----------:|-------------:|-----------:|-----------:|--------:|----------:|-----------:|
-  \* | 3   | 10      | 33        | 155          | 1043       | 12345      | 274667  | 12005168  | 1018997864 |
-   1 | 3   | 10      | 42        | 275          | 3157       | 66594      | 2587487 | 184192328
+  \* | 3   | 10      | 33        | 155          | 1043       | 12345      | 274667  | 12005167  | 1018997863 |
+   1 | 3   | 10      | 42        | 275          | 3157       | 66594      | 2587487 | 184192328 |
    2 | 6   | 61      | 1264      | 66515        | 9219851    | 3366883033 |
    3 | 10  | 250     | 17972     | 4256478      | 3380330967 |
    4 | 15  | 775     | 146016    | 109376621    |
@@ -53,7 +53,7 @@ The following table shows the number of games we generate for each combination g
 
 ## Simple games without Nash stable coalition structure.
 
-* No cases for $k=3$ and $k=4$ (known from theory).
+* No cases for $k$ from $1$ to $5$ (known from theory).
 * No cases for $2 \leq n \leq 9$, and $k < n$.
 * No cases for $n=10$ and $k<n$ with the **only exception** of $n=10$ and $k=7$.
 
@@ -61,15 +61,16 @@ The following table shows the number of games we generate for each combination g
 
 For each $k$ and $n$, this table shows the maximum weight ($m$) of the lexicographically minimum graph with no Nash stable coalition structure.
 
- k\n | 4 |  5  | 6 | 7  | 8  | 9  | 10    |
-----:|--:|----:|--:|---:|---:|---:|------:|
-  3  | 7 |   5 | 5 | >2 | >1 | >1 | >1    |
-  4  | - |  10 | 2 | 2  | 2  | 2  |  2    |
-  5  | - |  -  | 2 | >1 | >1 | >1 | >1    |
-  6  | - |  -  | - | 3  | >1 | >1 | >1    |
-  7  | - |  -  | - | -  |  2 | >1 | **1** |
-  8  | - |  -  | - | -  |  - | >1 | >1    |
-  9  | - |  -  | - | -  |  - |  - | >1    |
+ k\n | 4 |  5  | 6 | 7  | 8  | 9  | 10    | 11    |
+----:|--:|----:|--:|---:|---:|---:|------:|:-----:|
+  3  | 7 |   5 | 5 | >2 | >1 | >1 | >1    | >1    |
+  4  | - |  10 | 2 | 2  | 2  | 2  |  2    | >1    |
+  5  | - |  -  | 2 | >1 | >1 | >1 | >1    | >1    |
+  6  | - |  -  | - | 3  | >1 | >1 | >1    | >1    |
+  7  | - |  -  | - | -  |  2 | >1 | **1** | **1** |
+  8  | - |  -  | - | -  |  - | >1 | >1    | >1    |
+  9  | - |  -  | - | -  |  - |  - | >1    | >1    |
+| 10 | - |  -  | - | -  |  - |  - |  -    | >1     |
 
 Note that these numbers decrease monotonically with $n$. This is because if a game with $n$ agents has no Nash stable coalition structure, the node with $n+1$ agents obtained by adding a new disconnected node also has no stable coalition structure for the same value of $k$.
 
@@ -86,10 +87,10 @@ The value `(to)` means execution took more than 24h and was interrupted. Values 
 
 ### k=3
 
-|   m\n | 4       | 5           | 6       | 7    | 8    | 9    | 10   |
-|------:|:--------|:------------|:--------|:-----|:-----|:-----|:-----|
-|     0 | 0       | 0           | 0       | 0    | 0    | 0    | 0    |
-|     1 | 0       | 0           | 0       | 0    | 0    | 0    | 0    |
+|   m\n | 4       | 5           | 6       | 7    | 8    | 9    | 10   | 11  |
+|------:|:--------|:------------|:--------|:-----|:-----|:-----|:-----|:---:|
+|     0 | 0       | 0           | 0       | 0    | 0    | 0    | 0    | 0   |
+|     1 | 0       | 0           | 0       | 0    | 0    | 0    | 0    | 0   |
 |     2 | 0       | 0           | 0       | 0    | 0    | (to) | (to) |
 |     3 | 0       | 0           | 0       | 0    | (to) |      |      |
 |     4 | 0       | 0           | 0       | (to) |      |      |      |
@@ -123,10 +124,10 @@ The value `(to)` means execution took more than 24h and was interrupted. Values 
 
 ### k=4
 
-|   m\n | 5          | 6           | 7        | 8     | 9    | 10   |
-|------:|:-----------|:------------|:---------|:------|:-----|:-----|
-|     0 | 0          | 0           | 0        | 0     | 0    | 0    |
-|     1 | 0          | 0           | 0        | 0     | 0    | 0    |
+|   m\n | 5          | 6           | 7        | 8     | 9    | 10   | 11  |
+|------:|:-----------|:------------|:---------|:------|:-----|:-----|:---:|
+|     0 | 0          | 0           | 0        | 0     | 0    | 0    | 0   |
+|     1 | 0          | 0           | 0        | 0     | 0    | 0    | 0   |
 |     2 | 0          | **9**       | **9**    | **9** | (to) | (to) |
 |     3 | 0          | **1033**    | **1084** | (to)  |      |      |
 |     4 | 0          | **29759**   | (to)     |       |      |      |
@@ -150,10 +151,10 @@ The value `(to)` means execution took more than 24h and was interrupted. Values 
 
 ### k=5
 
-|   m\n | 6          | 7         | 8         | 9    | 10   |
-|------:|:-----------|:----------|:----------|:-----|:-----|
-|     0 | 0          | 0         | 0         | 0    | 0    |
-|     1 | 0          | 0         | 0         | 0    | 0    |
+|   m\n | 6          | 7         | 8         | 9    | 10   | 11  |
+|------:|:-----------|:----------|:----------|:-----|:-----|:---:|
+|     0 | 0          | 0         | 0         | 0    | 0    | 0   |
+|     1 | 0          | 0         | 0         | 0    | 0    | 0   |
 |     2 | **5**      | **5**     | **36109** | (to) | (to) |
 |     3 | **41**     | **41259** | (to)      |      |      |
 |     4 | **2098**   | (to)      |           |      |      |
@@ -164,10 +165,10 @@ The value `(to)` means execution took more than 24h and was interrupted. Values 
 
 ### k=6
 
-|   m\n | 7       | 8         | 9    | 10   |
-|------:|:--------|:----------|:-----|:-----|
-|     0 | 0       | 0         | 0    | 0    |
-|     1 | 0       | 0         | 0    | 0    |
+|   m\n | 7       | 8         | 9    | 10   | 11  |
+|------:|:--------|:----------|:-----|:-----|:---:|
+|     0 | 0       | 0         | 0    | 0    | 0   |
+|     1 | 0       | 0         | 0    | 0    | 0   |
 |     2 | 0       | **17915** | (to) | (to) |
 |     3 | **146** | (to)      |      |      |
 |     4 | *66743* |           |      |      |
@@ -175,22 +176,38 @@ The value `(to)` means execution took more than 24h and was interrupted. Values 
 
 ### k=7
 
-|   m\n | 8         | 9    | 10     |
-|------:|:----------|:-----|:-------|
-|     0 | 0         | 0    | 0      |
-|     1 | 0         | 0    | **13** |
+|   m\n | 8         | 9    | 10     | 11     |
+|------:|:----------|:-----|:-------|:------:|
+|     0 | 0         | 0    | 0      | 0      |
+|     1 | 0         | 0    | **3**  | **3**  |
 |     2 | **11736** | (to) | (to)   |
 |     3 | (to)      |      |        |
 
-Note the value 13 for $m=1$ and $n=10$ which is the case of a simple game with no Nash-stable coalition structures. Actually, these 13 examples correspond to three different non-isomorphic graphs.
+Note the value 3 for $m=1$ and $n=10$ which is the case of a simple game with no Nash-stable coalition structures.
 
 ### k=8
 
-|   m\n | 9    | 10   |
-|------:|:-----|:-----|
-|     0 | 0    | 0    |
-|     1 | 0    | 0    |
+|   m\n | 9    | 10   | 11  |
+|------:|:-----|:-----|:---:|
+|     0 | 0    | 0    | 0   |
+|     1 | 0    | 0    | 0   |
 |     2 | (to) | (to) |
+
+### k=9
+
+|   m\n | 10   | 11  |
+|------:|:-----|:---:|
+|     0 | 0    | 0   |
+|     1 | 0    | 0   |
+|     2 |      |
+
+### k=10
+
+|   m\n | 11   |
+|------:|:-----|
+|     0 | 0    |
+|     1 | 0    |
+|     2 |      |
 
 ## Powers of two
 
