@@ -22,7 +22,7 @@ def is_improving_deviation(
     source_utility = sum(graph[agent, a] for a in source_coalition)
     target_utility = sum(graph[agent, a] for a in target_coalition)
     if source_utility == 0 == target_utility:
-        return len(target_coalition) > len(source_coalition)
+        return len(target_coalition) < len(source_coalition)
     else:
         return target_utility * len(source_coalition) > source_utility * len(target_coalition)
 
