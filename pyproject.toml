@@ -22,7 +22,7 @@ dependencies = [
 ]
 
 [dependency-groups]
-dev = ["pytest", "ruff", "docformatter"]
+dev = ["pytest", "ruff", "docformatter", "more_itertools"]
 
 [tool.setuptools]
 package-dir = { "" = "src" }
