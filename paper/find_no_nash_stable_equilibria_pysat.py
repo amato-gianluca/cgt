@@ -10,8 +10,8 @@ from typing import Any
 
 import numpy as np
 from more_itertools import set_partitions
-from pysat.formula import Atom, IDPool
-from pysat.pb import PBEnc
+from pysat.formula import IDPool
+from pysat.pb import EncType, PBEnc
 from pysat.solvers import Kissat404
 
 type Agent = int
@@ -21,7 +21,7 @@ type Graph = tuple[tuple[Any, ...], ...]
 type Solver = Kissat404
 
 vpool = IDPool()
-
+encoder = EncType.best
 
 @cache
 def count_partitions(n, max_size):
@@ -52,10 +52,8 @@ def is_improving_deviation(
     deviation to be available.
     """
     target_coalition = target_coalition + (agent,)
-    target_vars = [graph[agent][a] for a in target_coalition if a != agent]
-    source_vars = [graph[agent][a] for a in source_coalition if a != agent]
-    target_lits = [v.name for v in target_vars]
-    source_lits = [v.name for v in source_vars]
+    target_lits = [graph[agent][a] for a in target_coalition if a != agent]
+    source_lits = [graph[agent][a] for a in source_coalition if a != agent]
     s = len(source_coalition)
     t = len(target_coalition)
     b = vpool.id(f"id_{source_coalition}_{target_coalition}_{agent}")
@@ -69,6 +67,7 @@ def is_improving_deviation(
         bound=1 + t * len(source_lits),
         vpool=vpool,
         conditionals=[b],
+        encoding=encoder,
     )
     assert not pb.atmosts
     solver.append_formula(pb.clauses)
@@ -122,10 +121,11 @@ def base_constraints(solver: Solver, graph: Graph, is_symmetric: bool = True):
     Base constraints for the graph.
     """
     for i in range(len(graph)):
-        solver.append_formula(~graph[i][i])
+        solver.add_clause([-graph[i][i]])
         for j in range(i):
             if is_symmetric:
-                solver.append_formula(graph[i][j] @ graph[j][i])
+                solver.add_clause([-graph[i][j], graph[j][i]])
+                solver.add_clause([-graph[j][i], graph[i][j]])
 
 
 def model_to_graph(model, graph: Graph) -> np.ndarray:
@@ -136,20 +136,25 @@ def model_to_graph(model, graph: Graph) -> np.ndarray:
     g = np.zeros((n, n), dtype=np.int_)
     for i in range(n):
         for j in range(n):
-            g[i, j] = 1 if graph[i][j].name in model else 0
+            g[i, j] = 1 if graph[i][j] in model else 0
     return g
 
 
 def main():
+    global encoder
+
     parser = argparse.ArgumentParser()
     parser.add_argument("k", type=int, help="upper bound on the size of coalitions")
     parser.add_argument("n", type=int, help="number of agents in the game")
+    parser.add_argument("-e", "--encoder", help="encoder for the pseudo-boolean constraints", default="best")
+
     args = parser.parse_args()
 
     K = args.k
     N = args.n
+    encoder = getattr(EncType, args.encoder)
 
-    graph = [[Atom(vpool.id(f"v{i, j}")) for j in range(N)] for i in range(N)]
+    graph = [[vpool.id(f"v{i, j}") for j in range(N)] for i in range(N)]
     graph = tuple(map(tuple, graph))
 
     print("Solving...")
@@ -158,6 +163,7 @@ def main():
         has_no_nash_stable_coalition_structure(solver, graph, K)
 
         print(is_improving_deviation.cache_info())
+        print("Total number of variables:", vpool.top)
 
         if solver.solve():
             model = solver.get_model()
