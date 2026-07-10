@@ -22,7 +22,8 @@ dependencies = [
 ]
 
 [dependency-groups]
-dev = ["pytest", "ruff", "docformatter", "more_itertools"]
+dev = ["pytest", "ruff", "docformatter"]
+sat = ["more_itertools", "z3-solver", "ortools", "python-sat", "pypblib"]
 
 [tool.setuptools]
 package-dir = { "" = "src" }

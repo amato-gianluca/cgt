@@ -1292,10 +1292,8 @@ def game_collection_info(
 @njit
 def graph6_to_weight_matrix(g6: bytes) -> IntArray2D:
     """
-    Parse a graph6 string/bytes object with n <= 62 and return
-    a dense NumPy adjacency matrix with weights 0.0 / 1.0.
-
-    Input should be bytes, e.g. b'Dhc'
+    Parse a graph6 string/bytes object with n <= 62 and return a dense NumPy adjacency matrix
+    with weights 0 / 1.
     """
     # Remove trailing newline if present
     length = len(g6)
@@ -1320,8 +1318,8 @@ def graph6_to_weight_matrix(g6: bytes) -> IntArray2D:
             bit = (value >> (5 - offset)) & 1
 
             if bit == 1:
-                A[i, j] = 1.0
-                A[j, i] = 1.0
+                A[i, j] = 1
+                A[j, i] = 1
 
             bit_index += 1
 

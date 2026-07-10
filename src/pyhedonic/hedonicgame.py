@@ -643,7 +643,7 @@ class CoalitionStructure:
 
     def coalitions(self) -> Iterable[Coalition]:
         """
-        Returns the coalitions of the coalition structure.
+        Returns the number of coalitions of the coalition structure.
         """
         return range(self.size)
 
