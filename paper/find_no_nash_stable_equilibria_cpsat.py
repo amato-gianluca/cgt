@@ -3,14 +3,14 @@ This script looks for games with no Nash stable coalition structures using const
 It uses the OR-Tools CP-SAT.
 """
 
+import argparse
 from functools import cache
 from math import comb
 
-from more_itertools import set_partitions
 import numpy as np
-
+from more_itertools import set_partitions
 from ortools.sat.python import cp_model
-from ortools.sat.python.cp_model import IntVar, CpModel, CpSolver, LiteralT
+from ortools.sat.python.cp_model import CpModel, CpSolver, IntVar, LiteralT
 
 type Agent = int
 type Coalition = tuple[Agent, ...]
@@ -73,6 +73,8 @@ def is_not_nash_stable(
                 continue
             if len(source_coalition) == 1 and len(target_coalition) == 0:
                 continue
+            if source_coalition == target_coalition:
+                continue
             for agent in source_coalition:
                 deviations += is_improving_deviation(
                     model, graph, source_coalition, target_coalition, agent
@@ -87,8 +89,8 @@ def has_no_nash_stable_coalition_structure(model: CpModel, graph: Graph, k: int)
     num_constraints = count_partitions(len(graph), k)
     print(f"Generating constraints for all {num_constraints} coalition structures")
     for i, coalition_structure in enumerate(set_partitions(range(len(graph)), max_size=k)):
-        if i % 1000 == 999:
-            print(f"Coalition structure {i + 1}/{num_constraints}", end="\r")
+        if i % 1000 == 0:
+            print(f"Coalition structure {i}/{num_constraints}", end="\r")
         coalition_structure = tuple(tuple(c) for c in coalition_structure)
         is_not_nash_stable(model, graph, coalition_structure, k)
     print(f"Coalition structure {num_constraints}/{num_constraints}")
@@ -118,13 +120,21 @@ def model_to_graph(solver: CpSolver, graph: Graph) -> np.ndarray:
 
 
 def main():
-    # K = 6
-    # N = 7
-    # M = 2
+    parser = argparse.ArgumentParser()
+    parser.add_argument("k", type=int, help="upper bound on the size of coalitions")
+    parser.add_argument("n", type=int, help="number of agents in the game")
+    parser.add_argument(
+        "m", nargs="?", type=int, help="upper bound on the weight of edges in the graph", default=1
+    )
+    parser.add_argument(
+        "-c", "--core", type=int, help="number of cores to use for parallel solving"
+    )
 
-    K = 4
-    N = 8
-    M = 1
+    args = parser.parse_args()
+
+    K = args.k
+    N = args.n
+    M = args.m
 
     model = cp_model.CpModel()
     graph = [[model.new_int_var(0, M, f"v{i, j}") for j in range(N)] for i in range(N)]
@@ -132,12 +142,16 @@ def main():
 
     base_constraints(model, graph, M)
     has_no_nash_stable_coalition_structure(model, graph, K)
-    print(model.model_stats())
 
     print(is_improving_deviation.cache_info())
+    print(model.model_stats())
 
     print("Solving the model...")
     solver = cp_model.CpSolver()
+
+    if args.core is not None:
+        solver.parameters.num_search_workers = int(args.core)
+
     status = solver.solve(model)
 
     if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:

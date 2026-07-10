@@ -3,12 +3,13 @@ This script looks for games with no Nash stable coalition structures using propo
 It uses the Z3 SMT solver.
 """
 
+import argparse
 from functools import cache
 from math import comb
 
-from more_itertools import set_partitions
 import numpy as np
-from z3 import Int, ArithRef, BoolRef, BoolVal, And, Or, Solver, SolverFor, sat
+from more_itertools import set_partitions
+from z3 import And, ArithRef, BoolRef, BoolVal, Int, Or, Solver, SolverFor, sat
 
 type Agent = int
 type Coalition = tuple[int, ...]
@@ -39,11 +40,11 @@ def is_improving_deviation(
     Check whether an agent has an improving deviation from a source coalition to a target coalition.
     """
     target_coalition = target_coalition + (agent,)
-    source_utility: ArithRef = sum(graph[agent][a] for a in source_coalition)  # type: ignore
-    target_utility: ArithRef = sum(graph[agent][a] for a in target_coalition)  # type: ignore
+    source_utility: ArithRef = sum(graph[agent][a] for a in source_coalition if a != agent)  # type: ignore
+    target_utility: ArithRef = sum(graph[agent][a] for a in target_coalition if a != agent)  # type: ignore
     condition = len(source_coalition) * target_utility > len(target_coalition) * source_utility
     if len(target_coalition) < len(source_coalition):
-        condition = Or(condition, (And(source_utility == 0, target_utility == 0)))
+        condition = Or(condition, And(source_utility == 0, target_utility == 0))
     return condition  # type: ignore
 
 
@@ -57,6 +58,8 @@ def is_not_nash_stable(graph: Graph, coalition_structure: CoalitionStructure, k:
             if len(target_coalition) == k:
                 continue
             if len(source_coalition) == 1 and len(target_coalition) == 0:
+                continue
+            if source_coalition == target_coalition:
                 continue
             for agent in source_coalition:
                 condition = Or(
@@ -74,8 +77,8 @@ def has_no_nash_stable_coalition_structure(graph: Graph, k: int) -> list[BoolRef
     num_constraints = count_partitions(len(graph), k)
     print(f"Generating constraints for all {num_constraints} coalition structures")
     for i, coalition_structure in enumerate(set_partitions(range(len(graph)), max_size=k)):
-        if i % 1000 == 999:
-            print(f"Coalition structure {i + 1}/{num_constraints}", end="\r")
+        if i % 1000 == 0:
+            print(f"Coalition structure {i}/{num_constraints}", end="\r")
         coalition_structure = tuple(tuple(c) for c in coalition_structure)
         constraints.append(is_not_nash_stable(graph, coalition_structure, k))
     print(f"Coalition structure {num_constraints}/{num_constraints}")
@@ -121,13 +124,17 @@ def save_model(s: Solver, filename: str = "constraints.smt2"):
 
 
 def main():
-    # K = 6
-    # N = 7
-    # M = 1
+    parser = argparse.ArgumentParser()
+    parser.add_argument("k", type=int, help="upper bound on the size of coalitions")
+    parser.add_argument("n", type=int, help="number of agents in the game")
+    parser.add_argument(
+        "m", nargs="?", type=int, help="upper bound on the weight of edges in the graph", default=1
+    )
+    args = parser.parse_args()
 
-    K = 4
-    N = 8
-    M = 1
+    K = args.k
+    N = args.n
+    M = args.m
 
     graph = [[Int(f"v{i, j}") for j in range(N)] for i in range(N)]
     graph = tuple(map(tuple, graph))
@@ -139,10 +146,10 @@ def main():
     print("Solving...")
     s = SolverFor("QF_LIA")
     s.add(constraints)
-    save_model(s)
+
+    # save_model(s)
 
     result = s.check()
-
     if result == sat:
         m = s.model()
         g = model_to_graph(m, graph)

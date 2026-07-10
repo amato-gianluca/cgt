@@ -3,28 +3,24 @@ This script looks for games with no Nash stable coalition structures using propo
 It uses the PySAT library.
 """
 
-from functools import cache, reduce
+import argparse
+from functools import cache
 from math import comb
-from operator import and_, or_
 from typing import Any
 
+import numpy as np
 from more_itertools import set_partitions
-
-from pysat.solvers import Kissat404
-from pysat.formula import Atom, Formula, IDPool, CNF, CNFPlus, And
+from pysat.formula import Atom, IDPool
 from pysat.pb import PBEnc
+from pysat.solvers import Kissat404
 
 type Agent = int
 type Coalition = tuple[Agent, ...]
 type CoalitionStructure = tuple[Coalition, ...]
 type Graph = tuple[tuple[Any, ...], ...]
-
+type Solver = Kissat404
 
 vpool = IDPool()
-true_var = vpool.id("__true__")
-false_var = vpool.id("__false__")
-PYSAT_TRUE = Atom(true_var) | ~Atom(true_var)
-PYSAT_FALSE = Atom(false_var) & ~Atom(false_var)
 
 
 @cache
@@ -34,32 +30,26 @@ def count_partitions(n, max_size):
     """
     if n == 0:
         return 1
-
     total = 0
     for s in range(1, min(max_size, n) + 1):
         total += comb(n - 1, s - 1) * count_partitions(n - s, max_size)
 
     return total
 
-def cnf_to_formula(cnf: CNFPlus) -> Formula:
-    assert not cnf.atmosts
-    clauses = cnf.clauses
-    if len(clauses) == 0:
-        return PYSAT_TRUE
-    if any(len(c) == 0 for c in clauses):
-        return PYSAT_FALSE
-    return CNF(from_clauses=clauses)
-
 
 @cache
 def is_improving_deviation(
+    solver: Solver,
     graph: Graph,
     source_coalition: Coalition,
     target_coalition: Coalition,
     agent: Agent,
-) -> Formula:
+) -> list[int]:
     """
-    Check whether an agent has an improving deviation from a source coalition to a target coalition.
+    Add clauses for an improving deviation from a source coalition to a target coalition.
+
+    The returned literals are deviation indicators.  At least one of them must be true for this
+    deviation to be available.
     """
     target_coalition = target_coalition + (agent,)
     target_vars = [graph[agent][a] for a in target_coalition if a != agent]
@@ -68,25 +58,36 @@ def is_improving_deviation(
     source_lits = [v.name for v in source_vars]
     s = len(source_coalition)
     t = len(target_coalition)
+    b = vpool.id(f"id_{source_coalition}_{target_coalition}_{agent}")
+    # PBEnc expects non-negative weights.  Rewrite
+    #   s * target_utility - t * source_utility >= 1
+    # as
+    #   s * target_utility + t * (1 - source_edges) >= 1 + t * |source_edges|.
     pb = PBEnc.geq(
-        lits=target_lits + source_lits,
-        weights=[s] * len(target_lits) + [-t] * len(source_lits),
-        bound=1,
+        lits=target_lits + [-lit for lit in source_lits],
+        weights=[s] * len(target_lits) + [t] * len(source_lits),
+        bound=1 + t * len(source_lits),
         vpool=vpool,
+        conditionals=[b],
     )
-    formula1 = cnf_to_formula(pb)
+    assert not pb.atmosts
+    solver.append_formula(pb.clauses)
     if len(target_coalition) < len(source_coalition):
-        formula2 = reduce(and_, (~v for v in target_vars + source_vars))
-        return formula1 | formula2
+        z = vpool.id(f"id_zero_{source_coalition}_{target_coalition}_{agent}")
+        for var in target_lits + source_lits:
+            solver.add_clause([-z, -var])
+        return [b, z]
     else:
-        return formula1
+        return [b]
 
 
-def is_not_nash_stable(graph: Graph, coalition_structure: CoalitionStructure, k: int) -> Formula:
+def is_not_nash_stable(
+    solver: Solver, graph: Graph, coalition_structure: CoalitionStructure, k: int
+):
     """
     Check whether a coalition structure has an improving deviation.
     """
-    constraints: list[Formula] = []
+    deviation_lits = []
     for source_coalition in coalition_structure:
         for target_coalition in coalition_structure + ((),):
             if len(target_coalition) == k:
@@ -96,67 +97,74 @@ def is_not_nash_stable(graph: Graph, coalition_structure: CoalitionStructure, k:
             if source_coalition == target_coalition:
                 continue
             for agent in source_coalition:
-                #print(source_coalition, target_coalition, agent)
-                dev = is_improving_deviation(graph, source_coalition, target_coalition, agent)
-                #dev.clausify()
-                #print(dev)
-                #print(dev.clauses)
-                constraints.append(dev)
-    return reduce(or_, constraints) if constraints else PYSAT_FALSE
+                deviation_lits += is_improving_deviation(
+                    solver, graph, source_coalition, target_coalition, agent
+                )
+    solver.add_clause(deviation_lits)
 
 
-def has_no_nash_stable_coalition_structure(graph: Graph, k: int) -> list[Formula]:
+def has_no_nash_stable_coalition_structure(solver: Solver, graph: Graph, k: int):
     """
     Check whether the game has a Nash stable equilibrium.
     """
-    constraints: list[Formula] = []
     num_constraints = count_partitions(len(graph), k)
     print(f"Generating constraints for all {num_constraints} coalition structures")
     for i, coalition_structure in enumerate(set_partitions(range(len(graph)), max_size=k)):
-        if i % 1000 == 999:
-            print(f"Coalition structure {i + 1}/{num_constraints}", end="\r")
+        if i % 1000 == 0:
+            print(f"Coalition structure {i}/{num_constraints}", end="\r")
         coalition_structure = tuple(tuple(c) for c in coalition_structure)
-        constraints.append(is_not_nash_stable(graph, coalition_structure, k))
+        is_not_nash_stable(solver, graph, coalition_structure, k)
     print(f"Coalition structure {num_constraints}/{num_constraints}")
-    return constraints
 
 
-def base_constraints(graph: Graph, is_symmetric: bool = True) -> list[Formula]:
+def base_constraints(solver: Solver, graph: Graph, is_symmetric: bool = True):
     """
     Base constraints for the graph.
     """
-    constraints: list[Formula] = []
     for i in range(len(graph)):
-        constraints.append(~graph[i][i])
+        solver.append_formula(~graph[i][i])
         for j in range(i):
             if is_symmetric:
-                constraints.append(graph[i][j] @ graph[j][i])
-    return constraints
+                solver.append_formula(graph[i][j] @ graph[j][i])
+
+
+def model_to_graph(model, graph: Graph) -> np.ndarray:
+    """
+    Convert a solved model to a graph.
+    """
+    n = len(graph)
+    g = np.zeros((n, n), dtype=np.int_)
+    for i in range(n):
+        for j in range(n):
+            g[i, j] = 1 if graph[i][j].name in model else 0
+    return g
 
 
 def main():
-    K = 4
-    N = 8
+    parser = argparse.ArgumentParser()
+    parser.add_argument("k", type=int, help="upper bound on the size of coalitions")
+    parser.add_argument("n", type=int, help="number of agents in the game")
+    args = parser.parse_args()
+
+    K = args.k
+    N = args.n
 
     graph = [[Atom(vpool.id(f"v{i, j}")) for j in range(N)] for i in range(N)]
     graph = tuple(map(tuple, graph))
 
-    formulas = base_constraints(graph)
-    formulas += has_no_nash_stable_coalition_structure(graph, K)
-
-    print(is_improving_deviation.cache_info())
-
-    big_formula = And(*formulas)
-    big_formula.clausify()
-    clauses = list(big_formula)
-
-    print(f"Generated {len(clauses)} clauses and {vpool.top} variables.")
     print("Solving...")
-    with Kissat404(bootstrap_with=clauses) as solver:
+    with Kissat404() as solver:
+        base_constraints(solver, graph)
+        has_no_nash_stable_coalition_structure(solver, graph, K)
+
+        print(is_improving_deviation.cache_info())
+
         if solver.solve():
             model = solver.get_model()
-            print(model)
+            g = model_to_graph(model, graph)
+            print(g)
         else:
             print("No graph with no Nash stable coalition structure found.")
+
 
 main()
