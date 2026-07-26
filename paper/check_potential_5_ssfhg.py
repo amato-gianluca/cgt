@@ -12,8 +12,8 @@ def phi(r, s, ma, mb) -> int:
     """
     The potential function.
     """
-    alpha = [0, 0, 36, 35, 30, 30]
-    beta = [0, 8, 15, 19, 19, 0]
+    alpha = [0, 0, 20, 20, 17, 17]
+    beta = [0, 6, 11, 13, 14, 4]
     return alpha[r] * ma + beta[r] + alpha[s] * mb + beta[s]
 
 
