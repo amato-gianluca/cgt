@@ -1031,7 +1031,8 @@ def count_unstable_games_from_collection(
     is_fractional: bool = True,
 ) -> GameCollectionCounts:
     """
-    Count the number of games without a Nash stable coalition structure from a given collection of games.
+    Count the number of games without a Nash stable coalition structure from a given collection of
+    games.
 
     The returned named tuple contains the total number of games considered, the number of games
     without a Nash stable coalition structure, and an example of such a game when one exists.
@@ -1289,11 +1290,117 @@ def game_collection_info(
     return GameCollectionInfo(game_collection_count, game_collection_prices)
 
 
+@njit(cache=True)
+def game_collection_info_from_collection(
+    games: list[Game],
+    k: int | None = None,
+    is_fractional: bool = True,
+) -> GameCollectionInfo:
+    # data for counting information on the collection of games
+    total_count = 0
+    noequilibrium_count = 0
+    noequilibrium_game = np.empty((0, 0), dtype=np.int_)
+    # data for pricining information on the collection of games
+    poa_highest = Rational(-1, 1)
+    poa_lowest = Rational(1, 0)
+    pos_highest = Rational(-1, 1)
+    pos_lowest = Rational(1, 0)
+    pos_lowest_count = pos_highest_count = poa_lowest_count = poa_highest_count = 0
+    poa_lowest_game = np.empty((0, 0), dtype=np.int_)
+    poa_highest_game = np.empty((0, 0), dtype=np.int_)
+    pos_lowest_game = np.empty((0, 0), dtype=np.int_)
+    pos_highest_game = np.empty((0, 0), dtype=np.int_)
+    poa_lowest_info = poa_highest_info = pos_lowest_info = pos_highest_info = game_prices_dummy()
+    poa_sum_val = pos_sum_val = 0.0
+    valid_count = 0
+    for game in games:
+        denominator = (
+            1 if not is_fractional else lcm_upto(k) if k is not None else lcm_upto(len(game))
+        )
+        total_count += 1
+        scaled_game = game if denominator == 1 else game * denominator
+        game_prices = game_prices_compute(scaled_game, is_fractional, k)
+        # game with no Nash stable coalition structure
+        if game_prices is None:
+            noequilibrium_count += 1
+            noequilibrium_game = game
+            continue
+        # game with no valid price of anarchy or price of stability (i.e., best social welfare is zero)
+        if game_prices.sw_best == 0:
+            continue
+        valid_count += 1
+        poa = Rational(game_prices.sw_best, game_prices.sw_worst_equilibrium)
+        pos = Rational(game_prices.sw_best, game_prices.sw_best_equilibrium)
+        poa_sum_val += rational_to_float(poa)
+        pos_sum_val += rational_to_float(pos)
+        compare_poa = rational_compare(poa, poa_highest)
+        if compare_poa > 0:
+            poa_highest = poa
+            poa_highest_count = 1
+            poa_highest_game = game
+            # for some reason, the copy of the GameInfoEquilibria named tuple is needed in numba
+            poa_highest_info = game_prices_copy(game_prices)
+        elif compare_poa == 0:
+            poa_highest_count += 1
+        compare_poa = rational_compare(poa, poa_lowest)
+        if compare_poa < 0:
+            poa_lowest = poa
+            poa_lowest_count = 1
+            poa_lowest_info = game_prices_copy(game_prices)
+            poa_lowest_game = game
+        elif compare_poa == 0:
+            poa_lowest_count += 1
+        compare_pos = rational_compare(pos, pos_highest)
+        if compare_pos > 0:
+            pos_highest = pos
+            pos_highest_count = 1
+            pos_highest_info = game_prices_copy(game_prices)
+            pos_highest_game = game
+        elif compare_pos == 0:
+            pos_highest_count += 1
+        compare_pos = rational_compare(pos, pos_lowest)
+        if compare_pos < 0:
+            pos_lowest = pos
+            pos_lowest_count = 1
+            pos_lowest_info = game_prices_copy(game_prices)
+            pos_lowest_game = game
+        elif compare_pos == 0:
+            pos_lowest_count += 1
+    game_collection_count = GameCollectionCounts(
+        total_count, noequilibrium_count, noequilibrium_game
+    )
+    game_collection_prices = (
+        GameCollectionPrices(
+            poa_highest,
+            poa_highest_count,
+            poa_highest_game,
+            poa_highest_info,
+            poa_lowest,
+            poa_lowest_count,
+            poa_lowest_game,
+            poa_lowest_info,
+            pos_highest,
+            pos_highest_count,
+            pos_highest_game,
+            pos_highest_info,
+            pos_lowest,
+            pos_lowest_count,
+            pos_lowest_game,
+            pos_lowest_info,
+            poa_sum_val / valid_count,
+            pos_sum_val / valid_count,
+        )
+        if valid_count > 0
+        else None
+    )
+    return GameCollectionInfo(game_collection_count, game_collection_prices)
+
+
 @njit
 def graph6_to_weight_matrix(g6: bytes) -> IntArray2D:
     """
-    Parse a graph6 string/bytes object with n <= 62 and return a dense NumPy adjacency matrix
-    with weights 0 / 1.
+    Parse a graph6 string/bytes object with n <= 62 and return a dense NumPy adjacency matrix with
+    weights 0 / 1.
     """
     # Remove trailing newline if present
     length = len(g6)

@@ -86,8 +86,8 @@ def format_number(x: int) -> str:
 
 def noequilibrium_games(df: pd.DataFrame):
     """
-    Prints a table in markdown or LaTeX format with the number of games without Nash stable coalition
-    structures for each combination of m and n.
+    Prints a table in markdown or LaTeX format with the number of games without Nash stable
+    coalition structures for each combination of m and n.
     """
     for k in df["k"].sort_values().unique():
         dfk = df[df["k"] == k]

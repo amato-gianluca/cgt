@@ -204,7 +204,7 @@ def count_with_timing(
     is_fractional: bool = True,
     debug: int = 0,
     **_,
-) -> tuple[tuple[int, int, Game | None], float]:
+) -> tuple[hgimpl.GameCollectionInfo, float]:
     """
     Execute the count_unstable_games function and measure the elapsed time.
 
@@ -223,7 +223,7 @@ def count_with_timing(
         debug=debug,
     )
     elapsed_time = time.time() - start_time
-    return (res, elapsed_time)
+    return (hgimpl.GameCollectionInfo(counts=res, prices=None), elapsed_time)
 
 
 def game_collection_info_with_timing(
@@ -259,8 +259,8 @@ def generate_graphs(
     n: int, geng_path: str = "geng", geng_args: tuple = (), verbose: bool = True
 ) -> Iterator[Game]:
     """
-    Generate all non-isomorphic simple graphs on n vertices using nauty's geng and return them
-    as weight matrices.
+    Generate all non-isomorphic simple graphs on n vertices using nauty's geng and return them as
+    weight matrices.
     """
     cmd = [geng_path, *geng_args, str(n)]
 
@@ -297,6 +297,7 @@ def generate_graphs(
 
     assert proc.stdout is not None
 
+    i = 0
     for i, line in enumerate(proc.stdout):
         if verbose and i % 10000 == 0:
             if total is not None:
@@ -306,7 +307,10 @@ def generate_graphs(
         graph = hgimpl.graph6_to_weight_matrix(line)
         yield graph
     if verbose:
-        print()
+        if total is not None:
+            print(f"Processing graph {(i + 1) / total * 100:.3f}%\r", file=sys.stderr)
+        else:
+            print(f"Processing graph {i + 1}\r", file=sys.stderr)
 
     _, stderr = proc.communicate()
 
@@ -321,7 +325,7 @@ def count_unstable_games_from_collection_with_timing(
     geng_path: str = "geng",
     debug: int = 0,
     **_,
-) -> tuple[tuple[int, int, Game | None], float]:
+) -> tuple[hgimpl.GameCollectionInfo, float]:
     """
     Execute the count_unstable_games_from_collection function and measure the elapsed time.
 
@@ -345,7 +349,26 @@ def count_unstable_games_from_collection_with_timing(
             print(res.example_noequilibrium)
             example_noequilibrium = res.example_noequilibrium
     elapsed_time = time.time() - start_time
-    res = hgimpl.GameCollectionCounts(count_total, count_noequilibrium, example_noequilibrium)
+    res = hgimpl.GameCollectionInfo(
+        counts=hgimpl.GameCollectionCounts(count_total, count_noequilibrium, example_noequilibrium),
+        prices=None,
+    )
+    return (res, elapsed_time)
+
+
+def game_collection_info_from_collection_with_timing(
+    agent_count: int,
+    k: int,
+    is_fractional: bool = True,
+    geng_path: str = "geng",
+    debug: int = 0,
+    **_,
+) -> tuple[hgimpl.GameCollectionInfo | None, float]:
+    start_time = time.time()
+    games = list(generate_graphs(agent_count, geng_path))
+    start_time = time.time()
+    res = hgimpl.game_collection_info_from_collection(games, k, is_fractional)
+    elapsed_time = time.time() - start_time
     return (res, elapsed_time)
 
 
@@ -395,9 +418,13 @@ def main():
 
     # warmup jit
     if args.prices:
-        hgimpl.game_collection_info(
-            agent_count=2, k=1, m_begin=1, m_end=1, weights=weights, debug=0
-        )
+        if args.geng:
+            games = list(generate_graphs(2, args.geng_binary))
+            hgimpl.game_collection_info_from_collection(games, k=1)
+        else:
+            hgimpl.game_collection_info(
+                agent_count=2, k=1, m_begin=1, m_end=1, weights=weights, debug=0
+            )
     else:
         hgimpl.count_unstable_games(
             agent_count=2, k=1, m_begin=1, m_end=1, weights=weights, debug=0
@@ -406,14 +433,9 @@ def main():
     local_k_range = range(2, 9) if k_range is None else k_range
 
     if args.geng:
-        if weights is not None or m_range is not None:
+        if weights is not None or (m_range is not None and m_range != range(0, 2)):
             raise ValueError(
                 "Cannot use weights or m range when generating graphs with nauty's geng"
-            )
-
-        if args.prices:
-            raise ValueError(
-                "Cannot compute prices of anarchy and stability with a graph collection"
             )
 
     for k in local_k_range:
@@ -435,7 +457,9 @@ def main():
                 print("k:", k, "n:", n, "m:", m)
 
                 fn = (
-                    count_unstable_games_from_collection_with_timing
+                    game_collection_info_from_collection_with_timing
+                    if args.geng and args.prices
+                    else count_unstable_games_from_collection_with_timing
                     if args.geng
                     else game_collection_info_with_timing
                     if args.prices
