@@ -3,16 +3,19 @@ This script finds a potential function for the dynamics of 5-SSFH games.
 """
 
 from z3 import Int, solve, ArithRef
+
 k = 5
 
-alpha = [Int(f'a{i}') for i in range(k + 1)]
-beta = [Int(f'b{i}') for i in range(k + 1)]
+alpha = [Int(f"a{i}") for i in range(k + 1)]
+beta = [Int(f"b{i}") for i in range(k + 1)]
+
 
 def phi(co_size, utility: int) -> ArithRef:
     """
     The potential function.
     """
-    return  utility * alpha[co_size] + beta[co_size]
+    return utility * alpha[co_size] + beta[co_size]
+
 
 constraints = []
 for r in range(1, k + 1):

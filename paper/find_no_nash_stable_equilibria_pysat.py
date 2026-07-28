@@ -23,6 +23,7 @@ type Solver = Kissat404
 vpool = IDPool()
 encoder = EncType.best
 
+
 @cache
 def count_partitions(n, max_size):
     """
@@ -146,7 +147,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("k", type=int, help="upper bound on the size of coalitions")
     parser.add_argument("n", type=int, help="number of agents in the game")
-    parser.add_argument("-e", "--encoder", help="encoder for the pseudo-boolean constraints", default="best")
+    parser.add_argument(
+        "-e", "--encoder", help="encoder for the pseudo-boolean constraints", default="best"
+    )
 
     args = parser.parse_args()
 

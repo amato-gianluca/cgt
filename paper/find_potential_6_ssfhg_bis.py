@@ -24,6 +24,7 @@ type CoalitionData = tuple[int, ...]
 
 vars: dict[CoalitionData, ArithRef] = {}
 
+
 def graphical_degree_sequences(n):
     for degrees in combinations_with_replacement(range(n), n):
         if nx.is_graphical(degrees):
@@ -46,6 +47,7 @@ def phi1(coalition: CoalitionData) -> ArithRef:
     if coalition not in vars:
         vars[coalition] = Int(f"phi_{'_'.join(map(str, coalition))}")
     return vars[coalition]
+
 
 phi = phi1
 
