@@ -17,9 +17,9 @@ Note that $m$ is intended as the maximum value of all the weights in the graph, 
 
 **Non-simple games** are generated using the heuristics in _[Codish et al, Constraints for symmetry breaking in graph representation, Constraints 24 (2019)](https://doi.org/10.1007/s10601-018-9294-5)_. Using these heuristics, it is possible to avoid the generation of many (but not all) isomorphic copies of the same graph. The following table shows the number of games the heuristic procedure generates for each combination given by the number of nodes *n* and the maximum valuation *m*. The first line shows the number of non-isomorphic graphs in the case when m=1, taken from the [OEIS sequence A0088](https://oeis.org/A000088). Note that we subtract one unit from the values taken from this web page in order to account for the only graph without edges (m=0) that we do not count in our procedure.
 
- m\n | 3   | 4       | 5         | 6            | 7          | 8          | 9       | 10        | 11         |
-----:|----:|--------:|----------:|-------------:|-----------:|-----------:|--------:|----------:|-----------:|
-  \* | 3   | 10      | 33        | 155          | 1043       | 12345      | 274667  | 12005167  | 1018997863 |
+ m\n | 3   | 4       | 5         | 6            | 7          | 8          | 9       | 10        | 11         | 12
+----:|----:|--------:|----------:|-------------:|-----------:|-----------:|--------:|----------:|-----------:|:------------:
+  \* | 3   | 10      | 33        | 155          | 1043       | 12345      | 274667  | 12005167  | 1018997863 | 165091172591
    1 | 3   | 10      | 42        | 275          | 3157       | 66594      | 2587487 | 184192328 |
    2 | 6   | 61      | 1264      | 66515        | 9219851    | 3366883033 |
    3 | 10  | 250     | 17972     | 4256478      | 3380330967 |
@@ -70,7 +70,7 @@ For each $k$ and $n$, this table shows the maximum weight ($m$) of the lexicogra
   7  | - |  -  | - | -  |  2 | >1 | **1** | **1** |
   8  | - |  -  | - | -  |  - | >1 | >1    | >1    |
   9  | - |  -  | - | -  |  - |  - | >1    | >1    |
-| 10 | - |  -  | - | -  |  - |  - |  -    | >1     |
+| 10 | - |  -  | - | -  |  - |  - |  -    | >1    |
 
 Note that these numbers decrease monotonically with $n$. This is because if a game with $n$ agents has no Nash stable coalition structure, the node with $n+1$ agents obtained by adding a new disconnected node also has no stable coalition structure for the same value of $k$.
 
