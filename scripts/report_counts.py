@@ -76,16 +76,31 @@ def total_games(df: pd.DataFrame):
 
 
 def format_number(x: int) -> str:
-    return str(x) if args.latex else f"**{x}**"
+    """
+    Formats a number for display, either in parts per million or as an absolute count, and
+    optionally in LaTeX format.
+    """
+    x_str = f"{x * 1_000_000:.3f}" if args.ppm else str(x)
+    return x_str if args.latex else f"**{x_str}**"
 
 
 def noequilibrium_games(df: pd.DataFrame):
+    """
+    Prints a table in markdown or LaTeX format with the number of games without Nash stable coalition
+    structures for each combination of m and n.
+    """
     for k in df["k"].sort_values().unique():
         dfk = df[df["k"] == k]
+        if args.ppm:
+            dfk["target"] = dfk["payload.counts.count_noequilibrium"] / abs(
+                dfk["payload.counts.count_total"]
+            )
+        else:
+            dfk["target"] = dfk["payload.counts.count_noequilibrium"]
         pivot = dfk.pivot_table(
             index="m",
             columns="n",
-            values="payload.counts.count_noequilibrium",
+            values="target",
             aggfunc="max",
             fill_value=-2,  # do not use NaN, because NaN forces a float type
         )
@@ -96,7 +111,8 @@ def noequilibrium_games(df: pd.DataFrame):
         pivot.index.name = "m\\n"
         print(f"\n\n### k={k}\n")
         if args.latex:
-            print(pivot.to_latex(escape=False))
+            column_format = "l|" + "c" * len(pivot.columns)
+            print(pivot.to_latex(column_format=column_format, escape=False))
         else:
             print(pivot.to_markdown())
 
@@ -136,6 +152,11 @@ def main():
         "-t",
         "--totals",
         help="report about total games instead of unstable ones",
+        action="store_true",
+    )
+    parser.add_argument(
+        "--ppm",
+        help="parts per million instead of absolute counts",
         action="store_true",
     )
     parser.add_argument(

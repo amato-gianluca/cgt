@@ -60,6 +60,11 @@ def main():
         help="output the tables in LaTeX format instead of markdown",
         action="store_true",
     )
+    parser.add_argument(
+        "--ppm",
+        help="parts per million instead of absolute counts",
+        action="store_true",
+    )
     args = parser.parse_args()
 
     data = yaml_load(args.input)
@@ -76,7 +81,18 @@ def main():
                 df[f"payload.prices.{price}_{value}.numerator"]
                 / df[f"payload.prices.{price}_{value}.denominator"]
             )
-            df[f"{price}_{value}_count"] = df[f"payload.prices.{price}_{value}_count"].astype(str)
+            if args.ppm:
+                count_ppm = (
+                    df[f"payload.prices.{price}_{value}_count"]
+                    / df["payload.counts.count_total"]
+                    * 1_000_000
+                )
+                df[f"{price}_{value}_count"] = count_ppm.map(
+                    lambda x: f"{x:.2f}" if x < 1_000_000 else "all"
+                )
+            else:
+                df[f"{price}_{value}_count"] = df[f"payload.prices.{price}_{value}_count"]
+            df[f"{price}_{value}_count"]
     prices = df[columns].copy()
     if args.k is not None:
         prices = prices[prices["k"] == int(args.k)]
