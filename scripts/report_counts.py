@@ -148,17 +148,21 @@ def main():
         "--weights",
         help="select counts whose weights are specified in this parameter",
     )
-    parser.add_argument(
+
+    totals_group = parser.add_mutually_exclusive_group()
+
+    totals_group.add_argument(
         "-t",
         "--totals",
         help="report about total games instead of unstable ones",
         action="store_true",
     )
-    parser.add_argument(
+    totals_group.add_argument(
         "--ppm",
         help="parts per million instead of absolute counts",
         action="store_true",
     )
+
     parser.add_argument(
         "--latex",
         help="output the tables in LaTeX format instead of markdown",
