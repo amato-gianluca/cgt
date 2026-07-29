@@ -89,10 +89,11 @@ def main():
                 )
                 df[f"{price}_{value}_count"] = count_ppm.map(
                     lambda x: f"{x:.2f}" if x < 1_000_000 else "all"
-                )
+                ).astype(str)
             else:
-                df[f"{price}_{value}_count"] = df[f"payload.prices.{price}_{value}_count"]
-            df[f"{price}_{value}_count"]
+                df[f"{price}_{value}_count"] = df[f"payload.prices.{price}_{value}_count"].astype(
+                    str
+                )
     prices = df[columns].copy()
     if args.k is not None:
         prices = prices[prices["k"] == int(args.k)]
