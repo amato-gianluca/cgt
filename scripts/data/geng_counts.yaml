@@ -1,0 +1,525 @@
+---
+k: 2
+n: 3
+m: 1
+weights: null
+elapsed_time: 0.4330556392669678
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 3
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 2
+n: 4
+m: 1
+weights: null
+elapsed_time: 0.4106152057647705
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 10
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 2
+n: 5
+m: 1
+weights: null
+elapsed_time: 0.4094235897064209
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 33
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 2
+n: 6
+m: 1
+weights: null
+elapsed_time: 0.4072597026824951
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 155
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 2
+n: 7
+m: 1
+weights: null
+elapsed_time: 0.4120190143585205
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 1043
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 2
+n: 8
+m: 1
+weights: null
+elapsed_time: 0.532951831817627
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 12345
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 2
+n: 9
+m: 1
+weights: null
+elapsed_time: 3.762270927429199
+elapsed_time_human: 0:00:03
+payload:
+  counts:
+    count_total: 274667
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 2
+n: 10
+m: 1
+weights: null
+elapsed_time: 173.2081253528595
+elapsed_time_human: 0:02:53
+payload:
+  counts:
+    count_total: 12005167
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 3
+n: 4
+m: 1
+weights: null
+elapsed_time: 0.4105832576751709
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 10
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 3
+n: 5
+m: 1
+weights: null
+elapsed_time: 0.42896604537963867
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 33
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 3
+n: 6
+m: 1
+weights: null
+elapsed_time: 0.41234445571899414
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 155
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 3
+n: 7
+m: 1
+weights: null
+elapsed_time: 0.4186539649963379
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 1043
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 3
+n: 8
+m: 1
+weights: null
+elapsed_time: 0.5677385330200195
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 12345
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 3
+n: 9
+m: 1
+weights: null
+elapsed_time: 3.434493064880371
+elapsed_time_human: 0:00:03
+payload:
+  counts:
+    count_total: 274667
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 3
+n: 10
+m: 1
+weights: null
+elapsed_time: 246.06615591049194
+elapsed_time_human: 0:04:06
+payload:
+  counts:
+    count_total: 12005167
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 4
+n: 5
+m: 1
+weights: null
+elapsed_time: 0.44527578353881836
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 33
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 4
+n: 6
+m: 1
+weights: null
+elapsed_time: 0.4140918254852295
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 155
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 4
+n: 7
+m: 1
+weights: null
+elapsed_time: 0.4211130142211914
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 1043
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 4
+n: 8
+m: 1
+weights: null
+elapsed_time: 0.5634722709655762
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 12345
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 4
+n: 9
+m: 1
+weights: null
+elapsed_time: 3.297865390777588
+elapsed_time_human: 0:00:03
+payload:
+  counts:
+    count_total: 274667
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 4
+n: 10
+m: 1
+weights: null
+elapsed_time: 201.19586086273193
+elapsed_time_human: 0:03:21
+payload:
+  counts:
+    count_total: 12005167
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 5
+n: 6
+m: 1
+weights: null
+elapsed_time: 0.4312894344329834
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 155
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 5
+n: 7
+m: 1
+weights: null
+elapsed_time: 0.4250373840332031
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 1043
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 5
+n: 8
+m: 1
+weights: null
+elapsed_time: 0.5427520275115967
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 12345
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 5
+n: 9
+m: 1
+weights: null
+elapsed_time: 3.3745875358581543
+elapsed_time_human: 0:00:03
+payload:
+  counts:
+    count_total: 274667
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 5
+n: 10
+m: 1
+weights: null
+elapsed_time: 118.36759662628174
+elapsed_time_human: 0:01:58
+payload:
+  counts:
+    count_total: 12005167
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 6
+n: 7
+m: 1
+weights: null
+elapsed_time: 0.43941617012023926
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 1043
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 6
+n: 8
+m: 1
+weights: null
+elapsed_time: 0.5261359214782715
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 12345
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 6
+n: 9
+m: 1
+weights: null
+elapsed_time: 3.2017860412597656
+elapsed_time_human: 0:00:03
+payload:
+  counts:
+    count_total: 274667
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 6
+n: 10
+m: 1
+weights: null
+elapsed_time: 130.57291674613953
+elapsed_time_human: 0:02:10
+payload:
+  counts:
+    count_total: 12005167
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 6
+n: 11
+m: 1
+weights: null
+elapsed_time: 10170.441843748093
+elapsed_time_human: '2:49:30'
+payload:
+  counts:
+    count_total: 1018997863
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 6
+n: 12
+m: 1
+weights: null
+elapsed_time: 1742401.227287531
+elapsed_time_human: 20 days, 4:00:01
+payload:
+  counts:
+    count_total: 165091172591
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 7
+n: 8
+m: 1
+weights: null
+elapsed_time: 0.5419895648956299
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 12345
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 7
+n: 9
+m: 1
+weights: null
+elapsed_time: 3.0531067848205566
+elapsed_time_human: 0:00:03
+payload:
+  counts:
+    count_total: 274667
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 7
+n: 10
+m: 1
+weights: null
+elapsed_time: 133.826354265213
+elapsed_time_human: 0:02:13
+payload:
+  counts:
+    count_total: 12005167
+    count_noequilibrium: 3
+    example_noequilibrium:
+    - [0, 0, 0, 0, 1, 0, 1, 0, 1, 1]
+    - [0, 0, 0, 0, 0, 1, 0, 1, 1, 1]
+    - [0, 0, 0, 0, 0, 0, 1, 1, 1, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
+    - [1, 0, 0, 0, 0, 0, 1, 0, 0, 1]
+    - [0, 1, 0, 0, 0, 0, 0, 1, 0, 1]
+    - [1, 0, 1, 0, 1, 0, 0, 0, 1, 1]
+    - [0, 1, 1, 0, 0, 1, 0, 0, 1, 1]
+    - [1, 1, 1, 1, 0, 0, 1, 1, 0, 1]
+    - [1, 1, 1, 0, 1, 1, 1, 1, 1, 0]
+---
+k: 7
+n: 11
+m: 1
+weights: null
+elapsed_time: 10754.37915968895
+elapsed_time_human: '2:59:14'
+payload:
+  counts:
+    count_total: 1018997863
+    count_noequilibrium: 3
+    example_noequilibrium:
+    - [0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1]
+    - [0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1]
+    - [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1]
+    - [1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1]
+    - [0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1]
+    - [1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1]
+    - [1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0]
+---
+k: 8
+n: 9
+m: 1
+weights: null
+elapsed_time: 3.0101466178894043
+elapsed_time_human: 0:00:03
+payload:
+  counts:
+    count_total: 274667
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 8
+n: 10
+m: 1
+weights: null
+elapsed_time: 129.1582088470459
+elapsed_time_human: 0:02:09
+payload:
+  counts:
+    count_total: 12005167
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 8
+n: 11
+m: 1
+weights: null
+elapsed_time: 6487.986815690994
+elapsed_time_human: '1:48:07'
+payload:
+  counts:
+    count_total: 1018997863
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 9
+n: 10
+m: 1
+weights: null
+elapsed_time: 120.46774411201477
+elapsed_time_human: 0:02:00
+payload:
+  counts:
+    count_total: 12005167
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 9
+n: 11
+m: 1
+weights: null
+elapsed_time: 6276.799995660782
+elapsed_time_human: '1:44:36'
+payload:
+  counts:
+    count_total: 1018997863
+    count_noequilibrium: 0
+    example_noequilibrium: []
+---
+k: 10
+n: 11
+m: 1
+weights: null
+elapsed_time: 10189.750779628754
+elapsed_time_human: '2:49:49'
+payload:
+  counts:
+    count_total: 1018997863
+    count_noequilibrium: 0
+    example_noequilibrium: []

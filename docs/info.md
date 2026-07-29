@@ -13,9 +13,11 @@ Note that $m$ is intended as the maximum value of all the weights in the graph, 
 
 ## Exhaustive game generation procedure
 
-**Simple games** are generated using the [nauty](https://pallini.di.uniroma1.it/), a program for computing automorphism groups of graphs and digraphs, based on the paper _[B.D. McKay,  A. Piperno , Practical Graph Isomorphism II](https://doi.org/10.1016/j.jsc.2013.09.003)_. This procedure guarantess that only a representative for every isomorphism class is generated.
+Games are generated using the heuristics in _[Codish et al, Constraints for symmetry breaking in graph representation, Constraints 24 (2019)](https://doi.org/10.1007/s10601-018-9294-5)_. Using these heuristics, it is possible to avoid the generation of many (but not all) isomorphic copies of the same graph.
 
-**Non-simple games** are generated using the heuristics in _[Codish et al, Constraints for symmetry breaking in graph representation, Constraints 24 (2019)](https://doi.org/10.1007/s10601-018-9294-5)_. Using these heuristics, it is possible to avoid the generation of many (but not all) isomorphic copies of the same graph. The following table shows the number of games the heuristic procedure generates for each combination given by the number of nodes *n* and the maximum valuation *m*. The first line shows the number of non-isomorphic graphs in the case when m=1, taken from the [OEIS sequence A0088](https://oeis.org/A000088). Note that we subtract one unit from the values taken from this web page in order to account for the only graph without edges (m=0) that we do not count in our procedure.
+**Simple games** may also be generated using [nauty](https://pallini.di.uniroma1.it/), a program for computing automorphism groups of graphs and digraphs, based on the paper _[B.D. McKay,  A. Piperno , Practical Graph Isomorphism II](https://doi.org/10.1016/j.jsc.2013.09.003)_. This procedure guarantess that only a representative for every isomorphism class is generated. In particular, we use the `geng` command line utility.
+
+The following table shows the number of games the heuristic procedure generates for each combination given by the number of nodes *n* and the maximum valuation *m*. The first line shows the number of non-isomorphic graphs in the case when m=1, taken from the [OEIS sequence A0088](https://oeis.org/A000088). Note that we subtract one unit from the values taken from this web page in order to account for the only graph without edges (m=0).
 
  m\n | 3   | 4       | 5         | 6            | 7          | 8          | 9       | 10        | 11         | 12
 ----:|----:|--------:|----------:|-------------:|-----------:|-----------:|--------:|----------:|-----------:|:------------:
@@ -51,22 +53,22 @@ Note that $m$ is intended as the maximum value of all the weights in the graph, 
   29 | 465 | 7540900
   30 | 496 | 8903851
 
+
 ## Simple games without Nash stable coalition structure.
 
 * No cases for $k$ from $1$ to $5$ (known from theory).
-* No cases for $2 \leq n \leq 9$, and $k < n$.
-* No cases for $n=10$ and $k<n$ with the **only exception** of $n=10$ and $k=7$.
+* No cases for $3 \leq n \leq 11$, and $k < n$,with the **only exception** of $k=7$ and $n \in \{10, 11\}$.
 
 ## Games without Nash stable coalition structure
 
 For each $k$ and $n$, this table shows the maximum weight ($m$) of the lexicographically minimum graph with no Nash stable coalition structure.
 
- k\n | 4 |  5  | 6 | 7  | 8  | 9  | 10    | 11    |
-----:|--:|----:|--:|---:|---:|---:|------:|:-----:|
-  3  | 7 |   5 | 5 | >2 | >1 | >1 | >1    | >1    |
-  4  | - |  10 | 2 | 2  | 2  | 2  |  2    | >1    |
-  5  | - |  -  | 2 | >1 | >1 | >1 | >1    | >1    |
-  6  | - |  -  | - | 3  | >1 | >1 | >1    | >1    |
+ k\n | 4 |  5  | 6 | 7  | 8  | 9  | 10    | 11    | 12  |
+----:|--:|----:|--:|---:|---:|---:|------:|:-----:|:----|
+  3  | 7 |   5 | 5 | >2 | >1 | >1 | >1    | >1    | >1  |
+  4  | - |  10 | 2 | 2  | 2  | 2  |  2    | >1    | >1  |
+  5  | - |  -  | 2 | >1 | >1 | >1 | >1    | >1    | >1  |
+  6  | - |  -  | - | 3  | >1 | >1 | >1    | >1    | >1 |
   7  | - |  -  | - | -  |  2 | >1 | **1** | **1** |
   8  | - |  -  | - | -  |  - | >1 | >1    | >1    |
   9  | - |  -  | - | -  |  - |  - | >1    | >1    |
@@ -183,7 +185,7 @@ The value `(to)` means execution took more than 24h and was interrupted. Values 
 |     2 | **11736** | (to) | (to)   |
 |     3 | (to)      |      |        |
 
-Note the value 3 for $m=1$ and $n=10$ which is the case of a simple game with no Nash-stable coalition structures.
+Note the value 3 for $m=1$ and $n \in \{10, 11\}$ which is the case of a simple game with no Nash-stable coalition structures. These counts are obtained using the `geng` generation procedure. Using the heuristic procedure we get 13 cases for $n=10$, while we did not compute the result for $n=11$.
 
 ### k=8
 
@@ -577,6 +579,8 @@ Keep into consideration that:
 
 We also computed the lowest values for PoA and PoS in the same combinations, but we do not report the results in the table since in all cases these values were equal to one.
 
+The following is the table obtained by generating graphs with our heuristics:
+
 |   k |   n |   m |   poa_highest |   poa_highest_count |   pos_highest |   pos_highest_count |
 |----:|----:|----:|--------------:|--------------------:|--------------:|--------------------:|
 |   2 |   3 |   1 |          1.00 |                   3 |          1.00 |                   3 |
@@ -759,21 +763,54 @@ We also computed the lowest values for PoA and PoS in the same combinations, but
 |   7 |   9 |   1 |          3.00 |                   1 |          1.31 |                   1 |
 |   8 |   9 |   1 |          4.00 |                   1 |          1.38 |                   1 |
 
+The following is the table for simple games generated using `nauty`:
+
+|   k |   n |   m |   poa_highest |   poa_highest_count |   pos_highest |   pos_highest_count |
+|----:|----:|----:|--------------:|--------------------:|--------------:|--------------------:|
+|   2 |   3 |   1 |          1.00 |                   3 |          1.00 |                   3 |
+|   2 |   4 |   1 |          2.00 |                   3 |          1.00 |                  10 |
+|   2 |   5 |   1 |          2.00 |                   8 |          1.00 |                  33 |
+|   2 |   6 |   1 |          2.00 |                  16 |          1.00 |                 155 |
+|   2 |   7 |   1 |          2.00 |                  27 |          1.00 |                1043 |
+|   2 |   8 |   1 |          2.00 |                2844 |          1.00 |               12345 |
+|   2 |   9 |   1 |          2.00 |               16548 |          1.00 |              274667 |
+|   3 |   4 |   1 |          1.00 |                  10 |          1.00 |                  10 |
+|   3 |   5 |   1 |          1.50 |                   5 |          1.00 |                  33 |
+|   3 |   6 |   1 |          1.67 |                  12 |          1.00 |                 155 |
+|   3 |   7 |   1 |          1.67 |                  54 |          1.00 |                1043 |
+|   3 |   8 |   1 |          1.83 |                  79 |          1.00 |               12345 |
+|   3 |   9 |   1 |          2.00 |                 119 |          1.00 |              274667 |
+|   4 |   5 |   1 |          2.00 |                   1 |          1.00 |                  33 |
+|   4 |   6 |   1 |          2.00 |                   8 |          1.11 |                   2 |
+|   4 |   7 |   1 |          2.25 |                  20 |          1.11 |                   2 |
+|   4 |   8 |   1 |          3.00 |                  21 |          1.11 |                   2 |
+|   4 |   9 |   1 |          3.00 |                  21 |          1.11 |                   2 |
+|   5 |   6 |   1 |          2.00 |                   1 |          1.19 |                   1 |
+|   5 |   7 |   1 |          2.00 |                   1 |          1.19 |                   1 |
+|   5 |   8 |   1 |          2.00 |                  10 |          1.19 |                   1 |
+|   5 |   9 |   1 |          2.50 |                   4 |          1.19 |                   1 |
+|   6 |   7 |   1 |          3.00 |                   1 |          1.25 |                   1 |
+|   6 |   8 |   1 |          3.00 |                   1 |          1.25 |                   1 |
+|   6 |   9 |   1 |          3.00 |                   1 |          1.25 |                   1 |
+|   7 |   8 |   1 |          3.00 |                   1 |          1.31 |                   1 |
+|   7 |   9 |   1 |          3.00 |                   1 |          1.31 |                   1 |
+|   8 |   9 |   1 |          4.00 |                   1 |          1.38 |                   1 |
+
 We now show some tables for specific cases.
 
 ### k=2, m=1
 
 In this case, we know from the theory that PoS=1 and PoA≤2. Moreover, there is a game with 4 agents and PoA=2. The experimental results validate the theoretical ones and show that there is no game with PoA=2 with less than 4 agents.
 
-|   n |   poa_highest |   poa_highest_count |   pos_highest |   pos_highest_count |
-|----:|--------------:|--------------------:|--------------:|--------------------:|
-|   3 |          1.00 |                   3 |          1.00 |                   3 |
-|   4 |          2.00 |                   3 |          1.00 |                  10 |
-|   5 |          2.00 |                   9 |          1.00 |                  42 |
-|   6 |          2.00 |                  19 |          1.00 |                 275 |
-|   7 |          2.00 |                  34 |          1.00 |                3157 |
-|   8 |          2.00 |               13707 |          1.00 |               66594 |
-|   9 |          2.00 |               93094 |          1.00 |             2587487 |
+|   n |   m |   poa_highest |   poa_highest_count |   pos_highest |   pos_highest_count |
+|----:|----:|--------------:|--------------------:|--------------:|--------------------:|
+|   3 |   1 |          1.00 |                   3 |          1.00 |                   3 |
+|   4 |   1 |          2.00 |                   3 |          1.00 |                  10 |
+|   5 |   1 |          2.00 |                   8 |          1.00 |                  33 |
+|   6 |   1 |          2.00 |                  16 |          1.00 |                 155 |
+|   7 |   1 |          2.00 |                  27 |          1.00 |                1043 |
+|   8 |   1 |          2.00 |                2844 |          1.00 |               12345 |
+|   9 |   1 |          2.00 |               16548 |          1.00 |              274667 |
 
 ### k=2, any m
 
@@ -816,23 +853,23 @@ In this case, we know from the theory that PoS=1 while PoA is unbounded. In part
 
 In this case, we know from the theory that PoS=1 and PoA≤2. Moreover, there is a game with 9 agents and PoA=2. The experimental results validate the theoretical ones and show that there is no game with PoA=2 with less than 9 agents.
 
-|   n |   poa_highest |   poa_highest_count |   pos_highest |   pos_highest_count |
-|----:|--------------:|--------------------:|--------------:|--------------------:|
-|   4 |          1.00 |                  10 |          1.00 |                  10 |
-|   5 |          1.50 |                   6 |          1.00 |                  42 |
-|   6 |          1.67 |                  16 |          1.00 |                 275 |
-|   7 |          1.67 |                  90 |          1.00 |                3157 |
-|   8 |          1.83 |                 167 |          1.00 |               66594 |
-|   9 |          2.00 |                 283 |          1.00 |             2587487 |
+|   n |   m |   poa_highest |   poa_highest_count |   pos_highest |   pos_highest_count |
+|----:|----:|--------------:|--------------------:|--------------:|--------------------:|
+|   4 |   1 |          1.00 |                  10 |          1.00 |                  10 |
+|   5 |   1 |          1.50 |                   5 |          1.00 |                  33 |
+|   6 |   1 |          1.67 |                  12 |          1.00 |                 155 |
+|   7 |   1 |          1.67 |                  54 |          1.00 |                1043 |
+|   8 |   1 |          1.83 |                  79 |          1.00 |               12345 |
+|   9 |   1 |          2.00 |                 119 |          1.00 |              274667 |
 
 ### k=4, m=1
 
 In this case, we know from the theory that PoA≤3 and PoS≤$\frac{10}{9}$. Moreover, there is a graph with 16 agents and PoA=3 and a graph with 6 agents and PoS=$\frac{10}{9}$. The experimental results validate the theoretical ones, and also show that 8 agents are enough to reach PoA=3 and that there is no game with PoS=1 with less than 6 agents.
 
-|   n |   poa_highest |   poa_highest_count |   pos_highest |   pos_highest_count |
-|----:|--------------:|--------------------:|--------------:|--------------------:|
-|   5 |          2.00 |                   1 |          1.00 |                  42 |
-|   6 |          2.00 |                  16 |          1.11 |                   2 |
-|   7 |          2.25 |                  60 |          1.11 |                   2 |
-|   8 |          3.00 |                  54 |          1.11 |                   2 |
-|   9 |          3.00 |                  54 |          1.11 |                   2 |
+|   n |   m |   poa_highest |   poa_highest_count |   pos_highest |   pos_highest_count |
+|----:|----:|--------------:|--------------------:|--------------:|--------------------:|
+|   5 |   1 |          2.00 |                   1 |          1.00 |                  33 |
+|   6 |   1 |          2.00 |                   8 |          1.11 |                   2 |
+|   7 |   1 |          2.25 |                  20 |          1.11 |                   2 |
+|   8 |   1 |          3.00 |                  21 |          1.11 |                   2 |
+|   9 |   1 |          3.00 |                  21 |          1.11 |                   2 |

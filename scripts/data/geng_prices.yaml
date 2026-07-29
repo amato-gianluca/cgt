@@ -1,0 +1,2324 @@
+---
+k: 2
+n: 3
+m: 1
+weights: null
+elapsed_time: 0.020227909088134766
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 3
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 2, denominator: 2}
+    poa_highest_count: 3
+    poa_highest_game:
+    - [0, 0, 1]
+    - [0, 0, 0]
+    - [1, 0, 0]
+    poa_highest_info:
+      sw_best: 2
+      cs_best: [0, 1, 0]
+      sw_best_equilibrium: 2
+      cs_best_equilibrium: [0, 1, 0]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 0]
+    poa_lowest: {numerator: 2, denominator: 2}
+    poa_lowest_count: 3
+    poa_lowest_game:
+    - [0, 0, 1]
+    - [0, 0, 0]
+    - [1, 0, 0]
+    poa_lowest_info:
+      sw_best: 2
+      cs_best: [0, 1, 0]
+      sw_best_equilibrium: 2
+      cs_best_equilibrium: [0, 1, 0]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 0]
+    pos_highest: {numerator: 2, denominator: 2}
+    pos_highest_count: 3
+    pos_highest_game:
+    - [0, 0, 1]
+    - [0, 0, 0]
+    - [1, 0, 0]
+    pos_highest_info:
+      sw_best: 2
+      cs_best: [0, 1, 0]
+      sw_best_equilibrium: 2
+      cs_best_equilibrium: [0, 1, 0]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 0]
+    pos_lowest: {numerator: 2, denominator: 2}
+    pos_lowest_count: 3
+    pos_lowest_game:
+    - [0, 0, 1]
+    - [0, 0, 0]
+    - [1, 0, 0]
+    pos_lowest_info:
+      sw_best: 2
+      cs_best: [0, 1, 0]
+      sw_best_equilibrium: 2
+      cs_best_equilibrium: [0, 1, 0]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 0]
+    poa_avg: 1.0
+    pos_avg: 1.0
+---
+k: 2
+n: 4
+m: 1
+weights: null
+elapsed_time: 0.022614240646362305
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 10
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 4, denominator: 2}
+    poa_highest_count: 3
+    poa_highest_game:
+    - [0, 0, 1, 1]
+    - [0, 0, 0, 1]
+    - [1, 0, 0, 0]
+    - [1, 1, 0, 0]
+    poa_highest_info:
+      sw_best: 4
+      cs_best: [0, 1, 0, 1]
+      sw_best_equilibrium: 4
+      cs_best_equilibrium: [0, 1, 0, 1]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 2, 0]
+    poa_lowest: {numerator: 2, denominator: 2}
+    poa_lowest_count: 7
+    poa_lowest_game:
+    - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+    - [0, 0, 0, 0]
+    - [1, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 2
+      cs_best: [0, 1, 1, 0]
+      sw_best_equilibrium: 2
+      cs_best_equilibrium: [0, 1, 2, 0]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 2, 0]
+    pos_highest: {numerator: 2, denominator: 2}
+    pos_highest_count: 10
+    pos_highest_game:
+    - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+    - [0, 0, 0, 0]
+    - [1, 0, 0, 0]
+    pos_highest_info:
+      sw_best: 2
+      cs_best: [0, 1, 1, 0]
+      sw_best_equilibrium: 2
+      cs_best_equilibrium: [0, 1, 2, 0]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 2, 0]
+    pos_lowest: {numerator: 2, denominator: 2}
+    pos_lowest_count: 10
+    pos_lowest_game:
+    - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+    - [0, 0, 0, 0]
+    - [1, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 2
+      cs_best: [0, 1, 1, 0]
+      sw_best_equilibrium: 2
+      cs_best_equilibrium: [0, 1, 2, 0]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 2, 0]
+    poa_avg: 1.3
+    pos_avg: 1.0
+---
+k: 2
+n: 5
+m: 1
+weights: null
+elapsed_time: 0.020999431610107422
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 33
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 4, denominator: 2}
+    poa_highest_count: 8
+    poa_highest_game:
+    - [0, 0, 0, 1, 1]
+    - [0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0]
+    - [1, 1, 0, 0, 0]
+    poa_highest_info:
+      sw_best: 4
+      cs_best: [0, 1, 2, 0, 1]
+      sw_best_equilibrium: 4
+      cs_best_equilibrium: [0, 1, 2, 0, 1]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 2, 3, 0]
+    poa_lowest: {numerator: 2, denominator: 2}
+    poa_lowest_count: 25
+    poa_lowest_game:
+    - [0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 2
+      cs_best: [0, 1, 1, 2, 0]
+      sw_best_equilibrium: 2
+      cs_best_equilibrium: [0, 1, 2, 3, 0]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 2, 3, 0]
+    pos_highest: {numerator: 2, denominator: 2}
+    pos_highest_count: 33
+    pos_highest_game:
+    - [0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0]
+    pos_highest_info:
+      sw_best: 2
+      cs_best: [0, 1, 1, 2, 0]
+      sw_best_equilibrium: 2
+      cs_best_equilibrium: [0, 1, 2, 3, 0]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 2, 3, 0]
+    pos_lowest: {numerator: 2, denominator: 2}
+    pos_lowest_count: 33
+    pos_lowest_game:
+    - [0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 2
+      cs_best: [0, 1, 1, 2, 0]
+      sw_best_equilibrium: 2
+      cs_best_equilibrium: [0, 1, 2, 3, 0]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 2, 3, 0]
+    poa_avg: 1.2424242424242424
+    pos_avg: 1.0
+---
+k: 2
+n: 6
+m: 1
+weights: null
+elapsed_time: 0.02538776397705078
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 155
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 4, denominator: 2}
+    poa_highest_count: 16
+    poa_highest_game:
+    - [0, 0, 0, 0, 1, 1]
+    - [0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0]
+    - [1, 1, 0, 0, 0, 0]
+    poa_highest_info:
+      sw_best: 4
+      cs_best: [0, 1, 2, 2, 0, 1]
+      sw_best_equilibrium: 4
+      cs_best_equilibrium: [0, 1, 2, 3, 0, 1]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 0]
+    poa_lowest: {numerator: 2, denominator: 2}
+    poa_lowest_count: 43
+    poa_lowest_game:
+    - [0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 2
+      cs_best: [0, 1, 1, 2, 2, 0]
+      sw_best_equilibrium: 2
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 0]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 0]
+    pos_highest: {numerator: 2, denominator: 2}
+    pos_highest_count: 155
+    pos_highest_game:
+    - [0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0]
+    pos_highest_info:
+      sw_best: 2
+      cs_best: [0, 1, 1, 2, 2, 0]
+      sw_best_equilibrium: 2
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 0]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 0]
+    pos_lowest: {numerator: 2, denominator: 2}
+    pos_lowest_count: 155
+    pos_lowest_game:
+    - [0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 2
+      cs_best: [0, 1, 1, 2, 2, 0]
+      sw_best_equilibrium: 2
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 0]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 0]
+    poa_avg: 1.4129032258064516
+    pos_avg: 1.0
+---
+k: 2
+n: 7
+m: 1
+weights: null
+elapsed_time: 0.1055755615234375
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 1043
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 4, denominator: 2}
+    poa_highest_count: 27
+    poa_highest_game:
+    - [0, 0, 0, 0, 0, 1, 1]
+    - [0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0]
+    - [1, 1, 0, 0, 0, 0, 0]
+    poa_highest_info:
+      sw_best: 4
+      cs_best: [0, 1, 2, 2, 3, 0, 1]
+      sw_best_equilibrium: 4
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 0, 1]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+    poa_lowest: {numerator: 2, denominator: 2}
+    poa_lowest_count: 265
+    poa_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 2
+      cs_best: [0, 1, 1, 2, 2, 3, 0]
+      sw_best_equilibrium: 2
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+    pos_highest: {numerator: 2, denominator: 2}
+    pos_highest_count: 1043
+    pos_highest_game:
+    - [0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0]
+    pos_highest_info:
+      sw_best: 2
+      cs_best: [0, 1, 1, 2, 2, 3, 0]
+      sw_best_equilibrium: 2
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+    pos_lowest: {numerator: 2, denominator: 2}
+    pos_lowest_count: 1043
+    pos_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 2
+      cs_best: [0, 1, 1, 2, 2, 3, 0]
+      sw_best_equilibrium: 2
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+    poa_avg: 1.3859060402684564
+    pos_avg: 1.0
+---
+k: 2
+n: 8
+m: 1
+weights: null
+elapsed_time: 3.004552125930786
+elapsed_time_human: 0:00:03
+payload:
+  counts:
+    count_total: 12345
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 4, denominator: 2}
+    poa_highest_count: 2844
+    poa_highest_game:
+    - [0, 0, 0, 0, 0, 0, 1, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 1, 0, 0, 0, 0, 0, 0]
+    poa_highest_info:
+      sw_best: 4
+      cs_best: [0, 1, 2, 2, 3, 3, 0, 1]
+      sw_best_equilibrium: 4
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 0, 1]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+    poa_lowest: {numerator: 2, denominator: 2}
+    poa_lowest_count: 411
+    poa_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 2
+      cs_best: [0, 1, 1, 2, 2, 3, 3, 0]
+      sw_best_equilibrium: 2
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+    pos_highest: {numerator: 2, denominator: 2}
+    pos_highest_count: 12345
+    pos_highest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0]
+    pos_highest_info:
+      sw_best: 2
+      cs_best: [0, 1, 1, 2, 2, 3, 3, 0]
+      sw_best_equilibrium: 2
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+    pos_lowest: {numerator: 2, denominator: 2}
+    pos_lowest_count: 12345
+    pos_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 2
+      cs_best: [0, 1, 1, 2, 2, 3, 3, 0]
+      sw_best_equilibrium: 2
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+    poa_avg: 1.4959227757527502
+    pos_avg: 1.0
+---
+k: 2
+n: 9
+m: 1
+weights: null
+elapsed_time: 243.8197169303894
+elapsed_time_human: 0:04:03
+payload:
+  counts:
+    count_total: 274667
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 4, denominator: 2}
+    poa_highest_count: 16548
+    poa_highest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 1, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 1, 0, 0, 0, 0, 0, 0, 0]
+    poa_highest_info:
+      sw_best: 4
+      cs_best: [0, 1, 2, 2, 3, 3, 4, 0, 1]
+      sw_best_equilibrium: 4
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0, 1]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+    poa_lowest: {numerator: 2, denominator: 2}
+    poa_lowest_count: 3188
+    poa_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 2
+      cs_best: [0, 1, 1, 2, 2, 3, 3, 4, 0]
+      sw_best_equilibrium: 2
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+    pos_highest: {numerator: 2, denominator: 2}
+    pos_highest_count: 274667
+    pos_highest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0, 0]
+    pos_highest_info:
+      sw_best: 2
+      cs_best: [0, 1, 1, 2, 2, 3, 3, 4, 0]
+      sw_best_equilibrium: 2
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+    pos_lowest: {numerator: 2, denominator: 2}
+    pos_lowest_count: 274667
+    pos_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 2
+      cs_best: [0, 1, 1, 2, 2, 3, 3, 4, 0]
+      sw_best_equilibrium: 2
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+      sw_worst_equilibrium: 2
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+    poa_avg: 1.371361806596506
+    pos_avg: 1.0
+---
+k: 3
+n: 4
+m: 1
+weights: null
+elapsed_time: 0.02149200439453125
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 10
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 6, denominator: 6}
+    poa_highest_count: 10
+    poa_highest_game:
+    - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+    - [0, 0, 0, 0]
+    - [1, 0, 0, 0]
+    poa_highest_info:
+      sw_best: 6
+      cs_best: [0, 1, 1, 0]
+      sw_best_equilibrium: 6
+      cs_best_equilibrium: [0, 1, 2, 0]
+      sw_worst_equilibrium: 6
+      cs_worst_equilibrium: [0, 1, 2, 0]
+    poa_lowest: {numerator: 6, denominator: 6}
+    poa_lowest_count: 10
+    poa_lowest_game:
+    - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+    - [0, 0, 0, 0]
+    - [1, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 6
+      cs_best: [0, 1, 1, 0]
+      sw_best_equilibrium: 6
+      cs_best_equilibrium: [0, 1, 2, 0]
+      sw_worst_equilibrium: 6
+      cs_worst_equilibrium: [0, 1, 2, 0]
+    pos_highest: {numerator: 6, denominator: 6}
+    pos_highest_count: 10
+    pos_highest_game:
+    - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+    - [0, 0, 0, 0]
+    - [1, 0, 0, 0]
+    pos_highest_info:
+      sw_best: 6
+      cs_best: [0, 1, 1, 0]
+      sw_best_equilibrium: 6
+      cs_best_equilibrium: [0, 1, 2, 0]
+      sw_worst_equilibrium: 6
+      cs_worst_equilibrium: [0, 1, 2, 0]
+    pos_lowest: {numerator: 6, denominator: 6}
+    pos_lowest_count: 10
+    pos_lowest_game:
+    - [0, 0, 0, 1]
+    - [0, 0, 0, 0]
+    - [0, 0, 0, 0]
+    - [1, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 6
+      cs_best: [0, 1, 1, 0]
+      sw_best_equilibrium: 6
+      cs_best_equilibrium: [0, 1, 2, 0]
+      sw_worst_equilibrium: 6
+      cs_worst_equilibrium: [0, 1, 2, 0]
+    poa_avg: 1.0
+    pos_avg: 1.0
+---
+k: 3
+n: 5
+m: 1
+weights: null
+elapsed_time: 0.02196979522705078
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 33
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 18, denominator: 12}
+    poa_highest_count: 5
+    poa_highest_game:
+    - [0, 0, 1, 1, 1]
+    - [0, 0, 0, 1, 1]
+    - [1, 0, 0, 0, 1]
+    - [1, 1, 0, 0, 1]
+    - [1, 1, 1, 1, 0]
+    poa_highest_info:
+      sw_best: 18
+      cs_best: [0, 1, 0, 1, 0]
+      sw_best_equilibrium: 18
+      cs_best_equilibrium: [0, 1, 0, 1, 0]
+      sw_worst_equilibrium: 12
+      cs_worst_equilibrium: [0, 1, 2, 0, 0]
+    poa_lowest: {numerator: 6, denominator: 6}
+    poa_lowest_count: 23
+    poa_lowest_game:
+    - [0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 6
+      cs_best: [0, 1, 1, 1, 0]
+      sw_best_equilibrium: 6
+      cs_best_equilibrium: [0, 1, 2, 3, 0]
+      sw_worst_equilibrium: 6
+      cs_worst_equilibrium: [0, 1, 2, 3, 0]
+    pos_highest: {numerator: 6, denominator: 6}
+    pos_highest_count: 33
+    pos_highest_game:
+    - [0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0]
+    pos_highest_info:
+      sw_best: 6
+      cs_best: [0, 1, 1, 1, 0]
+      sw_best_equilibrium: 6
+      cs_best_equilibrium: [0, 1, 2, 3, 0]
+      sw_worst_equilibrium: 6
+      cs_worst_equilibrium: [0, 1, 2, 3, 0]
+    pos_lowest: {numerator: 6, denominator: 6}
+    pos_lowest_count: 33
+    pos_lowest_game:
+    - [0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 6
+      cs_best: [0, 1, 1, 1, 0]
+      sw_best_equilibrium: 6
+      cs_best_equilibrium: [0, 1, 2, 3, 0]
+      sw_worst_equilibrium: 6
+      cs_worst_equilibrium: [0, 1, 2, 3, 0]
+    poa_avg: 1.1046176046176046
+    pos_avg: 1.0
+---
+k: 3
+n: 6
+m: 1
+weights: null
+elapsed_time: 0.029427289962768555
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 155
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 20, denominator: 12}
+    poa_highest_count: 12
+    poa_highest_game:
+    - [0, 0, 0, 1, 1, 1]
+    - [0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 1]
+    - [1, 0, 0, 0, 1, 1]
+    - [1, 0, 0, 1, 0, 0]
+    - [1, 1, 1, 1, 0, 0]
+    poa_highest_info:
+      sw_best: 20
+      cs_best: [0, 1, 1, 0, 0, 1]
+      sw_best_equilibrium: 20
+      cs_best_equilibrium: [0, 1, 1, 0, 0, 1]
+      sw_worst_equilibrium: 12
+      cs_worst_equilibrium: [0, 1, 2, 0, 3, 0]
+    poa_lowest: {numerator: 6, denominator: 6}
+    poa_lowest_count: 48
+    poa_lowest_game:
+    - [0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 6
+      cs_best: [0, 1, 1, 1, 2, 0]
+      sw_best_equilibrium: 6
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 0]
+      sw_worst_equilibrium: 6
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 0]
+    pos_highest: {numerator: 6, denominator: 6}
+    pos_highest_count: 155
+    pos_highest_game:
+    - [0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0]
+    pos_highest_info:
+      sw_best: 6
+      cs_best: [0, 1, 1, 1, 2, 0]
+      sw_best_equilibrium: 6
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 0]
+      sw_worst_equilibrium: 6
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 0]
+    pos_lowest: {numerator: 6, denominator: 6}
+    pos_lowest_count: 155
+    pos_lowest_game:
+    - [0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 6
+      cs_best: [0, 1, 1, 1, 2, 0]
+      sw_best_equilibrium: 6
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 0]
+      sw_worst_equilibrium: 6
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 0]
+    poa_avg: 1.2305785970302103
+    pos_avg: 1.0
+---
+k: 3
+n: 7
+m: 1
+weights: null
+elapsed_time: 0.2522871494293213
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 1043
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 20, denominator: 12}
+    poa_highest_count: 54
+    poa_highest_game:
+    - [0, 0, 0, 0, 1, 1, 1]
+    - [0, 0, 0, 0, 0, 1, 0]
+    - [0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 1]
+    - [1, 0, 0, 0, 0, 0, 0]
+    - [1, 1, 0, 0, 0, 0, 1]
+    - [1, 0, 1, 1, 0, 1, 0]
+    poa_highest_info:
+      sw_best: 20
+      cs_best: [0, 1, 2, 2, 0, 1, 2]
+      sw_best_equilibrium: 20
+      cs_best_equilibrium: [0, 1, 2, 2, 0, 1, 2]
+      sw_worst_equilibrium: 12
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 0, 0]
+    poa_lowest: {numerator: 6, denominator: 6}
+    poa_lowest_count: 354
+    poa_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 6
+      cs_best: [0, 1, 1, 1, 2, 2, 0]
+      sw_best_equilibrium: 6
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+      sw_worst_equilibrium: 6
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+    pos_highest: {numerator: 6, denominator: 6}
+    pos_highest_count: 1043
+    pos_highest_game:
+    - [0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0]
+    pos_highest_info:
+      sw_best: 6
+      cs_best: [0, 1, 1, 1, 2, 2, 0]
+      sw_best_equilibrium: 6
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+      sw_worst_equilibrium: 6
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+    pos_lowest: {numerator: 6, denominator: 6}
+    pos_lowest_count: 1043
+    pos_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 6
+      cs_best: [0, 1, 1, 1, 2, 2, 0]
+      sw_best_equilibrium: 6
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+      sw_worst_equilibrium: 6
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+    poa_avg: 1.2041295712916162
+    pos_avg: 1.0
+---
+k: 3
+n: 8
+m: 1
+weights: null
+elapsed_time: 10.45186471939087
+elapsed_time_human: 0:00:10
+payload:
+  counts:
+    count_total: 12345
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 22, denominator: 12}
+    poa_highest_count: 79
+    poa_highest_game:
+    - [0, 0, 0, 0, 0, 1, 1, 1]
+    - [0, 0, 0, 0, 0, 0, 1, 0]
+    - [0, 0, 0, 0, 0, 0, 1, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [1, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 1, 1, 0, 0, 0, 0, 1]
+    - [1, 0, 0, 1, 1, 0, 1, 0]
+    poa_highest_info:
+      sw_best: 22
+      cs_best: [0, 1, 1, 2, 2, 0, 1, 2]
+      sw_best_equilibrium: 22
+      cs_best_equilibrium: [0, 1, 1, 2, 2, 0, 1, 2]
+      sw_worst_equilibrium: 12
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 0, 0]
+    poa_lowest: {numerator: 6, denominator: 6}
+    poa_lowest_count: 598
+    poa_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 6
+      cs_best: [0, 1, 1, 1, 2, 2, 2, 0]
+      sw_best_equilibrium: 6
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+      sw_worst_equilibrium: 6
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+    pos_highest: {numerator: 6, denominator: 6}
+    pos_highest_count: 12345
+    pos_highest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0]
+    pos_highest_info:
+      sw_best: 6
+      cs_best: [0, 1, 1, 1, 2, 2, 2, 0]
+      sw_best_equilibrium: 6
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+      sw_worst_equilibrium: 6
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+    pos_lowest: {numerator: 6, denominator: 6}
+    pos_lowest_count: 12345
+    pos_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 6
+      cs_best: [0, 1, 1, 1, 2, 2, 2, 0]
+      sw_best_equilibrium: 6
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+      sw_worst_equilibrium: 6
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+    poa_avg: 1.2804618710571265
+    pos_avg: 1.0
+---
+k: 3
+n: 9
+m: 1
+weights: null
+elapsed_time: 1142.043608903885
+elapsed_time_human: 0:19:02
+payload:
+  counts:
+    count_total: 274667
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 24, denominator: 12}
+    poa_highest_count: 119
+    poa_highest_game:
+    - [0, 0, 0, 0, 0, 0, 1, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 1, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 1, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 1, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [1, 1, 0, 0, 0, 0, 0, 1, 1]
+    - [0, 0, 1, 1, 0, 0, 1, 0, 1]
+    - [0, 0, 0, 0, 1, 1, 1, 1, 0]
+    poa_highest_info:
+      sw_best: 24
+      cs_best: [0, 0, 1, 1, 2, 2, 0, 1, 2]
+      sw_best_equilibrium: 24
+      cs_best_equilibrium: [0, 0, 1, 1, 2, 2, 0, 1, 2]
+      sw_worst_equilibrium: 12
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 6, 6]
+    poa_lowest: {numerator: 6, denominator: 6}
+    poa_lowest_count: 1403
+    poa_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 6
+      cs_best: [0, 1, 1, 1, 2, 2, 2, 3, 0]
+      sw_best_equilibrium: 6
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+      sw_worst_equilibrium: 6
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+    pos_highest: {numerator: 6, denominator: 6}
+    pos_highest_count: 274667
+    pos_highest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0, 0]
+    pos_highest_info:
+      sw_best: 6
+      cs_best: [0, 1, 1, 1, 2, 2, 2, 3, 0]
+      sw_best_equilibrium: 6
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+      sw_worst_equilibrium: 6
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+    pos_lowest: {numerator: 6, denominator: 6}
+    pos_lowest_count: 274667
+    pos_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 6
+      cs_best: [0, 1, 1, 1, 2, 2, 2, 3, 0]
+      sw_best_equilibrium: 6
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+      sw_worst_equilibrium: 6
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+    poa_avg: 1.3596619033925437
+    pos_avg: 1.0
+---
+k: 4
+n: 5
+m: 1
+weights: null
+elapsed_time: 0.02138662338256836
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 33
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 24, denominator: 12}
+    poa_highest_count: 1
+    poa_highest_game:
+    - [0, 0, 0, 1, 0]
+    - [0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0]
+    - [0, 1, 0, 0, 0]
+    poa_highest_info:
+      sw_best: 24
+      cs_best: [0, 1, 2, 0, 1]
+      sw_best_equilibrium: 24
+      cs_best_equilibrium: [0, 1, 2, 0, 1]
+      sw_worst_equilibrium: 12
+      cs_worst_equilibrium: [0, 0, 1, 0, 0]
+    poa_lowest: {numerator: 12, denominator: 12}
+    poa_lowest_count: 17
+    poa_lowest_game:
+    - [0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 12
+      cs_best: [0, 1, 1, 1, 0]
+      sw_best_equilibrium: 12
+      cs_best_equilibrium: [0, 1, 2, 3, 0]
+      sw_worst_equilibrium: 12
+      cs_worst_equilibrium: [0, 1, 2, 3, 0]
+    pos_highest: {numerator: 12, denominator: 12}
+    pos_highest_count: 33
+    pos_highest_game:
+    - [0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0]
+    pos_highest_info:
+      sw_best: 12
+      cs_best: [0, 1, 1, 1, 0]
+      sw_best_equilibrium: 12
+      cs_best_equilibrium: [0, 1, 2, 3, 0]
+      sw_worst_equilibrium: 12
+      cs_worst_equilibrium: [0, 1, 2, 3, 0]
+    pos_lowest: {numerator: 12, denominator: 12}
+    pos_lowest_count: 33
+    pos_lowest_game:
+    - [0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 12
+      cs_best: [0, 1, 1, 1, 0]
+      sw_best_equilibrium: 12
+      cs_best_equilibrium: [0, 1, 2, 3, 0]
+      sw_worst_equilibrium: 12
+      cs_worst_equilibrium: [0, 1, 2, 3, 0]
+    poa_avg: 1.1933381433381436
+    pos_avg: 1.0
+---
+k: 4
+n: 6
+m: 1
+weights: null
+elapsed_time: 0.02970433235168457
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 155
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 24, denominator: 12}
+    poa_highest_count: 8
+    poa_highest_game:
+    - [0, 0, 0, 0, 1, 0]
+    - [0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0]
+    - [0, 1, 0, 0, 0, 0]
+    poa_highest_info:
+      sw_best: 24
+      cs_best: [0, 1, 2, 2, 0, 1]
+      sw_best_equilibrium: 24
+      cs_best_equilibrium: [0, 1, 2, 3, 0, 1]
+      sw_worst_equilibrium: 12
+      cs_worst_equilibrium: [0, 0, 1, 2, 0, 0]
+    poa_lowest: {numerator: 12, denominator: 12}
+    poa_lowest_count: 53
+    poa_lowest_game:
+    - [0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 12
+      cs_best: [0, 1, 1, 1, 1, 0]
+      sw_best_equilibrium: 12
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 0]
+      sw_worst_equilibrium: 12
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 0]
+    pos_highest: {numerator: 40, denominator: 36}
+    pos_highest_count: 2
+    pos_highest_game:
+    - [0, 0, 0, 1, 1, 1]
+    - [0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 1]
+    - [1, 0, 0, 0, 1, 1]
+    - [1, 0, 0, 1, 0, 1]
+    - [1, 1, 1, 1, 1, 0]
+    pos_highest_info:
+      sw_best: 40
+      cs_best: [0, 1, 1, 0, 0, 1]
+      sw_best_equilibrium: 36
+      cs_best_equilibrium: [0, 1, 2, 0, 0, 0]
+      sw_worst_equilibrium: 24
+      cs_worst_equilibrium: [0, 0, 1, 0, 2, 0]
+    pos_lowest: {numerator: 12, denominator: 12}
+    pos_lowest_count: 150
+    pos_lowest_game:
+    - [0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 12
+      cs_best: [0, 1, 1, 1, 1, 0]
+      sw_best_equilibrium: 12
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 0]
+      sw_worst_equilibrium: 12
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 0]
+    poa_avg: 1.3308576548899136
+    pos_avg: 1.0027240143369176
+---
+k: 4
+n: 7
+m: 1
+weights: null
+elapsed_time: 0.31548261642456055
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 1043
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 54, denominator: 24}
+    poa_highest_count: 20
+    poa_highest_game:
+    - [0, 0, 0, 1, 0, 1, 1]
+    - [0, 0, 0, 0, 1, 0, 1]
+    - [0, 0, 0, 0, 1, 0, 1]
+    - [1, 0, 0, 0, 0, 1, 0]
+    - [0, 1, 1, 0, 0, 1, 1]
+    - [1, 0, 0, 1, 1, 0, 0]
+    - [1, 1, 1, 0, 1, 0, 0]
+    poa_highest_info:
+      sw_best: 54
+      cs_best: [0, 1, 1, 0, 1, 0, 1]
+      sw_best_equilibrium: 54
+      cs_best_equilibrium: [0, 1, 1, 0, 1, 0, 1]
+      sw_worst_equilibrium: 24
+      cs_worst_equilibrium: [0, 1, 2, 3, 0, 0, 0]
+    poa_lowest: {numerator: 12, denominator: 12}
+    poa_lowest_count: 116
+    poa_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 12
+      cs_best: [0, 1, 1, 1, 1, 2, 0]
+      sw_best_equilibrium: 12
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+      sw_worst_equilibrium: 12
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+    pos_highest: {numerator: 40, denominator: 36}
+    pos_highest_count: 2
+    pos_highest_game:
+    - [0, 0, 0, 0, 1, 1, 1]
+    - [0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 1, 1]
+    - [1, 0, 0, 0, 1, 0, 1]
+    - [1, 1, 1, 0, 1, 1, 0]
+    pos_highest_info:
+      sw_best: 40
+      cs_best: [0, 1, 1, 2, 0, 0, 1]
+      sw_best_equilibrium: 36
+      cs_best_equilibrium: [0, 1, 2, 3, 0, 0, 0]
+      sw_worst_equilibrium: 24
+      cs_worst_equilibrium: [0, 0, 1, 2, 0, 3, 0]
+    pos_lowest: {numerator: 12, denominator: 12}
+    pos_lowest_count: 1038
+    pos_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 12
+      cs_best: [0, 1, 1, 1, 1, 2, 0]
+      sw_best_equilibrium: 12
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+      sw_worst_equilibrium: 12
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+    poa_avg: 1.4155612095571077
+    pos_avg: 1.0004048151699159
+---
+k: 4
+n: 8
+m: 1
+weights: null
+elapsed_time: 14.831148624420166
+elapsed_time_human: 0:00:14
+payload:
+  counts:
+    count_total: 12345
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 72, denominator: 24}
+    poa_highest_count: 21
+    poa_highest_game:
+    - [0, 0, 1, 0, 1, 0, 1, 0]
+    - [0, 0, 0, 1, 0, 1, 0, 1]
+    - [1, 0, 0, 0, 1, 0, 1, 0]
+    - [0, 1, 0, 0, 0, 1, 0, 1]
+    - [1, 0, 1, 0, 0, 0, 1, 0]
+    - [0, 1, 0, 1, 0, 0, 0, 1]
+    - [1, 0, 1, 0, 1, 0, 0, 0]
+    - [0, 1, 0, 1, 0, 1, 0, 0]
+    poa_highest_info:
+      sw_best: 72
+      cs_best: [0, 1, 0, 1, 0, 1, 0, 1]
+      sw_best_equilibrium: 72
+      cs_best_equilibrium: [0, 1, 0, 1, 0, 1, 0, 1]
+      sw_worst_equilibrium: 24
+      cs_worst_equilibrium: [0, 0, 0, 0, 1, 1, 1, 1]
+    poa_lowest: {numerator: 12, denominator: 12}
+    poa_lowest_count: 154
+    poa_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 12
+      cs_best: [0, 1, 1, 1, 1, 2, 2, 0]
+      sw_best_equilibrium: 12
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+      sw_worst_equilibrium: 12
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+    pos_highest: {numerator: 40, denominator: 36}
+    pos_highest_count: 2
+    pos_highest_game:
+    - [0, 0, 0, 0, 0, 1, 1, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 1, 1]
+    - [1, 0, 0, 0, 0, 1, 0, 1]
+    - [1, 1, 1, 0, 0, 1, 1, 0]
+    pos_highest_info:
+      sw_best: 40
+      cs_best: [0, 1, 1, 2, 2, 0, 0, 1]
+      sw_best_equilibrium: 36
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 0, 0, 0]
+      sw_worst_equilibrium: 24
+      cs_worst_equilibrium: [0, 0, 1, 2, 3, 0, 4, 0]
+    pos_lowest: {numerator: 12, denominator: 12}
+    pos_lowest_count: 12259
+    pos_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 12
+      cs_best: [0, 1, 1, 1, 1, 2, 2, 0]
+      sw_best_equilibrium: 12
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+      sw_worst_equilibrium: 12
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+    poa_avg: 1.747426321225355
+    pos_avg: 1.0004884054337273
+---
+k: 4
+n: 9
+m: 1
+weights: null
+elapsed_time: 1770.1454858779907
+elapsed_time_human: 0:29:30
+payload:
+  counts:
+    count_total: 274667
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 72, denominator: 24}
+    poa_highest_count: 21
+    poa_highest_game:
+    - [0, 0, 0, 1, 0, 1, 0, 1, 0]
+    - [0, 0, 0, 0, 1, 0, 1, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 1, 0, 1, 0]
+    - [0, 1, 0, 0, 0, 0, 1, 0, 1]
+    - [1, 0, 0, 1, 0, 0, 0, 1, 0]
+    - [0, 1, 0, 0, 1, 0, 0, 0, 1]
+    - [1, 0, 0, 1, 0, 1, 0, 0, 0]
+    - [0, 1, 0, 0, 1, 0, 1, 0, 0]
+    poa_highest_info:
+      sw_best: 72
+      cs_best: [0, 1, 2, 0, 1, 0, 1, 0, 1]
+      sw_best_equilibrium: 72
+      cs_best_equilibrium: [0, 1, 2, 0, 1, 0, 1, 0, 1]
+      sw_worst_equilibrium: 24
+      cs_worst_equilibrium: [0, 0, 1, 0, 0, 2, 2, 2, 2]
+    poa_lowest: {numerator: 12, denominator: 12}
+    poa_lowest_count: 377
+    poa_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 12
+      cs_best: [0, 1, 1, 1, 1, 2, 2, 2, 0]
+      sw_best_equilibrium: 12
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+      sw_worst_equilibrium: 12
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+    pos_highest: {numerator: 40, denominator: 36}
+    pos_highest_count: 2
+    pos_highest_game:
+    - [0, 0, 0, 0, 0, 0, 1, 1, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 1, 1]
+    - [1, 0, 0, 0, 0, 0, 1, 0, 1]
+    - [1, 1, 1, 0, 0, 0, 1, 1, 0]
+    pos_highest_info:
+      sw_best: 40
+      cs_best: [0, 1, 1, 2, 2, 2, 0, 0, 1]
+      sw_best_equilibrium: 36
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 0, 0, 0]
+      sw_worst_equilibrium: 24
+      cs_worst_equilibrium: [0, 0, 1, 2, 3, 4, 0, 5, 0]
+    pos_lowest: {numerator: 12, denominator: 12}
+    pos_lowest_count: 272162
+    pos_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 12
+      cs_best: [0, 1, 1, 1, 1, 2, 2, 2, 0]
+      sw_best_equilibrium: 12
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+      sw_worst_equilibrium: 12
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+    poa_avg: 1.6842006838370285
+    pos_avg: 1.0005054691041595
+---
+k: 5
+n: 6
+m: 1
+weights: null
+elapsed_time: 0.07003164291381836
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 155
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 120, denominator: 60}
+    poa_highest_count: 1
+    poa_highest_game:
+    - [0, 0, 0, 0, 1, 0]
+    - [0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0]
+    - [0, 1, 0, 0, 0, 0]
+    poa_highest_info:
+      sw_best: 120
+      cs_best: [0, 1, 2, 2, 0, 1]
+      sw_best_equilibrium: 120
+      cs_best_equilibrium: [0, 1, 2, 3, 0, 1]
+      sw_worst_equilibrium: 60
+      cs_worst_equilibrium: [0, 0, 1, 2, 0, 0]
+    poa_lowest: {numerator: 60, denominator: 60}
+    poa_lowest_count: 67
+    poa_lowest_game:
+    - [0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 60
+      cs_best: [0, 1, 1, 1, 1, 0]
+      sw_best_equilibrium: 60
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 0]
+      sw_worst_equilibrium: 60
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 0]
+    pos_highest: {numerator: 200, denominator: 168}
+    pos_highest_count: 1
+    pos_highest_game:
+    - [0, 0, 0, 1, 1, 1]
+    - [0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 1]
+    - [1, 0, 0, 0, 1, 1]
+    - [1, 0, 0, 1, 0, 1]
+    - [1, 1, 1, 1, 1, 0]
+    pos_highest_info:
+      sw_best: 200
+      cs_best: [0, 1, 1, 0, 0, 1]
+      sw_best_equilibrium: 168
+      cs_best_equilibrium: [0, 0, 1, 0, 0, 0]
+      sw_worst_equilibrium: 168
+      cs_worst_equilibrium: [0, 0, 1, 0, 0, 0]
+    pos_lowest: {numerator: 60, denominator: 60}
+    pos_lowest_count: 138
+    pos_lowest_game:
+    - [0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 60
+      cs_best: [0, 1, 1, 1, 1, 0]
+      sw_best_equilibrium: 60
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 0]
+      sw_worst_equilibrium: 60
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 0]
+    poa_avg: 1.1450192012288782
+    pos_avg: 1.0107302867383514
+---
+k: 5
+n: 7
+m: 1
+weights: null
+elapsed_time: 0.6527016162872314
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 1043
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 120, denominator: 60}
+    poa_highest_count: 1
+    poa_highest_game:
+    - [0, 0, 0, 0, 0, 1, 0]
+    - [0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0]
+    - [0, 1, 0, 0, 0, 0, 0]
+    poa_highest_info:
+      sw_best: 120
+      cs_best: [0, 1, 2, 2, 2, 0, 1]
+      sw_best_equilibrium: 120
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 0, 1]
+      sw_worst_equilibrium: 60
+      cs_worst_equilibrium: [0, 0, 1, 2, 3, 0, 0]
+    poa_lowest: {numerator: 60, denominator: 60}
+    poa_lowest_count: 188
+    poa_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 60
+      cs_best: [0, 1, 1, 1, 1, 1, 0]
+      sw_best_equilibrium: 60
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+      sw_worst_equilibrium: 60
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+    pos_highest: {numerator: 200, denominator: 168}
+    pos_highest_count: 1
+    pos_highest_game:
+    - [0, 0, 0, 0, 1, 1, 1]
+    - [0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 1, 1]
+    - [1, 0, 0, 0, 1, 0, 1]
+    - [1, 1, 1, 0, 1, 1, 0]
+    pos_highest_info:
+      sw_best: 200
+      cs_best: [0, 1, 1, 2, 0, 0, 1]
+      sw_best_equilibrium: 168
+      cs_best_equilibrium: [0, 0, 1, 2, 0, 0, 0]
+      sw_worst_equilibrium: 168
+      cs_worst_equilibrium: [0, 0, 1, 2, 0, 0, 0]
+    pos_lowest: {numerator: 60, denominator: 60}
+    pos_lowest_count: 931
+    pos_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 60
+      cs_best: [0, 1, 1, 1, 1, 1, 0]
+      sw_best_equilibrium: 60
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+      sw_worst_equilibrium: 60
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+    poa_avg: 1.2121636706845824
+    pos_avg: 1.0042696775502267
+---
+k: 5
+n: 8
+m: 1
+weights: null
+elapsed_time: 26.319700241088867
+elapsed_time_human: 0:00:26
+payload:
+  counts:
+    count_total: 12345
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 120, denominator: 60}
+    poa_highest_count: 10
+    poa_highest_game:
+    - [0, 0, 0, 0, 0, 0, 1, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 1, 0, 0, 0, 0, 0, 0]
+    poa_highest_info:
+      sw_best: 120
+      cs_best: [0, 1, 2, 2, 2, 2, 0, 1]
+      sw_best_equilibrium: 120
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 0, 1]
+      sw_worst_equilibrium: 60
+      cs_worst_equilibrium: [0, 0, 1, 2, 3, 4, 0, 0]
+    poa_lowest: {numerator: 60, denominator: 60}
+    poa_lowest_count: 914
+    poa_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 60
+      cs_best: [0, 1, 1, 1, 1, 1, 2, 0]
+      sw_best_equilibrium: 60
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+      sw_worst_equilibrium: 60
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+    pos_highest: {numerator: 200, denominator: 168}
+    pos_highest_count: 1
+    pos_highest_game:
+    - [0, 0, 0, 0, 0, 1, 1, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 1, 1]
+    - [1, 0, 0, 0, 0, 1, 0, 1]
+    - [1, 1, 1, 0, 0, 1, 1, 0]
+    pos_highest_info:
+      sw_best: 200
+      cs_best: [0, 1, 1, 2, 2, 0, 0, 1]
+      sw_best_equilibrium: 168
+      cs_best_equilibrium: [0, 0, 1, 2, 3, 0, 0, 0]
+      sw_worst_equilibrium: 168
+      cs_worst_equilibrium: [0, 0, 1, 2, 3, 0, 0, 0]
+    pos_lowest: {numerator: 60, denominator: 60}
+    pos_lowest_count: 10838
+    pos_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 60
+      cs_best: [0, 1, 1, 1, 1, 1, 2, 0]
+      sw_best_equilibrium: 60
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+      sw_worst_equilibrium: 60
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+    poa_avg: 1.22791179017653
+    pos_avg: 1.004825836652875
+---
+k: 5
+n: 9
+m: 1
+weights: null
+elapsed_time: 3346.4379262924194
+elapsed_time_human: 0:55:46
+payload:
+  counts:
+    count_total: 274667
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 330, denominator: 132}
+    poa_highest_count: 4
+    poa_highest_game:
+    - [0, 0, 0, 0, 1, 0, 0, 1, 0]
+    - [0, 0, 0, 0, 0, 1, 0, 1, 0]
+    - [0, 0, 0, 0, 0, 0, 1, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 1, 0, 1]
+    - [1, 0, 0, 0, 0, 0, 0, 1, 0]
+    - [0, 1, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 1, 1, 0, 0, 0, 0, 1]
+    - [1, 1, 0, 0, 1, 0, 0, 0, 0]
+    - [0, 0, 1, 1, 0, 1, 1, 0, 0]
+    poa_highest_info:
+      sw_best: 330
+      cs_best: [0, 1, 2, 2, 0, 1, 2, 0, 2]
+      sw_best_equilibrium: 330
+      cs_best_equilibrium: [0, 1, 2, 2, 0, 1, 2, 0, 2]
+      sw_worst_equilibrium: 132
+      cs_worst_equilibrium: [0, 1, 0, 1, 0, 0, 1, 1, 0]
+    poa_lowest: {numerator: 60, denominator: 60}
+    poa_lowest_count: 1162
+    poa_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 60
+      cs_best: [0, 1, 1, 1, 1, 1, 2, 2, 0]
+      sw_best_equilibrium: 60
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+      sw_worst_equilibrium: 60
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+    pos_highest: {numerator: 200, denominator: 168}
+    pos_highest_count: 1
+    pos_highest_game:
+    - [0, 0, 0, 0, 0, 0, 1, 1, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 1, 1]
+    - [1, 0, 0, 0, 0, 0, 1, 0, 1]
+    - [1, 1, 1, 0, 0, 0, 1, 1, 0]
+    pos_highest_info:
+      sw_best: 200
+      cs_best: [0, 1, 1, 2, 2, 2, 0, 0, 1]
+      sw_best_equilibrium: 168
+      cs_best_equilibrium: [0, 0, 1, 2, 3, 4, 0, 0, 0]
+      sw_worst_equilibrium: 168
+      cs_worst_equilibrium: [0, 0, 1, 2, 3, 4, 0, 0, 0]
+    pos_lowest: {numerator: 60, denominator: 60}
+    pos_lowest_count: 244316
+    pos_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 60
+      cs_best: [0, 1, 1, 1, 1, 1, 2, 2, 0]
+      sw_best_equilibrium: 60
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+      sw_worst_equilibrium: 60
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+    poa_avg: 1.4556547565782425
+    pos_avg: 1.0044068766545153
+---
+k: 6
+n: 7
+m: 1
+weights: null
+elapsed_time: 0.5946617126464844
+elapsed_time_human: 0:00:00
+payload:
+  counts:
+    count_total: 1043
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 180, denominator: 60}
+    poa_highest_count: 1
+    poa_highest_game:
+    - [0, 0, 0, 0, 1, 0, 0]
+    - [0, 0, 0, 0, 0, 1, 0]
+    - [0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0]
+    - [0, 1, 0, 0, 0, 0, 0]
+    - [0, 0, 1, 0, 0, 0, 0]
+    poa_highest_info:
+      sw_best: 180
+      cs_best: [0, 1, 2, 3, 0, 1, 2]
+      sw_best_equilibrium: 180
+      cs_best_equilibrium: [0, 1, 2, 3, 0, 1, 2]
+      sw_worst_equilibrium: 60
+      cs_worst_equilibrium: [0, 0, 0, 1, 0, 0, 0]
+    poa_lowest: {numerator: 60, denominator: 60}
+    poa_lowest_count: 77
+    poa_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 60
+      cs_best: [0, 1, 1, 1, 1, 1, 0]
+      sw_best_equilibrium: 60
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+      sw_worst_equilibrium: 60
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+    pos_highest: {numerator: 200, denominator: 160}
+    pos_highest_count: 1
+    pos_highest_game:
+    - [0, 0, 0, 0, 1, 1, 1]
+    - [0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 1, 1]
+    - [1, 0, 0, 0, 1, 0, 1]
+    - [1, 1, 1, 0, 1, 1, 0]
+    pos_highest_info:
+      sw_best: 200
+      cs_best: [0, 1, 1, 2, 0, 0, 1]
+      sw_best_equilibrium: 160
+      cs_best_equilibrium: [0, 0, 0, 1, 0, 0, 0]
+      sw_worst_equilibrium: 160
+      cs_worst_equilibrium: [0, 0, 0, 1, 0, 0, 0]
+    pos_lowest: {numerator: 60, denominator: 60}
+    pos_lowest_count: 917
+    pos_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 60
+      cs_best: [0, 1, 1, 1, 1, 1, 0]
+      sw_best_equilibrium: 60
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+      sw_worst_equilibrium: 60
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 0]
+    poa_avg: 1.326551610825326
+    pos_avg: 1.0059674851013765
+---
+k: 6
+n: 8
+m: 1
+weights: null
+elapsed_time: 30.80985188484192
+elapsed_time_human: 0:00:30
+payload:
+  counts:
+    count_total: 12345
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 180, denominator: 60}
+    poa_highest_count: 1
+    poa_highest_game:
+    - [0, 0, 0, 0, 0, 1, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 1, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 1, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 1, 0, 0, 0, 0, 0]
+    poa_highest_info:
+      sw_best: 180
+      cs_best: [0, 1, 2, 3, 3, 0, 1, 2]
+      sw_best_equilibrium: 180
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 0, 1, 2]
+      sw_worst_equilibrium: 60
+      cs_worst_equilibrium: [0, 0, 0, 1, 2, 0, 0, 0]
+    poa_lowest: {numerator: 60, denominator: 60}
+    poa_lowest_count: 369
+    poa_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 60
+      cs_best: [0, 1, 1, 1, 1, 1, 1, 0]
+      sw_best_equilibrium: 60
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+      sw_worst_equilibrium: 60
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+    pos_highest: {numerator: 200, denominator: 160}
+    pos_highest_count: 1
+    pos_highest_game:
+    - [0, 0, 0, 0, 0, 1, 1, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 1, 1]
+    - [1, 0, 0, 0, 0, 1, 0, 1]
+    - [1, 1, 1, 0, 0, 1, 1, 0]
+    pos_highest_info:
+      sw_best: 200
+      cs_best: [0, 1, 1, 2, 2, 0, 0, 1]
+      sw_best_equilibrium: 160
+      cs_best_equilibrium: [0, 0, 0, 1, 2, 0, 0, 0]
+      sw_worst_equilibrium: 160
+      cs_worst_equilibrium: [0, 0, 0, 1, 2, 0, 0, 0]
+    pos_lowest: {numerator: 60, denominator: 60}
+    pos_lowest_count: 10964
+    pos_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 60
+      cs_best: [0, 1, 1, 1, 1, 1, 1, 0]
+      sw_best_equilibrium: 60
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+      sw_worst_equilibrium: 60
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+    poa_avg: 1.400374702695331
+    pos_avg: 1.0054955125810847
+---
+k: 6
+n: 9
+m: 1
+weights: null
+elapsed_time: 3435.630107164383
+elapsed_time_human: 0:57:15
+payload:
+  counts:
+    count_total: 274667
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 180, denominator: 60}
+    poa_highest_count: 1
+    poa_highest_game:
+    - [0, 0, 0, 0, 0, 0, 1, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 1, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 1, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 1, 0, 0, 0, 0, 0, 0]
+    poa_highest_info:
+      sw_best: 180
+      cs_best: [0, 1, 2, 3, 3, 3, 0, 1, 2]
+      sw_best_equilibrium: 180
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 0, 1, 2]
+      sw_worst_equilibrium: 60
+      cs_worst_equilibrium: [0, 0, 0, 1, 2, 3, 0, 0, 0]
+    poa_lowest: {numerator: 60, denominator: 60}
+    poa_lowest_count: 1678
+    poa_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 60
+      cs_best: [0, 1, 1, 1, 1, 1, 1, 2, 0]
+      sw_best_equilibrium: 60
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+      sw_worst_equilibrium: 60
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+    pos_highest: {numerator: 200, denominator: 160}
+    pos_highest_count: 1
+    pos_highest_game:
+    - [0, 0, 0, 0, 0, 0, 1, 1, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 1, 1]
+    - [1, 0, 0, 0, 0, 0, 1, 0, 1]
+    - [1, 1, 1, 0, 0, 0, 1, 1, 0]
+    pos_highest_info:
+      sw_best: 200
+      cs_best: [0, 1, 1, 2, 2, 2, 0, 0, 1]
+      sw_best_equilibrium: 160
+      cs_best_equilibrium: [0, 0, 0, 1, 2, 3, 0, 0, 0]
+      sw_worst_equilibrium: 160
+      cs_worst_equilibrium: [0, 0, 0, 1, 2, 3, 0, 0, 0]
+    pos_lowest: {numerator: 60, denominator: 60}
+    pos_lowest_count: 242397
+    pos_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 60
+      cs_best: [0, 1, 1, 1, 1, 1, 1, 2, 0]
+      sw_best_equilibrium: 60
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+      sw_worst_equilibrium: 60
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+    poa_avg: 1.442309375144487
+    pos_avg: 1.0050100639982231
+---
+k: 7
+n: 8
+m: 1
+weights: null
+elapsed_time: 31.68888807296753
+elapsed_time_human: 0:00:31
+payload:
+  counts:
+    count_total: 12345
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 1260, denominator: 420}
+    poa_highest_count: 1
+    poa_highest_game:
+    - [0, 0, 0, 0, 0, 1, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 1, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 1, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 1, 0, 0, 0, 0, 0]
+    poa_highest_info:
+      sw_best: 1260
+      cs_best: [0, 1, 2, 3, 3, 0, 1, 2]
+      sw_best_equilibrium: 1260
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 0, 1, 2]
+      sw_worst_equilibrium: 420
+      cs_worst_equilibrium: [0, 0, 0, 1, 2, 0, 0, 0]
+    poa_lowest: {numerator: 420, denominator: 420}
+    poa_lowest_count: 479
+    poa_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 420
+      cs_best: [0, 1, 1, 1, 1, 1, 1, 0]
+      sw_best_equilibrium: 420
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+      sw_worst_equilibrium: 420
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+    pos_highest: {numerator: 1890, denominator: 1440}
+    pos_highest_count: 1
+    pos_highest_game:
+    - [0, 0, 0, 0, 1, 1, 1, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [1, 0, 0, 0, 0, 1, 1, 1]
+    - [1, 0, 0, 0, 1, 0, 1, 1]
+    - [1, 0, 0, 0, 1, 1, 0, 1]
+    - [1, 1, 1, 1, 1, 1, 1, 0]
+    pos_highest_info:
+      sw_best: 1890
+      cs_best: [0, 1, 1, 1, 0, 0, 0, 1]
+      sw_best_equilibrium: 1440
+      cs_best_equilibrium: [0, 0, 0, 1, 0, 0, 0, 0]
+      sw_worst_equilibrium: 1440
+      cs_worst_equilibrium: [0, 0, 0, 1, 0, 0, 0, 0]
+    pos_lowest: {numerator: 420, denominator: 420}
+    pos_lowest_count: 10750
+    pos_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 420
+      cs_best: [0, 1, 1, 1, 1, 1, 1, 0]
+      sw_best_equilibrium: 420
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+      sw_worst_equilibrium: 420
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 0]
+    poa_avg: 1.274981511681921
+    pos_avg: 1.006910482517525
+---
+k: 7
+n: 9
+m: 1
+weights: null
+elapsed_time: 2719.307485818863
+elapsed_time_human: 0:45:19
+payload:
+  counts:
+    count_total: 274667
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 1260, denominator: 420}
+    poa_highest_count: 1
+    poa_highest_game:
+    - [0, 0, 0, 0, 0, 0, 1, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 1, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 1, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 1, 0, 0, 0, 0, 0, 0]
+    poa_highest_info:
+      sw_best: 1260
+      cs_best: [0, 1, 2, 3, 3, 3, 0, 1, 2]
+      sw_best_equilibrium: 1260
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 0, 1, 2]
+      sw_worst_equilibrium: 420
+      cs_worst_equilibrium: [0, 0, 0, 1, 2, 3, 0, 0, 0]
+    poa_lowest: {numerator: 420, denominator: 420}
+    poa_lowest_count: 3319
+    poa_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 420
+      cs_best: [0, 1, 1, 1, 1, 1, 1, 1, 0]
+      sw_best_equilibrium: 420
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+      sw_worst_equilibrium: 420
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+    pos_highest: {numerator: 1890, denominator: 1440}
+    pos_highest_count: 1
+    pos_highest_game:
+    - [0, 0, 0, 0, 0, 1, 1, 1, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 1, 1, 1]
+    - [1, 0, 0, 0, 0, 1, 0, 1, 1]
+    - [1, 0, 0, 0, 0, 1, 1, 0, 1]
+    - [1, 1, 1, 1, 0, 1, 1, 1, 0]
+    pos_highest_info:
+      sw_best: 1890
+      cs_best: [0, 1, 1, 1, 2, 0, 0, 0, 1]
+      sw_best_equilibrium: 1440
+      cs_best_equilibrium: [0, 0, 0, 1, 2, 0, 0, 0, 0]
+      sw_worst_equilibrium: 1440
+      cs_worst_equilibrium: [0, 0, 0, 1, 2, 0, 0, 0, 0]
+    pos_lowest: {numerator: 420, denominator: 420}
+    pos_lowest_count: 238904
+    pos_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 420
+      cs_best: [0, 1, 1, 1, 1, 1, 1, 1, 0]
+      sw_best_equilibrium: 420
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+      sw_worst_equilibrium: 420
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+    poa_avg: 1.2865494550239738
+    pos_avg: 1.0056581893329117
+---
+k: 8
+n: 9
+m: 1
+weights: null
+elapsed_time: 2003.6577153205872
+elapsed_time_human: 0:33:23
+payload:
+  counts:
+    count_total: 274667
+    count_noequilibrium: 0
+    example_noequilibrium: []
+  prices:
+    poa_highest: {numerator: 3360, denominator: 840}
+    poa_highest_count: 1
+    poa_highest_game:
+    - [0, 0, 0, 0, 0, 1, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 1, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 1, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 1, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 1, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 1, 0, 0, 0, 0, 0]
+    poa_highest_info:
+      sw_best: 3360
+      cs_best: [0, 1, 2, 3, 4, 0, 1, 2, 3]
+      sw_best_equilibrium: 3360
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 0, 1, 2, 3]
+      sw_worst_equilibrium: 840
+      cs_worst_equilibrium: [0, 0, 0, 0, 1, 0, 0, 0, 0]
+    poa_lowest: {numerator: 840, denominator: 840}
+    poa_lowest_count: 1218
+    poa_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0, 0]
+    poa_lowest_info:
+      sw_best: 840
+      cs_best: [0, 1, 1, 1, 1, 1, 1, 1, 0]
+      sw_best_equilibrium: 840
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+      sw_worst_equilibrium: 840
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+    pos_highest: {numerator: 3780, denominator: 2730}
+    pos_highest_count: 1
+    pos_highest_game:
+    - [0, 0, 0, 0, 0, 1, 1, 1, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 1, 1, 1]
+    - [1, 0, 0, 0, 0, 1, 0, 1, 1]
+    - [1, 0, 0, 0, 0, 1, 1, 0, 1]
+    - [1, 1, 1, 1, 0, 1, 1, 1, 0]
+    pos_highest_info:
+      sw_best: 3780
+      cs_best: [0, 1, 1, 1, 2, 0, 0, 0, 1]
+      sw_best_equilibrium: 2730
+      cs_best_equilibrium: [0, 0, 0, 0, 1, 0, 0, 0, 0]
+      sw_worst_equilibrium: 2730
+      cs_worst_equilibrium: [0, 0, 0, 0, 1, 0, 0, 0, 0]
+    pos_lowest: {numerator: 840, denominator: 840}
+    pos_lowest_count: 238588
+    pos_lowest_game:
+    - [0, 0, 0, 0, 0, 0, 0, 0, 1]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    - [1, 0, 0, 0, 0, 0, 0, 0, 0]
+    pos_lowest_info:
+      sw_best: 840
+      cs_best: [0, 1, 1, 1, 1, 1, 1, 1, 0]
+      sw_best_equilibrium: 840
+      cs_best_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+      sw_worst_equilibrium: 840
+      cs_worst_equilibrium: [0, 1, 2, 3, 4, 5, 6, 7, 0]
+    poa_avg: 1.3644992652367516
+    pos_avg: 1.0058675935649306
