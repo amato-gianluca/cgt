@@ -256,13 +256,13 @@ def game_collection_info_with_timing(
 
 
 def generate_graphs(
-    n: int, geng_path: str = "geng", geng_args: tuple = (), verbose: bool = True
+    n: int, geng_path: str = "geng", geng_args: tuple[str] = ("1:0",), verbose: bool = True
 ) -> Iterator[Game]:
     """
     Generate all non-isomorphic simple graphs on n vertices using nauty's geng and return them as
     weight matrices.
     """
-    cmd = [geng_path, *geng_args, str(n)]
+    cmd = [geng_path, str(n), *geng_args]
 
     # The number of non-isomorphic simple graphs on n vertices is given by the OEIS sequence A000088.
     GRAPH_COUNTS = [
@@ -287,13 +287,9 @@ def generate_graphs(
         1787577725145611700547878190848,
         24637809253125004524383007491432768,
     ]
-    total = GRAPH_COUNTS[n] if n < len(GRAPH_COUNTS) else None
+    total = GRAPH_COUNTS[n] - 1 if n < len(GRAPH_COUNTS) else None
 
-    proc = subprocess.Popen(
-        cmd,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-    )
+    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     assert proc.stdout is not None
 
