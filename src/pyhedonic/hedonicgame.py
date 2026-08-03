@@ -842,7 +842,7 @@ class CoalitionStructure:
         return f"CoalitionStructure({repr(self.game)},{repr(self.cs)})"
 
     def __str__(self) -> str:
-        return str(self.to_list())
+        return "{" + ", ".join(map(str, self.to_list())) + "}"
 
 
 GAME_K3_NOEQUILIBRIUM_PAPER = HedonicGame(
