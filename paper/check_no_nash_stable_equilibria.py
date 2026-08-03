@@ -45,14 +45,50 @@ def nash_stable_coalition_structure(graph, k: int) -> CoalitionStructure | None:
     Check whether the game has a Nash stable coalition structure. It returns a
     Nash stable coalition structure if it exists, otherwise it returns None.
     """
-    n = len(graph)
-    for coalition_structure in set_partitions(range(n), max_size=k):
+    for coalition_structure in set_partitions(range(len(graph)), max_size=k):
         if is_nash_stable(graph, coalition_structure, k):
             return coalition_structure
     return None
 
 
+def check_game(graph: Graph, k: int) -> None:
+    cs = nash_stable_coalition_structure(graph, k)
+    if cs is None:
+        print(f"The game with k={k} has **no** Nash stable coalition structure.")
+    else:
+        print(f"The game with k={k} has a Nash stable coalition structure.")
+
+
 def main():
+    GRAPH_K3 = [
+        [0, 0, 5, 7],
+        [0, 0, 5, 7],
+        [5, 5, 0, 3],
+        [7, 7, 3, 0],
+    ]
+    check_game(GRAPH_K3, 3)
+
+    GAME_K5 = [
+        [0, 0, 0, 0, 2, 2],
+        [0, 0, 0, 2, 0, 2],
+        [0, 0, 0, 2, 2, 1],
+        [0, 2, 2, 0, 0, 2],
+        [2, 0, 2, 0, 0, 2],
+        [2, 2, 1, 2, 2, 0],
+    ]
+    check_game(GAME_K5, 5)
+
+    GRAPH_K6 = [
+        [0, 0, 0, 0, 1, 1, 3],
+        [0, 0, 1, 3, 0, 1, 2],
+        [0, 1, 0, 3, 0, 3, 3],
+        [0, 3, 3, 0, 0, 3, 2],
+        [1, 0, 0, 0, 0, 3, 1],
+        [1, 1, 3, 3, 3, 0, 0],
+        [3, 2, 3, 2, 1, 0, 0],
+    ]
+    check_game(GRAPH_K6, 6)
+
     GRAPH_K7 = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
         [0, 0, 0, 0, 0, 0, 1, 1, 1, 0],
@@ -65,18 +101,20 @@ def main():
         [0, 1, 1, 1, 1, 1, 1, 1, 0, 1],
         [1, 0, 1, 0, 1, 1, 1, 1, 1, 0],
     ]
-    print(nash_stable_coalition_structure(GRAPH_K7, 7))
+    check_game(GRAPH_K7, 7)
 
-    GRAPH_K5 = [
-        [0, 0, 0, 0, 2, 2],
-        [0, 0, 0, 2, 0, 2],
-        [0, 0, 0, 2, 2, 1],
-        [0, 2, 2, 0, 0, 2],
-        [2, 0, 2, 0, 0, 2],
-        [2, 2, 1, 2, 2, 0],
+    GRAPH_K8 = [
+        [0, 0, 0, 0, 0, 0, 0, 1, 2],
+        [0, 0, 0, 0, 0, 0, 1, 2, 0],
+        [0, 0, 0, 0, 1, 1, 0, 2, 2],
+        [0, 0, 0, 0, 1, 1, 1, 1, 0],
+        [0, 0, 1, 1, 0, 1, 0, 2, 2],
+        [0, 0, 1, 1, 1, 0, 0, 2, 2],
+        [0, 1, 0, 1, 0, 0, 0, 2, 0],
+        [1, 2, 2, 1, 2, 2, 2, 0, 1],
+        [2, 0, 2, 0, 2, 2, 0, 1, 0],
     ]
-
-    print(nash_stable_coalition_structure(GRAPH_K5, 5))
+    check_game(GRAPH_K8, 8)
 
 
 main()
