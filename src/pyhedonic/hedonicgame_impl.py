@@ -131,7 +131,7 @@ def fau_lt(ut1: AgentUtility, ut2: AgentUtility, is_fractional: bool) -> bool:
     The comparison is done by comparing the values of the utilities, after converting them to
     fractions.
     """
-    if is_fractional:
+    if not is_fractional:
         return ut1.value < ut2.value
     elif ut1.value == ut2.value == 0:
         return ut1.size > ut2.size

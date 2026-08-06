@@ -148,6 +148,17 @@ def test_agent_utility():
     assert hgimpl.agent_utility(GAME1, GAME1_CS2, ag=1) == hgimpl.AgentUtility(4, 3)
 
 
+def test_fau_lt_uses_the_right_utility_comparison():
+    ut1 = hgimpl.AgentUtility(3, 2)
+    ut2 = hgimpl.AgentUtility(2, 1)
+
+    # Additively separable utilities are compared by their values alone.
+    assert not hgimpl.fau_lt(ut1, ut2, is_fractional=False)
+
+    # Fractional utilities are compared after dividing by coalition size: 3 / 2 < 2 / 1.
+    assert hgimpl.fau_lt(ut1, ut2, is_fractional=True)
+
+
 def test_coalition_social_welfare():
     assert hgimpl.coalition_social_welfare(GAME1, GAME1_CS1, co=0) == hgimpl.Rational(0, 1)
     assert hgimpl.coalition_social_welfare(GAME1, GAME1_CS1, co=1) == hgimpl.Rational(4, 2)
@@ -232,6 +243,20 @@ def test_best_improving_deviations():
         (2, 0),
         (2, 1),
     ]
+
+    # Agent 0 can move to either coalition.  The utilities are (3, 3) and (3, 2),
+    # respectively: the latter is better fractionally (3 / 2 > 3 / 3), although
+    # both have the same additive value.
+    game = np.array(
+        [
+            [0, 1, 2, 3],
+            [-10, 0, 10, -10],
+            [-10, 10, 0, -10],
+            [-10, -10, -10, 0],
+        ]
+    )
+    cs = np.array([0, 1, 1, 2])
+    assert list(hgimpl.best_improving_deviations(game, True, cs)) == [(0, 2)]
 
 
 def test_css_givensize():
